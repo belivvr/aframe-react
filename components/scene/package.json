@@ -1,6 +1,6 @@
 {
   "internal": true,
-  "main": "../lib/components/scene/index.js",
-  "module": "../es/components/scene/index.js",
-  "types": "../types/components/scene/index.d.ts"
+  "main": "../../lib/components/scene/index.js",
+  "module": "../../es/components/scene/index.js",
+  "types": "../../types/components/scene/index.d.ts"
 }

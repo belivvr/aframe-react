@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./types",
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "paths": {
+      "@juunini/aframe-react": ["./src/index.ts"]
+    }
+  },
+  "files": [
+    "./src/index.ts"
+  ],
+  "exclude": ["./src/**/*"]
+}

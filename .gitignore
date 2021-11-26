@@ -36,4 +36,5 @@ size-plugin.json
 stats-hydration.json
 stats-react.json
 stats.html
+stats.json
 .idea/

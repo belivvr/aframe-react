@@ -1,0 +1,6 @@
+{
+  "internal": true,
+  "main": "../lib/components/index.js",
+  "module": "../es/components/index.js",
+  "types": "../types/components/index.d.ts"
+}

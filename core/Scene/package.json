@@ -1,0 +1,6 @@
+{
+  "internal": true,
+  "main": "../lib/core/Scene.js",
+  "module": "../es/core/Scene.js",
+  "types": "../types/core/Scene.d.ts"
+}

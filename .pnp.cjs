@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@babel/cli", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:7.16.0"],
             ["@babel/core", "npm:7.16.0"],
+            ["@babel/plugin-transform-modules-commonjs", "virtual:b385104abb5afce85650b32a1be3b252cd79bbac0c4c3255432e9da852eae6adf60a9eee7cee3ac7c0b639f0c7cf85ed5472e9f284572c5780cf11b32cc6f80f#npm:7.16.0"],
             ["@babel/plugin-transform-runtime", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:7.16.0"],
             ["@babel/preset-env", "virtual:5f70c2975cfa106cea696cd555df95944ef62ddab746e653a024193c71b034298a0baddf0354e6a742a4f597c6e18ee62731a9d7647f57a7e0ff6935435a7114#npm:7.16.0"],
             ["@babel/preset-react", "virtual:5f70c2975cfa106cea696cd555df95944ef62ddab746e653a024193c71b034298a0baddf0354e6a742a4f597c6e18ee62731a9d7647f57a7e0ff6935435a7114#npm:7.16.0"],
@@ -44,6 +45,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.16.0"],
             ["@rollup/plugin-replace", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:3.0.0"],
             ["@svgr/rollup", "npm:5.5.0"],
+            ["@types/node", "npm:16.11.10"],
             ["@types/react", "npm:17.0.34"],
             ["@types/react-dom", "npm:17.0.11"],
             ["@typescript-eslint/eslint-plugin", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
@@ -2483,6 +2485,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@belivvr/aframe-react", "workspace:."],
             ["@babel/cli", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:7.16.0"],
             ["@babel/core", "npm:7.16.0"],
+            ["@babel/plugin-transform-modules-commonjs", "virtual:b385104abb5afce85650b32a1be3b252cd79bbac0c4c3255432e9da852eae6adf60a9eee7cee3ac7c0b639f0c7cf85ed5472e9f284572c5780cf11b32cc6f80f#npm:7.16.0"],
             ["@babel/plugin-transform-runtime", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:7.16.0"],
             ["@babel/preset-env", "virtual:5f70c2975cfa106cea696cd555df95944ef62ddab746e653a024193c71b034298a0baddf0354e6a742a4f597c6e18ee62731a9d7647f57a7e0ff6935435a7114#npm:7.16.0"],
             ["@babel/preset-react", "virtual:5f70c2975cfa106cea696cd555df95944ef62ddab746e653a024193c71b034298a0baddf0354e6a742a4f597c6e18ee62731a9d7647f57a7e0ff6935435a7114#npm:7.16.0"],
@@ -2490,6 +2493,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.16.0"],
             ["@rollup/plugin-replace", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:3.0.0"],
             ["@svgr/rollup", "npm:5.5.0"],
+            ["@types/node", "npm:16.11.10"],
             ["@types/react", "npm:17.0.34"],
             ["@types/react-dom", "npm:17.0.11"],
             ["@typescript-eslint/eslint-plugin", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
@@ -2926,6 +2930,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/node", [
+        ["npm:16.11.10", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-16.11.10-6a434088fa-9c79419c5c.zip/node_modules/@types/node/",
+          "packageDependencies": [
+            ["@types/node", "npm:16.11.10"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:16.11.7", {
           "packageLocation": "./.yarn/cache/@types-node-npm-16.11.7-1799a0a435-2706403e6e.zip/node_modules/@types/node/",
           "packageDependencies": [

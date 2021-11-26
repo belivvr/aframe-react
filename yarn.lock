@@ -1416,6 +1416,7 @@ __metadata:
     "@babel/runtime": ^7.16.0
     "@rollup/plugin-replace": ^3.0.0
     "@svgr/rollup": ^5.5.0
+    "@types/node": ^16.11.10
     "@types/react": ^17.0.34
     "@types/react-dom": ^17.0.11
     "@typescript-eslint/eslint-plugin": ^5.3.1
@@ -1786,6 +1787,13 @@ __metadata:
   version: 16.11.7
   resolution: "@types/node@npm:16.11.7"
   checksum: 2706403e6efc4aa40fdce8f0b5d9884d5600c3c8610aedc7fa5e7e298d30366f7e8b7296028d52898dca3edef4c3e827b03bf20952c4780f13fa4e79864f7a86
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^16.11.10":
+  version: 16.11.10
+  resolution: "@types/node@npm:16.11.10"
+  checksum: 9c79419c5c3d92d5825bffa30f3668533f598d8b63a73ea7fc24e47f162bdbed92b0f8e4f4261cc3314b39cee050e303366d2aa154abc95c63a572a110b8c160
   languageName: node
   linkType: hard
 

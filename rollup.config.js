@@ -17,6 +17,9 @@ const globals = {
 
 const inputSrcs = [
   ['src/index.ts', 'AframeReact', '@belivvr/aframe-react'],
+  ['src/core/index.ts', 'AframeReactCore', '@belivvr/aframe-react/core'],
+  ['src/components/index.ts', 'AframeReactComponents', '@belivvr/aframe-react/components'],
+  ['src/components/scene/index.ts', 'AframeReactComponentsScene', '@belivvr/aframe-react/components/scene'],
 ]
 
 const extensions = ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', '.tsx']

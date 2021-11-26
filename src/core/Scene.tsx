@@ -1,3 +1,4 @@
+import React from 'react';
 import type {
   FogProps,
   InspectorProps,
@@ -20,6 +21,7 @@ export default function Scene({
   fog = {},
   inspector = {},
   children,
+  registeredComponents,
 }: Props): JSX.Element {
   return (
     <a-scene

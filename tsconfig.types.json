@@ -6,11 +6,14 @@
     "emitDeclarationOnly": true,
     "noEmit": false,
     "paths": {
-      "@juunini/aframe-react": ["./src/index.ts"]
+      "@belivvr/aframe-react": ["./src/index.ts"]
     }
   },
   "files": [
-    "./src/index.ts"
+    "./src/index.ts",
+    "./src/core/index.ts",
+    "./src/components/index.ts",
+    "./src/components/scene/index.ts"
   ],
   "exclude": ["./src/**/*"]
 }

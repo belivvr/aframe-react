@@ -10,6 +10,7 @@ import type {
   PoolProps,
   KeyboardShortcutsProps,
   Embedded,
+  DeviceOrientationPermissionUIProps,
 } from '../components/scene';
 import {
   Fog,
@@ -21,6 +22,7 @@ import {
   Pool,
   KeyboardShortcuts,
   DefaultEmbedded,
+  DeviceOrientationPermissionUI,
 } from '../components/scene';
 
 interface Props {
@@ -33,6 +35,7 @@ interface Props {
   pool?: PoolProps;
   keyboardShortcuts?: KeyboardShortcutsProps;
   embedded?: Embedded;
+  deviceOrientationPermissionUI?: DeviceOrientationPermissionUIProps;
   children?: React.ReactNode;
   registeredComponents: {
     [key: string]: string | number | boolean;
@@ -49,6 +52,7 @@ export default function Scene({
   pool = {},
   keyboardShortcuts = {},
   embedded = DefaultEmbedded,
+  deviceOrientationPermissionUI = {},
   children,
   registeredComponents,
 }: Props): JSX.Element {
@@ -62,7 +66,10 @@ export default function Scene({
       screenshot={new Screenshot(screenshot).toString()}
       pool={new Pool(pool).toString()}
       keyboard-shortcuts={new KeyboardShortcuts(keyboardShortcuts).toString()}
-      Embedded={String(embedded)}
+      embedded={String(embedded)}
+      device-orientation-permission-ui={
+        new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString()
+      }
       {...registeredComponents}
     >
       {children}

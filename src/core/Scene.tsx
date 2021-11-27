@@ -11,6 +11,7 @@ import type {
   KeyboardShortcutsProps,
   Embedded,
   DeviceOrientationPermissionUIProps,
+  Debug,
 } from '../components/scene';
 import {
   Fog,
@@ -23,6 +24,7 @@ import {
   KeyboardShortcuts,
   DefaultEmbedded,
   DeviceOrientationPermissionUI,
+  DefaultDebug,
 } from '../components/scene';
 
 interface Props {
@@ -36,6 +38,7 @@ interface Props {
   keyboardShortcuts?: KeyboardShortcutsProps;
   embedded?: Embedded;
   deviceOrientationPermissionUI?: DeviceOrientationPermissionUIProps;
+  debug?: Debug;
   children?: React.ReactNode;
   registeredComponents: {
     [key: string]: string | number | boolean;
@@ -53,6 +56,7 @@ export default function Scene({
   keyboardShortcuts = {},
   embedded = DefaultEmbedded,
   deviceOrientationPermissionUI = {},
+  debug = DefaultDebug,
   children,
   registeredComponents,
 }: Props): JSX.Element {
@@ -62,14 +66,15 @@ export default function Scene({
       inspector={new Inspector(inspector).toString()}
       background={new Background(background).toString()}
       vr-mode-ui={new VrModeUI(vrModeUI).toString()}
-      stats={String(stats)}
+      stats={stats}
       screenshot={new Screenshot(screenshot).toString()}
       pool={new Pool(pool).toString()}
       keyboard-shortcuts={new KeyboardShortcuts(keyboardShortcuts).toString()}
-      embedded={String(embedded)}
+      embedded={embedded}
       device-orientation-permission-ui={
         new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString()
       }
+      debug={debug}
       {...registeredComponents}
     >
       {children}

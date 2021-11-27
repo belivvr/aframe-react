@@ -6,6 +6,7 @@ import type {
   BackgroundProps,
   VrModeUIProps,
   Stats,
+  ScreenshotProps,
 } from '../components/scene';
 import {
   Fog,
@@ -13,6 +14,7 @@ import {
   Background,
   VrModeUI,
   DefaultStats,
+  Screenshot,
 } from '../components/scene';
 
 interface Props {
@@ -21,6 +23,7 @@ interface Props {
   background?: BackgroundProps;
   vrModeUI?: VrModeUIProps;
   stats?: Stats;
+  screenshot?: ScreenshotProps;
   children?: React.ReactNode;
   registeredComponents: {
     [key: string]: string | number | boolean;
@@ -33,6 +36,7 @@ export default function Scene({
   background = {},
   vrModeUI = {},
   stats = DefaultStats,
+  screenshot = {},
   children,
   registeredComponents,
 }: Props): JSX.Element {
@@ -43,6 +47,7 @@ export default function Scene({
       background={new Background(background).toString()}
       vrModeUI={new VrModeUI(vrModeUI).toString()}
       stats={String(stats)}
+      screenshot={new Screenshot(screenshot).toString()}
       {...registeredComponents}
     >
       {children}

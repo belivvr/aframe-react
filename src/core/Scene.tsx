@@ -9,6 +9,7 @@ import type {
   ScreenshotProps,
   PoolProps,
   KeyboardShortcutsProps,
+  Embedded,
 } from '../components/scene';
 import {
   Fog,
@@ -19,6 +20,7 @@ import {
   Screenshot,
   Pool,
   KeyboardShortcuts,
+  DefaultEmbedded,
 } from '../components/scene';
 
 interface Props {
@@ -30,6 +32,7 @@ interface Props {
   screenshot?: ScreenshotProps;
   pool?: PoolProps;
   keyboardShortcuts?: KeyboardShortcutsProps;
+  embedded?: Embedded;
   children?: React.ReactNode;
   registeredComponents: {
     [key: string]: string | number | boolean;
@@ -45,6 +48,7 @@ export default function Scene({
   screenshot = {},
   pool = {},
   keyboardShortcuts = {},
+  embedded = DefaultEmbedded,
   children,
   registeredComponents,
 }: Props): JSX.Element {
@@ -58,6 +62,7 @@ export default function Scene({
       screenshot={new Screenshot(screenshot).toString()}
       pool={new Pool(pool).toString()}
       keyboard-shortcuts={new KeyboardShortcuts(keyboardShortcuts).toString()}
+      Embedded={String(embedded)}
       {...registeredComponents}
     >
       {children}

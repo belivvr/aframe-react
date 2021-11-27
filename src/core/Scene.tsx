@@ -7,6 +7,7 @@ import type {
   VrModeUIProps,
   Stats,
   ScreenshotProps,
+  PoolProps,
 } from '../components/scene';
 import {
   Fog,
@@ -15,6 +16,7 @@ import {
   VrModeUI,
   DefaultStats,
   Screenshot,
+  Pool,
 } from '../components/scene';
 
 interface Props {
@@ -24,6 +26,7 @@ interface Props {
   vrModeUI?: VrModeUIProps;
   stats?: Stats;
   screenshot?: ScreenshotProps;
+  pool?: PoolProps;
   children?: React.ReactNode;
   registeredComponents: {
     [key: string]: string | number | boolean;
@@ -37,6 +40,7 @@ export default function Scene({
   vrModeUI = {},
   stats = DefaultStats,
   screenshot = {},
+  pool = {},
   children,
   registeredComponents,
 }: Props): JSX.Element {
@@ -48,6 +52,7 @@ export default function Scene({
       vrModeUI={new VrModeUI(vrModeUI).toString()}
       stats={String(stats)}
       screenshot={new Screenshot(screenshot).toString()}
+      pool={new Pool(pool).toString()}
       {...registeredComponents}
     >
       {children}

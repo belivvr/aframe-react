@@ -45,6 +45,13 @@ interface Props {
   };
 }
 
+/**
+ * A scene is represented by the `<a-scene>` element. The scene is the global root object, and all [entities](https://aframe.io/docs/1.2.0/core/entity.html) are contained within the scene.
+ *
+ * The scene inherits from the [Entity](https://aframe.io/docs/1.2.0/core/entity.html) class so it inherits all of its properties, its methods, the ability to attach components, and the behavior to wait for all of its child nodes (e.g., `<a-assets>` and `<a-entity>`) to load before kicking off the render loop.
+ *
+ * @see https://aframe.io/docs/1.2.0/core/scene.html
+ */
 export default function Scene({
   fog = {},
   inspector = {},

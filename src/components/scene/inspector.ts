@@ -2,6 +2,9 @@ const INSPECTOR_DEV_URL = 'https://aframe.io/aframe-inspector/dist/aframe-inspec
 const INSPECTOR_RELEASE_URL = 'https://unpkg.com/aframe-inspector@1.2.x/dist/aframe-inspector.min.js';
 const INSPECTOR_URL = process.env.INSPECTOR_VERSION === 'dev' ? INSPECTOR_DEV_URL : INSPECTOR_RELEASE_URL;
 
+/**
+ * @see https://aframe.io/docs/1.2.0/introduction/visual-inspector-and-dev-tools.html
+ */
 export interface InspectorProps {
   /**
    * Inject the A-Frame Inspector.

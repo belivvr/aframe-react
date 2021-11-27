@@ -1,5 +1,10 @@
 export type FogType = 'linear' | 'exponential';
 
+/**
+ * The fog component obscures entities in fog given distance from the camera. The fog component applies only to the [`<a-scene>` element](https://aframe.io/docs/1.2.0/core/scene.html).
+ *
+ * @see https://aframe.io/docs/1.2.0/components/fog.html
+ */
 export interface FogProps {
   /**
    * Color of fog. For example, if set to black, far away objects will be rendered black.

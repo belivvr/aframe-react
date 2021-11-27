@@ -5,6 +5,7 @@ export type { VrModeUIProps } from './vr-mode-ui';
 export type { Stats } from './stats';
 export type { ScreenshotProps } from './screenshot';
 export type { PoolProps } from './pool';
+export type { KeyboardShortcutsProps } from './keyboard-shortcuts';
 
 export { Fog } from './fog';
 export { Inspector } from './inspector';
@@ -13,3 +14,4 @@ export { VrModeUI } from './vr-mode-ui';
 export { Default as DefaultStats } from './stats';
 export { Screenshot } from './screenshot';
 export { Pool } from './pool';
+export { KeyboardShortcuts } from './keyboard-shortcuts';

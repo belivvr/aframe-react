@@ -8,6 +8,7 @@ import type {
   Stats,
   ScreenshotProps,
   PoolProps,
+  KeyboardShortcutsProps,
 } from '../components/scene';
 import {
   Fog,
@@ -17,6 +18,7 @@ import {
   DefaultStats,
   Screenshot,
   Pool,
+  KeyboardShortcuts,
 } from '../components/scene';
 
 interface Props {
@@ -27,6 +29,7 @@ interface Props {
   stats?: Stats;
   screenshot?: ScreenshotProps;
   pool?: PoolProps;
+  keyboardShortcuts?: KeyboardShortcutsProps;
   children?: React.ReactNode;
   registeredComponents: {
     [key: string]: string | number | boolean;
@@ -41,6 +44,7 @@ export default function Scene({
   stats = DefaultStats,
   screenshot = {},
   pool = {},
+  keyboardShortcuts = {},
   children,
   registeredComponents,
 }: Props): JSX.Element {
@@ -49,10 +53,11 @@ export default function Scene({
       fog={new Fog(fog).toString()}
       inspector={new Inspector(inspector).toString()}
       background={new Background(background).toString()}
-      vrModeUI={new VrModeUI(vrModeUI).toString()}
+      vr-mode-ui={new VrModeUI(vrModeUI).toString()}
       stats={String(stats)}
       screenshot={new Screenshot(screenshot).toString()}
       pool={new Pool(pool).toString()}
+      keyboard-shortcuts={new KeyboardShortcuts(keyboardShortcuts).toString()}
       {...registeredComponents}
     >
       {children}

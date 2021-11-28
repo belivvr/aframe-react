@@ -9,6 +9,7 @@ export type { KeyboardShortcutsProps } from './keyboard-shortcuts';
 export type { Embedded } from './embedded';
 export type { DeviceOrientationPermissionUIProps } from './device-orientation-permission-ui';
 export type { Debug } from './debug';
+export type { GLTFModelProps } from './gltf-model';
 
 export { Fog } from './fog';
 export { Inspector } from './inspector';
@@ -21,3 +22,4 @@ export { KeyboardShortcuts } from './keyboard-shortcuts';
 export { Default as DefaultEmbedded } from './embedded';
 export { DeviceOrientationPermissionUI } from './device-orientation-permission-ui';
 export { Default as DefaultDebug } from './debug';
+export { GLTFModel } from './gltf-model';

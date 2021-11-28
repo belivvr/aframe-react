@@ -12,6 +12,7 @@ import type {
   Embedded,
   DeviceOrientationPermissionUIProps,
   Debug,
+  GLTFModelProps,
 } from '../components/scene';
 import {
   Fog,
@@ -25,6 +26,7 @@ import {
   DefaultEmbedded,
   DeviceOrientationPermissionUI,
   DefaultDebug,
+  GLTFModel,
 } from '../components/scene';
 
 interface Props {
@@ -39,6 +41,7 @@ interface Props {
   embedded?: Embedded;
   deviceOrientationPermissionUI?: DeviceOrientationPermissionUIProps;
   debug?: Debug;
+  gltfModel?: GLTFModelProps;
   children?: React.ReactNode;
   registeredComponents?: {
     [key: string]: string | number | boolean;
@@ -64,6 +67,7 @@ export default function Scene({
   embedded = DefaultEmbedded,
   deviceOrientationPermissionUI = {},
   debug = DefaultDebug,
+  gltfModel = {},
   children,
   registeredComponents,
 }: Props): JSX.Element {
@@ -82,6 +86,7 @@ export default function Scene({
         new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString()
       }
       debug={debug}
+      gltf-model={new GLTFModel(gltfModel).toString()}
       {...registeredComponents}
     >
       {children}

@@ -1,3 +1,2 @@
 export { default as Scene } from './Scene';
-
-export const dummy = '';
+export { default as Entity } from './Entity';

@@ -40,7 +40,7 @@ interface Props {
   deviceOrientationPermissionUI?: DeviceOrientationPermissionUIProps;
   debug?: Debug;
   children?: React.ReactNode;
-  registeredComponents: {
+  registeredComponents?: {
     [key: string]: string | number | boolean;
   };
 }

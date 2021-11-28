@@ -7,6 +7,7 @@ import type {
   DaydreamControlsProps,
   GearvrControlsProps,
   GenericTrackedControllerControlsProps,
+  GeometryProps,
 } from '../components';
 import {
   Animation,
@@ -15,6 +16,7 @@ import {
   DaydreamControls,
   GearvrControls,
   GenericTrackedControllerControls,
+  Geometry,
 } from '../components';
 
 interface Props {
@@ -25,7 +27,8 @@ interface Props {
   daydreamControls?: DaydreamControlsProps;
   gearvrControls?: GearvrControlsProps;
   genericTrackedControllerControls?: GenericTrackedControllerControlsProps;
-  registeredComponents: {
+  geometry?: GeometryProps;
+  registeredComponents?: {
     [key: string]: string | number | boolean;
   };
 }
@@ -50,6 +53,7 @@ export default function Entity({
   daydreamControls = {},
   gearvrControls = {},
   genericTrackedControllerControls = {},
+  geometry = {},
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -62,6 +66,7 @@ export default function Entity({
       generic-tracked-controller-controls={
         new GenericTrackedControllerControls(genericTrackedControllerControls).toString()
       }
+      geometry={new Geometry(geometry).toString()}
       {...registeredComponents}
     >
       {children}

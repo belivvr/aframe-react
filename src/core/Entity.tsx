@@ -3,16 +3,19 @@ import React from 'react';
 import type {
   AnimationProps,
   CameraProps,
+  CursorProps,
 } from '../components';
 import {
   Animation,
   Camera,
+  Cursor,
 } from '../components';
 
 interface Props {
   children?: React.ReactNode;
   animation?: AnimationProps;
   camera?: CameraProps;
+  cursor?: CursorProps;
   registeredComponents: {
     [key: string]: string | number | boolean;
   };
@@ -34,12 +37,14 @@ export default function Entity({
   children,
   animation = {},
   camera = {},
+  cursor = {},
   registeredComponents,
 }: Props): JSX.Element {
   return (
     <a-entity
       animation={new Animation(animation).toString()}
       camera={new Camera(camera).toString()}
+      cursor={new Cursor(cursor).toString()}
       {...registeredComponents}
     >
       {children}

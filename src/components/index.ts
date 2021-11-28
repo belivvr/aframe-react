@@ -10,6 +10,11 @@ export type {
   AnimationProps,
 } from './animation';
 export type { CameraProps } from './camera';
+export type {
+  RayOrigin,
+  CursorProps,
+} from './cursor';
 
 export { Animation } from './animation';
 export { Camera } from './camera';
+export { Cursor } from './cursor';

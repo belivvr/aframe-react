@@ -1,4 +1,5 @@
 import type { Hand, Vec3 } from './types';
+import { Vec3ToString } from './types';
 
 /**
  * The daydream-controls component interfaces with the Google Daydream controllers.
@@ -82,11 +83,11 @@ export class DaydreamControls implements DaydreamControlsProps {
     this.armModel = armModel;
   }
 
-  public toString = (): string => `hand${this.hand};`
-                                + `buttonColor${this.buttonColor};`
-                                + `buttonTouchedColor${this.buttonTouchedColor};`
-                                + `buttonHighlightColor${this.buttonHighlightColor};`
-                                + `model${this.model};`
-                                + `orientationOffset${this.orientationOffset};`
-                                + `armModel${this.armModel};`;
+  public toString = (): string => `hand:${this.hand};`
+                                + `buttonColor:${this.buttonColor};`
+                                + `buttonTouchedColor:${this.buttonTouchedColor};`
+                                + `buttonHighlightColor:${this.buttonHighlightColor};`
+                                + `model:${this.model};`
+                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`
+                                + `armModel:${this.armModel};`;
 }

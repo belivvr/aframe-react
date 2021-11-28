@@ -5,12 +5,14 @@ import type {
   CameraProps,
   CursorProps,
   DaydreamControlsProps,
+  GearvrControlsProps,
 } from '../components';
 import {
   Animation,
   Camera,
   Cursor,
   DaydreamControls,
+  GearvrControls,
 } from '../components';
 
 interface Props {
@@ -19,6 +21,7 @@ interface Props {
   camera?: CameraProps;
   cursor?: CursorProps;
   daydreamControls?: DaydreamControlsProps;
+  gearvrControls?: GearvrControlsProps;
   registeredComponents: {
     [key: string]: string | number | boolean;
   };
@@ -42,6 +45,7 @@ export default function Entity({
   camera = {},
   cursor = {},
   daydreamControls = {},
+  gearvrControls = {},
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -50,6 +54,7 @@ export default function Entity({
       camera={new Camera(camera).toString()}
       cursor={new Cursor(cursor).toString()}
       daydream-controls={new DaydreamControls(daydreamControls).toString()}
+      gearvr-controls={new GearvrControls(gearvrControls).toString()}
       {...registeredComponents}
     >
       {children}

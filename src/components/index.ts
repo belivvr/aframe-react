@@ -1,9 +1,6 @@
 export * as scene from './scene';
 
-export type {
-  Hand,
-  Vec3,
-} from './types';
+export type { Hand, Vec3 } from './types';
 export type {
   EaseIn,
   EaseOut,
@@ -19,8 +16,11 @@ export type {
   CursorProps,
 } from './cursor';
 export type { DaydreamControlsProps } from './daydream-controls';
+export type { GearvrControlsProps } from './gearvr-controls';
 
+export { Vec3ToString } from './types';
 export { Animation } from './animation';
 export { Camera } from './camera';
 export { Cursor } from './cursor';
 export { DaydreamControls } from './daydream-controls';
+export { GearvrControls } from './gearvr-controls';

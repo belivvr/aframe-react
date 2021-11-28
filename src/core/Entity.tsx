@@ -10,6 +10,7 @@ import type {
   GeometryProps,
   GLTFModel,
   HandControlsProps,
+  HandTrackingControlsProps,
 } from '../components';
 import {
   Animation,
@@ -20,6 +21,7 @@ import {
   GenericTrackedControllerControls,
   Geometry,
   HandControls,
+  HandTrackingControls,
 } from '../components';
 
 interface Props {
@@ -33,6 +35,7 @@ interface Props {
   geometry?: GeometryProps;
   gltfModel?: GLTFModel;
   handControls?: HandControlsProps;
+  handTrackingControls?: HandTrackingControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -61,6 +64,7 @@ export default function Entity({
   geometry = {},
   gltfModel,
   handControls = {},
+  handTrackingControls = {},
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -76,6 +80,7 @@ export default function Entity({
       geometry={new Geometry(geometry).toString()}
       gltf-model={gltfModel}
       hand-controls={new HandControls(handControls).toString()}
+      hand-tracking-controls={new HandTrackingControls(handTrackingControls).toString()}
       {...registeredComponents}
     >
       {children}

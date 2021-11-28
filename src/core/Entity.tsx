@@ -11,6 +11,7 @@ import type {
   GLTFModel,
   HandControlsProps,
   HandTrackingControlsProps,
+  HpMixedRealityControlsProps,
 } from '../components';
 import {
   Animation,
@@ -22,6 +23,7 @@ import {
   Geometry,
   HandControls,
   HandTrackingControls,
+  HpMixedRealityControls,
 } from '../components';
 
 interface Props {
@@ -36,6 +38,7 @@ interface Props {
   gltfModel?: GLTFModel;
   handControls?: HandControlsProps;
   handTrackingControls?: HandTrackingControlsProps;
+  hpMixedRealityControls: HpMixedRealityControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -65,6 +68,7 @@ export default function Entity({
   gltfModel,
   handControls = {},
   handTrackingControls = {},
+  hpMixedRealityControls = {},
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -81,6 +85,7 @@ export default function Entity({
       gltf-model={gltfModel}
       hand-controls={new HandControls(handControls).toString()}
       hand-tracking-controls={new HandTrackingControls(handTrackingControls).toString()}
+      hp-mixed-reality-controls={new HpMixedRealityControls(hpMixedRealityControls).toString()}
       {...registeredComponents}
     >
       {children}

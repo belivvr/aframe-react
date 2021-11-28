@@ -1,6 +1,11 @@
 export * as scene from './scene';
 
-export type { Hand, Vec3, Geometries } from './types';
+export type {
+  Hand,
+  HandModelStyle,
+  Vec3,
+  Geometries,
+} from './types';
 export type {
   EaseIn,
   EaseOut,
@@ -20,6 +25,7 @@ export type { GearvrControlsProps } from './gearvr-controls';
 export type { GenericTrackedControllerControlsProps } from './generic-tracked-controller-controls';
 export type { GeometryProps } from './geometry';
 export type { GLTFModel } from './gltf-model';
+export type { HandControlsProps } from './hand-controls';
 
 export { Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -29,3 +35,4 @@ export { DaydreamControls } from './daydream-controls';
 export { GearvrControls } from './gearvr-controls';
 export { GenericTrackedControllerControls } from './generic-tracked-controller-controls';
 export { Geometry } from './geometry';
+export { HandControls } from './hand-controls';

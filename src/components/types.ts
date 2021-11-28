@@ -1,4 +1,5 @@
 export type Hand = '' | 'left' | 'right';
+export type HandModelStyle = 'lowPoly' | 'highPoly' | 'toon';
 export type Vec3 = {
   x: number;
   y: number;

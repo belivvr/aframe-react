@@ -1,7 +1,15 @@
 import React from 'react';
 
+import type {
+  AnimationProps,
+} from '../components/animation';
+import {
+  Animation,
+} from '../components/animation';
+
 interface Props {
   children?: React.ReactNode;
+  animation?: AnimationProps;
   registeredComponents: {
     [key: string]: string | number | boolean;
   };
@@ -21,10 +29,12 @@ interface Props {
  */
 export default function Entity({
   children,
+  animation = {},
   registeredComponents,
 }: Props): JSX.Element {
   return (
     <a-entity
+      animation={new Animation(animation).toString()}
       {...registeredComponents}
     >
       {children}

@@ -5,6 +5,7 @@ export type {
   HandModelStyle,
   Vec3,
   Geometries,
+  ModelStyle,
 } from './types';
 export type {
   EaseIn,
@@ -26,6 +27,7 @@ export type { GenericTrackedControllerControlsProps } from './generic-tracked-co
 export type { GeometryProps } from './geometry';
 export type { GLTFModel } from './gltf-model';
 export type { HandControlsProps } from './hand-controls';
+export type { HandTrackingControlsProps } from './hand-tracking-controls';
 
 export { Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -36,3 +38,4 @@ export { GearvrControls } from './gearvr-controls';
 export { GenericTrackedControllerControls } from './generic-tracked-controller-controls';
 export { Geometry } from './geometry';
 export { HandControls } from './hand-controls';
+export { HandTrackingControls } from './hand-tracking-controls';

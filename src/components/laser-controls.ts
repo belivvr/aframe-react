@@ -21,8 +21,19 @@ import { Hand } from './types';
  * @see https://aframe.io/docs/1.2.0/components/laser-controls.html
  */
 export interface LaserControlsProps {
+  /**
+   * `left` or `right`.
+   */
   hand?: Hand;
+
+  /**
+   * Whether the default model for the controller is loaded.
+   */
   model?: boolean;
+
+  /**
+   * Color for the default controller model.
+   */
   defaultModelColor?: string;
 }
 

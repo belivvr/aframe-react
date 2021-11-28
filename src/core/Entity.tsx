@@ -12,6 +12,7 @@ import type {
   HandControlsProps,
   HandTrackingControlsProps,
   HpMixedRealityControlsProps,
+  LaserControlsProps,
 } from '../components';
 import {
   Animation,
@@ -24,6 +25,7 @@ import {
   HandControls,
   HandTrackingControls,
   HpMixedRealityControls,
+  LaserControls,
 } from '../components';
 
 interface Props {
@@ -39,6 +41,7 @@ interface Props {
   handControls?: HandControlsProps;
   handTrackingControls?: HandTrackingControlsProps;
   hpMixedRealityControls: HpMixedRealityControlsProps;
+  laserControls?: LaserControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -69,6 +72,7 @@ export default function Entity({
   handControls = {},
   handTrackingControls = {},
   hpMixedRealityControls = {},
+  laserControls = {},
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -86,6 +90,7 @@ export default function Entity({
       hand-controls={new HandControls(handControls).toString()}
       hand-tracking-controls={new HandTrackingControls(handTrackingControls).toString()}
       hp-mixed-reality-controls={new HpMixedRealityControls(hpMixedRealityControls).toString()}
+      laser-controls={new LaserControls(laserControls).toString()}
       {...registeredComponents}
     >
       {children}

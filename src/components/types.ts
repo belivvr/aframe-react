@@ -11,6 +11,7 @@ export type Vec3 = {
  */
 export type Geometries = 'box' | 'circle' | 'cone' | 'cylinder' | 'dodecahedron' | 'octahedron' | 'plane' | 'ring' | 'sphere' | 'tetrahedron' | 'torus' | 'torusKnot' | 'triangle';
 export type ModelStyle = 'dots' | 'mesh';
+export type LayerType = 'quad' | 'monocubemap' | 'stereocubemap';
 
 export function Vec3ToString(vec3: Vec3) {
   return `${vec3.x} ${vec3.y} ${vec3.z}`;

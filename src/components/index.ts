@@ -29,6 +29,7 @@ export type { GLTFModel } from './gltf-model';
 export type { HandControlsProps } from './hand-controls';
 export type { HandTrackingControlsProps } from './hand-tracking-controls';
 export type { HpMixedRealityControlsProps } from './hp-mixed-reality-controls';
+export type { LaserControlsProps } from './laser-controls';
 
 export { Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -41,3 +42,4 @@ export { Geometry } from './geometry';
 export { HandControls } from './hand-controls';
 export { HandTrackingControls } from './hand-tracking-controls';
 export { HpMixedRealityControls } from './hp-mixed-reality-controls';
+export { LaserControls } from './laser-controls';

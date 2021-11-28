@@ -8,6 +8,7 @@ import type {
   GearvrControlsProps,
   GenericTrackedControllerControlsProps,
   GeometryProps,
+  GLTFModel,
 } from '../components';
 import {
   Animation,
@@ -28,6 +29,7 @@ interface Props {
   gearvrControls?: GearvrControlsProps;
   genericTrackedControllerControls?: GenericTrackedControllerControlsProps;
   geometry?: GeometryProps;
+  gltfModel?: GLTFModel;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -54,6 +56,7 @@ export default function Entity({
   gearvrControls = {},
   genericTrackedControllerControls = {},
   geometry = {},
+  gltfModel,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -67,6 +70,7 @@ export default function Entity({
         new GenericTrackedControllerControls(genericTrackedControllerControls).toString()
       }
       geometry={new Geometry(geometry).toString()}
+      gltf-model={gltfModel}
       {...registeredComponents}
     >
       {children}

@@ -19,6 +19,7 @@ export type { DaydreamControlsProps } from './daydream-controls';
 export type { GearvrControlsProps } from './gearvr-controls';
 export type { GenericTrackedControllerControlsProps } from './generic-tracked-controller-controls';
 export type { GeometryProps } from './geometry';
+export type { GLTFModel } from './gltf-model';
 
 export { Vec3ToString } from './types';
 export { Animation } from './animation';

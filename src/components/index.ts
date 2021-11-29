@@ -3,12 +3,17 @@ export * as scene from './scene';
 export type {
   Hand,
   HandModelStyle,
+  Vec2,
   Vec3,
   Geometries,
   ModelStyle,
   LayerType,
   LightType,
   LightColor,
+  MaterialShape,
+  MaterialSide,
+  MaterialVertexColor,
+  MaterialBlending,
 } from './types';
 export type {
   EaseIn,
@@ -39,8 +44,9 @@ export type { LineProps } from './line';
 export type { LinkProps } from './link';
 export type { LookControlsProps } from './look-controls';
 export type { MagicleapControlsProps } from './magicleap-controls';
+export type { MaterialProps } from './material';
 
-export { Vec3ToString } from './types';
+export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
 export { Camera } from './camera';
 export { Cursor } from './cursor';
@@ -58,3 +64,4 @@ export { Line } from './line';
 export { Link } from './link';
 export { LookControls } from './look-controls';
 export { MagicleapControls } from './magicleap-controls';
+export { Material } from './material';

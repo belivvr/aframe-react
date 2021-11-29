@@ -18,6 +18,7 @@ import type {
   LineProps,
   LinkProps,
   LookControlsProps,
+  MagicleapControlsProps,
 } from '../components';
 import {
   Animation,
@@ -36,6 +37,7 @@ import {
   Line,
   Link,
   LookControls,
+  MagicleapControls,
 } from '../components';
 
 interface Props {
@@ -57,6 +59,7 @@ interface Props {
   line?: LineProps;
   link?: LinkProps;
   lookControls?: LookControlsProps;
+  magicleapControls?: MagicleapControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -93,6 +96,7 @@ export default function Entity({
   line,
   link,
   lookControls,
+  magicleapControls,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -130,6 +134,7 @@ export default function Entity({
       line={line ? new Line(line).toString() : line}
       link={link ? new Link(link).toString() : link}
       look-controls={lookControls ? new LookControls(lookControls).toString() : lookControls}
+      magicleap-controls={magicleapControls ? new MagicleapControls(magicleapControls).toString() : magicleapControls}
       {...registeredComponents}
     >
       {children}

@@ -38,6 +38,7 @@ export type { LightProps } from './light';
 export type { LineProps } from './line';
 export type { LinkProps } from './link';
 export type { LookControlsProps } from './look-controls';
+export type { MagicleapControlsProps } from './magicleap-controls';
 
 export { Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -56,3 +57,4 @@ export { Light } from './light';
 export { Line } from './line';
 export { Link } from './link';
 export { LookControls } from './look-controls';
+export { MagicleapControls } from './magicleap-controls';

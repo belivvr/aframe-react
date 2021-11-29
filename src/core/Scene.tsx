@@ -13,6 +13,7 @@ import type {
   DeviceOrientationPermissionUIProps,
   Debug,
   GLTFModelProps,
+  ShadowProps,
 } from '../components/scene';
 import {
   Fog,
@@ -27,6 +28,7 @@ import {
   DeviceOrientationPermissionUI,
   DefaultDebug,
   GLTFModel,
+  Shadow,
 } from '../components/scene';
 
 interface Props {
@@ -42,6 +44,7 @@ interface Props {
   deviceOrientationPermissionUI?: DeviceOrientationPermissionUIProps;
   debug?: Debug;
   gltfModel?: GLTFModelProps;
+  shadow?: ShadowProps;
   children?: React.ReactNode;
   registeredComponents?: {
     [key: string]: string | number | boolean;
@@ -68,6 +71,7 @@ export default function Scene({
   deviceOrientationPermissionUI = {},
   debug = DefaultDebug,
   gltfModel = {},
+  shadow = {},
   children,
   registeredComponents,
 }: Props): JSX.Element {
@@ -87,6 +91,7 @@ export default function Scene({
       }
       debug={debug}
       gltf-model={new GLTFModel(gltfModel).toString()}
+      shwdow={new Shadow(shadow).toString()}
       {...registeredComponents}
     >
       {children}

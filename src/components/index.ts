@@ -7,6 +7,8 @@ export type {
   Geometries,
   ModelStyle,
   LayerType,
+  LightType,
+  LightColor,
 } from './types';
 export type {
   EaseIn,
@@ -32,6 +34,7 @@ export type { HandTrackingControlsProps } from './hand-tracking-controls';
 export type { HpMixedRealityControlsProps } from './hp-mixed-reality-controls';
 export type { LaserControlsProps } from './laser-controls';
 export type { LayerProps } from './layer';
+export type { LightProps } from './light';
 
 export { Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -46,3 +49,4 @@ export { HandTrackingControls } from './hand-tracking-controls';
 export { HpMixedRealityControls } from './hp-mixed-reality-controls';
 export { LaserControls } from './laser-controls';
 export { Layer } from './layer';
+export { Light } from './light';

@@ -16,6 +16,7 @@ import type {
   LayerProps,
   LightProps,
   LineProps,
+  LinkProps,
 } from '../components';
 import {
   Animation,
@@ -32,6 +33,7 @@ import {
   Layer,
   Light,
   Line,
+  Link,
 } from '../components';
 
 interface Props {
@@ -51,6 +53,7 @@ interface Props {
   layer?: LayerProps;
   light?: LightProps;
   line?: LineProps;
+  link?: LinkProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -85,6 +88,7 @@ export default function Entity({
   layer,
   light,
   line,
+  link,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -120,6 +124,7 @@ export default function Entity({
       layer={layer ? new Layer(layer).toString() : layer}
       light={light ? new Light(light).toString() : light}
       line={line ? new Line(line).toString() : line}
+      link={link ? new Link(link).toString() : link}
       {...registeredComponents}
     >
       {children}

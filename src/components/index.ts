@@ -35,6 +35,7 @@ export type { HpMixedRealityControlsProps } from './hp-mixed-reality-controls';
 export type { LaserControlsProps } from './laser-controls';
 export type { LayerProps } from './layer';
 export type { LightProps } from './light';
+export type { LineProps } from './line';
 
 export { Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -50,3 +51,4 @@ export { HpMixedRealityControls } from './hp-mixed-reality-controls';
 export { LaserControls } from './laser-controls';
 export { Layer } from './layer';
 export { Light } from './light';
+export { Line } from './line';

@@ -15,6 +15,7 @@ import type {
   LaserControlsProps,
   LayerProps,
   LightProps,
+  LineProps,
 } from '../components';
 import {
   Animation,
@@ -30,6 +31,7 @@ import {
   LaserControls,
   Layer,
   Light,
+  Line,
 } from '../components';
 
 interface Props {
@@ -48,6 +50,7 @@ interface Props {
   laserControls?: LaserControlsProps;
   layer?: LayerProps;
   light?: LightProps;
+  line?: LineProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -67,40 +70,56 @@ interface Props {
  */
 export default function Entity({
   children,
-  animation = {},
-  camera = {},
-  cursor = {},
-  daydreamControls = {},
-  gearvrControls = {},
-  genericTrackedControllerControls = {},
-  geometry = {},
+  animation,
+  camera,
+  cursor,
+  daydreamControls,
+  gearvrControls,
+  genericTrackedControllerControls,
+  geometry,
   gltfModel,
-  handControls = {},
-  handTrackingControls = {},
-  hpMixedRealityControls = {},
-  laserControls = {},
-  layer = {},
-  light = {},
+  handControls,
+  handTrackingControls,
+  hpMixedRealityControls,
+  laserControls,
+  layer,
+  light,
+  line,
   registeredComponents,
 }: Props): JSX.Element {
   return (
     <a-entity
-      animation={new Animation(animation).toString()}
-      camera={new Camera(camera).toString()}
-      cursor={new Cursor(cursor).toString()}
-      daydream-controls={new DaydreamControls(daydreamControls).toString()}
-      gearvr-controls={new GearvrControls(gearvrControls).toString()}
-      generic-tracked-controller-controls={
-        new GenericTrackedControllerControls(genericTrackedControllerControls).toString()
+      animation={animation ? new Animation(animation).toString() : animation}
+      camera={camera ? new Camera(camera).toString() : camera}
+      cursor={cursor ? new Cursor(cursor).toString() : cursor}
+      daydream-controls={
+        daydreamControls
+          ? new DaydreamControls(daydreamControls).toString()
+          : daydreamControls
       }
-      geometry={new Geometry(geometry).toString()}
+      gearvr-controls={
+        gearvrControls
+          ? new GearvrControls(gearvrControls).toString()
+          : gearvrControls
+      }
+      generic-tracked-controller-controls={
+        genericTrackedControllerControls
+          ? new GenericTrackedControllerControls(genericTrackedControllerControls).toString()
+          : genericTrackedControllerControls
+      }
+      geometry={geometry ? new Geometry(geometry).toString() : geometry}
       gltf-model={gltfModel}
-      hand-controls={new HandControls(handControls).toString()}
-      hand-tracking-controls={new HandTrackingControls(handTrackingControls).toString()}
-      hp-mixed-reality-controls={new HpMixedRealityControls(hpMixedRealityControls).toString()}
-      laser-controls={new LaserControls(laserControls).toString()}
-      layer={new Layer(layer).toString()}
-      light={new Light(light).toString()}
+      hand-controls={handControls ? new HandControls(handControls).toString() : handControls}
+      hand-tracking-controls={handTrackingControls
+        ? new HandTrackingControls(handTrackingControls).toString()
+        : handTrackingControls}
+      hp-mixed-reality-controls={hpMixedRealityControls
+        ? new HpMixedRealityControls(hpMixedRealityControls).toString()
+        : hpMixedRealityControls}
+      laser-controls={laserControls ? new LaserControls(laserControls).toString() : laserControls}
+      layer={layer ? new Layer(layer).toString() : layer}
+      light={light ? new Light(light).toString() : light}
+      line={line ? new Line(line).toString() : line}
       {...registeredComponents}
     >
       {children}

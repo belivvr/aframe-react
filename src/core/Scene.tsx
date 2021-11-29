@@ -20,13 +20,10 @@ import {
   Inspector,
   Background,
   VrModeUI,
-  DefaultStats,
   Screenshot,
   Pool,
   KeyboardShortcuts,
-  DefaultEmbedded,
   DeviceOrientationPermissionUI,
-  DefaultDebug,
   GLTFModel,
   Shadow,
 } from '../components/scene';
@@ -59,39 +56,45 @@ interface Props {
  * @see https://aframe.io/docs/1.2.0/core/scene.html
  */
 export default function Scene({
-  fog = {},
-  inspector = {},
-  background = {},
-  vrModeUI = {},
-  stats = DefaultStats,
-  screenshot = {},
-  pool = {},
-  keyboardShortcuts = {},
-  embedded = DefaultEmbedded,
-  deviceOrientationPermissionUI = {},
-  debug = DefaultDebug,
-  gltfModel = {},
-  shadow = {},
+  fog,
+  inspector,
+  background,
+  vrModeUI,
+  stats,
+  screenshot,
+  pool,
+  keyboardShortcuts,
+  embedded,
+  deviceOrientationPermissionUI,
+  debug,
+  gltfModel,
+  shadow,
   children,
   registeredComponents,
 }: Props): JSX.Element {
   return (
     <a-scene
-      fog={new Fog(fog).toString()}
-      inspector={new Inspector(inspector).toString()}
-      background={new Background(background).toString()}
-      vr-mode-ui={new VrModeUI(vrModeUI).toString()}
+      fog={fog ? new Fog(fog).toString() : fog}
+      inspector={inspector ? new Inspector(inspector).toString() : inspector}
+      background={background ? new Background(background).toString() : background}
+      vr-mode-ui={vrModeUI ? new VrModeUI(vrModeUI).toString() : vrModeUI}
       stats={stats}
-      screenshot={new Screenshot(screenshot).toString()}
-      pool={new Pool(pool).toString()}
-      keyboard-shortcuts={new KeyboardShortcuts(keyboardShortcuts).toString()}
+      screenshot={screenshot ? new Screenshot(screenshot).toString() : screenshot}
+      pool={pool ? new Pool(pool).toString() : pool}
+      keyboard-shortcuts={
+        keyboardShortcuts
+          ? new KeyboardShortcuts(keyboardShortcuts).toString()
+          : keyboardShortcuts
+      }
       embedded={embedded}
       device-orientation-permission-ui={
-        new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString()
+        deviceOrientationPermissionUI
+          ? new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString()
+          : deviceOrientationPermissionUI
       }
       debug={debug}
-      gltf-model={new GLTFModel(gltfModel).toString()}
-      shwdow={new Shadow(shadow).toString()}
+      gltf-model={gltfModel ? new GLTFModel(gltfModel).toString() : gltfModel}
+      shwdow={shadow ? new Shadow(shadow).toString() : shadow}
       {...registeredComponents}
     >
       {children}

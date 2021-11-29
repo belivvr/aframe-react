@@ -45,6 +45,7 @@ export type { LinkProps } from './link';
 export type { LookControlsProps } from './look-controls';
 export type { MagicleapControlsProps } from './magicleap-controls';
 export type { MaterialProps } from './material';
+export type { ObjModelProps } from './obj-model';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -65,3 +66,4 @@ export { Link } from './link';
 export { LookControls } from './look-controls';
 export { MagicleapControls } from './magicleap-controls';
 export { Material } from './material';
+export { ObjModel } from './obj-model';

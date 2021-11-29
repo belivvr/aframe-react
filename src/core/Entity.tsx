@@ -22,6 +22,7 @@ import type {
   MaterialProps,
   ObjModelProps,
   OculusGoControlsProps,
+  OculusTouchControlsProps,
 } from '../components';
 import {
   Animation,
@@ -44,6 +45,7 @@ import {
   Material,
   ObjModel,
   OculusGoControls,
+  OculusTouchControls,
 } from '../components';
 
 interface Props {
@@ -69,6 +71,7 @@ interface Props {
   material?: MaterialProps;
   objModel?: ObjModelProps;
   oculusGoControls?: OculusGoControlsProps;
+  oculusTouchControls?: OculusTouchControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -109,6 +112,7 @@ export default function Entity({
   material,
   objModel,
   oculusGoControls,
+  oculusTouchControls,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -157,7 +161,12 @@ export default function Entity({
         oculusGoControls
           ? new OculusGoControls(oculusGoControls)
           : oculusGoControls
-}
+      }
+      oculus-touch-controls={
+        oculusTouchControls
+          ? new OculusTouchControls(oculusTouchControls)
+          : oculusTouchControls
+      }
       {...registeredComponents}
     >
       {children}

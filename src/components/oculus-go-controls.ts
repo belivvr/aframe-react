@@ -76,7 +76,7 @@ export class OculusGoControls implements OculusGoControlsProps {
     this.armModel = armModel;
   }
 
-  public toString = (): string => `hand:${this.hand};`
+  public toString = (): string => `${this.hand ? `hand:${this.hand};` : ''}`
                                 + `buttonColor:${this.buttonColor};`
                                 + `buttonTouchedColor:${this.buttonTouchedColor};`
                                 + `buttonHighlightColor:${this.buttonHighlightColor};`

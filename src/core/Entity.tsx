@@ -17,6 +17,7 @@ import type {
   LightProps,
   LineProps,
   LinkProps,
+  LookControlsProps,
 } from '../components';
 import {
   Animation,
@@ -34,6 +35,7 @@ import {
   Light,
   Line,
   Link,
+  LookControls,
 } from '../components';
 
 interface Props {
@@ -54,6 +56,7 @@ interface Props {
   light?: LightProps;
   line?: LineProps;
   link?: LinkProps;
+  lookControls?: LookControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -89,6 +92,7 @@ export default function Entity({
   light,
   line,
   link,
+  lookControls,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -125,6 +129,7 @@ export default function Entity({
       light={light ? new Light(light).toString() : light}
       line={line ? new Line(line).toString() : line}
       link={link ? new Link(link).toString() : link}
+      look-controls={lookControls ? new LookControls(lookControls).toString() : lookControls}
       {...registeredComponents}
     >
       {children}

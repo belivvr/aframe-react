@@ -48,6 +48,7 @@ export type { MaterialProps } from './material';
 export type { ObjModelProps } from './obj-model';
 export type { OculusGoControlsProps } from './oculus-go-controls';
 export type { OculusTouchControlsProps } from './oculus-touch-controls';
+export type { PositionProps } from './position';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -71,3 +72,4 @@ export { Material } from './material';
 export { ObjModel } from './obj-model';
 export { OculusGoControls } from './oculus-go-controls';
 export { OculusTouchControls } from './oculus-touch-controls';
+export { Position } from './position';

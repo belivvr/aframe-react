@@ -21,6 +21,7 @@ import type {
   MagicleapControlsProps,
   MaterialProps,
   ObjModelProps,
+  OculusGoControlsProps,
 } from '../components';
 import {
   Animation,
@@ -42,6 +43,7 @@ import {
   MagicleapControls,
   Material,
   ObjModel,
+  OculusGoControls,
 } from '../components';
 
 interface Props {
@@ -66,6 +68,7 @@ interface Props {
   magicleapControls?: MagicleapControlsProps;
   material?: MaterialProps;
   objModel?: ObjModelProps;
+  oculusGoControls?: OculusGoControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -105,6 +108,7 @@ export default function Entity({
   magicleapControls,
   material,
   objModel,
+  oculusGoControls,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -149,6 +153,11 @@ export default function Entity({
         }
       material={material ? new Material(material) : material}
       obj-model={objModel ? new ObjModel(objModel) : objModel}
+      oculus-go-controls={
+        oculusGoControls
+          ? new OculusGoControls(oculusGoControls)
+          : oculusGoControls
+}
       {...registeredComponents}
     >
       {children}

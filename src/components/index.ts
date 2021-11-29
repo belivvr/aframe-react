@@ -36,6 +36,7 @@ export type { LaserControlsProps } from './laser-controls';
 export type { LayerProps } from './layer';
 export type { LightProps } from './light';
 export type { LineProps } from './line';
+export type { LinkProps } from './link';
 
 export { Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -52,3 +53,4 @@ export { LaserControls } from './laser-controls';
 export { Layer } from './layer';
 export { Light } from './light';
 export { Line } from './line';
+export { Link } from './link';

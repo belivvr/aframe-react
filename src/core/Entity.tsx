@@ -19,6 +19,7 @@ import type {
   LinkProps,
   LookControlsProps,
   MagicleapControlsProps,
+  MaterialProps,
 } from '../components';
 import {
   Animation,
@@ -38,6 +39,7 @@ import {
   Link,
   LookControls,
   MagicleapControls,
+  Material,
 } from '../components';
 
 interface Props {
@@ -60,6 +62,7 @@ interface Props {
   link?: LinkProps;
   lookControls?: LookControlsProps;
   magicleapControls?: MagicleapControlsProps;
+  material?: MaterialProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -97,6 +100,7 @@ export default function Entity({
   link,
   lookControls,
   magicleapControls,
+  material,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -134,7 +138,12 @@ export default function Entity({
       line={line ? new Line(line).toString() : line}
       link={link ? new Link(link).toString() : link}
       look-controls={lookControls ? new LookControls(lookControls).toString() : lookControls}
-      magicleap-controls={magicleapControls ? new MagicleapControls(magicleapControls).toString() : magicleapControls}
+      magicleap-controls={
+        magicleapControls
+          ? new MagicleapControls(magicleapControls).toString()
+          : magicleapControls
+        }
+      material={material ? new Material(material) : material}
       {...registeredComponents}
     >
       {children}

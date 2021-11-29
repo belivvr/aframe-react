@@ -25,6 +25,7 @@ import type {
   OculusTouchControlsProps,
   PositionProps,
   RaycasterProps,
+  RotationProps,
 } from '../components';
 import {
   Animation,
@@ -50,6 +51,7 @@ import {
   OculusTouchControls,
   Position,
   Raycaster,
+  Rotation,
 } from '../components';
 
 interface Props {
@@ -78,6 +80,7 @@ interface Props {
   oculusTouchControls?: OculusTouchControlsProps;
   position?: PositionProps;
   raycaster?: RaycasterProps;
+  rotation?: RotationProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -121,6 +124,7 @@ export default function Entity({
   oculusTouchControls,
   position,
   raycaster,
+  rotation,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -177,6 +181,7 @@ export default function Entity({
       }
       position={position ? new Position(position) : position}
       raycaster={raycaster ? new Raycaster(raycaster) : raycaster}
+      rotation={rotation ? new Rotation(rotation) : rotation}
       {...registeredComponents}
     >
       {children}

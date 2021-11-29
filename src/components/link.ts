@@ -122,4 +122,16 @@ export class Link implements LinkProps {
     this.titleColor = titleColor;
     this.visualAspectEnabled = visualAspectEnabled;
   }
+
+  public toString = (): string => `backgroundColor:${this.backgroundColor};`
+                                + `borderColor:${this.borderColor};`
+                                + `highlighted:${this.highlighted};`
+                                + `highlightedColor:${this.highlightedColor};`
+                                + `href:${this.href};`
+                                + `image:${this.image};`
+                                + `on:${this.on};`
+                                + `peekMode:${this.peekMode};`
+                                + `title:${this.title};`
+                                + `titleColor:${this.titleColor};`
+                                + `visualAspectEnabled:${this.visualAspectEnabled};`;
 }

@@ -36,6 +36,7 @@ import type {
   ValveIndexControlsProps,
   VisibleProps,
   ViveControlsProps,
+  ViveFocusControlsProps,
 } from '../components';
 
 import {
@@ -73,6 +74,7 @@ import {
   ValveIndexControls,
   Visible,
   ViveControls,
+  ViveFocusControls,
 } from '../components';
 
 interface Props {
@@ -112,6 +114,7 @@ interface Props {
   valveIndexControls?: ValveIndexControlsProps;
   visible?: VisibleProps;
   viveControls?: ViveControlsProps;
+  viveFocusControls?: ViveFocusControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -166,6 +169,7 @@ export default function Entity({
   valveIndexControls,
   visible,
   viveControls,
+  viveFocusControls,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -249,6 +253,11 @@ export default function Entity({
       }
       visible={new Visible(visible)}
       vive-controls={viveControls ? new ViveControls(viveControls) : viveControls}
+      vive-focus-controls={
+        viveFocusControls
+          ? new ViveFocusControls(viveFocusControls)
+          : viveFocusControls
+        }
       {...registeredComponents}
     >
       {children}

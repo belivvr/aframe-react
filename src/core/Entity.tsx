@@ -32,6 +32,7 @@ import type {
   TextProps,
   TrackedControlsWebVRProps,
   TrackedControlsWebXRProps,
+  TrackedControlsProps,
 } from '../components';
 import {
   Animation,
@@ -64,6 +65,7 @@ import {
   Text,
   TrackedControlsWebVR,
   TrackedControlsWebXR,
+  TrackedControls,
 } from '../components';
 
 interface Props {
@@ -99,6 +101,7 @@ interface Props {
   text?: TextProps;
   trackedControlsWebVR?: TrackedControlsWebVRProps;
   trackedControlsWebXR?: TrackedControlsWebXRProps;
+  trackedControls?: TrackedControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -149,6 +152,7 @@ export default function Entity({
   text,
   trackedControlsWebVR,
   trackedControlsWebXR,
+  trackedControls,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -219,6 +223,11 @@ export default function Entity({
         trackedControlsWebXR
           ? new TrackedControlsWebXR(trackedControlsWebXR)
           : trackedControlsWebXR
+      }
+      tracked-controls={
+        trackedControls
+          ? new TrackedControls(trackedControls)
+          : trackedControls
       }
       {...registeredComponents}
     >

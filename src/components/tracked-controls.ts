@@ -1,4 +1,5 @@
 import type { Hand, Vec3 } from './types';
+import { Vec3ToString } from './types';
 
 /**
  * The tracked-controls component interfaces with tracked controllers.
@@ -106,7 +107,7 @@ export class TrackedControls implements TrackedControlsProps {
                                 + `${this.hand ? `hand:${this.hand};` : ''}`
                                 + `${this.idPrefix ? `idPrefix:${this.idPrefix};` : ''}`
                                 + `handTrackingEnabled:${this.handTrackingEnabled};`
-                                + `orientationOffset:${this.orientationOffset};`
+                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`
                                 + `armModel:${this.armModel};`
                                 + `${this.headElement ? `headElement:${this.headElement};` : ''}`
                                 + `iterateControllerProfiles:${this.iterateControllerProfiles};`;

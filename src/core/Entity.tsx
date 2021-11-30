@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type {
+import {
   AnimationProps,
   CameraProps,
   CursorProps,
@@ -34,8 +34,8 @@ import type {
   TrackedControlsWebXRProps,
   TrackedControlsProps,
   ValveIndexControlsProps,
-} from '../components';
-import {
+  VisibleProps,
+
   Animation,
   Camera,
   Cursor,
@@ -68,6 +68,7 @@ import {
   TrackedControlsWebXR,
   TrackedControls,
   ValveIndexControls,
+  Visible,
 } from '../components';
 
 interface Props {
@@ -105,6 +106,7 @@ interface Props {
   trackedControlsWebXR?: TrackedControlsWebXRProps;
   trackedControls?: TrackedControlsProps;
   valveIndexControls?: ValveIndexControlsProps;
+  visible?: VisibleProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -157,6 +159,7 @@ export default function Entity({
   trackedControlsWebXR,
   trackedControls,
   valveIndexControls,
+  visible,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -238,6 +241,7 @@ export default function Entity({
           ? new ValveIndexControls(valveIndexControls)
           : valveIndexControls
       }
+      visible={new Visible(visible)}
       {...registeredComponents}
     >
       {children}

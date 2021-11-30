@@ -52,6 +52,7 @@ export type { PositionProps } from './position';
 export type { RaycasterProps } from './raycaster';
 export type { RotationProps } from './rotation';
 export type { ScaleProps } from './scale';
+export type { ShadowProps } from './shadow';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -79,3 +80,4 @@ export { Position } from './position';
 export { Raycaster } from './raycaster';
 export { Rotation } from './rotation';
 export { Scale } from './scale';
+export { Shadow } from './shadow';

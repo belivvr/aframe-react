@@ -29,6 +29,7 @@ import type {
   ScaleProps,
   ShadowProps,
   SoundProps,
+  TextProps,
 } from '../components';
 import {
   Animation,
@@ -58,6 +59,7 @@ import {
   Scale,
   Shadow,
   Sound,
+  Text,
 } from '../components';
 
 interface Props {
@@ -90,6 +92,7 @@ interface Props {
   scale?: ScaleProps;
   shadow?: ShadowProps;
   sound?: SoundProps;
+  text?: TextProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -137,6 +140,7 @@ export default function Entity({
   scale,
   shadow,
   sound,
+  text,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -197,6 +201,7 @@ export default function Entity({
       scale={scale ? new Scale(scale) : scale}
       shadow={shadow ? new Shadow(shadow) : shadow}
       sound={sound ? new Sound(sound) : sound}
+      text={text ? new Text(text) : text}
       {...registeredComponents}
     >
       {children}

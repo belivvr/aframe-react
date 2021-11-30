@@ -240,21 +240,21 @@ export class Text implements TextProps {
                                 + `baseline:${this.baseline};`
                                 + `color:${this.color};`
                                 + `font:${this.font};`
-                                + `fontImage:${this.fontImage};`
-                                + `height:${this.height};`
+                                + `${this.fontImage ? `fontImage:${this.fontImage};` : ''}`
+                                + `${typeof this.height === 'number' ? `height:${this.height};` : ''}`
                                 + `letterSpacing:${this.letterSpacing};`
-                                + `lineHeight:${this.lineHeight};`
+                                + `${typeof this.lineHeight === 'number' ? `lineHeight:${this.lineHeight};` : ''}`
                                 + `negate:${this.negate};`
                                 + `opacity:${this.opacity};`
                                 + `shader:${this.shader};`
                                 + `side:${this.side};`
                                 + `tabSize:${this.tabSize};`
                                 + `transparent:${this.transparent};`
-                                + `value:${this.value};`
+                                + `${this.value ? `value:${this.value};` : ''}`
                                 + `whiteSpace:${this.whiteSpace};`
-                                + `width:${this.width};`
+                                + `${typeof this.width === 'number' ? `width:${this.width};` : ''}`
                                 + `wrapCount:${this.wrapCount};`
-                                + `wrapPixels:${this.wrapPixels};`
+                                + `${typeof this.wrapPixels === 'number' ? `wrapPixels:${this.wrapPixels};` : ''}`
                                 + `xOffset:${this.xOffset};`
                                 + `yOffset:${this.yOffset};`
                                 + `zOffset:${this.zOffset};`;

@@ -26,6 +26,7 @@ import type {
   PositionProps,
   RaycasterProps,
   RotationProps,
+  ScaleProps,
 } from '../components';
 import {
   Animation,
@@ -52,6 +53,7 @@ import {
   Position,
   Raycaster,
   Rotation,
+  Scale,
 } from '../components';
 
 interface Props {
@@ -81,6 +83,7 @@ interface Props {
   position?: PositionProps;
   raycaster?: RaycasterProps;
   rotation?: RotationProps;
+  scale?: ScaleProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -125,6 +128,7 @@ export default function Entity({
   position,
   raycaster,
   rotation,
+  scale,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -182,6 +186,7 @@ export default function Entity({
       position={position ? new Position(position) : position}
       raycaster={raycaster ? new Raycaster(raycaster) : raycaster}
       rotation={rotation ? new Rotation(rotation) : rotation}
+      scale={scale ? new Scale(scale) : scale}
       {...registeredComponents}
     >
       {children}

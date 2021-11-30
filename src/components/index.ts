@@ -66,6 +66,7 @@ export type { TrackedControlsWebXRProps } from './tracked-controls-webxr';
 export type { TrackedControlsProps } from './tracked-controls';
 export type { ValveIndexControlsProps } from './valve-index-controls';
 export type { VisibleProps } from './visible';
+export type { ViveControlsProps } from './vive-controls';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -101,3 +102,4 @@ export { TrackedControlsWebXR } from './tracked-controls-webxr';
 export { TrackedControls } from './tracked-controls';
 export { ValveIndexControls } from './valve-index-controls';
 export { Visible } from './visible';
+export { ViveControls } from './vive-controls';

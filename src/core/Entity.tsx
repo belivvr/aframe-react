@@ -33,6 +33,7 @@ import type {
   TrackedControlsWebVRProps,
   TrackedControlsWebXRProps,
   TrackedControlsProps,
+  ValveIndexControlsProps,
 } from '../components';
 import {
   Animation,
@@ -66,6 +67,7 @@ import {
   TrackedControlsWebVR,
   TrackedControlsWebXR,
   TrackedControls,
+  ValveIndexControls,
 } from '../components';
 
 interface Props {
@@ -102,6 +104,7 @@ interface Props {
   trackedControlsWebVR?: TrackedControlsWebVRProps;
   trackedControlsWebXR?: TrackedControlsWebXRProps;
   trackedControls?: TrackedControlsProps;
+  valveIndexControls?: ValveIndexControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -153,6 +156,7 @@ export default function Entity({
   trackedControlsWebVR,
   trackedControlsWebXR,
   trackedControls,
+  valveIndexControls,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -228,6 +232,11 @@ export default function Entity({
         trackedControls
           ? new TrackedControls(trackedControls)
           : trackedControls
+      }
+      valve-index-controls={
+        valveIndexControls
+          ? new ValveIndexControls(valveIndexControls)
+          : valveIndexControls
       }
       {...registeredComponents}
     >

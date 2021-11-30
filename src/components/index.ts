@@ -64,6 +64,7 @@ export type { TextProps } from './text';
 export type { TrackedControlsWebVRProps } from './tracked-controls-webvr';
 export type { TrackedControlsWebXRProps } from './tracked-controls-webxr';
 export type { TrackedControlsProps } from './tracked-controls';
+export type { ValveIndexControlsProps } from './valve-index-controls';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -97,3 +98,4 @@ export { Text } from './text';
 export { TrackedControlsWebVR } from './tracked-controls-webvr';
 export { TrackedControlsWebXR } from './tracked-controls-webxr';
 export { TrackedControls } from './tracked-controls';
+export { ValveIndexControls } from './valve-index-controls';

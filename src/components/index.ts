@@ -67,6 +67,7 @@ export type { TrackedControlsProps } from './tracked-controls';
 export type { ValveIndexControlsProps } from './valve-index-controls';
 export type { VisibleProps } from './visible';
 export type { ViveControlsProps } from './vive-controls';
+export type { ViveFocusControlsProps } from './vive-focus-controls';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -103,3 +104,4 @@ export { TrackedControls } from './tracked-controls';
 export { ValveIndexControls } from './valve-index-controls';
 export { Visible } from './visible';
 export { ViveControls } from './vive-controls';
+export { ViveFocusControls } from './vive-focus-controls';

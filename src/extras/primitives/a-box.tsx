@@ -28,6 +28,9 @@ import type {
 import type { Box as BoxGeometry } from '../geometry';
 
 type Props = BoxGeometry & {
+  id?: string;
+  className?: string;
+} & {
   ambientOcclusionMap?: AmbientOcclusionMap,
   ambientOcclusionMapIntensity?: AmbientOcclusionMapIntensity,
   ambientOcclusionTextureOffset?: AmbientOcclusionTextureOffset,
@@ -54,6 +57,8 @@ type Props = BoxGeometry & {
 };
 
 export default function Box({
+  id,
+  className,
   width,
   height,
   depth,
@@ -86,6 +91,8 @@ export default function Box({
 }: Props): JSX.Element {
   return (
     <a-box
+      id={id}
+      className={className}
       width={width}
       height={height}
       depth={depth}

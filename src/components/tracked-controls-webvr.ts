@@ -10,13 +10,44 @@ import type { Hand, Vec3 } from './types';
  * @see https://aframe.io/docs/1.2.0/components/tracked-controls.html
  */
 export interface TrackedControlsWebVRProps {
+  /**
+   * Whether to toggle visibility automatically when controller is connected or disconnected.
+   */
   autoHide?: boolean;
+
+  /**
+   * Index of the controller in array returned by the Gamepad API.
+   */
   controller?: number;
+
+  /**
+   * Selects the controller from the Gamepad API using exact match.
+   */
   id?: string;
+
+  /**
+   * Which hand to use, if arm model is needed. (left negates X)
+   */
   hand?: Hand;
+
+  /**
+   * Selects the controller from the Gamepad API using prefix match.
+   */
   idPrefix?: string;
+
+  /**
+   * Offset to apply to model orientation.
+   */
   orientationOffset?: Vec3;
+
+  /**
+   * Whether the arm model is used for positional data if absent.
+   */
   armModel?: boolean;
+
+  /**
+   * Head element for arm model if needed (if not active camera).
+   */
   headElement?: string;
 }
 

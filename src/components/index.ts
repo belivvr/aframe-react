@@ -14,6 +14,12 @@ export type {
   MaterialSide,
   MaterialVertexColor,
   MaterialBlending,
+  Shader,
+  TextAlign,
+  TextAnchor,
+  TextBaseline,
+  TextSide,
+  TextWhiteSpace,
 } from './types';
 export type {
   EaseIn,
@@ -54,6 +60,7 @@ export type { RotationProps } from './rotation';
 export type { ScaleProps } from './scale';
 export type { ShadowProps } from './shadow';
 export type { SoundProps } from './sound';
+export type { TextProps } from './text';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -83,3 +90,4 @@ export { Rotation } from './rotation';
 export { Scale } from './scale';
 export { Shadow } from './shadow';
 export { Sound } from './sound';
+export { Text } from './text';

@@ -24,6 +24,12 @@ export type MaterialVertexColor = 'face' | 'vertex';
 export type MaterialBlending = 'none' | 'normal' | 'additive' | 'subtractive' | 'multiply';
 export type OculusTouchControllerType = 'auto' | 'oculus-touch' | 'oculus-touch-v2' | 'oculus-touch-v3';
 export type SoundDistanceModel = 'linear' | 'inverse' | 'exponential';
+export type TextAlign = 'left' | 'right' | 'center';
+export type TextAnchor = 'left' | 'right' | 'center' | 'align';
+export type TextBaseline = 'top' | 'center' | 'bottom';
+export type TextSide = 'front' | 'back' | 'double';
+export type TextWhiteSpace = 'normal' | 'pre' | 'nowrap';
+export type Shader = 'portal' | 'flat' | 'ios10hls' | 'msdf' | 'sdf' | 'standard';
 
 export function Vec2ToString(vec2: Vec2) {
   return `${vec2.x} ${vec2.y}`;

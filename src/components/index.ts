@@ -69,6 +69,7 @@ export type { VisibleProps } from './visible';
 export type { ViveControlsProps } from './vive-controls';
 export type { ViveFocusControlsProps } from './vive-focus-controls';
 export type { WASDControlsProps } from './wasd-controls';
+export type { WindowsMotionControlsProps } from './windows-motion-controls';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -107,3 +108,4 @@ export { Visible } from './visible';
 export { ViveControls } from './vive-controls';
 export { ViveFocusControls } from './vive-focus-controls';
 export { WASDControls } from './wasd-controls';
+export { WindowsMotionControls } from './windows-motion-controls';

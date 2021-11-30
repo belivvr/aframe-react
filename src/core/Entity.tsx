@@ -38,6 +38,7 @@ import type {
   ViveControlsProps,
   ViveFocusControlsProps,
   WASDControlsProps,
+  WindowsMotionControlsProps,
 } from '../components';
 
 import {
@@ -77,6 +78,7 @@ import {
   ViveControls,
   ViveFocusControls,
   WASDControls,
+  WindowsMotionControls,
 } from '../components';
 
 interface Props {
@@ -118,6 +120,7 @@ interface Props {
   viveControls?: ViveControlsProps;
   viveFocusControls?: ViveFocusControlsProps;
   wasdControls?: WASDControlsProps;
+  windowsMotionControls?: WindowsMotionControlsProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -173,8 +176,9 @@ export default function Entity({
   visible,
   viveControls,
   viveFocusControls,
-  registeredComponents,
   wasdControls,
+  windowsMotionControls,
+  registeredComponents,
 }: Props): JSX.Element {
   return (
     <a-entity
@@ -266,6 +270,11 @@ export default function Entity({
         wasdControls
           ? new WASDControls(wasdControls)
           : wasdControls
+      }
+      windows-motion-controls={
+        windowsMotionControls
+          ? new WindowsMotionControls(windowsMotionControls)
+          : windowsMotionControls
       }
       {...registeredComponents}
     >

@@ -61,6 +61,7 @@ export type { ScaleProps } from './scale';
 export type { ShadowProps } from './shadow';
 export type { SoundProps } from './sound';
 export type { TextProps } from './text';
+export type { TrackedControlsWebVRProps } from './tracked-controls-webvr';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -91,3 +92,4 @@ export { Scale } from './scale';
 export { Shadow } from './shadow';
 export { Sound } from './sound';
 export { Text } from './text';
+export { TrackedControlsWebVR } from './tracked-controls-webvr';

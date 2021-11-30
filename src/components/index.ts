@@ -62,6 +62,7 @@ export type { ShadowProps } from './shadow';
 export type { SoundProps } from './sound';
 export type { TextProps } from './text';
 export type { TrackedControlsWebVRProps } from './tracked-controls-webvr';
+export type { TrackedControlsWebXRProps } from './tracked-controls-webxr';
 
 export { Vec2ToString, Vec3ToString } from './types';
 export { Animation } from './animation';
@@ -93,3 +94,4 @@ export { Shadow } from './shadow';
 export { Sound } from './sound';
 export { Text } from './text';
 export { TrackedControlsWebVR } from './tracked-controls-webvr';
+export { TrackedControlsWebXR } from './tracked-controls-webxr';

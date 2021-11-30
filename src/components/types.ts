@@ -30,6 +30,7 @@ export type TextBaseline = 'top' | 'center' | 'bottom';
 export type TextSide = 'front' | 'back' | 'double';
 export type TextWhiteSpace = 'normal' | 'pre' | 'nowrap';
 export type Shader = 'portal' | 'flat' | 'ios10hls' | 'msdf' | 'sdf' | 'standard';
+export type WASDAxis = 'x' | 'y' | 'z';
 
 export function Vec2ToString(vec2: Vec2) {
   return `${vec2.x} ${vec2.y}`;

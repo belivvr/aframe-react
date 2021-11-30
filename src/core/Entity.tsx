@@ -28,6 +28,7 @@ import type {
   RotationProps,
   ScaleProps,
   ShadowProps,
+  SoundProps,
 } from '../components';
 import {
   Animation,
@@ -56,6 +57,7 @@ import {
   Rotation,
   Scale,
   Shadow,
+  Sound,
 } from '../components';
 
 interface Props {
@@ -87,6 +89,7 @@ interface Props {
   rotation?: RotationProps;
   scale?: ScaleProps;
   shadow?: ShadowProps;
+  sound?: SoundProps;
   registeredComponents?: {
     [key: string]: string | number | boolean;
   };
@@ -133,6 +136,7 @@ export default function Entity({
   rotation,
   scale,
   shadow,
+  sound,
   registeredComponents,
 }: Props): JSX.Element {
   return (
@@ -192,6 +196,7 @@ export default function Entity({
       rotation={rotation ? new Rotation(rotation) : rotation}
       scale={scale ? new Scale(scale) : scale}
       shadow={shadow ? new Shadow(shadow) : shadow}
+      sound={sound ? new Sound(sound) : sound}
       {...registeredComponents}
     >
       {children}

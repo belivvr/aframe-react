@@ -23,6 +23,7 @@ export type MaterialSide = 'front' | 'back' | 'double';
 export type MaterialVertexColor = 'face' | 'vertex';
 export type MaterialBlending = 'none' | 'normal' | 'additive' | 'subtractive' | 'multiply';
 export type OculusTouchControllerType = 'auto' | 'oculus-touch' | 'oculus-touch-v2' | 'oculus-touch-v3';
+export type SoundDistanceModel = 'linear' | 'inverse' | 'exponential';
 
 export function Vec2ToString(vec2: Vec2) {
   return `${vec2.x} ${vec2.y}`;

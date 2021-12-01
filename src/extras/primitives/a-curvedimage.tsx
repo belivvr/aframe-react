@@ -1,43 +1,41 @@
 import React from 'react';
 
-import type {
-  Color,
-  Metalness,
-  Repeat,
-  Roughness,
-  Src,
-} from '../material';
-import type { Cylinder as CylinderGeometry } from '../geometry';
-
-type Props = CylinderGeometry & {
-  color?: Color;
-  metalness?: Metalness;
-  opacity?: number;
-  repeat?: Repeat;
-  roughness?: Roughness;
-  shader?: string;
-  side?: string;
-  src?: Src;
-  transparent?: boolean;
-};
+interface Props {
+  color?: unknown;
+  height?: unknown;
+  metalness?: unknown;
+  opacity?: unknown;
+  openEnded?: unknown;
+  radius?: unknown;
+  repeat?: unknown;
+  roughness?: unknown;
+  segmentsHeight?: unknown;
+  segmentsRadial?: unknown;
+  shader?: unknown;
+  side?: unknown;
+  src?: unknown;
+  thetaLength?: unknown;
+  thetaStart?: unknown;
+  transparent?: unknown;
+}
 
 export default function CurvedImage({
   color,
+  height,
   metalness,
   opacity,
+  openEnded,
+  radius,
   repeat,
   roughness,
+  segmentsHeight,
+  segmentsRadial,
   shader,
   side,
   src,
-  transparent,
-  height,
-  openEnded,
-  radius,
-  segmentsHeight,
-  segmentsRadial,
   thetaLength,
   thetaStart,
+  transparent,
 }: Props): JSX.Element {
   return (
     <a-curvedimage

@@ -1,19 +1,15 @@
 import React from 'react';
 
 interface Props {
-  id?: string;
-  className?: string;
-  far?: number;
-  fov?: number;
-  lookControlsEnabled?: boolean;
-  near?: number;
-  reverseMouseDrag?: boolean;
-  wasdControlsEnabled?: boolean;
+  far?: unknown;
+  fov?: unknown;
+  lookControlsEnabled?: unknown;
+  near?: unknown;
+  reverseMouseDrag?: unknown;
+  wasdControlsEnabled?: unknown;
 }
 
 export default function Camera({
-  id,
-  className,
   far,
   fov,
   lookControlsEnabled,
@@ -23,8 +19,6 @@ export default function Camera({
 }: Props): JSX.Element {
   return (
     <a-camera
-      id={id}
-      className={className}
       far={far}
       fov={fov}
       look-controls-enabled={lookControlsEnabled}

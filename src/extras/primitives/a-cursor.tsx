@@ -1,11 +1,11 @@
 import React from 'react';
 
 interface Props {
-  far?: number;
-  fuse?: boolean;
-  fuseTimeout?: number;
-  interval?: number;
-  objects?: number;
+  far?: unknown;
+  fuse?: unknown;
+  fuseTimeout?: unknown;
+  interval?: unknown;
+  objects?: unknown;
 }
 
 export default function Cursor({

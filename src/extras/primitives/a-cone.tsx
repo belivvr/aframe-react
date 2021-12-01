@@ -1,59 +1,39 @@
 import React from 'react';
 
-import type {
-  AmbientOcclusionMap,
-  AmbientOcclusionMapIntensity,
-  AmbientOcclusionTextureOffset,
-  AmbientOcclusionTextureRepeat,
-  Color,
-  DisplacementBias,
-  DisplacementMap,
-  DisplacementScale,
-  DisplacementTextureOffset,
-  DisplacementTextureRepeat,
-  EnvMap,
-  Fog,
-  Metalness,
-  NormalMap,
-  NormalScale,
-  NormalTextureOffset,
-  NormalTextureRepeat,
-  Repeat,
-  Roughness,
-  SphericalEnvMap,
-  Src,
-  Width,
-  Wireframe,
-  WireframeLinewidth,
-} from '../material';
-import type { Cone as ConeGeometry } from '../geometry';
-
-type Props = ConeGeometry & {
-  ambientOcclusionMap?: AmbientOcclusionMap;
-  ambientOcclusionMapIntensity?: AmbientOcclusionMapIntensity;
-  ambientOcclusionTextureOffset?: AmbientOcclusionTextureOffset;
-  ambientOcclusionTextureRepeat?: AmbientOcclusionTextureRepeat;
-  color?: Color;
-  displacementBias?: DisplacementBias;
-  displacementMap?: DisplacementMap;
-  displacementScale?: DisplacementScale;
-  displacementTextureOffset?: DisplacementTextureOffset;
-  displacementTextureRepeat?: DisplacementTextureRepeat;
-  envMap?: EnvMap;
-  fog?: Fog;
-  metalness?: Metalness;
-  normalMap?: NormalMap;
-  normalScale?: NormalScale;
-  normalTextureOffset?: NormalTextureOffset;
-  normalTextureRepeat?: NormalTextureRepeat;
-  repeat?: Repeat;
-  roughness?: Roughness;
-  sphericalEnvMap?: SphericalEnvMap;
-  src?: Src;
-  width?: Width;
-  wireframe?: Wireframe;
-  wireframeLinewidth?: WireframeLinewidth;
-};
+interface Props {
+  ambientOcclusionMap?: unknown;
+  ambientOcclusionMapIntensity?: unknown;
+  ambientOcclusionTextureOffset?: unknown;
+  ambientOcclusionTextureRepeat?: unknown;
+  color?: unknown;
+  displacementBias?: unknown;
+  displacementMap?: unknown;
+  displacementScale?: unknown;
+  displacementTextureOffset?: unknown;
+  displacementTextureRepeat?: unknown;
+  envMap?: unknown;
+  fog?: unknown;
+  height?: unknown;
+  metalness?: unknown;
+  normalMap?: unknown;
+  normalScale?: unknown;
+  normalTextureOffset?: unknown;
+  normalTextureRepeat?: unknown;
+  openEnded?: unknown;
+  radiusBottom?: unknown;
+  radiusTop?: unknown;
+  repeat?: unknown;
+  roughness?: unknown;
+  segmentsHeight?: unknown;
+  segmentsRadial?: unknown;
+  sphericalEnvMap?: unknown;
+  src?: unknown;
+  thetaLength?: unknown;
+  thetaStart?: unknown;
+  width?: unknown;
+  wireframe?: unknown;
+  wireframeLinewidth?: unknown;
+}
 
 export default function Cone({
   ambientOcclusionMap,

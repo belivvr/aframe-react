@@ -1,67 +1,38 @@
 import React from 'react';
 
-import type {
-  AmbientOcclusionMap,
-  AmbientOcclusionMapIntensity,
-  AmbientOcclusionTextureOffset,
-  AmbientOcclusionTextureRepeat,
-  Color,
-  DisplacementBias,
-  DisplacementMap,
-  DisplacementScale,
-  DisplacementTextureOffset,
-  DisplacementTextureRepeat,
-  EnvMap,
-  Fog,
-  Height,
-  Metalness,
-  NormalMap,
-  NormalScale,
-  NormalTextureOffset,
-  NormalTextureRepeat,
-  Repeat,
-  Roughness,
-  SphericalEnvMap,
-  Src,
-  Width,
-  Wireframe,
-  WireframeLinewidth,
-} from '../material';
-import type { Circle as CircleGeometry } from '../geometry';
-
-type Props = CircleGeometry & {
-  id?: string;
-  className?: string;
-  ambientOcclusionMap?: AmbientOcclusionMap;
-  ambientOcclusionMapIntensity?: AmbientOcclusionMapIntensity;
-  ambientOcclusionTextureOffset?: AmbientOcclusionTextureOffset;
-  ambientOcclusionTextureRepeat?: AmbientOcclusionTextureRepeat;
-  color?: Color;
-  displacementBias?: DisplacementBias;
-  displacementMap?: DisplacementMap;
-  displacementScale?: DisplacementScale;
-  displacementTextureOffset?: DisplacementTextureOffset;
-  displacementTextureRepeat?: DisplacementTextureRepeat;
-  envMap?: EnvMap;
-  fog?: Fog;
-  height?: Height;
-  metalness?: Metalness;
-  normalMap?: NormalMap;
-  normalScale?: NormalScale;
-  normalTextureOffset?: NormalTextureOffset;
-  normalTextureRepeat?: NormalTextureRepeat;
-  repeat?: Repeat;
-  roughness?: Roughness;
-  sphericalEnvMap?: SphericalEnvMap;
-  src?: Src;
-  width?: Width;
-  wireframe?: Wireframe;
-  wireframeLinewidth?: WireframeLinewidth;
-};
+interface Props {
+  ambientOcclusionMap?: unknown;
+  ambientOcclusionMapIntensity?: unknown;
+  ambientOcclusionTextureOffset?: unknown;
+  ambientOcclusionTextureRepeat?: unknown;
+  color?: unknown;
+  displacementBias?: unknown;
+  displacementMap?: unknown;
+  displacementScale?: unknown;
+  displacementTextureOffset?: unknown;
+  displacementTextureRepeat?: unknown;
+  envMap?: unknown;
+  fog?: unknown;
+  height?: unknown;
+  metalness?: unknown;
+  normalMap?: unknown;
+  normalScale?: unknown;
+  normalTextureOffset?: unknown;
+  normalTextureRepeat?: unknown;
+  radius?: unknown;
+  repeat?: unknown;
+  roughness?: unknown;
+  segments?: unknown;
+  sphericalEnvMap?: unknown;
+  src?: unknown;
+  thetaLength?: unknown;
+  thetaStart?: unknown;
+  width?: unknown;
+  wireframe?: unknown;
+  wireframeLinewidth?: unknown;
+}
 
 export default function Circle({
-  id,
-  className,
   ambientOcclusionMap,
   ambientOcclusionMapIntensity,
   ambientOcclusionTextureOffset,
@@ -94,8 +65,6 @@ export default function Circle({
 }: Props): JSX.Element {
   return (
     <a-circle
-      id={id}
-      className={className}
       ambient-occlusion-map={ambientOcclusionMap}
       ambient-occlusion-map-intensity={ambientOcclusionMapIntensity}
       ambient-occlusion-texture-offset={ambientOcclusionTextureOffset}

@@ -1,5 +1,18 @@
 import React from 'react';
 
-export default function ObjModel(): JSX.Element {
-  return <></>;
+interface Props {
+  mtl?: unknown;
+  obj?: unknown;
+}
+
+export default function ObjModel({
+  mtl,
+  obj,
+}: Props): JSX.Element {
+  return (
+    <a-obj-model
+      mtl={mtl}
+      src={obj}
+    />
+  );
 }

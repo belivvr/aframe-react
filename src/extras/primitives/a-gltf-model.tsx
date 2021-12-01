@@ -1,5 +1,15 @@
 import React from 'react';
 
-export default function GLTFModel(): JSX.Element {
-  return <></>;
+interface Props {
+  src?: string;
+}
+
+export default function GLTFModel({
+  src,
+}: Props): JSX.Element {
+  return (
+    <a-gltf-model
+      src={src}
+    />
+  );
 }

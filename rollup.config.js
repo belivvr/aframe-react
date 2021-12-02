@@ -20,6 +20,7 @@ const inputSrcs = [
   ['src/core/index.ts', 'AframeReactCore', '@belivvr/aframe-react/core'],
   ['src/components/index.ts', 'AframeReactComponents', '@belivvr/aframe-react/components'],
   ['src/components/scene/index.ts', 'AframeReactComponentsScene', '@belivvr/aframe-react/components/scene'],
+  ['src/extras/primitives/index.ts', 'AframeReactPrimitives', '@belivvr/aframe-react/primitives'],
 ]
 
 const extensions = ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', '.tsx']

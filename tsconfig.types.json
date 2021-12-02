@@ -13,7 +13,8 @@
     "./src/index.ts",
     "./src/core/index.ts",
     "./src/components/index.ts",
-    "./src/components/scene/index.ts"
+    "./src/components/scene/index.ts",
+    "./src/extras/primitives/index.ts"
   ],
   "exclude": ["./src/**/*"]
 }

@@ -81,7 +81,7 @@ import {
   WindowsMotionControls,
 } from '../components';
 
-interface Props {
+export interface Props {
   id?: string;
   className?: string;
   children?: React.ReactNode;
@@ -128,22 +128,9 @@ interface Props {
   };
 }
 
-/**
- * A-Frame represents an entity via the `<a-entity>` element. As defined in the [entity-component-system pattern](https://aframe.io/docs/1.2.0/introduction/entity-component-system.html),
- * entities are placeholder objects to which we plug in components to provide them
- * appearance, behavior, and functionality.
- *
- * In A-Frame, entities are inherently attached with the
- * [position](https://aframe.io/docs/1.2.0/components/position.html),
- * [rotation](https://aframe.io/docs/1.2.0/components/rotation.html), and
- * [scale](https://aframe.io/docs/1.2.0/components/scale.html) components.
- *
- * @see https://aframe.io/docs/1.2.0/core/entity.html
- */
-export default function Entity({
+export function toProps({
   id,
   className,
-  children,
   animation,
   camera,
   cursor,
@@ -183,106 +170,70 @@ export default function Entity({
   wasdControls,
   windowsMotionControls,
   registeredComponents,
-}: Props): JSX.Element {
+}: Props): Object {
+  return {
+    id,
+    class: className,
+    animation: animation && new Animation(animation).toString(),
+    camera: camera && new Camera(camera).toString(),
+    cursor: cursor && new Cursor(cursor).toString(),
+    'daydream-controls': daydreamControls && new DaydreamControls(daydreamControls).toString(),
+    'gearvr-controls': gearvrControls && new GearvrControls(gearvrControls).toString(),
+    'generic-tracked-controller-controls': genericTrackedControllerControls && new GenericTrackedControllerControls(genericTrackedControllerControls).toString(),
+    geometry: geometry && new Geometry(geometry).toString(),
+    'gltf-model': gltfModel,
+    'hand-controls': handControls && new HandControls(handControls).toString(),
+    'hand-tracking-controls': handTrackingControls && new HandTrackingControls(handTrackingControls).toString(),
+    'hp-mixed-reality-controls': hpMixedRealityControls && new HpMixedRealityControls(hpMixedRealityControls).toString(),
+    'laser-controls': laserControls && new LaserControls(laserControls).toString(),
+    layer: layer && new Layer(layer).toString(),
+    light: light && new Light(light).toString(),
+    line: line && new Line(line).toString(),
+    link: link && new Link(link).toString(),
+    'look-controls': lookControls && new LookControls(lookControls).toString(),
+    'magicleap-controls': magicleapControls && new MagicleapControls(magicleapControls).toString(),
+    material: material && new Material(material).toString(),
+    'obj-model': objModel && new ObjModel(objModel).toString(),
+    'oculus-go-controls': oculusGoControls && new OculusGoControls(oculusGoControls).toString(),
+    'oculus-touch-controls': oculusTouchControls && new OculusTouchControls(oculusTouchControls).toString(),
+    position: position && new Position(position).toString(),
+    raycaster: raycaster && new Raycaster(raycaster).toString(),
+    rotation: rotation && new Rotation(rotation).toString(),
+    scale: scale && new Scale(scale).toString(),
+    shadow: shadow && new Shadow(shadow).toString(),
+    sound: sound && new Sound(sound).toString(),
+    text: text && new Text(text).toString(),
+    'tracked-controls-webvr': trackedControlsWebVR && new TrackedControlsWebVR(trackedControlsWebVR).toString(),
+    'tracked-controls-webxr': trackedControlsWebXR && new TrackedControlsWebXR(trackedControlsWebXR).toString(),
+    'tracked-controls': trackedControls && new TrackedControls(trackedControls).toString(),
+    'valve-index-controls': valveIndexControls && new ValveIndexControls(valveIndexControls).toString(),
+    visible: visible && new Visible(visible).toString(),
+    'vive-controls': viveControls && new ViveControls(viveControls).toString(),
+    'vive-focus-controls': viveFocusControls && new ViveFocusControls(viveFocusControls).toString(),
+    'wasd-controls': wasdControls && new WASDControls(wasdControls).toString(),
+    'windows-motion-controls': windowsMotionControls && new WindowsMotionControls(windowsMotionControls).toString(),
+    ...registeredComponents,
+  };
+}
+
+/**
+ * A-Frame represents an entity via the `<a-entity>` element. As defined in the [entity-component-system pattern](https://aframe.io/docs/1.2.0/introduction/entity-component-system.html),
+ * entities are placeholder objects to which we plug in components to provide them
+ * appearance, behavior, and functionality.
+ *
+ * In A-Frame, entities are inherently attached with the
+ * [position](https://aframe.io/docs/1.2.0/components/position.html),
+ * [rotation](https://aframe.io/docs/1.2.0/components/rotation.html), and
+ * [scale](https://aframe.io/docs/1.2.0/components/scale.html) components.
+ *
+ * @see https://aframe.io/docs/1.2.0/core/entity.html
+ */
+export default function Entity(props: Props): JSX.Element {
+  const { children } = props;
+
   return (
     <a-entity
-      id={id}
-      className={className}
-      animation={animation ? new Animation(animation).toString() : animation}
-      camera={camera ? new Camera(camera).toString() : camera}
-      cursor={cursor ? new Cursor(cursor).toString() : cursor}
-      daydream-controls={
-        daydreamControls
-          ? new DaydreamControls(daydreamControls).toString()
-          : daydreamControls
-      }
-      gearvr-controls={
-        gearvrControls
-          ? new GearvrControls(gearvrControls).toString()
-          : gearvrControls
-      }
-      generic-tracked-controller-controls={
-        genericTrackedControllerControls
-          ? new GenericTrackedControllerControls(genericTrackedControllerControls).toString()
-          : genericTrackedControllerControls
-      }
-      geometry={geometry ? new Geometry(geometry).toString() : geometry}
-      gltf-model={gltfModel}
-      hand-controls={handControls ? new HandControls(handControls).toString() : handControls}
-      hand-tracking-controls={handTrackingControls
-        ? new HandTrackingControls(handTrackingControls).toString()
-        : handTrackingControls}
-      hp-mixed-reality-controls={hpMixedRealityControls
-        ? new HpMixedRealityControls(hpMixedRealityControls).toString()
-        : hpMixedRealityControls}
-      laser-controls={laserControls ? new LaserControls(laserControls).toString() : laserControls}
-      layer={layer ? new Layer(layer).toString() : layer}
-      light={light ? new Light(light).toString() : light}
-      line={line ? new Line(line).toString() : line}
-      link={link ? new Link(link).toString() : link}
-      look-controls={lookControls ? new LookControls(lookControls).toString() : lookControls}
-      magicleap-controls={
-        magicleapControls
-          ? new MagicleapControls(magicleapControls).toString()
-          : magicleapControls
-        }
-      material={material ? new Material(material).toString() : material}
-      obj-model={objModel ? new ObjModel(objModel).toString() : objModel}
-      oculus-go-controls={
-        oculusGoControls
-          ? new OculusGoControls(oculusGoControls).toString()
-          : oculusGoControls
-      }
-      oculus-touch-controls={
-        oculusTouchControls
-          ? new OculusTouchControls(oculusTouchControls).toString()
-          : oculusTouchControls
-      }
-      position={position ? new Position(position).toString() : position}
-      raycaster={raycaster ? new Raycaster(raycaster).toString() : raycaster}
-      rotation={rotation ? new Rotation(rotation).toString() : rotation}
-      scale={scale ? new Scale(scale).toString() : scale}
-      shadow={shadow ? new Shadow(shadow).toString() : shadow}
-      sound={sound ? new Sound(sound).toString() : sound}
-      text={text ? new Text(text).toString() : text}
-      tracked-controls-webvr={
-        trackedControlsWebVR
-          ? new TrackedControlsWebVR(trackedControlsWebVR).toString()
-          : trackedControlsWebVR
-      }
-      tracked-controls-webxr={
-        trackedControlsWebXR
-          ? new TrackedControlsWebXR(trackedControlsWebXR).toString()
-          : trackedControlsWebXR
-      }
-      tracked-controls={
-        trackedControls
-          ? new TrackedControls(trackedControls).toString()
-          : trackedControls
-      }
-      valve-index-controls={
-        valveIndexControls
-          ? new ValveIndexControls(valveIndexControls).toString()
-          : valveIndexControls
-      }
-      visible={new Visible(visible).toString()}
-      vive-controls={viveControls ? new ViveControls(viveControls).toString() : viveControls}
-      vive-focus-controls={
-        viveFocusControls
-          ? new ViveFocusControls(viveFocusControls).toString()
-          : viveFocusControls
-      }
-      wasd-controls={
-        wasdControls
-          ? new WASDControls(wasdControls).toString()
-          : wasdControls
-      }
-      windows-motion-controls={
-        windowsMotionControls
-          ? new WindowsMotionControls(windowsMotionControls).toString()
-          : windowsMotionControls
-      }
-      {...registeredComponents}
+      {...toProps(props)}
     >
       {children}
     </a-entity>

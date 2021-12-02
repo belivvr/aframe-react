@@ -82,6 +82,8 @@ import {
 } from '../components';
 
 interface Props {
+  id?: string;
+  className?: string;
   children?: React.ReactNode;
   animation?: AnimationProps;
   camera?: CameraProps;
@@ -139,6 +141,8 @@ interface Props {
  * @see https://aframe.io/docs/1.2.0/core/entity.html
  */
 export default function Entity({
+  id,
+  className,
   children,
   animation,
   camera,
@@ -182,6 +186,8 @@ export default function Entity({
 }: Props): JSX.Element {
   return (
     <a-entity
+      id={id}
+      className={className}
       animation={animation ? new Animation(animation).toString() : animation}
       camera={camera ? new Camera(camera).toString() : camera}
       cursor={cursor ? new Cursor(cursor).toString() : cursor}
@@ -220,60 +226,60 @@ export default function Entity({
           ? new MagicleapControls(magicleapControls).toString()
           : magicleapControls
         }
-      material={material ? new Material(material) : material}
-      obj-model={objModel ? new ObjModel(objModel) : objModel}
+      material={material ? new Material(material).toString() : material}
+      obj-model={objModel ? new ObjModel(objModel).toString() : objModel}
       oculus-go-controls={
         oculusGoControls
-          ? new OculusGoControls(oculusGoControls)
+          ? new OculusGoControls(oculusGoControls).toString()
           : oculusGoControls
       }
       oculus-touch-controls={
         oculusTouchControls
-          ? new OculusTouchControls(oculusTouchControls)
+          ? new OculusTouchControls(oculusTouchControls).toString()
           : oculusTouchControls
       }
-      position={position ? new Position(position) : position}
-      raycaster={raycaster ? new Raycaster(raycaster) : raycaster}
-      rotation={rotation ? new Rotation(rotation) : rotation}
-      scale={scale ? new Scale(scale) : scale}
-      shadow={shadow ? new Shadow(shadow) : shadow}
-      sound={sound ? new Sound(sound) : sound}
-      text={text ? new Text(text) : text}
+      position={position ? new Position(position).toString() : position}
+      raycaster={raycaster ? new Raycaster(raycaster).toString() : raycaster}
+      rotation={rotation ? new Rotation(rotation).toString() : rotation}
+      scale={scale ? new Scale(scale).toString() : scale}
+      shadow={shadow ? new Shadow(shadow).toString() : shadow}
+      sound={sound ? new Sound(sound).toString() : sound}
+      text={text ? new Text(text).toString() : text}
       tracked-controls-webvr={
         trackedControlsWebVR
-          ? new TrackedControlsWebVR(trackedControlsWebVR)
+          ? new TrackedControlsWebVR(trackedControlsWebVR).toString()
           : trackedControlsWebVR
       }
       tracked-controls-webxr={
         trackedControlsWebXR
-          ? new TrackedControlsWebXR(trackedControlsWebXR)
+          ? new TrackedControlsWebXR(trackedControlsWebXR).toString()
           : trackedControlsWebXR
       }
       tracked-controls={
         trackedControls
-          ? new TrackedControls(trackedControls)
+          ? new TrackedControls(trackedControls).toString()
           : trackedControls
       }
       valve-index-controls={
         valveIndexControls
-          ? new ValveIndexControls(valveIndexControls)
+          ? new ValveIndexControls(valveIndexControls).toString()
           : valveIndexControls
       }
-      visible={new Visible(visible)}
-      vive-controls={viveControls ? new ViveControls(viveControls) : viveControls}
+      visible={new Visible(visible).toString()}
+      vive-controls={viveControls ? new ViveControls(viveControls).toString() : viveControls}
       vive-focus-controls={
         viveFocusControls
-          ? new ViveFocusControls(viveFocusControls)
+          ? new ViveFocusControls(viveFocusControls).toString()
           : viveFocusControls
       }
       wasd-controls={
         wasdControls
-          ? new WASDControls(wasdControls)
+          ? new WASDControls(wasdControls).toString()
           : wasdControls
       }
       windows-motion-controls={
         windowsMotionControls
-          ? new WindowsMotionControls(windowsMotionControls)
+          ? new WindowsMotionControls(windowsMotionControls).toString()
           : windowsMotionControls
       }
       {...registeredComponents}

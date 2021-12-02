@@ -1,12 +1,12 @@
-import type { Hand, Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Hand, Vec3Props } from './types';
+import { Vec3 } from './types';
 
 export interface ValveIndexControlsProps {
   hand?: Hand;
   buttonColor?: string;
   buttonHighlightColor?: string;
   model?: boolean;
-  orientationOffset?: Vec3;
+  orientationOffset?: Vec3Props;
 }
 
 export class ValveIndexControls implements ValveIndexControlsProps {
@@ -18,7 +18,7 @@ export class ValveIndexControls implements ValveIndexControlsProps {
 
   readonly model: boolean;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   constructor({
     hand = 'left',
@@ -38,5 +38,5 @@ export class ValveIndexControls implements ValveIndexControlsProps {
                                 + `buttonColor:${this.buttonColor};`
                                 + `buttonHighlightColor:${this.buttonHighlightColor};`
                                 + `model:${this.model};`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`;
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`;
 }

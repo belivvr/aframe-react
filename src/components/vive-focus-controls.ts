@@ -1,5 +1,5 @@
-import type { Hand, Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Hand, Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * The vive-focus-controls component interfaces with the Vive Focus controller.
@@ -12,7 +12,7 @@ export interface ViveFocusControlsProps {
   buttonTouchedColor?: string;
   buttonHighlightColor?: string;
   model?: boolean;
-  orientationOffset?: Vec3;
+  orientationOffset?: Vec3Props;
   armModel?: boolean;
 }
 
@@ -25,7 +25,7 @@ export class ViveFocusControls implements ViveFocusControlsProps {
 
   readonly model: boolean;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   readonly armModel: boolean;
 
@@ -49,6 +49,6 @@ export class ViveFocusControls implements ViveFocusControlsProps {
                                 + `buttonTouchedColor:${this.buttonTouchedColor};`
                                 + `buttonHighlightColor:${this.buttonHighlightColor};`
                                 + `model:${this.model};`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
                                 + `armModel:${this.armModel};`;
 }

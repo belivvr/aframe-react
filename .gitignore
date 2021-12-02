@@ -9,7 +9,7 @@ node_modules
 !/.yarn/sdks
 
 # builds
-types
+/types
 build
 dist
 lib

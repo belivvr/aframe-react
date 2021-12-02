@@ -1,5 +1,5 @@
-import type { Hand, Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Hand, Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * The daydream-controls component interfaces with the Google Daydream controllers.
@@ -42,7 +42,7 @@ export interface DaydreamControlsProps {
   /**
    * Offset to apply to model orientation.
    */
-  orientationOffset?: Vec3;
+  orientationOffset?: Vec3Props;
 
   /**
    * Whether the arm model is used for positional data.
@@ -61,7 +61,7 @@ export class DaydreamControls implements DaydreamControlsProps {
 
   readonly model: boolean;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   readonly armModel: boolean;
 
@@ -88,6 +88,6 @@ export class DaydreamControls implements DaydreamControlsProps {
                                 + `buttonTouchedColor:${this.buttonTouchedColor};`
                                 + `buttonHighlightColor:${this.buttonHighlightColor};`
                                 + `model:${this.model};`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
                                 + `armModel:${this.armModel};`;
 }

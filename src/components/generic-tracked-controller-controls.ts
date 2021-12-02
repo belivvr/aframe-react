@@ -1,5 +1,5 @@
-import type { Hand, Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Hand, Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * @see https://github.com/aframevr/aframe/blob/master/src/components/generic-tracked-controller-controls.js
@@ -15,7 +15,7 @@ export interface GenericTrackedControllerControlsProps {
   /**
    * Offset to apply to model orientation.
    */
-  orientationOffset?: Vec3;
+  orientationOffset?: Vec3Props;
   disabled?: boolean;
 }
 
@@ -26,7 +26,7 @@ export class GenericTrackedControllerControls implements GenericTrackedControlle
 
   readonly defaultModelColor: string;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   readonly disabled: boolean;
 
@@ -47,6 +47,6 @@ export class GenericTrackedControllerControls implements GenericTrackedControlle
   public toString = (): string => `hand:${this.hand};`
                                 + `defaultModel:${this.defaultModel};`
                                 + `defaultModelColor:${this.defaultModelColor};`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
                                 + `disabled:${this.disabled};`;
 }

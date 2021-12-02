@@ -3,8 +3,6 @@ export * as scene from './scene';
 export type {
   Hand,
   HandModelStyle,
-  Vec2,
-  Vec3,
   Geometries,
   ModelStyle,
   LayerType,
@@ -20,6 +18,8 @@ export type {
   TextBaseline,
   TextSide,
   TextWhiteSpace,
+  Vec2Props,
+  Vec3Props,
 } from './types';
 export type {
   EaseIn,
@@ -71,7 +71,7 @@ export type { ViveFocusControlsProps } from './vive-focus-controls';
 export type { WASDControlsProps } from './wasd-controls';
 export type { WindowsMotionControlsProps } from './windows-motion-controls';
 
-export { Vec2ToString, Vec3ToString } from './types';
+export { Vec2, Vec3 } from './types';
 export { Animation } from './animation';
 export { Camera } from './camera';
 export { Cursor } from './cursor';

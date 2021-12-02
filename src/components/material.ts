@@ -1,11 +1,11 @@
 import type {
-  Vec2,
+  Vec2Props,
   MaterialShape,
   MaterialSide,
   MaterialVertexColor,
   MaterialBlending,
 } from './types';
-import { Vec2ToString } from './types';
+import { Vec2 } from './types';
 
 /**
  * The material component gives appearance to an entity.
@@ -43,7 +43,7 @@ export interface MaterialProps {
   /**
    * Texture offset to be used.
    */
-  offset?: Vec2;
+  offset?: Vec2Props;
 
   /**
    * Extent of transparency.
@@ -55,7 +55,7 @@ export interface MaterialProps {
   /**
    * Texture repeat to be used.
    */
-  repeat?: Vec2;
+  repeat?: Vec2Props;
 
   /**
    * Which material to use. Defaults to the [standard material](https://aframe.io/docs/1.2.0/components/material.html#standard).
@@ -109,11 +109,11 @@ export class Material implements MaterialProps {
 
   readonly npot: boolean;
 
-  readonly offset: Vec2;
+  readonly offset: Vec2Props;
 
   readonly opacity: number;
 
-  readonly repeat: Vec2;
+  readonly repeat: Vec2Props;
 
   readonly shader: MaterialShape;
 
@@ -168,9 +168,9 @@ export class Material implements MaterialProps {
                                 + `depthWrite:${this.depthWrite};`
                                 + `flatShading:${this.flatShading};`
                                 + `npot:${this.npot};`
-                                + `offset:${Vec2ToString(this.offset)};`
+                                + `offset:${new Vec2(this.offset).toString()};`
                                 + `opacity:${this.opacity};`
-                                + `repeat:${Vec2ToString(this.repeat)};`
+                                + `repeat:${new Vec2(this.repeat).toString()};`
                                 + `shader:${this.shader};`
                                 + `side:${this.side};`
                                 + `transparent:${this.transparent};`

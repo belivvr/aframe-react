@@ -1,9 +1,9 @@
 import type {
   Hand,
-  Vec3,
+  Vec3Props,
   OculusTouchControllerType,
 } from './types';
-import { Vec3ToString } from './types';
+import { Vec3 } from './types';
 
 /**
  * The oculus-touch-controls component interfaces with the Oculus Touch controllers (Rift, Rift S, Oculus Quest 1 and 2). It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and a Touch controller model.
@@ -44,7 +44,7 @@ export interface OculusTouchControlsProps {
   /**
    * Offset to apply to model orientation.
    */
-  orientationOffset?: Vec3;
+  orientationOffset?: Vec3Props;
 }
 
 export class OculusTouchControls implements OculusTouchControlsProps {
@@ -58,7 +58,7 @@ export class OculusTouchControls implements OculusTouchControlsProps {
 
   readonly model: boolean;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   readonly controllerType: OculusTouchControllerType;
 
@@ -85,6 +85,6 @@ export class OculusTouchControls implements OculusTouchControlsProps {
                                 + `buttonTouchedColor:${this.buttonTouchedColor};`
                                 + `buttonHighlightColor:${this.buttonHighlightColor};`
                                 + `model:${this.model};`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
                                 + `controllerType:${this.controllerType};`;
 }

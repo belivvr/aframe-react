@@ -1,5 +1,5 @@
-import type { Hand, Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Hand, Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * The tracked-controls component interfaces with tracked controllers.
@@ -39,7 +39,7 @@ export interface TrackedControlsWebVRProps {
   /**
    * Offset to apply to model orientation.
    */
-  orientationOffset?: Vec3;
+  orientationOffset?: Vec3Props;
 
   /**
    * Whether the arm model is used for positional data if absent.
@@ -63,7 +63,7 @@ export class TrackedControlsWebVR implements TrackedControlsWebVRProps {
 
   readonly idPrefix?: string;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   readonly armModel?: boolean;
 
@@ -94,7 +94,7 @@ export class TrackedControlsWebVR implements TrackedControlsWebVRProps {
                                 + `${this.id ? `id:${this.id};` : ''}`
                                 + `${this.hand ? `hand:${this.hand};` : ''}`
                                 + `${this.idPrefix ? `idPrefix:${this.idPrefix};` : ''}`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
                                 + `armModel:${this.armModel};`
                                 + `${this.headElement ? `headElement:${this.headElement};` : ''}`;
 }

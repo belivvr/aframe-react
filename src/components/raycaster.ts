@@ -1,5 +1,5 @@
-import type { Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * The raycaster component provides line-based intersection testing with a [raycaster](https://en.wikipedia.org/wiki/Ray_casting). Raycasting is the method of extending a line from an origin towards a direction, and checking whether that line intersects with other entities.
@@ -27,7 +27,7 @@ export interface RaycasterProps {
    * Vector3 coordinate of which direction the ray should point
    * from relative to the entity’s origin.
    */
-  direction?: Vec3;
+  direction?: Vec3Props;
 
   /**
    * Whether raycaster is actively checking for intersections.
@@ -65,7 +65,7 @@ export interface RaycasterProps {
   /**
    * Vector3 coordinate of where the ray should originate from relative to the entity’s origin.
    */
-  origin?: Vec3;
+  origin?: Vec3Props;
 
   /**
    * Whether or not to display the raycaster visually with the [line component](https://aframe.io/docs/1.2.0/components/line.html).
@@ -91,7 +91,7 @@ export interface RaycasterProps {
 export class Raycaster implements RaycasterProps {
   readonly autoRefresh: boolean;
 
-  readonly direction: Vec3;
+  readonly direction: Vec3Props;
 
   readonly enabled: boolean;
 
@@ -103,7 +103,7 @@ export class Raycaster implements RaycasterProps {
 
   readonly objects?: string;
 
-  readonly origin: Vec3;
+  readonly origin: Vec3Props;
 
   readonly showLine: boolean;
 
@@ -142,13 +142,13 @@ export class Raycaster implements RaycasterProps {
   }
 
   public toString = (): string => `autoRefresh:${this.autoRefresh};`
-                                + `direction:${Vec3ToString(this.direction)};`
+                                + `direction:${new Vec3(this.direction).toString()};`
                                 + `enabled:${this.enabled};`
                                 + `far:${this.far};`
                                 + `interval:${this.interval};`
                                 + `near:${this.near};`
                                 + `${this.objects ? `objects:${this.objects};` : ''}`
-                                + `origin:${Vec3ToString(this.origin)};`
+                                + `origin:${new Vec3(this.origin).toString()};`
                                 + `showLine:${this.showLine};`
                                 + `lineColor:${this.lineColor};`
                                 + `lineOpacity:${this.lineOpacity};`

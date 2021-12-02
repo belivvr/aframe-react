@@ -1,5 +1,5 @@
-import type { Hand, Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Hand, Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * The vive-controls component interfaces with the HTC Vive controllers/wands.
@@ -33,7 +33,7 @@ export interface ViveControlsProps {
   /**
    * Offset to apply to model orientation.
    */
-  orientationOffset?: Vec3;
+  orientationOffset?: Vec3Props;
 }
 
 export class ViveControls {
@@ -45,7 +45,7 @@ export class ViveControls {
 
   readonly model: boolean;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   constructor({
     hand = 'left',
@@ -65,5 +65,5 @@ export class ViveControls {
                                 + `buttonColor:${this.buttonColor};`
                                 + `buttonHighlightColor:${this.buttonHighlightColor};`
                                 + `model:${this.model};`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`;
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`;
 }

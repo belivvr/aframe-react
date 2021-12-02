@@ -1,14 +1,5 @@
 export type Hand = '' | 'left' | 'right';
 export type HandModelStyle = 'lowPoly' | 'highPoly' | 'toon';
-export type Vec2 = {
-  x: number;
-  y: number;
-};
-export type Vec3 = {
-  x: number;
-  y: number;
-  z: number;
-};
 
 /**
  * @see https://aframe.io/docs/1.2.0/components/geometry.html#built-in-geometries
@@ -32,10 +23,7 @@ export type TextWhiteSpace = 'normal' | 'pre' | 'nowrap';
 export type Shader = 'portal' | 'flat' | 'ios10hls' | 'msdf' | 'sdf' | 'standard';
 export type WASDAxis = 'x' | 'y' | 'z';
 
-export function Vec2ToString(vec2: Vec2) {
-  return `${vec2.x} ${vec2.y}`;
-}
-
-export function Vec3ToString(vec3: Vec3) {
-  return `${vec3.x} ${vec3.y} ${vec3.z}`;
-}
+export type { Vec2Props } from './Vec2';
+export type { Vec3Props } from './Vec3';
+export { Vec2 } from './Vec2';
+export { Vec3 } from './Vec3';

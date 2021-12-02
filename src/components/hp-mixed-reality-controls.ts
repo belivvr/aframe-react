@@ -1,5 +1,5 @@
-import type { Hand, Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Hand, Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * @see https://github.com/aframevr/aframe/blob/master/src/components/hp-mixed-reality-controls.js
@@ -26,7 +26,7 @@ export class HpMixedRealityControls {
 
   readonly model: boolean;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   constructor({
     hand = '',
@@ -40,5 +40,5 @@ export class HpMixedRealityControls {
 
   public toString = (): string => `hand:${this.hand};`
                                 + `model:${this.model};`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`;
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`;
 }

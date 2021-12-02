@@ -1,30 +1,30 @@
 import React from 'react';
 
-import type { Vec2 } from '../../components';
-import { Vec2ToString } from '../../components';
+import type { Vec2Props } from '../../components';
+import { Vec2 } from '../../components';
 import { EntityProps, toProps } from '../../core';
 
 interface Props {
   ambientOcclusionMap?: string;
   ambientOcclusionMapIntensity?: number;
-  ambientOcclusionTextureOffset?: Vec2;
-  ambientOcclusionTextureRepeat?: Vec2;
+  ambientOcclusionTextureOffset?: Vec2Props;
+  ambientOcclusionTextureRepeat?: Vec2Props;
   color?: string;
   depth?: number;
   displacementBias?: number;
   displacementMap?: string;
   displacementScale?: number;
-  displacementTextureOffset?: Vec2;
-  displacementTextureRepeat?: Vec2;
+  displacementTextureOffset?: Vec2Props;
+  displacementTextureRepeat?: Vec2Props;
   envMap?: string;
   fog?: boolean;
   height?: number;
   metalness?: number;
   normalMap?: string;
-  normalScale?: Vec2;
-  normalTextureOffset?: Vec2;
-  normalTextureRepeat?: Vec2;
-  repeat?: Vec2;
+  normalScale?: Vec2Props;
+  normalTextureOffset?: Vec2Props;
+  normalTextureRepeat?: Vec2Props;
+  repeat?: Vec2Props;
   roughness?: number;
   segmentsDepth?: number;
   segmentsHeight?: number;
@@ -70,24 +70,24 @@ function toBoxProps({
   return {
     'ambient-occlusion-map': ambientOcclusionMap,
     'ambient-occlusion-map-intensity': ambientOcclusionMapIntensity,
-    'ambient-occlusion-texture-offset': ambientOcclusionTextureOffset && Vec2ToString(ambientOcclusionTextureOffset),
-    'ambient-occlusion-texture-repeat': ambientOcclusionTextureRepeat && Vec2ToString(ambientOcclusionTextureRepeat),
+    'ambient-occlusion-texture-offset': ambientOcclusionTextureOffset && new Vec2(ambientOcclusionTextureOffset).toString(),
+    'ambient-occlusion-texture-repeat': ambientOcclusionTextureRepeat && new Vec2(ambientOcclusionTextureRepeat).toString(),
     color,
     depth,
     'displacement-bias': displacementBias,
     'displacement-map': displacementMap,
     'displacement-scale': displacementScale,
-    'displacement-texture-offset': displacementTextureOffset && Vec2ToString(displacementTextureOffset),
-    'displacement-texture-repeat': displacementTextureRepeat && Vec2ToString(displacementTextureRepeat),
+    'displacement-texture-offset': displacementTextureOffset && new Vec2(displacementTextureOffset).toString(),
+    'displacement-texture-repeat': displacementTextureRepeat && new Vec2(displacementTextureRepeat).toString(),
     'env-map': envMap,
     fog,
     height,
     metalness,
     'normal-map': normalMap,
     'normal-scale': normalScale,
-    'normal-texture-offset': normalTextureOffset && Vec2ToString(normalTextureOffset),
-    'normal-texture-repeat': normalTextureRepeat && Vec2ToString(normalTextureRepeat),
-    repeat: repeat && Vec2ToString(repeat),
+    'normal-texture-offset': normalTextureOffset && new Vec2(normalTextureOffset).toString(),
+    'normal-texture-repeat': normalTextureRepeat && new Vec2(normalTextureRepeat).toString(),
+    repeat: repeat && new Vec2(repeat).toString(),
     roughness,
     'segments-depth': segmentsDepth,
     'segments-height': segmentsHeight,

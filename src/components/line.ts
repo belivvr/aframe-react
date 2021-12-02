@@ -1,5 +1,5 @@
-import type { Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * The line component draws a line given a start coordinate and end coordinate using [THREE.Line](https://threejs.org/docs/#api/objects/Line).
@@ -13,12 +13,12 @@ export interface LineProps {
   /**
    * Start point coordinate.
    */
-  start?: Vec3;
+  start?: Vec3Props;
 
   /**
    * Start point coordinate.
    */
-  end?: Vec3;
+  end?: Vec3Props;
 
   /**
    * Line color.
@@ -37,9 +37,9 @@ export interface LineProps {
 }
 
 export class Line implements LineProps {
-  readonly start: Vec3;
+  readonly start: Vec3Props;
 
-  readonly end: Vec3;
+  readonly end: Vec3Props;
 
   readonly color: string;
 
@@ -61,8 +61,8 @@ export class Line implements LineProps {
     this.visible = visible;
   }
 
-  public toString = (): string => `start:${Vec3ToString(this.start)};`
-                                + `end:${Vec3ToString(this.end)};`
+  public toString = (): string => `start:${new Vec3(this.start).toString()};`
+                                + `end:${new Vec3(this.end).toString()};`
                                 + `color:${this.color};`
                                 + `opacity:${this.opacity};`
                                 + `visible:${this.visible};`;

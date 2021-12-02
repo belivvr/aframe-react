@@ -1,5 +1,5 @@
-import type { Hand, Vec3 } from './types';
-import { Vec3ToString } from './types';
+import type { Hand, Vec3Props } from './types';
+import { Vec3 } from './types';
 
 /**
  * The oculus-go-controls component interfaces with the Oculus Go controllers. It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and an Oculus Go controller model that highlights the touched and/or pressed buttons (trackpad, trigger).
@@ -35,7 +35,7 @@ export interface OculusGoControlsProps {
   /**
    * Offset to apply to model orientation.
    */
-  orientationOffset?: Vec3;
+  orientationOffset?: Vec3Props;
 
   /**
    * Whether the arm model is used for positional data.
@@ -54,7 +54,7 @@ export class OculusGoControls implements OculusGoControlsProps {
 
   readonly model: boolean;
 
-  readonly orientationOffset: Vec3;
+  readonly orientationOffset: Vec3Props;
 
   readonly armModel: boolean;
 
@@ -81,6 +81,6 @@ export class OculusGoControls implements OculusGoControlsProps {
                                 + `buttonTouchedColor:${this.buttonTouchedColor};`
                                 + `buttonHighlightColor:${this.buttonHighlightColor};`
                                 + `model:${this.model};`
-                                + `orientationOffset:${Vec3ToString(this.orientationOffset)};`
+                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
                                 + `armModel:${this.armModel};`;
 }

@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import { Scene, Box } from 'src';
+
+<Meta
+  title="a-box"
+  component={Box}
+/>
+
+export const Template = (args) => (
+  <Scene {...args.scene}>
+    <Box
+      registeredComponents={{
+        position: "-1 0.5 -3",
+        rotation: "0 45 0",
+      }}
+      {...args.box}
+    />
+  </Scene>
+);
+
+<Canvas>
+  <Story
+    name="cyan"
+    args={{
+      box: {
+        color: 'cyan',
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="red"
+    args={{
+      box: {
+        color: 'red',
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

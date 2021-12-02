@@ -12,7 +12,7 @@ module.exports = {
   framework: '@storybook/react',
   core: {
     builder: 'webpack5'
-  }
+  },
   typescript: { reactDocgen: false },
   webpackFinal: (config) => {
     config.resolve.alias = {

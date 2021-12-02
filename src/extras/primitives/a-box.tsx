@@ -30,6 +30,9 @@ interface Props {
   width?: unknown;
   wireframe?: unknown;
   wireframeLinewidth?: unknown;
+  registeredComponents?: {
+    [key: string]: unknown;
+  }
 }
 
 export default function Box({
@@ -62,6 +65,7 @@ export default function Box({
   width,
   wireframe,
   wireframeLinewidth,
+  registeredComponents,
 }: Props): JSX.Element {
   return (
     <a-box
@@ -94,6 +98,7 @@ export default function Box({
       width={width}
       wireframe={wireframe}
       wireframe-linewidth={wireframeLinewidth}
+      {...registeredComponents}
     />
   );
 }

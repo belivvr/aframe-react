@@ -3,6 +3,7 @@ declare namespace JSX {
     'a-entity': any;
     'a-scene': any;
     'a-mixin': any;
+    'a-assets': any;
     'a-box': any;
     'a-camera': any;
     'a-circle': any;

@@ -10,9 +10,15 @@ import { Scene, Box } from 'src';
 export const Template = (args) => (
   <Scene {...args.scene}>
     <Box
-      registeredComponents={{
-        position: "-1 0.5 -3",
-        rotation: "0 45 0",
+      position={{
+        x: -1,
+        y: 0.5,
+        z: -3,
+      }}
+      rotation={{
+        x: 0,
+        y: 45,
+        z: 0,
       }}
       {...args.box}
     />

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { EntityProps, toProps } from '../../core';
+
 interface Props {
   ambientOcclusionMap?: unknown;
   ambientOcclusionMapIntensity?: unknown;
@@ -30,12 +32,9 @@ interface Props {
   width?: unknown;
   wireframe?: unknown;
   wireframeLinewidth?: unknown;
-  registeredComponents?: {
-    [key: string]: unknown;
-  }
 }
 
-export default function Box({
+function toBoxProps({
   ambientOcclusionMap,
   ambientOcclusionMapIntensity,
   ambientOcclusionTextureOffset,
@@ -65,40 +64,49 @@ export default function Box({
   width,
   wireframe,
   wireframeLinewidth,
-  registeredComponents,
-}: Props): JSX.Element {
+}: Props): Object {
+  return {
+    'ambient-occlusion-map': ambientOcclusionMap,
+    'ambient-occlusion-map-intensity': ambientOcclusionMapIntensity,
+    'ambient-occlusion-texture-offset': ambientOcclusionTextureOffset,
+    'ambient-occlusion-texture-repeat': ambientOcclusionTextureRepeat,
+    color,
+    depth,
+    'displacement-bias': displacementBias,
+    'displacement-map': displacementMap,
+    'displacement-scale': displacementScale,
+    'displacement-texture-offset': displacementTextureOffset,
+    'displacement-texture-repeat': displacementTextureRepeat,
+    'env-map': envMap,
+    fog,
+    height,
+    metalness,
+    'normal-map': normalMap,
+    'normal-scale': normalScale,
+    'normal-texture-offset': normalTextureOffset,
+    'normal-texture-repeat': normalTextureRepeat,
+    repeat,
+    roughness,
+    'segments-depth': segmentsDepth,
+    'segments-height': segmentsHeight,
+    'segments-width': segmentsWidth,
+    'spherical-env-map': sphericalEnvMap,
+    src,
+    width,
+    wireframe,
+    'wireframe-linewidth': wireframeLinewidth,
+  };
+}
+
+export default function Box(props: Props & EntityProps): JSX.Element {
+  const { children } = props;
+
   return (
     <a-box
-      ambient-occlusion-map={ambientOcclusionMap}
-      ambient-occlusion-map-intensity={ambientOcclusionMapIntensity}
-      ambient-occlusion-texture-offset={ambientOcclusionTextureOffset}
-      ambient-occlusion-texture-repeat={ambientOcclusionTextureRepeat}
-      color={color}
-      depth={depth}
-      displacement-bias={displacementBias}
-      displacement-map={displacementMap}
-      displacement-scale={displacementScale}
-      displacement-texture-offset={displacementTextureOffset}
-      displacement-texture-repeat={displacementTextureRepeat}
-      env-map={envMap}
-      fog={fog}
-      height={height}
-      metalness={metalness}
-      normal-map={normalMap}
-      normal-scale={normalScale}
-      normal-texture-offset={normalTextureOffset}
-      normal-texture-repeat={normalTextureRepeat}
-      repeat={repeat}
-      roughness={roughness}
-      segments-depth={segmentsDepth}
-      segments-height={segmentsHeight}
-      segments-width={segmentsWidth}
-      spherical-env-map={sphericalEnvMap}
-      src={src}
-      width={width}
-      wireframe={wireframe}
-      wireframe-linewidth={wireframeLinewidth}
-      {...registeredComponents}
-    />
+      {...toProps(props)}
+      {...toBoxProps(props)}
+    >
+      {children}
+    </a-box>
   );
 }

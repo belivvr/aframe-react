@@ -3,26 +3,38 @@ import React from 'react';
 interface Props {
   id?: string;
   className?: string;
-  timeout?: number;
   children?: React.ReactNode;
-  registeredComponents?: {
-    [key: string]: string | number | boolean;
-  };
+  timeout?: number;
+  [key: string]: unknown;
 }
 
-export default function Assets({
-  id,
-  className,
-  timeout,
-  children,
-  registeredComponents,
-}: Props): JSX.Element {
+export default function Assets(props: Props): JSX.Element {
+  const {
+    id,
+    className,
+    children,
+    timeout,
+  } = props;
+
+  const defaultKeys = [
+    'id',
+    'className',
+    'children',
+    'timeout',
+  ];
+
+  const extraKeys = Object.keys(props).filter((key: string) => !defaultKeys.includes(key));
+  const extraProps = extraKeys.reduce((acc: Object, key: string) => ({
+    ...acc,
+    [key]: props[key],
+  }), {});
+
   return (
     <a-mixin
       id={id}
-      className={className}
+      class={className}
       timeout={timeout}
-      {...registeredComponents}
+      {...extraProps}
     >
       {children}
     </a-mixin>

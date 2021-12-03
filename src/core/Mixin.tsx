@@ -9,26 +9,39 @@ interface Props {
   material?: MaterialProps;
   geometry?: GeometryProps;
   children?: React.ReactNode;
-  registeredComponents?: {
-    [key: string]: string | number | boolean;
-  };
+  [key: string]: unknown;
 }
 
-export default function Mixin({
-  id,
-  className,
-  material,
-  geometry,
-  children,
-  registeredComponents,
-}: Props): JSX.Element {
+export default function Mixin(props: Props): JSX.Element {
+  const {
+    id,
+    className,
+    material,
+    geometry,
+    children,
+  } = props;
+
+  const defaultKeys = [
+    'id',
+    'className',
+    'material',
+    'geometry',
+    'children',
+  ];
+
+  const extraKeys = Object.keys(props).filter((key: string) => !defaultKeys.includes(key));
+  const extraProps = extraKeys.reduce((acc: Object, key: string) => ({
+    ...acc,
+    [key]: props[key],
+  }), {});
+
   return (
     <a-mixin
       id={id}
-      className={className}
-      material={material ? new Material(material).toString() : undefined}
-      geometry={geometry ? new Geometry(geometry).toString() : undefined}
-      {...registeredComponents}
+      class={className}
+      material={material && new Material(material).toString()}
+      geometry={geometry && new Geometry(geometry).toString()}
+      {...extraProps}
     >
       {children}
     </a-mixin>

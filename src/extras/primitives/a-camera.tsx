@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { EntityProps, toProps } from '../../core';
+import type { EntityProps } from '../../core';
+import { toProps } from '../../core';
 
 interface Props {
   far?: number;

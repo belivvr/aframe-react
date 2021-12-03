@@ -1,8 +1,9 @@
 import React from 'react';
 
 import type { Vec2Props } from '../../components';
+import type { EntityProps } from '../../core';
 import { Vec2 } from '../../components';
-import { EntityProps, toProps } from '../../core';
+import { toProps } from '../../core';
 
 interface Props {
   ambientOcclusionMap?: string;

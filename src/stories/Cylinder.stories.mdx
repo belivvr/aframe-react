@@ -1,0 +1,131 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import { Scene, Assets, Cylinder } from 'src';
+import texture from './belivvr-logo.png';
+
+<Meta
+  title="a-cylinder"
+  component={Cylinder}
+/>
+
+export const defaultProps = {
+  ambientOcclusionMap: '',
+  ambientOcclusionMapIntensity: 1,
+  ambientOcclusionTextureOffset: { x: 0, y: 0 },
+  ambientOcclusionTextureRepeat: { x: 1, y: 1 },
+  color: '#FFF',
+  displacementBias: 0.5,
+  displacementMap: '',
+  displacementScale: 1,
+  displacementTextureOffset: { x: 0, y: 0 },
+  displacementTextureRepeat: { x: 1, y: 1 },
+  envMap: '',
+  fog: true,
+  height: 1,
+  metalness: 0,
+  normalMap: '',
+  normalScale: { x: 1, y: 1 },
+  normalTextureOffset: { x: 0, y: 0 },
+  normalTextureRepeat: { x: 1, y: 1 },
+  openEnded: false,
+  radiusBottom: 1,
+  radiusTop: 0.8,
+  repeat: { x: 1, y: 1 },
+  roughness: 0.5,
+  segmentsHeight: 18,
+  segmentsRadial: 36,
+  sphericalEnvMap: '',
+  src: '',
+  thetaLength: 360,
+  thetaStart: 0,
+  width: 512,
+  wireframe: false,
+  wireframeLinewidth: 2,
+};
+
+# Basic cylinder
+
+<Canvas>
+  <Story
+    name="Basic cylinder"
+    args={{
+      ...defaultProps,
+      color: 'crimson',
+      height: 3,
+      radius: 1.5,
+      position: { x: -1, y: 0.5, z: -3 },
+      rotation: { x: 0, y: 45, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Cylinder {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>
+
+# Hexagon
+
+<Canvas>
+  <Story
+    name="Hexagon"
+    args={{
+      ...defaultProps,
+      color: 'cyan',
+      segmentsRadial: 6,
+      position: { x: -1, y: 0.5, z: -3 },
+      rotation: { x: 0, y: 45, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Cylinder {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>
+
+# Pac-man
+
+<Canvas>
+  <Story
+    name="Pac-man"
+    args={{
+      ...defaultProps,
+      color: 'yellow',
+      thetaStart: 50,
+      thetaLength: 280,
+      side: 'double',
+      position: { x: -1, y: 0.5, z: -3 },
+      rotation: { x: 0, y: 45, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Cylinder {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>
+
+# Green pipe
+
+<Canvas>
+  <Story
+    name="Green pipe"
+    args={{
+      ...defaultProps,
+      color: 'green',
+      openEnded: true,
+      position: { x: -1, y: 0.5, z: -3 },
+      rotation: { x: 0, y: 45, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Cylinder {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>

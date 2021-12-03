@@ -114,10 +114,10 @@ function toCircleProps({
  *   </Assets>
  *
  *   // Basic circle.
- *   <Circle color="#CCC" radius="20" />
+ *   <Circle color="#CCC" radius={20} />
  *
  *   // Textured circle parallel to ground.
- *   <Circle src="#platform" radius="50" rotation="-90 0 0" />
+ *   <Circle src="#platform" radius={50} rotation={{ x: -90, y: 0, z: 0 }} />
  * </Scene>
  * ```
  */

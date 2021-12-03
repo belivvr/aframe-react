@@ -1,0 +1,84 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import { Scene, Assets, Box, Circle } from 'src';
+import texture from './belivvr-logo.png';
+
+<Meta
+  title="a-circle"
+  component={Circle}
+/>
+
+export const defaultProps = {
+  ambientOcclusionMap: '',
+  ambientOcclusionMapIntensity: 1,
+  ambientOcclusionTextureOffset: { x: 0, y: 0 },
+  ambientOcclusionTextureRepeat: { x: 1, y: 1 },
+  color: '#FFF',
+  displacementBias: 0.5,
+  displacementMap: '',
+  displacementScale: 1,
+  displacementTextureOffset: { x: 0, y: 0 },
+  displacementTextureRepeat: { x: 1, y: 1 },
+  envMap: '',
+  fog: true,
+  height: 256,
+  metalness: 0,
+  normalMap: '',
+  normalScale: { x: 1, y: 1 },
+  normalTextureOffset: { x: 0, y: 0 },
+  normalTextureRepeat: { x: 1, y: 1 },
+  radius: 1,
+  repeat: { x: 1, y: 1 },
+  roughness: 0.5,
+  segments: 32,
+  sphericalEnvMap: '',
+  src: '',
+  thetaLength: 360,
+  thetaStart: 0,
+  width: 512,
+  wireframe: false,
+  wireframeLinewidth: 2,
+};
+
+# Basic circle
+
+<Canvas>
+  <Story
+    name="Basic circle"
+    args={{
+      ...defaultProps,
+      color: '#CCC',
+      radius: 20,
+      position: { x: 0, y: 0, z: -100 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Circle {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>
+
+# Textured circle parallel to ground
+
+<Canvas>
+  <Story
+    name="Textured circle parallel to ground"
+    args={{
+      ...defaultProps,
+      src: '#platform',
+      radius: 50,
+      rotation: { x: -90, y: 0, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Assets>
+          <img id="platform" src={texture} alt="" />
+        </Assets>
+        <Circle {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>

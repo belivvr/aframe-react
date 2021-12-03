@@ -95,7 +95,7 @@ export interface Props {
   gltfModel?: GLTFModel;
   handControls?: HandControlsProps;
   handTrackingControls?: HandTrackingControlsProps;
-  hpMixedRealityControls: HpMixedRealityControlsProps;
+  hpMixedRealityControls?: HpMixedRealityControlsProps;
   laserControls?: LaserControlsProps;
   layer?: LayerProps;
   light?: LightProps;

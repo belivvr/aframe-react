@@ -1,0 +1,74 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import { Scene, Assets, CurvedImage } from 'src';
+import texture from './belivvr-logo.png';
+
+<Meta
+  title="a-curvedimage"
+  component={CurvedImage}
+/>
+
+export const defaultProps = {
+  color: '#FFF',
+  height: 1,
+  metalness: 0,
+  opacity: 1,
+  openEnded: true,
+  radius: 2,
+  repeat: { x: 0, y: 0 },
+  roughness: 0.5,
+  segmentsHeight: 18,
+  segmentsRadial: 48,
+  shader: 'flat',
+  side: 'double',
+  src: '',
+  thetaLength: 270,
+  thetaStart: 0,
+  transparent: true,
+};
+
+# Using the asset management system
+
+<Canvas>
+  <Story
+    name="Using the asset management system"
+    args={{
+      ...defaultProps,
+      src: '#texture',
+      height: 3.0,
+      radius: 5.7,
+      thetaLength: 72,
+      rotation: { x: 0, y: 100, z: 0 },
+      scale: { x: 0.8, y: 0.8, z: 0.8 },
+      color: 'gray',
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Assets>
+          <img id="texture" src={texture} alt="" />
+        </Assets>
+        <CurvedImage {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>
+
+# Defining the URL inline. Not recommended but more comfortable for web developers
+
+<Canvas>
+  <Story
+    name="Defining the URL inline"
+    args={{
+      ...defaultProps,
+      src: '/static/media/src/stories/belivvr-logo.png',
+      color: 'gray',
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <CurvedImage {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>

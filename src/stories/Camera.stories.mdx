@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import { Scene, Box, Camera } from 'src';
+
+<Meta
+  title="a-camera"
+  component={Camera}
+/>
+
+<Canvas>
+  <Story
+    name="example"
+    args={{
+      far: 10000,
+      fov: 80,
+      lookControlsEnabled: true,
+      near: 0.5,
+      reverseMouseDrag: false,
+      wasdControlsEnabled: true,
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Box
+          color="tomato"
+          position={{ x: -1, y: 0.5, z: -3 }}
+          rotation={{ x: 0, y: 45, z: 0 }}
+        />
+        <Camera {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>

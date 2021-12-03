@@ -1,40 +1,45 @@
 import React from 'react';
 
+import type { Vec2Props } from '../../components';
+import type { EntityProps } from '../../core';
+import { Vec2 } from '../../components';
+import { toProps } from '../../core';
+
 interface Props {
-  ambientOcclusionMap?: unknown;
-  ambientOcclusionMapIntensity?: unknown;
-  ambientOcclusionTextureOffset?: unknown;
-  ambientOcclusionTextureRepeat?: unknown;
-  color?: unknown;
-  displacementBias?: unknown;
-  displacementMap?: unknown;
-  displacementScale?: unknown;
-  displacementTextureOffset?: unknown;
-  displacementTextureRepeat?: unknown;
-  envMap?: unknown;
-  fog?: unknown;
-  height?: unknown;
-  metalness?: unknown;
-  normalMap?: unknown;
-  normalScale?: unknown;
-  normalTextureOffset?: unknown;
-  normalTextureRepeat?: unknown;
-  p?: unknown;
-  q?: unknown;
-  radius?: unknown;
-  radiusTubular?: unknown;
-  repeat?: unknown;
-  roughness?: unknown;
-  segmentsRadial?: unknown;
-  segmentsTubular?: unknown;
-  sphericalEnvMap?: unknown;
-  src?: unknown;
-  width?: unknown;
-  wireframe?: unknown;
-  wireframeLinewidth?: unknown;
+  ambientOcclusionMap?: string;
+  ambientOcclusionMapIntensity?: number;
+  ambientOcclusionTextureOffset?: Vec2Props;
+  ambientOcclusionTextureRepeat?: Vec2Props;
+  color?: string;
+  displacementBias?: number;
+  displacementMap?: string;
+  displacementScale?: number;
+  displacementTextureOffset?: Vec2Props;
+  displacementTextureRepeat?: Vec2Props;
+  envMap?: string;
+  fog?: boolean;
+  height?: number;
+  metalness?: number;
+  normalMap?: string;
+  normalScale?: Vec2Props;
+  normalTextureOffset?: Vec2Props;
+  normalTextureRepeat?: Vec2Props;
+  p?: number;
+  q?: number;
+  radius?: number;
+  radiusTubular?: number;
+  repeat?: Vec2Props;
+  roughness?: number;
+  segmentsRadial?: number;
+  segmentsTubular?: number;
+  sphericalEnvMap?: string;
+  src?: string;
+  width?: number;
+  wireframe?: boolean;
+  wireframeLinewidth?: number;
 }
 
-export default function TorusKnot({
+function toTorusKnotProps({
   ambientOcclusionMap,
   ambientOcclusionMapIntensity,
   ambientOcclusionTextureOffset,
@@ -66,40 +71,102 @@ export default function TorusKnot({
   width,
   wireframe,
   wireframeLinewidth,
-}: Props): JSX.Element {
+}: Props): Object {
+  return {
+    'ambient-occlusion-map': ambientOcclusionMap,
+    'ambient-occlusion-map-intensity': ambientOcclusionMapIntensity,
+    'ambient-occlusion-texture-offset': ambientOcclusionTextureOffset && new Vec2(ambientOcclusionTextureOffset).toString(),
+    'ambient-occlusion-texture-repeat': ambientOcclusionTextureRepeat && new Vec2(ambientOcclusionTextureRepeat).toString(),
+    color,
+    'displacement-bias': displacementBias,
+    'displacement-map': displacementMap,
+    'displacement-scale': displacementScale,
+    'displacement-texture-offset': displacementTextureOffset && new Vec2(displacementTextureOffset).toString(),
+    'displacement-texture-repeat': displacementTextureRepeat && new Vec2(displacementTextureRepeat).toString(),
+    'env-map': envMap,
+    fog,
+    height,
+    metalness,
+    'normal-map': normalMap,
+    'normal-scale': normalScale && new Vec2(normalScale).toString(),
+    'normal-texture-offset': normalTextureOffset && new Vec2(normalTextureOffset).toString(),
+    'normal-texture-repeat': normalTextureRepeat && new Vec2(normalTextureRepeat).toString(),
+    p,
+    q,
+    radius,
+    'radius-tubular': radiusTubular,
+    repeat: repeat && new Vec2(repeat).toString(),
+    roughness,
+    'segments-radial': segmentsRadial,
+    'segments-tubular': segmentsTubular,
+    'spherical-env-map': sphericalEnvMap,
+    src,
+    width,
+    wireframe,
+    'wireframe-linewidth': wireframeLinewidth,
+  };
+}
+
+/**
+ * The torus knot primitive creates pretzel shapes using the [geometry](https://aframe.io/docs/1.2.0/components/geometry.html) component with the type set to `torusKnot`.
+ *
+ * @see https://aframe.io/docs/1.2.0/primitives/a-torus-knot.html
+ *
+ * @example
+ * ```tsx
+ * <TorusKnot
+ *   color="#B84A39"
+ *   arc={180}
+ *   p={2}
+ *   q={7}
+ *   radius={5}
+ *   radius-tubular={0.1}
+ * />
+ * ```
+ */
+export default function TorusKnot(props: Props & EntityProps): JSX.Element {
+  const torusKnotKeys = [
+    'ambientOcclusionMap',
+    'ambientOcclusionMapIntensity',
+    'ambientOcclusionTextureOffset',
+    'ambientOcclusionTextureRepeat',
+    'color',
+    'displacementBias',
+    'displacementMap',
+    'displacementScale',
+    'displacementTextureOffset',
+    'displacementTextureRepeat',
+    'envMap',
+    'fog',
+    'height',
+    'metalness',
+    'normalMap',
+    'normalScale',
+    'normalTextureOffset',
+    'normalTextureRepeat',
+    'p',
+    'q',
+    'radius',
+    'radiusTubular',
+    'repeat',
+    'roughness',
+    'segmentsRadial',
+    'segmentsTubular',
+    'sphericalEnvMap',
+    'src',
+    'width',
+    'wireframe',
+    'wireframeLinewidth',
+  ];
+
+  const { children } = props;
+
   return (
     <a-torus-knot
-      ambient-occlusion-map={ambientOcclusionMap}
-      ambient-occlusion-map-intensity={ambientOcclusionMapIntensity}
-      ambient-occlusion-texture-offset={ambientOcclusionTextureOffset}
-      ambient-occlusion-texture-repeat={ambientOcclusionTextureRepeat}
-      color={color}
-      displacement-bias={displacementBias}
-      displacement-map={displacementMap}
-      displacement-scale={displacementScale}
-      displacement-texture-offset={displacementTextureOffset}
-      displacement-texture-repeat={displacementTextureRepeat}
-      env-map={envMap}
-      fog={fog}
-      height={height}
-      metalness={metalness}
-      normal-map={normalMap}
-      normal-scale={normalScale}
-      normal-texture-offset={normalTextureOffset}
-      normal-texture-repeat={normalTextureRepeat}
-      p={p}
-      q={q}
-      radius={radius}
-      radius-tubular={radiusTubular}
-      repeat={repeat}
-      roughness={roughness}
-      segments-radial={segmentsRadial}
-      segments-tubular={segmentsTubular}
-      spherical-env-map={sphericalEnvMap}
-      src={src}
-      width={width}
-      wireframe={wireframe}
-      wireframe-linewidth={wireframeLinewidth}
-    />
+      {...toProps(props, torusKnotKeys)}
+      {...toTorusKnotProps(props)}
+    >
+      {children}
+    </a-torus-knot>
   );
 }

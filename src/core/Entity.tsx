@@ -126,7 +126,7 @@ export interface Props {
   [key: string]: unknown;
 }
 
-export function toProps(props: Props): Object {
+export function toProps(props: Props, removalKeys?: string[]): Object {
   const defaultKeys = [
     'id',
     'className',
@@ -172,10 +172,11 @@ export function toProps(props: Props): Object {
   ];
 
   const extraKeys = Object.keys(props).filter((key: string) => !defaultKeys.includes(key));
-  const extraProps = extraKeys.reduce((acc: Object, key: string) => ({
-    ...acc,
-    [key]: props[key],
-  }), {});
+  const extraProps = (removalKeys ? [...extraKeys, ...removalKeys] : extraKeys)
+    .reduce((acc: Object, key: string) => ({
+      ...acc,
+      [key]: props[key],
+    }), {});
 
   const {
     id,

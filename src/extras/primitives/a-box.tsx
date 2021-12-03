@@ -121,10 +121,41 @@ function toBoxProps({
  */
 export default function Box(props: Props & EntityProps): JSX.Element {
   const { children } = props;
+  const boxProps = [
+    'ambientOcclusionMap',
+    'ambientOcclusionMapIntensity',
+    'ambientOcclusionTextureOffset',
+    'ambientOcclusionTextureRepeat',
+    'color',
+    'depth',
+    'displacementBias',
+    'displacementMap',
+    'displacementScale',
+    'displacementTextureOffset',
+    'displacementTextureRepeat',
+    'envMap',
+    'fog',
+    'height',
+    'metalness',
+    'normalMap',
+    'normalScale',
+    'normalTextureOffset',
+    'normalTextureRepeat',
+    'repeat',
+    'roughness',
+    'segmentsDepth',
+    'segmentsHeight',
+    'segmentsWidth',
+    'sphericalEnvMap',
+    'src',
+    'width',
+    'wireframe',
+    'wireframeLinewidth',
+  ];
 
   return (
     <a-box
-      {...toProps(props)}
+      {...toProps(props, boxProps)}
       {...toBoxProps(props)}
     >
       {children}

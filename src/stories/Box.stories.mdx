@@ -1,52 +1,39 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
-import { Scene, Box } from 'src';
+import { Scene, Box, Assets } from 'src';
+import texture from './belivvr-logo.png';
 
 <Meta
   title="a-box"
   component={Box}
 />
 
-export const Template = (args) => (
-  <Scene {...args.scene}>
-    <Box
-      position={{
-        x: -1,
-        y: 0.5,
-        z: -3,
-      }}
-      rotation={{
-        x: 0,
-        y: 45,
-        z: 0,
-      }}
-      {...args.box}
-    />
-  </Scene>
-);
-
 <Canvas>
-  <Story
-    name="cyan"
-    args={{
-      box: {
-        color: 'cyan',
-      },
-    }}
-  >
-    {Template.bind({})}
+  <Story name="Basic box">
+    <Scene>
+      <Box
+        color="tomato"
+        depth={2}
+        height={4}
+        width={0.5}
+        position={{ x: -1, y: 0.5, z: -3 }}
+        rotation={{ x: 0, y: 45, z: 0 }}
+      />
+    </Scene>
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story
-    name="red"
-    args={{
-      box: {
-        color: 'red',
-      },
-    }}
-  >
-    {Template.bind({})}
+  <Story name="Textured box">
+    <Scene>
+      <Assets>
+        <img id="texture" src={texture} alt=""/>
+      </Assets>
+      <Box
+        src="#texture"
+        position={{ x: -1, y: 0.5, z: -3 }}
+        rotation={{ x: 0, y: 45, z: 0 }}
+      />
+    </Scene>
   </Story>
 </Canvas>

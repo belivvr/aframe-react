@@ -30,13 +30,13 @@ export default function Assets(props: Props): JSX.Element {
   }), {});
 
   return (
-    <a-mixin
+    <a-assets
       id={id}
       class={className}
       timeout={timeout}
       {...extraProps}
     >
       {children}
-    </a-mixin>
+    </a-assets>
   );
 }

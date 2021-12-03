@@ -33,7 +33,7 @@ export default function AssetItem(props: Props): JSX.Element {
   }), {});
 
   return (
-    <a-mixin
+    <a-asset-item
       id={id}
       class={className}
       src={src}
@@ -41,6 +41,6 @@ export default function AssetItem(props: Props): JSX.Element {
       {...extraProps}
     >
       {children}
-    </a-mixin>
+    </a-asset-item>
   );
 }

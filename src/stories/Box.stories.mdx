@@ -8,32 +8,80 @@ import texture from './belivvr-logo.png';
   component={Box}
 />
 
+export const defaultProps = {
+  ambientOcclusionMap: '',
+  ambientOcclusionMapIntensity: 1,
+  ambientOcclusionTextureOffset: { x: 0, y: 0 },
+  ambientOcclusionTextureRepeat: { x: 1, y: 1 },
+  color: '#FFF',
+  depth: 1,
+  displacementBias: 0.5,
+  displacementMap: '',
+  displacementScale: 1,
+  displacementTextureOffset: { x: 0, y: 0 },
+  displacementTextureRepeat: { x: 1, y: 1 },
+  envMap: '',
+  fog: true,
+  height: 1,
+  metalness: 0,
+  normalMap: '',
+  normalScale: { x: 1, y: 1 },
+  normalTextureOffset: { x: 0, y: 0 },
+  normalTextureRepeat: { x: 1, y: 1 },
+  repeat: { x: 1, y: 1 },
+  roughness: 0.5,
+  segmentsDepth: 1,
+  segmentsHeight: 1,
+  segmentsWidth: 1,
+  sphericalEnvMap: '',
+  src: '',
+  width: 1,
+  wireframe: false,
+  wireframeLinewidth: 2,
+};
+
+# Basic box
+
 <Canvas>
-  <Story name="Basic box">
-    <Scene>
-      <Box
-        color="tomato"
-        depth={2}
-        height={4}
-        width={0.5}
-        position={{ x: -1, y: 0.5, z: -3 }}
-        rotation={{ x: 0, y: 45, z: 0 }}
-      />
-    </Scene>
+  <Story
+    name="Basic box"
+    args={{
+      ...defaultProps,
+      color: 'tomato',
+      depth: 2,
+      height: 4,
+      width: 0.5,
+      position: { x: -1, y: 0.5, z: -3 },
+      rotation: { x: 0, y: 45, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Box {...args} />
+      </Scene>
+    )}
   </Story>
 </Canvas>
 
+# Textured box
+
 <Canvas>
-  <Story name="Textured box">
-    <Scene>
-      <Assets>
-        <img id="texture" src={texture} alt=""/>
-      </Assets>
-      <Box
-        src="#texture"
-        position={{ x: -1, y: 0.5, z: -3 }}
-        rotation={{ x: 0, y: 45, z: 0 }}
-      />
-    </Scene>
+  <Story
+    name="Textured box"
+    args={{
+      ...defaultProps,
+      src: "#texture",
+      position: { x: -1, y: 0.5, z: -3 },
+      rotation: { x: 0, y: 45, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Assets>
+          <img id="texture" src={texture} alt=""/>
+        </Assets>
+        <Box {...args} />
+      </Scene>
+    )}
   </Story>
 </Canvas>

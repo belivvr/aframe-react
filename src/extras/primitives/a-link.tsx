@@ -25,7 +25,7 @@ export default function Link(props: Props & EntityProps): JSX.Element {
 
   return (
     <a-link
-      {...toProps(props)}
+      {...toProps(props, ['href', 'title', 'src'])}
       href={href}
       title={title}
       src={src}

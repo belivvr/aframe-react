@@ -130,6 +130,7 @@ export function toProps(props: Props): Object {
   const defaultKeys = [
     'id',
     'className',
+    'children',
     'animation',
     'camera',
     'cursor',

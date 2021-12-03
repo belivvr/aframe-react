@@ -29,6 +29,9 @@ import {
 } from '../components/scene';
 
 interface Props {
+  id?: string;
+  className?: string;
+  children?: React.ReactNode;
   fog?: FogProps;
   inspector?: InspectorProps;
   background?: BackgroundProps;
@@ -42,9 +45,70 @@ interface Props {
   debug?: Debug;
   gltfModel?: GLTFModelProps;
   shadow?: ShadowProps;
-  children?: React.ReactNode;
-  registeredComponents?: {
-    [key: string]: string | number | boolean;
+  [key: string]: unknown;
+}
+
+function toProps(props: Props): Object {
+  const defaultKeys = [
+    'id',
+    'className',
+    'fog',
+    'inspector',
+    'background',
+    'vrModeUI',
+    'stats',
+    'screenshot',
+    'pool',
+    'keyboardShortcuts',
+    'embedded',
+    'deviceOrientationPermissionUI',
+    'debug',
+    'gltfModel',
+    'shadow',
+    'children',
+  ];
+
+  const extraKeys = Object.keys(props).filter((key: string) => !defaultKeys.includes(key));
+  const extraProps = extraKeys.reduce((acc: Object, key: string) => ({
+    ...acc,
+    [key]: props[key],
+  }), {});
+
+  const {
+    id,
+    className,
+    fog,
+    inspector,
+    background,
+    vrModeUI,
+    stats,
+    screenshot,
+    pool,
+    keyboardShortcuts,
+    embedded,
+    deviceOrientationPermissionUI,
+    debug,
+    gltfModel,
+    shadow,
+  } = props;
+
+  return {
+    id,
+    class: className,
+    fog: fog && new Fog(fog).toString(),
+    inspector: inspector && new Inspector(inspector).toString(),
+    background: background && new Background(background).toString(),
+    'vr-mode-ui': vrModeUI && new VrModeUI(vrModeUI).toString(),
+    stats,
+    screenshot: screenshot && new Screenshot(screenshot).toString(),
+    pool: pool && new Pool(pool).toString(),
+    'keyboard-shortcuts': keyboardShortcuts && new KeyboardShortcuts(keyboardShortcuts).toString(),
+    embedded,
+    'device-orientation-permission-ui': deviceOrientationPermissionUI && new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString(),
+    debug,
+    'gltf-model': gltfModel && new GLTFModel(gltfModel).toString(),
+    shadow: shadow && new Shadow(shadow).toString(),
+    ...extraProps,
   };
 }
 
@@ -55,47 +119,12 @@ interface Props {
  *
  * @see https://aframe.io/docs/1.2.0/core/scene.html
  */
-export default function Scene({
-  fog,
-  inspector,
-  background,
-  vrModeUI,
-  stats,
-  screenshot,
-  pool,
-  keyboardShortcuts,
-  embedded,
-  deviceOrientationPermissionUI,
-  debug,
-  gltfModel,
-  shadow,
-  children,
-  registeredComponents,
-}: Props): JSX.Element {
+export default function Scene(props: Props): JSX.Element {
+  const { children } = props;
+
   return (
     <a-scene
-      fog={fog ? new Fog(fog).toString() : fog}
-      inspector={inspector ? new Inspector(inspector).toString() : inspector}
-      background={background ? new Background(background).toString() : background}
-      vr-mode-ui={vrModeUI ? new VrModeUI(vrModeUI).toString() : vrModeUI}
-      stats={stats}
-      screenshot={screenshot ? new Screenshot(screenshot).toString() : screenshot}
-      pool={pool ? new Pool(pool).toString() : pool}
-      keyboard-shortcuts={
-        keyboardShortcuts
-          ? new KeyboardShortcuts(keyboardShortcuts).toString()
-          : keyboardShortcuts
-      }
-      embedded={embedded}
-      device-orientation-permission-ui={
-        deviceOrientationPermissionUI
-          ? new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString()
-          : deviceOrientationPermissionUI
-      }
-      debug={debug}
-      gltf-model={gltfModel ? new GLTFModel(gltfModel).toString() : gltfModel}
-      shwdow={shadow ? new Shadow(shadow).toString() : shadow}
-      {...registeredComponents}
+      {...toProps(props)}
     >
       {children}
     </a-scene>

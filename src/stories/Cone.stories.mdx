@@ -1,0 +1,89 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import { Scene, Assets, Box, Cone } from 'src';
+import texture from './belivvr-logo.png';
+
+<Meta
+  title="a-cone"
+  component={Cone}
+/>
+
+export const defaultProps = {
+  ambientOcclusionMap: '',
+  ambientOcclusionMapIntensity: 1,
+  ambientOcclusionTextureOffset: { x: 0, y: 0 },
+  ambientOcclusionTextureRepeat: { x: 1, y: 1 },
+  color: '#FFF',
+  displacementBias: 0.5,
+  displacementMap: '',
+  displacementScale: 1,
+  displacementTextureOffset: { x: 0, y: 0 },
+  displacementTextureRepeat: { x: 1, y: 1 },
+  envMap: '',
+  fog: true,
+  height: 256,
+  metalness: 0,
+  normalMap: '',
+  normalScale: { x: 1, y: 1 },
+  normalTextureOffset: { x: 0, y: 0 },
+  normalTextureRepeat: { x: 1, y: 1 },
+  openEnded: false,
+  radiusBottom: 1,
+  radiusTop: 0.8,
+  repeat: { x: 1, y: 1 },
+  roughness: 0.5,
+  segmentsHeight: 18,
+  segmentsRadial: 36,
+  sphericalEnvMap: '',
+  src: '',
+  thetaLength: 360,
+  thetaStart: 0,
+  width: 512,
+  wireframe: false,
+  wireframeLinewidth: 2,
+};
+
+# Basic cone
+
+<Canvas>
+  <Story
+    name="Basic cone"
+    args={{
+      ...defaultProps,
+      color: 'tomato',
+      radiusBottom: 2,
+      radiusTop: 0.5,
+      position: { x: -1, y: 0.5, z: -3 },
+      rotation: { x: 0, y: 45, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Cone {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>
+
+# Textured cone
+
+<Canvas>
+  <Story
+    name="Textured cone"
+    args={{
+      ...defaultProps,
+      src: '#texture',
+      position: { x: -1, y: 0.5, z: -3 },
+      rotation: { x: 0, y: 45, z: 0 },
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Assets>
+          <img id="texture" src={texture} alt="" />
+        </Assets>
+        <Cone {...args} />
+      </Scene>
+    )}
+  </Story>
+</Canvas>

@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+import { Scene, Camera, Box, Cursor } from 'src';
+import texture from './belivvr-logo.png';
+
+<Meta
+  title="a-cursor"
+  component={Cursor}
+/>
+
+export const defaultProps = {
+  far: 1000,
+  fuse: false,
+  fuseTimeout: 1500,
+  interval: 100,
+  objects: 100,
+};
+
+<Canvas>
+  <Story
+    name="example"
+    args={{
+      ...defaultProps,
+    }}
+  >
+    {(args) => (
+      <Scene>
+        <Camera>
+          <Cursor {...args} />
+        </Camera>
+        <Box
+          color="tomato"
+          position={{ x: -1, y: 0.5, z: -3 }}
+          rotation={{ x: 0, y: 45, z: 0 }}
+        />
+      </Scene>
+    )}
+  </Story>
+</Canvas>

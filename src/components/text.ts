@@ -23,7 +23,7 @@ export interface TextProps {
   /**
    * Discard text pixels if alpha is less than this value.
    */
-  alphaTest?: 0.5;
+  alphaTest?: number;
 
   /**
    * Horizontal positioning (left, center, right, align).
@@ -136,7 +136,7 @@ export interface TextProps {
 export class Text implements TextProps {
   readonly align: TextAlign;
 
-  readonly alphaTest: 0.5;
+  readonly alphaTest: number;
 
   readonly anchor: TextAnchor;
 

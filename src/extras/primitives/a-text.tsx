@@ -1,30 +1,10 @@
 import React from 'react';
 
-interface Props {
-  align?: unknown;
-  alphaTest?: unknown;
-  anchor?: unknown;
-  baseline?: unknown;
-  color?: unknown;
-  font?: unknown;
-  fontImage?: unknown;
-  height?: unknown;
-  letterSpacing?: unknown;
-  lineHeight?: unknown;
-  opacity?: unknown;
-  shader?: unknown;
-  side?: unknown;
-  tabSize?: unknown;
-  transparent?: unknown;
-  value?: unknown;
-  whiteSpace?: unknown;
-  width?: unknown;
-  wrapCount?: unknown;
-  wrapPixels?: unknown;
-  zOffset?: unknown;
-}
+import type { TextProps } from '../../components';
+import type { EntityProps } from '../../core';
+import { toProps } from '../../core';
 
-export default function Text({
+function toTextProps({
   align,
   alphaTest,
   anchor,
@@ -46,30 +26,75 @@ export default function Text({
   wrapCount,
   wrapPixels,
   zOffset,
-}: Props): JSX.Element {
+}: TextProps): Object {
+  return {
+    align,
+    'alpha-test': alphaTest,
+    anchor,
+    baseline,
+    color,
+    font,
+    'font-image': fontImage,
+    height,
+    'letter-spacing': letterSpacing,
+    'line-height': lineHeight,
+    opacity,
+    shader,
+    side,
+    'tab-size': tabSize,
+    transparent,
+    value,
+    'white-space': whiteSpace,
+    width,
+    'wrap-count': wrapCount,
+    'wrap-pixels': wrapPixels,
+    'z-offset': zOffset,
+  };
+}
+
+/**
+ * Wraps the [text component](https://aframe.io/docs/1.2.0/components/text.html).
+ *
+ * @see https://aframe.io/docs/1.2.0/primitives/a-text.html\
+ *
+ * @example
+ * ```tsx
+ * <Text value="Hello, World!" />
+ * ```
+ */
+export default function Text(props: TextProps & EntityProps): JSX.Element {
+  const textKeys = [
+    'align',
+    'alphaTest',
+    'anchor',
+    'baseline',
+    'color',
+    'font',
+    'fontImage',
+    'height',
+    'letterSpacing',
+    'lineHeight',
+    'opacity',
+    'shader',
+    'side',
+    'tabSize',
+    'transparent',
+    'value',
+    'whiteSpace',
+    'width',
+    'wrapCount',
+    'wrapPixels',
+    'zOffset',
+  ];
+
+  const { children } = props;
+
   return (
     <a-text
-      align={align}
-      alpha-test={alphaTest}
-      anchor={anchor}
-      baseline={baseline}
-      color={color}
-      font={font}
-      font-image={fontImage}
-      height={height}
-      letter-spacing={letterSpacing}
-      line-height={lineHeight}
-      opacity={opacity}
-      shader={shader}
-      side={side}
-      tab-size={tabSize}
-      transparent={transparent}
-      value={value}
-      white-space={whiteSpace}
-      width={width}
-      wrap-count={wrapCount}
-      wrap-pixels={wrapPixels}
-      z-offset={zOffset}
-    />
+      {...toProps(props, textKeys)}
+      {...toTextProps(props)}
+    >
+      {children}
+    </a-text>
   );
 }

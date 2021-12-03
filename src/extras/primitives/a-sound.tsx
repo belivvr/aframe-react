@@ -1,27 +1,65 @@
 import React from 'react';
 
+import type { EntityProps } from '../../core';
+import { toProps } from '../../core';
+
 interface Props {
-  autoplay?: unknown;
-  loop?: unknown;
-  on?: unknown;
-  src?: unknown;
-  volume?: unknown;
+  autoplay?: boolean;
+  loop?: boolean;
+  on?: string;
+  src?: string;
+  volume?: number;
 }
 
-export default function Sound({
+function toSoundProps({
   autoplay,
   loop,
   on,
   src,
   volume,
-}: Props): JSX.Element {
+}: Props): Object {
+  return {
+    autoplay,
+    loop,
+    on,
+    src,
+    volume,
+  };
+}
+
+/**
+ * The sound primitive wraps the [sound component](https://aframe.io/docs/1.2.0/components/sound.html).
+ *
+ * @see https://aframe.io/docs/1.2.0/primitives/a-sound.html
+ *
+ * @example
+ * ```tsx
+ * <Scene>
+ *   <Sound
+ *     src="src: url(click.mp3)"
+ *     autoplay={true}
+ *     position={{ x: 0, y: 2, z: 5 }}
+ *   />
+ * </Scene>
+ * ```
+ */
+export default function Sound(props: Props & EntityProps): JSX.Element {
+  const volumeKeys = [
+    'autoplay',
+    'loop',
+    'on',
+    'src',
+    'volume',
+  ];
+
+  const { children } = props;
+
   return (
     <a-sound
-      autoplay={autoplay}
-      loop={loop}
-      on={on}
-      src={src}
-      volume={volume}
-    />
+      {...toProps(props, volumeKeys)}
+      {...toSoundProps(props)}
+    >
+      {children}
+    </a-sound>
   );
 }

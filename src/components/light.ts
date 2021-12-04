@@ -1,4 +1,4 @@
-import type { LightType, LightColor } from './types';
+import type { LightType } from './types';
 
 /**
  * The light component defines the entity as a source of light.
@@ -21,7 +21,7 @@ export interface LightProps {
    * - **Basic**: Light color.
    * - **Hemisphere**: Light color from above.
    */
-  color?: LightColor;
+  color?: string;
 
   /**
    * When type in ['probe']
@@ -176,7 +176,7 @@ export interface LightProps {
 export class Light implements LightProps {
   readonly angle?: number;
 
-  readonly color?: LightColor;
+  readonly color?: string;
 
   readonly envMap?: string;
 

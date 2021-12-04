@@ -7,7 +7,6 @@ export type {
   ModelStyle,
   LayerType,
   LightType,
-  LightColor,
   MaterialShape,
   MaterialSide,
   MaterialVertexColor,

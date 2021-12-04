@@ -290,6 +290,8 @@ export interface MaterialProps {
    * Image or video texture map. Can either be a selector to an <img> or <video>, or an inline URL.
    */
   src?: string;
+
+  [key: string]: unknown;
 }
 
 export class Material implements MaterialProps {
@@ -375,49 +377,99 @@ export class Material implements MaterialProps {
 
   readonly src?: string;
 
-  constructor({
-    alphaTest,
-    depthTest,
-    depthWrite,
-    flatShading,
-    npot,
-    offset,
-    opacity,
-    repeat,
-    shader,
-    side,
-    transparent,
-    vertexColors,
-    visible,
-    blending,
-    dithering,
-    ambientOcclusionMap,
-    ambientOcclusionMapIntensity,
-    ambientOcclusionTextureRepeat,
-    ambientOcclusionTextureOffset,
-    color,
-    displacementMap,
-    displacementScale,
-    displacementBias,
-    displacementTextureRepeat,
-    displacementTextureOffset,
-    emissive,
-    emissiveIntensity,
-    height,
-    envMap,
-    fog,
-    metalness,
-    normalMap,
-    normalScale,
-    normalTextureRepeat,
-    normalTextureOffset,
-    roughness,
-    sphericalEnvMap,
-    width,
-    wireframe,
-    wireframeLinewidth,
-    src,
-  }: MaterialProps) {
+  readonly extraProps?: string;
+
+  [key: string]: unknown;
+
+  constructor(props: MaterialProps) {
+    const defaultKeys = [
+      'alphaTest',
+      'depthTest',
+      'depthWrite',
+      'flatShading',
+      'npot',
+      'offset',
+      'opacity',
+      'repeat',
+      'shader',
+      'side',
+      'transparent',
+      'vertexColors',
+      'visible',
+      'blending',
+      'dithering',
+      'ambientOcclusionMap',
+      'ambientOcclusionMapIntensity',
+      'ambientOcclusionTextureRepeat',
+      'ambientOcclusionTextureOffset',
+      'color',
+      'displacementMap',
+      'displacementScale',
+      'displacementBias',
+      'displacementTextureRepeat',
+      'displacementTextureOffset',
+      'emissive',
+      'emissiveIntensity',
+      'height',
+      'envMap',
+      'fog',
+      'metalness',
+      'normalMap',
+      'normalScale',
+      'normalTextureRepeat',
+      'normalTextureOffset',
+      'roughness',
+      'sphericalEnvMap',
+      'width',
+      'wireframe',
+      'wireframeLinewidth',
+      'src',
+    ];
+
+    const {
+      alphaTest,
+      depthTest,
+      depthWrite,
+      flatShading,
+      npot,
+      offset,
+      opacity,
+      repeat,
+      shader,
+      side,
+      transparent,
+      vertexColors,
+      visible,
+      blending,
+      dithering,
+      ambientOcclusionMap,
+      ambientOcclusionMapIntensity,
+      ambientOcclusionTextureRepeat,
+      ambientOcclusionTextureOffset,
+      color,
+      displacementMap,
+      displacementScale,
+      displacementBias,
+      displacementTextureRepeat,
+      displacementTextureOffset,
+      emissive,
+      emissiveIntensity,
+      height,
+      envMap,
+      fog,
+      metalness,
+      normalMap,
+      normalScale,
+      normalTextureRepeat,
+      normalTextureOffset,
+      roughness,
+      sphericalEnvMap,
+      width,
+      wireframe,
+      wireframeLinewidth,
+      src,
+    } = props;
+
     this.alphaTest = alphaTest;
     this.depthTest = depthTest;
     this.depthWrite = depthWrite;
@@ -459,6 +511,11 @@ export class Material implements MaterialProps {
     this.wireframe = wireframe;
     this.wireframeLinewidth = wireframeLinewidth;
     this.src = src;
+
+    this.extraProps = Object.keys(props)
+      .filter((prop) => !defaultKeys.includes(prop))
+      .map((prop) => `${prop}:${props[prop]};`)
+      .join('');
   }
 
   public toString = (): string => `alphaTest:${this.alphaTest};`
@@ -501,5 +558,6 @@ export class Material implements MaterialProps {
                                 + `width:${this.width}`
                                 + `wireframe:${this.wireframe}`
                                 + `wireframe-linewidth:${this.wireframeLinewidth}`
-                                + `src:${this.src}`;
+                                + `src:${this.src}`
+                                + `${this.extraProps}`;
 }

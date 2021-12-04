@@ -533,31 +533,31 @@ export class Material implements MaterialProps {
                                 + `visible:${this.visible};`
                                 + `blending:${this.blending};`
                                 + `dithering:${this.dithering};`
-                                + `ambient-occlusion-map:${this.ambientOcclusionMap}`
-                                + `ambient-occlusion-mapIntensity:${this.ambientOcclusionMapIntensity}`
-                                + `${this.ambientOcclusionTextureRepeat && `ambient-occlusion-texture-repeat:${new Vec2(this.ambientOcclusionTextureRepeat).toString()}`}`
-                                + `${this.ambientOcclusionTextureOffset && `ambient-occlusion-texture-offset:${new Vec2(this.ambientOcclusionTextureOffset).toString()}`}`
-                                + `color:${this.color}`
-                                + `displacement-map:${this.displacementMap}`
-                                + `displacement-scale:${this.displacementScale}`
-                                + `displacement-bias:${this.displacementBias}`
-                                + `${this.displacementTextureRepeat && `displacement-texture-repeat:${new Vec2(this.displacementTextureRepeat).toString()}`}`
-                                + `${this.displacementTextureOffset && `displacement-texture-offset:${new Vec2(this.displacementTextureOffset).toString()}`}`
-                                + `emissive:${this.emissive}`
-                                + `emissive-intensity:${this.emissiveIntensity}`
-                                + `height:${this.height}`
-                                + `env-map:${this.envMap}`
-                                + `fog:${this.fog}`
-                                + `metalness:${this.metalness}`
-                                + `normal-map:${this.normalMap}`
-                                + `${this.normalScale && `normal-scale:${new Vec2(this.normalScale).toString()}`}`
-                                + `${this.normalTextureRepeat && `normal-textureRepeat:${new Vec2(this.normalTextureRepeat).toString()}`}`
-                                + `${this.normalTextureOffset && `normal-textureOffset:${new Vec2(this.normalTextureOffset).toString()}`}`
-                                + `roughness:${this.roughness}`
-                                + `spherical-env-map:${this.sphericalEnvMap}`
-                                + `width:${this.width}`
-                                + `wireframe:${this.wireframe}`
-                                + `wireframe-linewidth:${this.wireframeLinewidth}`
-                                + `src:${this.src}`
+                                + `ambient-occlusion-map:${this.ambientOcclusionMap};`
+                                + `ambient-occlusion-mapIntensity:${this.ambientOcclusionMapIntensity};`
+                                + `${this.ambientOcclusionTextureRepeat && `ambient-occlusion-texture-repeat:${new Vec2(this.ambientOcclusionTextureRepeat).toString()};`}`
+                                + `${this.ambientOcclusionTextureOffset && `ambient-occlusion-texture-offset:${new Vec2(this.ambientOcclusionTextureOffset).toString()};`}`
+                                + `color:${this.color};`
+                                + `displacement-map:${this.displacementMap};`
+                                + `displacement-scale:${this.displacementScale};`
+                                + `displacement-bias:${this.displacementBias};`
+                                + `${this.displacementTextureRepeat && `displacement-texture-repeat:${new Vec2(this.displacementTextureRepeat).toString()};`}`
+                                + `${this.displacementTextureOffset && `displacement-texture-offset:${new Vec2(this.displacementTextureOffset).toString()};`}`
+                                + `emissive:${this.emissive};`
+                                + `emissive-intensity:${this.emissiveIntensity};`
+                                + `height:${this.height};`
+                                + `env-map:${this.envMap};`
+                                + `fog:${this.fog};`
+                                + `metalness:${this.metalness};`
+                                + `normal-map:${this.normalMap};`
+                                + `${this.normalScale && `normal-scale:${new Vec2(this.normalScale).toString()};`}`
+                                + `${this.normalTextureRepeat && `normal-textureRepeat:${new Vec2(this.normalTextureRepeat).toString()};`}`
+                                + `${this.normalTextureOffset && `normal-textureOffset:${new Vec2(this.normalTextureOffset).toString()};`}`
+                                + `roughness:${this.roughness};`
+                                + `spherical-env-map:${this.sphericalEnvMap};`
+                                + `width:${this.width};`
+                                + `wireframe:${this.wireframe};`
+                                + `wireframe-linewidth:${this.wireframeLinewidth};`
+                                + `src:${this.src};`
                                 + `${this.extraProps}`;
 }

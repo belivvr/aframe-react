@@ -401,33 +401,33 @@ export class Geometry implements GeometryProps {
   public toString = () => `buffer:${this.buffer};`
                         + `primitive:${this.primitive};`
                         + `skipCache:${this.skipCache};`
-                        + `width:${this.width}`
-                        + `height:${this.height}`
-                        + `depth:${this.depth}`
-                        + `segmentsDepth:${this.segmentsDepth}`
-                        + `segmentsHeight:${this.segmentsHeight}`
-                        + `segmentsWidth:${this.segmentsWidth}`
-                        + `radius:${this.radius}`
-                        + `segments:${this.segments}`
-                        + `thetaStart:${this.thetaStart}`
-                        + `thetaLength:${this.thetaLength}`
-                        + `openEnded:${this.openEnded}`
-                        + `radiusBottom:${this.radiusBottom}`
-                        + `radiusTop:${this.radiusTop}`
-                        + `segmentsRadial:${this.segmentsRadial}`
-                        + `radiusInner:${this.radiusInner}`
-                        + `radiusOuter:${this.radiusOuter}`
-                        + `segmentsTheta:${this.segmentsTheta}`
-                        + `segmentsPhi:${this.segmentsPhi}`
-                        + `phiStart:${this.phiStart}`
-                        + `phiLength:${this.phiLength}`
-                        + `radiusTubular:${this.radiusTubular}`
-                        + `segmentsTubular:${this.segmentsTubular}`
-                        + `arc:${this.arc}`
-                        + `p:${this.p}`
-                        + `q:${this.q}`
-                        + `${this.vertexA ? `vertexA:${new Vec3(this.vertexA).toString()}` : ''}`
-                        + `${this.vertexB ? `vertexB:${new Vec3(this.vertexB).toString()}` : ''}`
-                        + `${this.vertexC ? `vertexC:${new Vec3(this.vertexC).toString()}` : ''}`
+                        + `width:${this.width};`
+                        + `height:${this.height};`
+                        + `depth:${this.depth};`
+                        + `segmentsDepth:${this.segmentsDepth};`
+                        + `segmentsHeight:${this.segmentsHeight};`
+                        + `segmentsWidth:${this.segmentsWidth};`
+                        + `radius:${this.radius};`
+                        + `segments:${this.segments};`
+                        + `thetaStart:${this.thetaStart};`
+                        + `thetaLength:${this.thetaLength};`
+                        + `openEnded:${this.openEnded};`
+                        + `radiusBottom:${this.radiusBottom};`
+                        + `radiusTop:${this.radiusTop};`
+                        + `segmentsRadial:${this.segmentsRadial};`
+                        + `radiusInner:${this.radiusInner};`
+                        + `radiusOuter:${this.radiusOuter};`
+                        + `segmentsTheta:${this.segmentsTheta};`
+                        + `segmentsPhi:${this.segmentsPhi};`
+                        + `phiStart:${this.phiStart};`
+                        + `phiLength:${this.phiLength};`
+                        + `radiusTubular:${this.radiusTubular};`
+                        + `segmentsTubular:${this.segmentsTubular};`
+                        + `arc:${this.arc};`
+                        + `p:${this.p};`
+                        + `q:${this.q};`
+                        + `${this.vertexA && `vertexA:${new Vec3(this.vertexA).toString()};`}`
+                        + `${this.vertexB && `vertexB:${new Vec3(this.vertexB).toString()};`}`
+                        + `${this.vertexC && `vertexC:${new Vec3(this.vertexC).toString()};`}`
                         + `${this.extraProps}`;
 }

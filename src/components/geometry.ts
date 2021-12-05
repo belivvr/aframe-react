@@ -398,34 +398,34 @@ export class Geometry implements GeometryProps {
       .join('');
   }
 
-  public toString = () => `buffer:${this.buffer};`
-                        + `primitive:${this.primitive};`
-                        + `skipCache:${this.skipCache};`
-                        + `width:${this.width};`
-                        + `height:${this.height};`
-                        + `depth:${this.depth};`
-                        + `segmentsDepth:${this.segmentsDepth};`
-                        + `segmentsHeight:${this.segmentsHeight};`
-                        + `segmentsWidth:${this.segmentsWidth};`
-                        + `radius:${this.radius};`
-                        + `segments:${this.segments};`
-                        + `thetaStart:${this.thetaStart};`
-                        + `thetaLength:${this.thetaLength};`
-                        + `openEnded:${this.openEnded};`
-                        + `radiusBottom:${this.radiusBottom};`
-                        + `radiusTop:${this.radiusTop};`
-                        + `segmentsRadial:${this.segmentsRadial};`
-                        + `radiusInner:${this.radiusInner};`
-                        + `radiusOuter:${this.radiusOuter};`
-                        + `segmentsTheta:${this.segmentsTheta};`
-                        + `segmentsPhi:${this.segmentsPhi};`
-                        + `phiStart:${this.phiStart};`
-                        + `phiLength:${this.phiLength};`
-                        + `radiusTubular:${this.radiusTubular};`
-                        + `segmentsTubular:${this.segmentsTubular};`
-                        + `arc:${this.arc};`
-                        + `p:${this.p};`
-                        + `q:${this.q};`
+  public toString = () => `${this.buffer !== undefined && `buffer:${this.buffer};`}`
+                        + `${this.primitive !== undefined && `primitive:${this.primitive};`}`
+                        + `${this.skipCache !== undefined && `skipCache:${this.skipCache};`}`
+                        + `${this.width !== undefined && `width:${this.width};`}`
+                        + `${this.height !== undefined && `height:${this.height};`}`
+                        + `${this.depth !== undefined && `depth:${this.depth};`}`
+                        + `${this.segmentsDepth !== undefined && `segmentsDepth:${this.segmentsDepth};`}`
+                        + `${this.segmentsHeight !== undefined && `segmentsHeight:${this.segmentsHeight};`}`
+                        + `${this.segmentsWidth !== undefined && `segmentsWidth:${this.segmentsWidth};`}`
+                        + `${this.radius !== undefined && `radius:${this.radius};`}`
+                        + `${this.segments !== undefined && `segments:${this.segments};`}`
+                        + `${this.thetaStart !== undefined && `thetaStart:${this.thetaStart};`}`
+                        + `${this.thetaLength !== undefined && `thetaLength:${this.thetaLength};`}`
+                        + `${this.openEnded !== undefined && `openEnded:${this.openEnded};`}`
+                        + `${this.radiusBottom !== undefined && `radiusBottom:${this.radiusBottom};`}`
+                        + `${this.radiusTop !== undefined && `radiusTop:${this.radiusTop};`}`
+                        + `${this.segmentsRadial !== undefined && `segmentsRadial:${this.segmentsRadial};`}`
+                        + `${this.radiusInner !== undefined && `radiusInner:${this.radiusInner};`}`
+                        + `${this.radiusOuter !== undefined && `radiusOuter:${this.radiusOuter};`}`
+                        + `${this.segmentsTheta !== undefined && `segmentsTheta:${this.segmentsTheta};`}`
+                        + `${this.segmentsPhi !== undefined && `segmentsPhi:${this.segmentsPhi};`}`
+                        + `${this.phiStart !== undefined && `phiStart:${this.phiStart};`}`
+                        + `${this.phiLength !== undefined && `phiLength:${this.phiLength};`}`
+                        + `${this.radiusTubular !== undefined && `radiusTubular:${this.radiusTubular};`}`
+                        + `${this.segmentsTubular !== undefined && `segmentsTubular:${this.segmentsTubular};`}`
+                        + `${this.arc !== undefined && `arc:${this.arc};`}`
+                        + `${this.p !== undefined && `p:${this.p};`}`
+                        + `${this.q !== undefined && `q:${this.q};`}`
                         + `${this.vertexA && `vertexA:${new Vec3(this.vertexA).toString()};`}`
                         + `${this.vertexB && `vertexB:${new Vec3(this.vertexB).toString()};`}`
                         + `${this.vertexC && `vertexC:${new Vec3(this.vertexC).toString()};`}`

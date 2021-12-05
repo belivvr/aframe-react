@@ -232,69 +232,69 @@ export interface GeometryProps {
 }
 
 export class Geometry implements GeometryProps {
-  readonly buffer?: boolean;
+  readonly buffer: boolean;
 
-  readonly primitive?: Geometries;
+  readonly primitive: Geometries;
 
-  readonly skipCache?: boolean;
+  readonly skipCache: boolean;
 
-  readonly width?: number;
+  readonly width: number;
 
-  readonly height?: number;
+  readonly height: number;
 
-  readonly depth?: number;
+  readonly depth: number;
 
-  readonly segmentsDepth?: number;
+  readonly segmentsDepth: number;
 
-  readonly segmentsHeight?: number;
+  readonly segmentsHeight: number;
 
-  readonly segmentsWidth?: number;
+  readonly segmentsWidth: number;
 
-  readonly radius?: number;
+  readonly radius: number;
 
-  readonly segments?: number;
+  readonly segments: number;
 
-  readonly thetaStart?: number;
+  readonly thetaStart: number;
 
-  readonly thetaLength?: number;
+  readonly thetaLength: number;
 
-  readonly openEnded?: boolean;
+  readonly openEnded: boolean;
 
-  readonly radiusBottom?: number;
+  readonly radiusBottom: number;
 
-  readonly radiusTop?: number;
+  readonly radiusTop: number;
 
-  readonly segmentsRadial?: number;
+  readonly segmentsRadial: number;
 
-  readonly radiusInner?: number;
+  readonly radiusInner: number;
 
-  readonly radiusOuter?: number;
+  readonly radiusOuter: number;
 
-  readonly segmentsTheta?: number;
+  readonly segmentsTheta: number;
 
-  readonly segmentsPhi?: number;
+  readonly segmentsPhi: number;
 
-  readonly phiStart?: number;
+  readonly phiStart: number;
 
-  readonly phiLength?: number;
+  readonly phiLength: number;
 
-  readonly radiusTubular?: number;
+  readonly radiusTubular: number;
 
-  readonly segmentsTubular?: number;
+  readonly segmentsTubular: number;
 
-  readonly arc?: number;
+  readonly arc: number;
 
-  readonly p?: number;
+  readonly p: number;
 
-  readonly q?: number;
+  readonly q: number;
 
-  readonly vertexA?: Vec3Props;
+  readonly vertexA: Vec3Props;
 
-  readonly vertexB?: Vec3Props;
+  readonly vertexB: Vec3Props;
 
-  readonly vertexC?: Vec3Props;
+  readonly vertexC: Vec3Props;
 
-  readonly extraProps?: string;
+  readonly extraProps: string;
 
   [key: string]: unknown;
 
@@ -357,40 +357,44 @@ export class Geometry implements GeometryProps {
       radiusTubular,
       segmentsTubular,
       arc,
+      p,
+      q,
       vertexA,
       vertexB,
       vertexC,
     } = props;
 
-    this.buffer = buffer;
-    this.primitive = primitive;
-    this.skipCache = skipCache;
-    this.width = width;
-    this.height = height;
-    this.depth = depth;
-    this.segmentsDepth = segmentsDepth;
-    this.segmentsHeight = segmentsHeight;
-    this.segmentsWidth = segmentsWidth;
-    this.radius = radius;
-    this.segments = segments;
-    this.thetaStart = thetaStart;
-    this.thetaLength = thetaLength;
-    this.openEnded = openEnded;
-    this.radiusBottom = radiusBottom;
-    this.radiusTop = radiusTop;
-    this.segmentsRadial = segmentsRadial;
-    this.radiusInner = radiusInner;
-    this.radiusOuter = radiusOuter;
-    this.segmentsTheta = segmentsTheta;
-    this.segmentsPhi = segmentsPhi;
-    this.phiStart = phiStart;
-    this.phiLength = phiLength;
-    this.radiusTubular = radiusTubular;
-    this.segmentsTubular = segmentsTubular;
-    this.arc = arc;
-    this.vertexA = vertexA;
-    this.vertexB = vertexB;
-    this.vertexC = vertexC;
+    this.buffer = buffer ?? true;
+    this.primitive = primitive ?? 'box';
+    this.skipCache = skipCache ?? false;
+    this.width = width ?? 1;
+    this.height = height ?? ['cone', 'cylinder'].includes(this.primitive) ? 2 : 1;
+    this.depth = depth ?? 1;
+    this.segmentsDepth = segmentsDepth ?? 1;
+    this.segmentsHeight = segmentsHeight ?? this.primitive === 'sphere' ? 36 : 1;
+    this.segmentsWidth = segmentsWidth ?? this.primitive === 'sphere' ? 18 : 1;
+    this.radius = radius ?? 1;
+    this.segments = segments ?? 32;
+    this.thetaStart = thetaStart ?? 0;
+    this.thetaLength = thetaLength ?? 360;
+    this.openEnded = openEnded ?? false;
+    this.radiusBottom = radiusBottom ?? 1;
+    this.radiusTop = radiusTop ?? 1;
+    this.segmentsRadial = segmentsRadial ?? 36;
+    this.radiusInner = radiusInner ?? this.primitive === 'ring' ? 1 : 18;
+    this.radiusOuter = radiusOuter ?? 1;
+    this.segmentsTheta = segmentsTheta ?? 32;
+    this.segmentsPhi = segmentsPhi ?? 8;
+    this.phiStart = phiStart ?? 0;
+    this.phiLength = phiLength ?? 360;
+    this.radiusTubular = radiusTubular ?? 0.2;
+    this.segmentsTubular = segmentsTubular ?? 32;
+    this.arc = arc ?? 360;
+    this.p = p ?? 2;
+    this.q = q ?? 3;
+    this.vertexA = vertexA ?? { x: 0, y: 0.5, z: 0 };
+    this.vertexB = vertexB ?? { x: -0.5, y: -0.5, z: 0 };
+    this.vertexC = vertexC ?? { x: 0.5, y: -0.5, z: 0 };
 
     this.extraProps = Object.keys(props)
       .filter((prop) => !defaultKeys.includes(prop))
@@ -398,34 +402,34 @@ export class Geometry implements GeometryProps {
       .join('');
   }
 
-  public toString = () => `${this.buffer !== undefined && `buffer:${this.buffer};`}`
-                        + `${this.primitive !== undefined && `primitive:${this.primitive};`}`
-                        + `${this.skipCache !== undefined && `skipCache:${this.skipCache};`}`
-                        + `${this.width !== undefined && `width:${this.width};`}`
-                        + `${this.height !== undefined && `height:${this.height};`}`
-                        + `${this.depth !== undefined && `depth:${this.depth};`}`
-                        + `${this.segmentsDepth !== undefined && `segmentsDepth:${this.segmentsDepth};`}`
-                        + `${this.segmentsHeight !== undefined && `segmentsHeight:${this.segmentsHeight};`}`
-                        + `${this.segmentsWidth !== undefined && `segmentsWidth:${this.segmentsWidth};`}`
-                        + `${this.radius !== undefined && `radius:${this.radius};`}`
-                        + `${this.segments !== undefined && `segments:${this.segments};`}`
-                        + `${this.thetaStart !== undefined && `thetaStart:${this.thetaStart};`}`
-                        + `${this.thetaLength !== undefined && `thetaLength:${this.thetaLength};`}`
-                        + `${this.openEnded !== undefined && `openEnded:${this.openEnded};`}`
-                        + `${this.radiusBottom !== undefined && `radiusBottom:${this.radiusBottom};`}`
-                        + `${this.radiusTop !== undefined && `radiusTop:${this.radiusTop};`}`
-                        + `${this.segmentsRadial !== undefined && `segmentsRadial:${this.segmentsRadial};`}`
-                        + `${this.radiusInner !== undefined && `radiusInner:${this.radiusInner};`}`
-                        + `${this.radiusOuter !== undefined && `radiusOuter:${this.radiusOuter};`}`
-                        + `${this.segmentsTheta !== undefined && `segmentsTheta:${this.segmentsTheta};`}`
-                        + `${this.segmentsPhi !== undefined && `segmentsPhi:${this.segmentsPhi};`}`
-                        + `${this.phiStart !== undefined && `phiStart:${this.phiStart};`}`
-                        + `${this.phiLength !== undefined && `phiLength:${this.phiLength};`}`
-                        + `${this.radiusTubular !== undefined && `radiusTubular:${this.radiusTubular};`}`
-                        + `${this.segmentsTubular !== undefined && `segmentsTubular:${this.segmentsTubular};`}`
-                        + `${this.arc !== undefined && `arc:${this.arc};`}`
-                        + `${this.p !== undefined && `p:${this.p};`}`
-                        + `${this.q !== undefined && `q:${this.q};`}`
+  public toString = () => `buffer:${this.buffer};`
+                        + `primitive:${this.primitive};`
+                        + `skipCache:${this.skipCache};`
+                        + `width:${this.width};`
+                        + `height:${this.height};`
+                        + `depth:${this.depth};`
+                        + `segmentsDepth:${this.segmentsDepth};`
+                        + `segmentsHeight:${this.segmentsHeight};`
+                        + `segmentsWidth:${this.segmentsWidth};`
+                        + `radius:${this.radius};`
+                        + `segments:${this.segments};`
+                        + `thetaStart:${this.thetaStart};`
+                        + `thetaLength:${this.thetaLength};`
+                        + `openEnded:${this.openEnded};`
+                        + `radiusBottom:${this.radiusBottom};`
+                        + `radiusTop:${this.radiusTop};`
+                        + `segmentsRadial:${this.segmentsRadial};`
+                        + `radiusInner:${this.radiusInner};`
+                        + `radiusOuter:${this.radiusOuter};`
+                        + `segmentsTheta:${this.segmentsTheta};`
+                        + `segmentsPhi:${this.segmentsPhi};`
+                        + `phiStart:${this.phiStart};`
+                        + `phiLength:${this.phiLength};`
+                        + `radiusTubular:${this.radiusTubular};`
+                        + `segmentsTubular:${this.segmentsTubular};`
+                        + `arc:${this.arc};`
+                        + `p:${this.p};`
+                        + `q:${this.q};`
                         + `${this.vertexA && `vertexA:${new Vec3(this.vertexA).toString()};`}`
                         + `${this.vertexB && `vertexB:${new Vec3(this.vertexB).toString()};`}`
                         + `${this.vertexC && `vertexC:${new Vec3(this.vertexC).toString()};`}`

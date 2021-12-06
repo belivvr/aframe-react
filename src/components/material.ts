@@ -518,46 +518,46 @@ export class Material implements MaterialProps {
       .join('');
   }
 
-  public toString = (): string => `${this.alphaTest !== undefined && `alphaTest:${this.alphaTest};`}`
-                                + `${this.depthTest !== undefined && `depthTest:${this.depthTest};`}`
-                                + `${this.depthWrite !== undefined && `depthWrite:${this.depthWrite};`}`
-                                + `${this.flatShading !== undefined && `flatShading:${this.flatShading};`}`
-                                + `${this.npot !== undefined && `npot:${this.npot};`}`
-                                + `${this.offset && `offset:${new Vec2(this.offset).toString()};`}`
-                                + `${this.opacity !== undefined && `opacity:${this.opacity};`}`
-                                + `${this.repeat && `repeat:${new Vec2(this.repeat).toString()};`}`
-                                + `${this.shader !== undefined && `shader:${this.shader};`}`
-                                + `${this.side !== undefined && `side:${this.side};`}`
-                                + `${this.transparent !== undefined && `transparent:${this.transparent};`}`
-                                + `${this.vertexColors !== undefined && `vertexColors:${this.vertexColors};`}`
-                                + `${this.visible !== undefined && `visible:${this.visible};`}`
-                                + `${this.blending !== undefined && `blending:${this.blending};`}`
-                                + `${this.dithering !== undefined && `dithering:${this.dithering};`}`
-                                + `${this.ambientOcclusionMap !== undefined && `ambient-occlusion-map:${this.ambientOcclusionMap};`}`
-                                + `${this.ambientOcclusionMapIntensity !== undefined && `ambient-occlusion-mapIntensity:${this.ambientOcclusionMapIntensity};`}`
-                                + `${this.ambientOcclusionTextureRepeat && `ambient-occlusion-texture-repeat:${new Vec2(this.ambientOcclusionTextureRepeat).toString()};`}`
-                                + `${this.ambientOcclusionTextureOffset && `ambient-occlusion-texture-offset:${new Vec2(this.ambientOcclusionTextureOffset).toString()};`}`
-                                + `${this.color !== undefined && `color:${this.color};`}`
-                                + `${this.displacementMap !== undefined && `displacement-map:${this.displacementMap};`}`
-                                + `${this.displacementScale !== undefined && `displacement-scale:${this.displacementScale};`}`
-                                + `${this.displacementBias !== undefined && `displacement-bias:${this.displacementBias};`}`
-                                + `${this.displacementTextureRepeat && `displacement-texture-repeat:${new Vec2(this.displacementTextureRepeat).toString()};`}`
-                                + `${this.displacementTextureOffset && `displacement-texture-offset:${new Vec2(this.displacementTextureOffset).toString()};`}`
-                                + `${this.emissive !== undefined && `emissive:${this.emissive};`}`
-                                + `${this.emissiveIntensity !== undefined && `emissive-intensity:${this.emissiveIntensity};`}`
-                                + `${this.height !== undefined && `height:${this.height};`}`
-                                + `${this.envMap !== undefined && `env-map:${this.envMap};`}`
-                                + `${this.fog !== undefined && `fog:${this.fog};`}`
-                                + `${this.metalness !== undefined && `metalness:${this.metalness};`}`
-                                + `${this.normalMap !== undefined && `normal-map:${this.normalMap};`}`
-                                + `${this.normalScale && `normal-scale:${new Vec2(this.normalScale).toString()};`}`
-                                + `${this.normalTextureRepeat && `normal-textureRepeat:${new Vec2(this.normalTextureRepeat).toString()};`}`
-                                + `${this.normalTextureOffset && `normal-textureOffset:${new Vec2(this.normalTextureOffset).toString()};`}`
-                                + `${this.roughness && `roughness:${this.roughness};`}`
-                                + `${this.sphericalEnvMap && `spherical-env-map:${this.sphericalEnvMap};`}`
-                                + `${this.width && `width:${this.width};`}`
-                                + `${this.wireframe && `wireframe:${this.wireframe};`}`
-                                + `${this.wireframeLinewidth && `wireframe-linewidth:${this.wireframeLinewidth};`}`
-                                + `${this.src && `src:${this.src};`}`
+  public toString = (): string => `${this.alphaTest !== undefined ?? `alphaTest:${this.alphaTest};`}`
+                                + `${this.depthTest !== undefined ?? `depthTest:${this.depthTest};`}`
+                                + `${this.depthWrite !== undefined ?? `depthWrite:${this.depthWrite};`}`
+                                + `${this.flatShading !== undefined ?? `flatShading:${this.flatShading};`}`
+                                + `${this.npot !== undefined ?? `npot:${this.npot};`}`
+                                + `${this.offset ? `offset:${new Vec2(this.offset).toString()};` : ''}`
+                                + `${this.opacity !== undefined ?? `opacity:${this.opacity};`}`
+                                + `${this.repeat ? `repeat:${new Vec2(this.repeat).toString()};` : ''}`
+                                + `${this.shader !== undefined ?? `shader:${this.shader};`}`
+                                + `${this.side !== undefined ?? `side:${this.side};`}`
+                                + `${this.transparent !== undefined ?? `transparent:${this.transparent};`}`
+                                + `${this.vertexColors !== undefined ?? `vertexColors:${this.vertexColors};`}`
+                                + `${this.visible !== undefined ?? `visible:${this.visible};`}`
+                                + `${this.blending !== undefined ?? `blending:${this.blending};`}`
+                                + `${this.dithering !== undefined ?? `dithering:${this.dithering};`}`
+                                + `${this.ambientOcclusionMap !== undefined ?? `ambient-occlusion-map:${this.ambientOcclusionMap};`}`
+                                + `${this.ambientOcclusionMapIntensity !== undefined ?? `ambient-occlusion-mapIntensity:${this.ambientOcclusionMapIntensity};`}`
+                                + `${this.ambientOcclusionTextureRepeat ? `ambient-occlusion-texture-repeat:${new Vec2(this.ambientOcclusionTextureRepeat).toString()};` : ''}`
+                                + `${this.ambientOcclusionTextureOffset ? `ambient-occlusion-texture-offset:${new Vec2(this.ambientOcclusionTextureOffset).toString()};` : ''}`
+                                + `${this.color !== undefined ?? `color:${this.color};`}`
+                                + `${this.displacementMap !== undefined ?? `displacement-map:${this.displacementMap};`}`
+                                + `${this.displacementScale !== undefined ?? `displacement-scale:${this.displacementScale};`}`
+                                + `${this.displacementBias !== undefined ?? `displacement-bias:${this.displacementBias};`}`
+                                + `${this.displacementTextureRepeat ? `displacement-texture-repeat:${new Vec2(this.displacementTextureRepeat).toString()};` : ''}`
+                                + `${this.displacementTextureOffset ? `displacement-texture-offset:${new Vec2(this.displacementTextureOffset).toString()};` : ''}`
+                                + `${this.emissive !== undefined ?? `emissive:${this.emissive};`}`
+                                + `${this.emissiveIntensity !== undefined ?? `emissive-intensity:${this.emissiveIntensity};`}`
+                                + `${this.height !== undefined ?? `height:${this.height};`}`
+                                + `${this.envMap !== undefined ?? `env-map:${this.envMap};`}`
+                                + `${this.fog !== undefined ?? `fog:${this.fog};`}`
+                                + `${this.metalness !== undefined ?? `metalness:${this.metalness};`}`
+                                + `${this.normalMap !== undefined ?? `normal-map:${this.normalMap};`}`
+                                + `${this.normalScale ? `normal-scale:${new Vec2(this.normalScale).toString()};` : ''}`
+                                + `${this.normalTextureRepeat ? `normal-textureRepeat:${new Vec2(this.normalTextureRepeat).toString()};` : ''}`
+                                + `${this.normalTextureOffset ? `normal-textureOffset:${new Vec2(this.normalTextureOffset).toString()};` : ''}`
+                                + `${this.roughness ?? `roughness:${this.roughness};`}`
+                                + `${this.sphericalEnvMap ?? `spherical-env-map:${this.sphericalEnvMap};`}`
+                                + `${this.width ?? `width:${this.width};`}`
+                                + `${this.wireframe ?? `wireframe:${this.wireframe};`}`
+                                + `${this.wireframeLinewidth ?? `wireframe-linewidth:${this.wireframeLinewidth};`}`
+                                + `${this.src ?? `src:${this.src};`}`
                                 + `${this.extraProps}`;
 }

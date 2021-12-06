@@ -18,5 +18,5 @@
       "@juunini/aframe-react": ["./src/index.ts"]
     }
   },
-  "include": ["./src", "types.d.ts"]
+  "include": ["./src", "types.d.ts", "./tests"]
 }

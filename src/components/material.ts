@@ -63,7 +63,7 @@ export interface MaterialProps {
    * Which material to use. Defaults to the [standard material](https://aframe.io/docs/1.2.0/components/material.html#standard).
    * Can be set to the [flat material](https://aframe.io/docs/1.2.0/components/material.html#flat) or to a registered custom shader material.
    */
-  shader?: MaterialShape;
+  shader?: MaterialShape | string;
 
   /**
    * Which sides of the mesh to render. Can be one of `front`, `back`, or `double`.
@@ -311,7 +311,7 @@ export class Material implements MaterialProps {
 
   readonly repeat?: Vec2Props;
 
-  readonly shader?: MaterialShape;
+  readonly shader?: MaterialShape | string;
 
   readonly side?: MaterialSide;
 
@@ -470,47 +470,47 @@ export class Material implements MaterialProps {
       src,
     } = props;
 
-    this.alphaTest = alphaTest;
-    this.depthTest = depthTest;
-    this.depthWrite = depthWrite;
-    this.flatShading = flatShading;
-    this.npot = npot;
-    this.offset = offset;
-    this.opacity = opacity;
-    this.repeat = repeat;
-    this.shader = shader;
-    this.side = side;
-    this.transparent = transparent;
-    this.vertexColors = vertexColors;
-    this.visible = visible;
-    this.blending = blending;
-    this.dithering = dithering;
-    this.ambientOcclusionMap = ambientOcclusionMap;
-    this.ambientOcclusionMapIntensity = ambientOcclusionMapIntensity;
-    this.ambientOcclusionTextureRepeat = ambientOcclusionTextureRepeat;
-    this.ambientOcclusionTextureOffset = ambientOcclusionTextureOffset;
-    this.color = color;
-    this.displacementMap = displacementMap;
-    this.displacementScale = displacementScale;
-    this.displacementBias = displacementBias;
-    this.displacementTextureRepeat = displacementTextureRepeat;
-    this.displacementTextureOffset = displacementTextureOffset;
-    this.emissive = emissive;
-    this.emissiveIntensity = emissiveIntensity;
-    this.height = height;
-    this.envMap = envMap;
-    this.fog = fog;
-    this.metalness = metalness;
-    this.normalMap = normalMap;
-    this.normalScale = normalScale;
-    this.normalTextureRepeat = normalTextureRepeat;
-    this.normalTextureOffset = normalTextureOffset;
-    this.roughness = roughness;
-    this.sphericalEnvMap = sphericalEnvMap;
-    this.width = width;
-    this.wireframe = wireframe;
-    this.wireframeLinewidth = wireframeLinewidth;
-    this.src = src;
+    this.alphaTest = alphaTest ?? 0;
+    this.depthTest = depthTest ?? true;
+    this.depthWrite = depthWrite ?? true;
+    this.flatShading = flatShading ?? false;
+    this.npot = npot ?? false;
+    this.offset = offset ?? { x: 0, y: 0 };
+    this.opacity = opacity ?? 1.0;
+    this.repeat = repeat ?? { x: 1, y: 1 };
+    this.shader = shader ?? 'standard';
+    this.side = side ?? 'front';
+    this.transparent = transparent ?? false;
+    this.vertexColors = vertexColors ?? 'none';
+    this.visible = visible ?? true;
+    this.blending = blending ?? 'normal';
+    this.dithering = dithering ?? true;
+    this.ambientOcclusionMap = ambientOcclusionMap ?? '';
+    this.ambientOcclusionMapIntensity = ambientOcclusionMapIntensity ?? 1;
+    this.ambientOcclusionTextureRepeat = ambientOcclusionTextureRepeat ?? { x: 1, y: 1 };
+    this.ambientOcclusionTextureOffset = ambientOcclusionTextureOffset ?? { x: 0, y: 0 };
+    this.color = color ?? '#FFF';
+    this.displacementMap = displacementMap ?? '';
+    this.displacementScale = displacementScale ?? 1;
+    this.displacementBias = displacementBias ?? 0.5;
+    this.displacementTextureRepeat = displacementTextureRepeat ?? { x: 1, y: 1 };
+    this.displacementTextureOffset = displacementTextureOffset ?? { x: 0, y: 0 };
+    this.emissive = emissive ?? '#000';
+    this.emissiveIntensity = emissiveIntensity ?? 1;
+    this.height = height ?? 360;
+    this.envMap = envMap ?? '';
+    this.fog = fog ?? true;
+    this.metalness = metalness ?? 0;
+    this.normalMap = normalMap ?? '';
+    this.normalScale = normalScale ?? { x: 1, y: 1 };
+    this.normalTextureRepeat = normalTextureRepeat ?? { x: 1, y: 1 };
+    this.normalTextureOffset = normalTextureOffset ?? { x: 0, y: 0 };
+    this.roughness = roughness ?? 0.5;
+    this.sphericalEnvMap = sphericalEnvMap ?? '';
+    this.width = width ?? 640;
+    this.wireframe = wireframe ?? false;
+    this.wireframeLinewidth = wireframeLinewidth ?? 2;
+    this.src = src ?? '';
 
     this.extraProps = Object.keys(props)
       .filter((prop) => !defaultKeys.includes(prop))

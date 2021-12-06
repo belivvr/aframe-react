@@ -1,4 +1,5 @@
 module.exports = {
+  verbose: true,
   collectCoverageFrom: [
     '<rootDir>/tests/**/*.{ts,tsx}',
   ],
@@ -12,6 +13,8 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/.yarn/',
     '<rootDir>/dist/',
+    '<rootDir>/lib/',
+    '<rootDir>/es/',
   ],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': [
@@ -25,6 +28,11 @@ module.exports = {
       },
     ],
   },
+  moduleNameMapper: {
+    '^core/(.*)$': '<rootDir>/src/core/$1',
+    '^components/(.*)$': '<rootDir>/src/components/$1',
+    '^primitives/(.*)$': '<rootDir>/src/extras/primitives/$1',
+  },
   transformIgnorePatterns: [
     '/node_modules/',
     '/.yarn/',
@@ -33,7 +41,7 @@ module.exports = {
     '/lib/',
     '/types/',
     '.storybook',
-    '/stories'
+    '/stories',
   ],
   coveragePathIgnorePatterns: [
     '/node_modules/',
@@ -43,7 +51,7 @@ module.exports = {
     '/lib/',
     '/types/',
     '.storybook',
-    '/stories'
+    '/stories',
 
     '.js',
     '.interfaces.',

@@ -16,5 +16,5 @@
     "./src/components/scene/index.ts",
     "./src/extras/primitives/index.ts"
   ],
-  "exclude": ["./src/**/*"]
+  "exclude": ["./src/**/*", "./tests/**/*"]
 }

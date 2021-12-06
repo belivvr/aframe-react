@@ -80,11 +80,11 @@ With A-Frame's entity-component architecture, we can drop in community component
   <Entity
     id="sphere"
     geometry={{ primitive: 'sphere' }}
-    material={{ color: '#EFEFEF' shader: 'flat' }}
+    material={{ color: '#EFEFEF', shader: 'flat' }}
     position={{ x: 0, y: 0.15, z: -5 }}
     light={{ type: 'point', intensity: 5 }}
     animation={{
-      property: 'position'
+      property: 'position',
       easing: 'easeInOutQuad',
       dir: 'alternate',
       dur: 1000,
@@ -112,7 +112,7 @@ With A-Frame's entity-component architecture, we can drop in community component
       radius: 5000,
     }}
     material={{
-      shader: 'gradient'
+      shader: 'gradient',
       topColor: '235 235 245',
       bottomColor: '185 185 210',
     }}

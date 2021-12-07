@@ -1,10 +1,5 @@
 module.exports = {
-  globals: {
-    'ts-jest': {
-      tsConfig: './tsconfig.test.json',
-      importHelpers: true,
-    },
-  },
+  testEnvironment: 'jsdom',
   collectCoverageFrom: [
     '**/*.{ts,tsx}',
     '!**/*.d.ts',
@@ -20,6 +15,7 @@ module.exports = {
   ],
   setupFilesAfterEnv: [
     'jest-plugin-context/setup',
+    'jest-useragent-mock',
   ],
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',

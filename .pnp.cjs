@@ -81,6 +81,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["is-ci-cli", "npm:2.2.0"],
             ["jest", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:27.4.3"],
             ["jest-plugin-context", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:2.9.0"],
+            ["jest-useragent-mock", "npm:0.1.1"],
             ["process", "npm:0.11.10"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:17.0.2"],
@@ -3361,6 +3362,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["is-ci-cli", "npm:2.2.0"],
             ["jest", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:27.4.3"],
             ["jest-plugin-context", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:2.9.0"],
+            ["jest-useragent-mock", "npm:0.1.1"],
             ["process", "npm:0.11.10"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:17.0.2"],
@@ -16185,6 +16187,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["natural-compare", "npm:1.4.0"],
             ["pretty-format", "npm:27.4.2"],
             ["semver", "npm:7.3.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["jest-useragent-mock", [
+        ["npm:0.1.1", {
+          "packageLocation": "./.yarn/cache/jest-useragent-mock-npm-0.1.1-c313fc7675-ca5c5c844b.zip/node_modules/jest-useragent-mock/",
+          "packageDependencies": [
+            ["jest-useragent-mock", "npm:0.1.1"]
           ],
           "linkType": "HARD",
         }]

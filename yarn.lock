@@ -1873,6 +1873,7 @@ __metadata:
     is-ci-cli: ^2.2.0
     jest: ^27.4.3
     jest-plugin-context: ^2.9.0
+    jest-useragent-mock: ^0.1.1
     process: ^0.11.10
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -11786,6 +11787,13 @@ __metadata:
     pretty-format: ^27.4.2
     semver: ^7.3.2
   checksum: 59e1c3d3477b4dc4a40bd7cc027a4cb33f848b896f9194efb00ca778ca2e82858d9ceba96f728cb4ca05ede9a9ac7cd5359db25a2b2e8044c0196d53f7116862
+  languageName: node
+  linkType: hard
+
+"jest-useragent-mock@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "jest-useragent-mock@npm:0.1.1"
+  checksum: ca5c5c844b55a8d850402b39b5151c2567af162aba9c0e9240abca79de45fe65e0b270520174740263c836690f3f0cb6774c11223683a1c8d4c85ef71b662572
   languageName: node
   linkType: hard
 

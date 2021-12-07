@@ -13,10 +13,11 @@ describe('GearvrControls component', () => {
     const givenProps = {
       buttonColor: 'black',
       orientationOffset: { x: 1, y: 2, z: 3 },
+      armModel: true,
     };
 
     it('Should returns gearvr-controls value', () => {
-      expect(new GearvrControls(givenProps).toString()).toBe('buttonColor:black;orientationOffset:1 2 3;');
+      expect(new GearvrControls(givenProps).toString()).toBe('buttonColor:black;orientationOffset:1 2 3;armModel:true;');
     });
   });
 });

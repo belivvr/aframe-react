@@ -1,6 +1,14 @@
 import type { Hand, Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type GearvrControlsKeys = 'hand'
+| 'buttonColor'
+| 'buttonTouchedColor'
+| 'buttonHighlightColor'
+| 'model'
+| 'orientationOffset'
+| 'armModel';
+
 /**
  * The gearvr-controls component interfaces with the Samsung/Oculus Gear VR controllers.
  * It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events,
@@ -47,28 +55,28 @@ export interface GearvrControlsProps {
 }
 
 export class GearvrControls implements GearvrControlsProps {
-  readonly hand: Hand;
+  readonly hand?: Hand;
 
-  readonly buttonColor: string;
+  readonly buttonColor?: string;
 
-  readonly buttonTouchedColor: string;
+  readonly buttonTouchedColor?: string;
 
-  readonly buttonHighlightColor: string;
+  readonly buttonHighlightColor?: string;
 
-  readonly model: boolean;
+  readonly model?: boolean;
 
-  readonly orientationOffset: Vec3Props;
+  readonly orientationOffset?: Vec3Props;
 
-  readonly armModel: boolean;
+  readonly armModel?: boolean;
 
   constructor({
-    hand = '', // This informs the degenerate arm model.
-    buttonColor = '#000000',
-    buttonTouchedColor = '#777777',
-    buttonHighlightColor = '#FFFFFF',
-    model = true,
-    orientationOffset = { x: 0, y: 0, z: 0 },
-    armModel = true,
+    hand, // This informs the degenerate arm model.
+    buttonColor,
+    buttonTouchedColor,
+    buttonHighlightColor,
+    model,
+    orientationOffset,
+    armModel,
   }: GearvrControlsProps) {
     this.hand = hand;
     this.buttonColor = buttonColor;
@@ -79,11 +87,14 @@ export class GearvrControls implements GearvrControlsProps {
     this.armModel = armModel;
   }
 
-  public toString = (): string => `hand:${this.hand};`
-                                + `buttonColor:${this.buttonColor};`
-                                + `buttonTouchedColor:${this.buttonTouchedColor};`
-                                + `buttonHighlightColor:${this.buttonHighlightColor};`
-                                + `model:${this.model};`
-                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
-                                + `armModel:${this.armModel};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as GearvrControlsKeys] !== undefined && this[key as GearvrControlsKeys] !== '')
+    .map((key: string) => {
+      if (['orientationOffset'].includes(key)) {
+        return `${key}:${new Vec3(this[key as GearvrControlsKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as GearvrControlsKeys]};`;
+    })
+    .join('');
 }

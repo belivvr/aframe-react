@@ -1,13 +1,8 @@
-export type EaseIn = 'easeInQuad' | 'easeInCubic' | 'easeInQuart' | 'easeInQuint' | 'easeInSine' | 'easeInExpo' | 'easeInCirc' | 'easeInBack' | 'easeInElastic';
-export type EaseOut = 'easeOutQuad' | 'easeOutCubic' | 'easeOutQuart' | 'easeOutQuint' | 'easeOutSine' | 'easeOutExpo' | 'easeOutCirc' | 'easeOutBack' | 'easeOutElastic';
-export type EaseInOut = 'easeInOutQuad' | 'easeInOutCubic' | 'easeInOutQuart' | 'easeInOutQuint' | 'easeInOutSine' | 'easeInOutExpo' | 'easeInOutCirc' | 'easeInOutBack' | 'easeInOutElastic';
-export type Others = 'linear';
-export type Dir = '' | 'alternate' | 'reverse';
+import { Easing, Dir } from './types';
 
 /**
  * @see https://aframe.io/docs/1.2.0/components/animation.html#easings
  */
-export type Easing = EaseIn | EaseOut | EaseInOut | Others;
 
 /**
  * The animation component lets us animate and tween values including:

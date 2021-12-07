@@ -1,6 +1,14 @@
 import type { Hand, Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type DaydreamControlsKeys = | 'hand'
+| 'buttonColor'
+| 'buttonTouchedColor'
+| 'buttonHighlightColor'
+| 'model'
+| 'orientationOffset'
+| 'armModel';
+
 /**
  * The daydream-controls component interfaces with the Google Daydream controllers.
  * It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events,
@@ -51,28 +59,28 @@ export interface DaydreamControlsProps {
 }
 
 export class DaydreamControls implements DaydreamControlsProps {
-  readonly hand: Hand;
+  readonly hand?: Hand;
 
-  readonly buttonColor: string;
+  readonly buttonColor?: string;
 
-  readonly buttonTouchedColor: string;
+  readonly buttonTouchedColor?: string;
 
-  readonly buttonHighlightColor: string;
+  readonly buttonHighlightColor?: string;
 
-  readonly model: boolean;
+  readonly model?: boolean;
 
-  readonly orientationOffset: Vec3Props;
+  readonly orientationOffset?: Vec3Props;
 
-  readonly armModel: boolean;
+  readonly armModel?: boolean;
 
   constructor({
-    hand = '', // This informs the degenerate arm model.
-    buttonColor = '#000000',
-    buttonTouchedColor = '#777777',
-    buttonHighlightColor = '#FFFFFF',
-    model = true,
-    orientationOffset = { x: 0, y: 0, z: 0 },
-    armModel = true,
+    hand,
+    buttonColor,
+    buttonTouchedColor,
+    buttonHighlightColor,
+    model,
+    orientationOffset,
+    armModel,
   }: DaydreamControlsProps) {
     this.hand = hand;
     this.buttonColor = buttonColor;
@@ -83,11 +91,14 @@ export class DaydreamControls implements DaydreamControlsProps {
     this.armModel = armModel;
   }
 
-  public toString = (): string => `hand:${this.hand};`
-                                + `buttonColor:${this.buttonColor};`
-                                + `buttonTouchedColor:${this.buttonTouchedColor};`
-                                + `buttonHighlightColor:${this.buttonHighlightColor};`
-                                + `model:${this.model};`
-                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
-                                + `armModel:${this.armModel};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as DaydreamControlsKeys] !== undefined && this[key as DaydreamControlsKeys] !== '')
+    .map((key: string) => {
+      if (['orientationOffset'].includes(key)) {
+        return `${key}:${new Vec3(this[key as DaydreamControlsKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as DaydreamControlsKeys]};`;
+    })
+    .join('');
 }

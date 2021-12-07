@@ -122,7 +122,7 @@ export class Cursor implements CursorProps {
 
   public toString = (): string => Object.keys(this)
     .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as CursorKeys] !== undefined && this[key as CursorKeys] !== '')
+    .filter((key: string) => this[key as CursorKeys] !== undefined)
     .map((key: string) => {
       if (['downEvents', 'upEvents'].includes(key)) {
         return `${key}:${(this[key as CursorKeys] as string[]).join(',')};`;

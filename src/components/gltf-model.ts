@@ -1,3 +1,5 @@
+export type GLTFModelType = 'string';
+
 /**
  * [glTF](https://www.khronos.org/gltf) (GL Transmission Format) is an open project by Khronos providing a common,
  * extensible format for 3D assets that is both efficient and highly interoperable
@@ -18,7 +20,7 @@
  * '#tree' // Selector to an <a-asset-item>
  * 'url(/path/to/tree.gltf)' // url()-enclosed path to a glTF file
  */
-export default class GLTFModel {
+export class GLTFModel {
   /**
    * selector: Selector to an `<a-asset-item>`
    *

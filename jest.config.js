@@ -15,6 +15,7 @@ module.exports = {
   ],
   setupFilesAfterEnv: [
     'jest-plugin-context/setup',
+    'jest-useragent-mock',
   ],
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',

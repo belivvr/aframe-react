@@ -1,5 +1,9 @@
 import { Hand, HandModelStyle } from './types';
 
+type HandControlsKeys = 'color'
+| 'hand'
+| 'handModelStyle';
+
 /**
  * @see https://aframe.io/docs/1.2.0/components/hand-controls.html
  */
@@ -21,23 +25,25 @@ export interface HandControlsProps {
 }
 
 export class HandControls implements HandControlsProps {
-  readonly color: string;
+  readonly color?: string;
 
-  readonly hand: Hand;
+  readonly hand?: Hand;
 
-  readonly handModelStyle: HandModelStyle;
+  readonly handModelStyle?: HandModelStyle;
 
   constructor({
-    color = 'white',
-    hand = 'left',
-    handModelStyle = 'lowPoly',
+    color,
+    hand,
+    handModelStyle,
   }: HandControlsProps) {
     this.color = color;
     this.hand = hand;
     this.handModelStyle = handModelStyle;
   }
 
-  public toString = (): string => `color:${this.color};`
-                                + `hand:${this.hand};`
-                                + `handModelStyle:${this.handModelStyle};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as HandControlsKeys] !== undefined && this[key as HandControlsKeys] !== '')
+    .map((key: string) => `${key}:${this[key as HandControlsKeys]};`)
+    .join('');
 }

@@ -15,8 +15,11 @@
     "skipLibCheck": true,
     "strict": true,
     "paths": {
-      "@juunini/aframe-react": ["./src/index.ts"]
+      "@belivvr/aframe-react": ["./src/index.ts"],
+      "core/*": ["./src/core/*"],
+      "components/*": ["./src/components/*"],
+      "primitives/*": ["./src/extras/primitives/*"]
     }
   },
-  "include": ["./src", "types.d.ts", "./tests"]
+  "include": ["./src", "types.d.ts"]
 }

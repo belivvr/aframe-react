@@ -1,7 +1,19 @@
 module.exports = {
-  verbose: true,
+  globals: {
+    'ts-jest': {
+      tsConfig: './tsconfig.test.json',
+      importHelpers: true,
+    },
+  },
   collectCoverageFrom: [
-    '<rootDir>/tests/**/*.{ts,tsx}',
+    '**/*.{ts,tsx}',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+    '!**/.yarn/**',
+    '!**/dist/**',
+    '!**/es/**',
+    '!**/lib/**',
+    '!**/types/**',
   ],
   testMatch: [
     '**/?(*.)+(spec|test).ts?(x)',
@@ -13,8 +25,9 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/.yarn/',
     '<rootDir>/dist/',
-    '<rootDir>/lib/',
     '<rootDir>/es/',
+    '<rootDir>/lib/',
+    '<rootDir>/types/',
   ],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': [
@@ -28,20 +41,15 @@ module.exports = {
       },
     ],
   },
-  moduleNameMapper: {
-    '^core/(.*)$': '<rootDir>/src/core/$1',
-    '^components/(.*)$': '<rootDir>/src/components/$1',
-    '^primitives/(.*)$': '<rootDir>/src/extras/primitives/$1',
-  },
   transformIgnorePatterns: [
     '/node_modules/',
     '/.yarn/',
     '/dist/',
     '/es/',
     '/lib/',
-    '/types/',
     '.storybook',
-    '/stories',
+
+    '/__snapshots__/',
   ],
   coveragePathIgnorePatterns: [
     '/node_modules/',
@@ -49,13 +57,12 @@ module.exports = {
     '/dist/',
     '/es/',
     '/lib/',
-    '/types/',
     '.storybook',
-    '/stories',
 
     '.js',
     '.interfaces.',
     '.types.',
     '.stories.',
+    '/__snapshots__/',
   ],
 };

@@ -5,6 +5,8 @@ export type Others = 'linear';
 export type Easing = EaseIn | EaseOut | EaseInOut | Others;
 export type Dir = '' | 'alternate' | 'reverse';
 
+export type RayOrigin = 'mouse' | 'entity';
+
 export type Hand = '' | 'left' | 'right';
 export type HandModelStyle = 'lowPoly' | 'highPoly' | 'toon';
 

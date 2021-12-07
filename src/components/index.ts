@@ -7,6 +7,7 @@ export type {
   Others,
   Easing,
   Dir,
+  RayOrigin,
   Hand,
   HandModelStyle,
   Geometries,
@@ -31,7 +32,6 @@ export type {
 } from './animation';
 export type { CameraProps } from './camera';
 export type {
-  RayOrigin,
   CursorProps,
 } from './cursor';
 export type { DaydreamControlsProps } from './daydream-controls';

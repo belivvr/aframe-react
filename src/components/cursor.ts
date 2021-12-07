@@ -1,3 +1,5 @@
+import type { RayOrigin } from './types';
+
 function isIOS(): boolean {
   return /iPad|iPhone|iPod/.test(window.navigator.platform);
 }
@@ -43,8 +45,6 @@ function isMobile(): boolean {
   }
   return false;
 }
-
-export type RayOrigin = 'mouse' | 'entity';
 
 /**
  * @see https://aframe.io/docs/1.2.0/components/cursor.html

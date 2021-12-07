@@ -1,3 +1,10 @@
+type CameraKeys = 'active'
+| 'far'
+| 'fov'
+| 'near'
+| 'spectator'
+| 'zoom';
+
 /**
  * The camera component defines from which perspective the user views the scene.
  * The camera is commonly paired with controls components that allow input devices
@@ -39,25 +46,25 @@ export interface CameraProps {
 }
 
 export class Camera implements CameraProps {
-  readonly active: boolean;
+  readonly active?: boolean;
 
-  readonly far: number;
+  readonly far?: number;
 
-  readonly fov: number;
+  readonly fov?: number;
 
-  readonly near: number;
+  readonly near?: number;
 
-  readonly spectator: boolean;
+  readonly spectator?: boolean;
 
-  readonly zoom: number;
+  readonly zoom?: number;
 
   constructor({
-    active = true,
-    far = 10000,
-    fov = 80,
-    near = 0.005,
-    spectator = false,
-    zoom = 1,
+    active,
+    far,
+    fov,
+    near,
+    spectator,
+    zoom,
   }: CameraProps) {
     this.active = active;
     this.far = far;
@@ -67,10 +74,9 @@ export class Camera implements CameraProps {
     this.zoom = zoom;
   }
 
-  public toString = (): string => `active=${this.active};`
-                                + `far=${this.far};`
-                                + `fov=${this.fov};`
-                                + `near=${this.near};`
-                                + `spectator=${this.spectator};`
-                                + `zoom=${this.zoom};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as CameraKeys] !== undefined && this[key as CameraKeys] !== '')
+    .map((key: string) => `${key}:${this[key as CameraKeys]};`)
+    .join('');
 }

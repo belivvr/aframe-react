@@ -1,6 +1,12 @@
 import type { Hand, Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type GenericTrackedControllerControlsKeys = 'hand'
+| 'defaultModel'
+| 'defaultModelColor'
+| 'orientationOffset'
+| 'disabled';
+
 /**
  * @see https://github.com/aframevr/aframe/blob/master/src/components/generic-tracked-controller-controls.js
  */
@@ -20,22 +26,22 @@ export interface GenericTrackedControllerControlsProps {
 }
 
 export class GenericTrackedControllerControls implements GenericTrackedControllerControlsProps {
-  readonly hand: Hand;
+  readonly hand?: Hand;
 
-  readonly defaultModel: boolean;
+  readonly defaultModel?: boolean;
 
-  readonly defaultModelColor: string;
+  readonly defaultModelColor?: string;
 
-  readonly orientationOffset: Vec3Props;
+  readonly orientationOffset?: Vec3Props;
 
-  readonly disabled: boolean;
+  readonly disabled?: boolean;
 
   constructor({
-    hand = '', // This informs the degenerate arm model.
-    defaultModel = true,
-    defaultModelColor = 'gray',
-    orientationOffset = { x: 0, y: 0, z: 0 },
-    disabled = false,
+    hand, // This informs the degenerate arm model.
+    defaultModel,
+    defaultModelColor,
+    orientationOffset,
+    disabled,
   }: GenericTrackedControllerControlsProps) {
     this.hand = hand;
     this.defaultModel = defaultModel;
@@ -44,9 +50,14 @@ export class GenericTrackedControllerControls implements GenericTrackedControlle
     this.disabled = disabled;
   }
 
-  public toString = (): string => `hand:${this.hand};`
-                                + `defaultModel:${this.defaultModel};`
-                                + `defaultModelColor:${this.defaultModelColor};`
-                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
-                                + `disabled:${this.disabled};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as GenericTrackedControllerControlsKeys] !== undefined && this[key as GenericTrackedControllerControlsKeys] !== '')
+    .map((key: string) => {
+      if (['orientationOffset'].includes(key)) {
+        return `${key}:${new Vec3(this[key as GenericTrackedControllerControlsKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as GenericTrackedControllerControlsKeys]};`;
+    })
+    .join('');
 }

@@ -11,13 +11,13 @@ describe('GenericTrackedControllerControls component', () => {
 
   context('When given props is not empty', () => {
     const givenProps = {
-      buttonColor: 'black',
+      defaultModelColor: 'black',
       orientationOffset: { x: 1, y: 2, z: 3 },
-      disable: true,
+      disabled: true,
     };
 
     it('Should returns generic-tracked-controller-controls value', () => {
-      expect(new GenericTrackedControllerControls(givenProps).toString()).toBe('buttonColor:black;orientationOffset:1 2 3;disable:true;');
+      expect(new GenericTrackedControllerControls(givenProps).toString()).toBe('defaultModelColor:black;orientationOffset:1 2 3;disabled:true;');
     });
   });
 });

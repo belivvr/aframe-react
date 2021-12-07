@@ -470,47 +470,47 @@ export class Material implements MaterialProps {
       src,
     } = props;
 
-    this.alphaTest = alphaTest ?? 0;
-    this.depthTest = depthTest ?? true;
-    this.depthWrite = depthWrite ?? true;
-    this.flatShading = flatShading ?? false;
-    this.npot = npot ?? false;
-    this.offset = offset ?? { x: 0, y: 0 };
-    this.opacity = opacity ?? 1.0;
-    this.repeat = repeat ?? { x: 1, y: 1 };
-    this.shader = shader ?? 'standard';
-    this.side = side ?? 'front';
-    this.transparent = transparent ?? false;
-    this.vertexColors = vertexColors ?? 'none';
-    this.visible = visible ?? true;
-    this.blending = blending ?? 'normal';
-    this.dithering = dithering ?? true;
-    this.ambientOcclusionMap = ambientOcclusionMap ?? '';
-    this.ambientOcclusionMapIntensity = ambientOcclusionMapIntensity ?? 1;
-    this.ambientOcclusionTextureRepeat = ambientOcclusionTextureRepeat ?? { x: 1, y: 1 };
-    this.ambientOcclusionTextureOffset = ambientOcclusionTextureOffset ?? { x: 0, y: 0 };
-    this.color = color ?? '#FFF';
-    this.displacementMap = displacementMap ?? '';
-    this.displacementScale = displacementScale ?? 1;
-    this.displacementBias = displacementBias ?? 0.5;
-    this.displacementTextureRepeat = displacementTextureRepeat ?? { x: 1, y: 1 };
-    this.displacementTextureOffset = displacementTextureOffset ?? { x: 0, y: 0 };
-    this.emissive = emissive ?? '#000';
-    this.emissiveIntensity = emissiveIntensity ?? 1;
-    this.height = height ?? 360;
-    this.envMap = envMap ?? '';
-    this.fog = fog ?? true;
-    this.metalness = metalness ?? 0;
-    this.normalMap = normalMap ?? '';
-    this.normalScale = normalScale ?? { x: 1, y: 1 };
-    this.normalTextureRepeat = normalTextureRepeat ?? { x: 1, y: 1 };
-    this.normalTextureOffset = normalTextureOffset ?? { x: 0, y: 0 };
-    this.roughness = roughness ?? 0.5;
-    this.sphericalEnvMap = sphericalEnvMap ?? '';
-    this.width = width ?? 640;
-    this.wireframe = wireframe ?? false;
-    this.wireframeLinewidth = wireframeLinewidth ?? 2;
-    this.src = src ?? '';
+    this.alphaTest = alphaTest;
+    this.depthTest = depthTest;
+    this.depthWrite = depthWrite;
+    this.flatShading = flatShading;
+    this.npot = npot;
+    this.offset = offset;
+    this.opacity = opacity;
+    this.repeat = repeat;
+    this.shader = shader;
+    this.side = side;
+    this.transparent = transparent;
+    this.vertexColors = vertexColors;
+    this.visible = visible;
+    this.blending = blending;
+    this.dithering = dithering;
+    this.ambientOcclusionMap = ambientOcclusionMap;
+    this.ambientOcclusionMapIntensity = ambientOcclusionMapIntensity;
+    this.ambientOcclusionTextureRepeat = ambientOcclusionTextureRepeat;
+    this.ambientOcclusionTextureOffset = ambientOcclusionTextureOffset;
+    this.color = color;
+    this.displacementMap = displacementMap;
+    this.displacementScale = displacementScale;
+    this.displacementBias = displacementBias;
+    this.displacementTextureRepeat = displacementTextureRepeat;
+    this.displacementTextureOffset = displacementTextureOffset;
+    this.emissive = emissive;
+    this.emissiveIntensity = emissiveIntensity;
+    this.height = height;
+    this.envMap = envMap;
+    this.fog = fog;
+    this.metalness = metalness;
+    this.normalMap = normalMap;
+    this.normalScale = normalScale;
+    this.normalTextureRepeat = normalTextureRepeat;
+    this.normalTextureOffset = normalTextureOffset;
+    this.roughness = roughness;
+    this.sphericalEnvMap = sphericalEnvMap;
+    this.width = width;
+    this.wireframe = wireframe;
+    this.wireframeLinewidth = wireframeLinewidth;
+    this.src = src;
 
     this.extraProps = Object.keys(props)
       .filter((prop) => !defaultKeys.includes(prop))
@@ -518,46 +518,24 @@ export class Material implements MaterialProps {
       .join('');
   }
 
-  public toString = (): string => `${this.alphaTest !== undefined ?? `alphaTest:${this.alphaTest};`}`
-                                + `${this.depthTest !== undefined ?? `depthTest:${this.depthTest};`}`
-                                + `${this.depthWrite !== undefined ?? `depthWrite:${this.depthWrite};`}`
-                                + `${this.flatShading !== undefined ?? `flatShading:${this.flatShading};`}`
-                                + `${this.npot !== undefined ?? `npot:${this.npot};`}`
-                                + `${this.offset ? `offset:${new Vec2(this.offset).toString()};` : ''}`
-                                + `${this.opacity !== undefined ?? `opacity:${this.opacity};`}`
-                                + `${this.repeat ? `repeat:${new Vec2(this.repeat).toString()};` : ''}`
-                                + `${this.shader !== undefined ?? `shader:${this.shader};`}`
-                                + `${this.side !== undefined ?? `side:${this.side};`}`
-                                + `${this.transparent !== undefined ?? `transparent:${this.transparent};`}`
-                                + `${this.vertexColors !== undefined ?? `vertexColors:${this.vertexColors};`}`
-                                + `${this.visible !== undefined ?? `visible:${this.visible};`}`
-                                + `${this.blending !== undefined ?? `blending:${this.blending};`}`
-                                + `${this.dithering !== undefined ?? `dithering:${this.dithering};`}`
-                                + `${this.ambientOcclusionMap !== undefined ?? `ambient-occlusion-map:${this.ambientOcclusionMap};`}`
-                                + `${this.ambientOcclusionMapIntensity !== undefined ?? `ambient-occlusion-mapIntensity:${this.ambientOcclusionMapIntensity};`}`
-                                + `${this.ambientOcclusionTextureRepeat ? `ambient-occlusion-texture-repeat:${new Vec2(this.ambientOcclusionTextureRepeat).toString()};` : ''}`
-                                + `${this.ambientOcclusionTextureOffset ? `ambient-occlusion-texture-offset:${new Vec2(this.ambientOcclusionTextureOffset).toString()};` : ''}`
-                                + `${this.color !== undefined ?? `color:${this.color};`}`
-                                + `${this.displacementMap !== undefined ?? `displacement-map:${this.displacementMap};`}`
-                                + `${this.displacementScale !== undefined ?? `displacement-scale:${this.displacementScale};`}`
-                                + `${this.displacementBias !== undefined ?? `displacement-bias:${this.displacementBias};`}`
-                                + `${this.displacementTextureRepeat ? `displacement-texture-repeat:${new Vec2(this.displacementTextureRepeat).toString()};` : ''}`
-                                + `${this.displacementTextureOffset ? `displacement-texture-offset:${new Vec2(this.displacementTextureOffset).toString()};` : ''}`
-                                + `${this.emissive !== undefined ?? `emissive:${this.emissive};`}`
-                                + `${this.emissiveIntensity !== undefined ?? `emissive-intensity:${this.emissiveIntensity};`}`
-                                + `${this.height !== undefined ?? `height:${this.height};`}`
-                                + `${this.envMap !== undefined ?? `env-map:${this.envMap};`}`
-                                + `${this.fog !== undefined ?? `fog:${this.fog};`}`
-                                + `${this.metalness !== undefined ?? `metalness:${this.metalness};`}`
-                                + `${this.normalMap !== undefined ?? `normal-map:${this.normalMap};`}`
-                                + `${this.normalScale ? `normal-scale:${new Vec2(this.normalScale).toString()};` : ''}`
-                                + `${this.normalTextureRepeat ? `normal-textureRepeat:${new Vec2(this.normalTextureRepeat).toString()};` : ''}`
-                                + `${this.normalTextureOffset ? `normal-textureOffset:${new Vec2(this.normalTextureOffset).toString()};` : ''}`
-                                + `${this.roughness ?? `roughness:${this.roughness};`}`
-                                + `${this.sphericalEnvMap ?? `spherical-env-map:${this.sphericalEnvMap};`}`
-                                + `${this.width ?? `width:${this.width};`}`
-                                + `${this.wireframe ?? `wireframe:${this.wireframe};`}`
-                                + `${this.wireframeLinewidth ?? `wireframe-linewidth:${this.wireframeLinewidth};`}`
-                                + `${this.src ?? `src:${this.src};`}`
-                                + `${this.extraProps}`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key] !== undefined && this[key] !== '')
+    .map((key: string) => {
+      if ([
+        'offset',
+        'repeat',
+        'ambientOcclusionTextureRepeat',
+        'ambientOcclusionTextureOffset',
+        'displacementTextureRepeat',
+        'displacementTextureOffset',
+        'normalScale',
+        'normalTextureRepeat',
+        'normalTextureOffset',
+      ].includes(key)) {
+        return `${key}:${new Vec2(this[key] as Vec2Props).toString()};`;
+      }
+      return `${key}:${this[key]};`;
+    })
+    .join('');
 }

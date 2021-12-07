@@ -1,10 +1,5 @@
 module.exports = {
-  globals: {
-    'ts-jest': {
-      tsConfig: './tsconfig.test.json',
-      importHelpers: true,
-    },
-  },
+  testEnvironment: 'jsdom',
   collectCoverageFrom: [
     '**/*.{ts,tsx}',
     '!**/*.d.ts',

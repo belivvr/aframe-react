@@ -18,4 +18,17 @@
  * '#tree' // Selector to an <a-asset-item>
  * 'url(/path/to/tree.gltf)' // url()-enclosed path to a glTF file
  */
-export type GLTFModel = string;
+export default class GLTFModel {
+  /**
+   * selector: Selector to an `<a-asset-item>`
+   *
+   * string: `url()-`enclosed path to a glTF file
+   */
+  readonly value?: string;
+
+  constructor(value?: string) {
+    this.value = value;
+  }
+
+  public toString = (): string => this.value || '';
+}

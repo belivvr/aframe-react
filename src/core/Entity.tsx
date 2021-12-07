@@ -8,7 +8,7 @@ import type {
   GearvrControlsProps,
   GenericTrackedControllerControlsProps,
   GeometryProps,
-  GLTFModel,
+  GLTFModelType,
   HandControlsProps,
   HandTrackingControlsProps,
   HpMixedRealityControlsProps,
@@ -49,6 +49,7 @@ import {
   GearvrControls,
   GenericTrackedControllerControls,
   Geometry,
+  GLTFModel,
   HandControls,
   HandTrackingControls,
   HpMixedRealityControls,
@@ -92,7 +93,7 @@ export interface Props {
   gearvrControls?: GearvrControlsProps;
   genericTrackedControllerControls?: GenericTrackedControllerControlsProps;
   geometry?: GeometryProps;
-  gltfModel?: GLTFModel;
+  gltfModel?: GLTFModelType;
   handControls?: HandControlsProps;
   handTrackingControls?: HandTrackingControlsProps;
   hpMixedRealityControls?: HpMixedRealityControlsProps;
@@ -231,7 +232,7 @@ export function toProps(props: Props, removalKeys?: string[]): Object {
     'gearvr-controls': gearvrControls && new GearvrControls(gearvrControls).toString(),
     'generic-tracked-controller-controls': genericTrackedControllerControls && new GenericTrackedControllerControls(genericTrackedControllerControls).toString(),
     geometry: geometry && new Geometry(geometry).toString(),
-    'gltf-model': gltfModel,
+    'gltf-model': gltfModel && new GLTFModel(gltfModel).toString(),
     'hand-controls': handControls && new HandControls(handControls).toString(),
     'hand-tracking-controls': handTrackingControls && new HandTrackingControls(handTrackingControls).toString(),
     'hp-mixed-reality-controls': hpMixedRealityControls && new HpMixedRealityControls(hpMixedRealityControls).toString(),

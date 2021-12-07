@@ -1,13 +1,22 @@
-export type EaseIn = 'easeInQuad' | 'easeInCubic' | 'easeInQuart' | 'easeInQuint' | 'easeInSine' | 'easeInExpo' | 'easeInCirc' | 'easeInBack' | 'easeInElastic';
-export type EaseOut = 'easeOutQuad' | 'easeOutCubic' | 'easeOutQuart' | 'easeOutQuint' | 'easeOutSine' | 'easeOutExpo' | 'easeOutCirc' | 'easeOutBack' | 'easeOutElastic';
-export type EaseInOut = 'easeInOutQuad' | 'easeInOutCubic' | 'easeInOutQuart' | 'easeInOutQuint' | 'easeInOutSine' | 'easeInOutExpo' | 'easeInOutCirc' | 'easeInOutBack' | 'easeInOutElastic';
-export type Others = 'linear';
-export type Dir = '' | 'alternate' | 'reverse';
+import { Easing, Dir } from './types';
 
-/**
- * @see https://aframe.io/docs/1.2.0/components/animation.html#easings
- */
-export type Easing = EaseIn | EaseOut | EaseInOut | Others;
+type AnimationKeys = 'autoplay'
+| 'delay'
+| 'dir'
+| 'dur'
+| 'easing'
+| 'elasticity'
+| 'enabled'
+| 'from'
+| 'loop'
+| 'property'
+| 'startEvents'
+| 'pauseEvents'
+| 'resumeEvents'
+| 'round'
+| 'to'
+| 'type'
+| 'isRawProperty';
 
 /**
  * The animation component lets us animate and tween values including:
@@ -102,21 +111,21 @@ export interface AnimationProps {
    * If there are other animation components on the entity animating the same property,
    * those animations will be automatically paused to not conflict.
    *
-   * @example ['mouseenter']
+   * @example 'mouseenter'
    */
   startEvents?: string[];
 
   /**
    * Comma-separated list of events to listen to trigger pause. Can be resumed with `resumeEvents`.
    *
-   * @example ['mouseleave']
+   * @example 'mouseleave'
    */
   pauseEvents?: string[];
 
   /**
    * Comma-separated list of events to listen to trigger resume after pausing.
    *
-   * @example ['mouseenter']
+   * @example 'mouseenter'
    */
   resumeEvents?: string[];
 
@@ -153,58 +162,58 @@ export interface AnimationProps {
 }
 
 export class Animation implements AnimationProps {
-  readonly autoplay: boolean;
+  readonly autoplay?: boolean;
 
-  readonly delay: number;
+  readonly delay?: number;
 
-  readonly dir: Dir;
+  readonly dir?: Dir;
 
-  readonly dur: number;
+  readonly dur?: number;
 
-  readonly easing: Easing;
+  readonly easing?: Easing;
 
-  readonly elasticity: number;
+  readonly elasticity?: number;
 
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
-  readonly from: string | boolean;
+  readonly from?: string | boolean;
 
-  readonly loop: boolean;
+  readonly loop?: boolean;
 
-  readonly property: string;
+  readonly property?: string;
 
-  readonly startEvents: string[];
+  readonly startEvents?: string[];
 
-  readonly pauseEvents: string[];
+  readonly pauseEvents?: string[];
 
-  readonly resumeEvents: string[];
+  readonly resumeEvents?: string[];
 
-  readonly round: boolean;
+  readonly round?: boolean;
 
-  readonly to: string | boolean;
+  readonly to?: string | boolean;
 
-  readonly type: string;
+  readonly type?: string;
 
-  readonly isRawProperty: boolean;
+  readonly isRawProperty?: boolean;
 
   constructor({
-    autoplay = true,
-    delay = 0,
-    dir = '',
-    dur = 1000,
-    easing = 'easeInQuad',
-    elasticity = 400,
-    enabled = true,
-    from = '',
-    loop = false,
-    property = '',
-    startEvents = [],
-    pauseEvents = [],
-    resumeEvents = [],
-    round = false,
-    to = '',
-    type = '',
-    isRawProperty = false,
+    autoplay,
+    delay,
+    dir,
+    dur,
+    easing,
+    elasticity,
+    enabled,
+    from,
+    loop,
+    property,
+    startEvents,
+    pauseEvents,
+    resumeEvents,
+    round,
+    to,
+    type,
+    isRawProperty,
   }: AnimationProps) {
     this.autoplay = autoplay;
     this.delay = delay;
@@ -225,21 +234,21 @@ export class Animation implements AnimationProps {
     this.isRawProperty = isRawProperty;
   }
 
-  public toString = (): string => `autoplay:${this.autoplay};`
-                                + `delay:${this.delay};`
-                                + `dir:${this.dir};`
-                                + `dur:${this.dur};`
-                                + `easing:${this.easing};`
-                                + `elasticity:${this.elasticity};`
-                                + `enabled:${this.enabled};`
-                                + `from:${this.from};`
-                                + `loop:${Number(this.loop)};`
-                                + `property:${this.property};`
-                                + `startEvents:${this.startEvents};`
-                                + `pauseEvents:${this.pauseEvents};`
-                                + `resumeEvents:${this.resumeEvents};`
-                                + `round:${this.round};`
-                                + `to:${this.to};`
-                                + `type:${this.type};`
-                                + `isRawProperty:${this.isRawProperty};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as AnimationKeys] !== undefined && this[key as AnimationKeys] !== '')
+    .map((key: string) => {
+      if ([
+        'startEvents',
+        'pauseEvents',
+        'resumeEvents',
+      ].includes(key)) {
+        return `${key}:'${(this[key as AnimationKeys] as string[]).join('\',\'')}';`;
+      }
+      if (key === 'loop') {
+        return `${key}:${Number(this[key])};`;
+      }
+      return `${key}:${this[key as AnimationKeys]};`;
+    })
+    .join('');
 }

@@ -1,6 +1,12 @@
 export * as scene from './scene';
 
 export type {
+  EaseIn,
+  EaseOut,
+  EaseInOut,
+  Others,
+  Easing,
+  Dir,
   Hand,
   HandModelStyle,
   Geometries,
@@ -21,12 +27,6 @@ export type {
   Vec3Props,
 } from './types';
 export type {
-  EaseIn,
-  EaseOut,
-  EaseInOut,
-  Others,
-  Easing,
-  Dir,
   AnimationProps,
 } from './animation';
 export type { CameraProps } from './camera';

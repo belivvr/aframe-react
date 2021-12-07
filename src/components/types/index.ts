@@ -1,3 +1,10 @@
+export type EaseIn = 'easeInQuad' | 'easeInCubic' | 'easeInQuart' | 'easeInQuint' | 'easeInSine' | 'easeInExpo' | 'easeInCirc' | 'easeInBack' | 'easeInElastic';
+export type EaseOut = 'easeOutQuad' | 'easeOutCubic' | 'easeOutQuart' | 'easeOutQuint' | 'easeOutSine' | 'easeOutExpo' | 'easeOutCirc' | 'easeOutBack' | 'easeOutElastic';
+export type EaseInOut = 'easeInOutQuad' | 'easeInOutCubic' | 'easeInOutQuart' | 'easeInOutQuint' | 'easeInOutSine' | 'easeInOutExpo' | 'easeInOutCirc' | 'easeInOutBack' | 'easeInOutElastic';
+export type Others = 'linear';
+export type Easing = EaseIn | EaseOut | EaseInOut | Others;
+export type Dir = '' | 'alternate' | 'reverse';
+
 export type Hand = '' | 'left' | 'right';
 export type HandModelStyle = 'lowPoly' | 'highPoly' | 'toon';
 

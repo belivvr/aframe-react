@@ -16,7 +16,7 @@ describe('Geometry component', () => {
     };
 
     it('Should returns geometry value', () => {
-      expect(new Geometry(givenProps).toString()).toBe('buffer:false;vertexA:0 0 0.5;');
+      expect(new Geometry(givenProps).toString()).toBe('buffer:false;vertexA:0 1 0.5;');
     });
   });
 });

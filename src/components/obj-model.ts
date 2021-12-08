@@ -1,3 +1,5 @@
+type ObjModelKeys = 'mtl' | 'obj';
+
 /**
  * The obj-model component loads a 3D model and material using a [Wavefront](https://en.wikipedia.org/wiki/Wavefront_.obj_file) (.OBJ) file and a .MTL file.
  *
@@ -28,6 +30,9 @@ export class ObjModel implements ObjModelProps {
     this.obj = obj;
   }
 
-  public toString = (): string => `mtl:${this.mtl};`
-                                + `obj:${this.obj};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as ObjModelKeys] !== undefined && this[key as ObjModelKeys] !== '')
+    .map((key: string) => `${key}:${this[key as ObjModelKeys]};`)
+    .join('');
 }

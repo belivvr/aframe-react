@@ -1,4 +1,4 @@
-name: Coverage
+name: Codecov
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  coverage:
+  codecov:
     runs-on: ubuntu-latest
 
     strategy:

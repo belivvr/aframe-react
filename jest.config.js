@@ -14,6 +14,7 @@ module.exports = {
     '**/?(*.)+(spec|test).ts?(x)',
   ],
   setupFilesAfterEnv: [
+    './jest.setup.ts',
     'jest-plugin-context/setup',
     'jest-useragent-mock',
   ],

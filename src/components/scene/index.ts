@@ -2,7 +2,7 @@ export type { BackgroundProps } from './background';
 export type { DebugProps } from './debug';
 export type { DeviceOrientationPermissionUIProps } from './device-orientation-permission-ui';
 export type { EmbeddedProps } from './embedded';
-export type { FogType, FogProps } from './fog';
+export type { FogProps } from './fog';
 export type { InspectorProps } from './inspector';
 export type { VrModeUIProps } from './vr-mode-ui';
 export type { Stats } from './stats';
@@ -11,6 +11,7 @@ export type { PoolProps } from './pool';
 export type { KeyboardShortcutsProps } from './keyboard-shortcuts';
 export type { GLTFModelProps } from './gltf-model';
 export type { ShadowType, ShadowProps } from './shadow';
+export type { FogType } from './types';
 
 export { Background } from './background';
 export { Debug } from './debug';

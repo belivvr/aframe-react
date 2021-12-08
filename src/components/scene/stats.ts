@@ -4,6 +4,14 @@
  *
  * @see https://aframe.io/docs/1.2.0/components/stats.html#sidebar
  */
-export type Stats = boolean;
+export type StatsProps = boolean;
 
-export const Default: Stats = true;
+export class Stats {
+  readonly value?: StatsProps;
+
+  constructor(value: StatsProps = true) {
+    this.value = value;
+  }
+
+  public toString = (): string => String(this.value);
+}

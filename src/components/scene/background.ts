@@ -1,3 +1,5 @@
+type BackgroundKeys = 'color' | 'transparent';
+
 /**
  * The background component sets a basic color background of a scene that
  * is more performant than `a-sky` since geometry is not created.
@@ -20,18 +22,21 @@ export interface BackgroundProps {
 }
 
 export class Background implements BackgroundProps {
-  readonly color: string;
+  readonly color?: string;
 
-  readonly transparent: boolean;
+  readonly transparent?: boolean;
 
   constructor({
-    color = 'black',
-    transparent = false,
+    color,
+    transparent,
   }: BackgroundProps) {
     this.color = color;
     this.transparent = transparent;
   }
 
-  public toString = (): string => `color:${this.color};`
-                                + `transparent:${this.transparent};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as BackgroundKeys] !== undefined && this[key as BackgroundKeys] !== '')
+    .map((key: string) => `${key}:${this[key as BackgroundKeys]};`)
+    .join('');
 }

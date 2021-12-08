@@ -1,9 +1,10 @@
 import React from 'react';
 
 import type {
+  BackgroundProps,
+  DebugProps,
   FogProps,
   InspectorProps,
-  BackgroundProps,
   VrModeUIProps,
   Stats,
   ScreenshotProps,
@@ -11,14 +12,14 @@ import type {
   KeyboardShortcutsProps,
   Embedded,
   DeviceOrientationPermissionUIProps,
-  Debug,
   GLTFModelProps,
   ShadowProps,
 } from '../components/scene';
 import {
+  Background,
+  Debug,
   Fog,
   Inspector,
-  Background,
   VrModeUI,
   Screenshot,
   Pool,
@@ -42,7 +43,7 @@ interface Props {
   keyboardShortcuts?: KeyboardShortcutsProps;
   embedded?: Embedded;
   deviceOrientationPermissionUI?: DeviceOrientationPermissionUIProps;
-  debug?: Debug;
+  debug?: DebugProps;
   gltfModel?: GLTFModelProps;
   shadow?: ShadowProps;
   [key: string]: unknown;
@@ -95,9 +96,10 @@ function toProps(props: Props): Object {
   return {
     id,
     class: className,
+    background: background && new Background(background).toString(),
+    debug: debug && new Debug(debug).toString(),
     fog: fog && new Fog(fog).toString(),
     inspector: inspector && new Inspector(inspector).toString(),
-    background: background && new Background(background).toString(),
     'vr-mode-ui': vrModeUI && new VrModeUI(vrModeUI).toString(),
     stats,
     screenshot: screenshot && new Screenshot(screenshot).toString(),
@@ -105,7 +107,6 @@ function toProps(props: Props): Object {
     'keyboard-shortcuts': keyboardShortcuts && new KeyboardShortcuts(keyboardShortcuts).toString(),
     embedded,
     'device-orientation-permission-ui': deviceOrientationPermissionUI && new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString(),
-    debug,
     'gltf-model': gltfModel && new GLTFModel(gltfModel).toString(),
     shadow: shadow && new Shadow(shadow).toString(),
     ...extraProps,

@@ -1,4 +1,6 @@
-export type ShadowType = 'basic' | 'pcf' | 'pcfsoft';
+import { ShadowType } from './types';
+
+type ShadowKeys = 'type';
 
 export interface ShadowProps {
   /**
@@ -9,13 +11,15 @@ export interface ShadowProps {
 }
 
 export class Shadow implements ShadowProps {
-  readonly type: ShadowType;
+  readonly type?: ShadowType;
 
-  constructor({
-    type = 'pcf',
-  }: ShadowProps) {
+  constructor({ type }: ShadowProps) {
     this.type = type;
   }
 
-  public toString = (): string => `type:${this.type};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as ShadowKeys] !== undefined)
+    .map((key: string) => `${key}:${this[key as ShadowKeys]};`)
+    .join('');
 }

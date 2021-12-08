@@ -1,3 +1,10 @@
+type DeviceOrientationPermissionUIKeys = 'enabled'
+| 'deviceMotionMessage'
+| 'httpsMessage'
+| 'denyButtonText'
+| 'allowButtonText'
+| 'cancelButtonText';
+
 /**
  * Starting with Safari on iOS 13 browsers require sites to be
  * served over https and request user permission to access DeviceOrientation events.
@@ -39,25 +46,25 @@ export interface DeviceOrientationPermissionUIProps {
 }
 
 export class DeviceOrientationPermissionUI implements DeviceOrientationPermissionUIProps {
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
-  readonly deviceMotionMessage: string;
+  readonly deviceMotionMessage?: string;
 
-  readonly httpsMessage: string;
+  readonly httpsMessage?: string;
 
-  readonly denyButtonText: string;
+  readonly denyButtonText?: string;
 
-  readonly allowButtonText: string;
+  readonly allowButtonText?: string;
 
-  readonly cancelButtonText: string;
+  readonly cancelButtonText?: string;
 
   constructor({
-    enabled = true,
-    deviceMotionMessage = 'This immersive website requires access to your device motion sensors.',
-    httpsMessage = 'Access this site over HTTPS to enter VR mode and grant access to the device sensors.',
-    denyButtonText = 'Deny',
-    allowButtonText = 'Allow',
-    cancelButtonText = 'Cancel',
+    enabled,
+    deviceMotionMessage,
+    httpsMessage,
+    denyButtonText,
+    allowButtonText,
+    cancelButtonText,
   }: DeviceOrientationPermissionUIProps) {
     this.enabled = enabled;
     this.deviceMotionMessage = deviceMotionMessage;
@@ -67,10 +74,9 @@ export class DeviceOrientationPermissionUI implements DeviceOrientationPermissio
     this.cancelButtonText = cancelButtonText;
   }
 
-  public toString = (): string => `enabled:${this.enabled};`
-                                + `deviceMotionMessage:${this.deviceMotionMessage};`
-                                + `httpsMessage:${this.httpsMessage};`
-                                + `denyButtonText:${this.denyButtonText};`
-                                + `allowButtonText:${this.allowButtonText};`
-                                + `cancelButtonText:${this.cancelButtonText};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as DeviceOrientationPermissionUIKeys] !== undefined && this[key as DeviceOrientationPermissionUIKeys] !== '')
+    .map((key: string) => `${key}:${this[key as DeviceOrientationPermissionUIKeys]};`)
+    .join('');
 }

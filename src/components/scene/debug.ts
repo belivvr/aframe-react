@@ -3,6 +3,14 @@
  *
  * @see https://aframe.io/docs/1.2.0/components/debug.html
  */
-export type Debug = boolean;
+export type DebugProps = boolean;
 
-export const Default = true;
+export class Debug {
+  readonly value: DebugProps;
+
+  constructor(value: DebugProps = true) {
+    this.value = value;
+  }
+
+  public toString = (): string => String(this.value);
+}

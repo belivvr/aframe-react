@@ -1,3 +1,5 @@
+type ScreenshotKeys = 'width' | 'height';
+
 /**
  * The screenshot component lets us take different types of screenshots with keyboard shortcuts.
  * A-Frame attaches this component to the scene by default
@@ -18,18 +20,21 @@ export interface ScreenshotProps {
 }
 
 export class Screenshot implements ScreenshotProps {
-  readonly width: number;
+  readonly width?: number;
 
-  readonly height: number;
+  readonly height?: number;
 
   constructor({
-    width = 4096,
-    height = 2048,
+    width,
+    height,
   }: ScreenshotProps) {
     this.width = width;
     this.height = height;
   }
 
-  public toString = (): string => `width:${this.width};`
-                                + `height:${this.height};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as ScreenshotKeys] !== undefined)
+    .map((key: string) => `${key}:${this[key as ScreenshotKeys]};`)
+    .join('');
 }

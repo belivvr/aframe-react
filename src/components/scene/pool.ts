@@ -1,3 +1,8 @@
+type PoolKeys = 'container'
+| 'mixin'
+| 'size'
+| 'dynamic';
+
 /**
  * The pool component allows for [object pooling](https://en.wikipedia.org/wiki/Object_pool_pattern).
  * This gives us a reusable pool of entities to avoid creating and
@@ -32,19 +37,19 @@ export interface PoolProps {
 }
 
 export class Pool implements PoolProps {
-  readonly container: string;
+  readonly container?: string;
 
-  readonly mixin: string;
+  readonly mixin?: string;
 
-  readonly size: number;
+  readonly size?: number;
 
-  readonly dynamic: boolean;
+  readonly dynamic?: boolean;
 
   constructor({
-    container = '',
-    mixin = '',
-    size = 0,
-    dynamic = false,
+    container,
+    mixin,
+    size,
+    dynamic,
   }: PoolProps) {
     this.container = container;
     this.mixin = mixin;
@@ -52,8 +57,9 @@ export class Pool implements PoolProps {
     this.dynamic = dynamic;
   }
 
-  public toString = (): string => `container:${this.container};`
-                                + `mixin:${this.mixin};`
-                                + `size:${this.size};`
-                                + `dynamic:${this.dynamic};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as PoolKeys] !== undefined && this[key as PoolKeys] !== '')
+    .map((key: string) => `${key}:${this[key as PoolKeys]};`)
+    .join('');
 }

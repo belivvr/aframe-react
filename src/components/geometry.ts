@@ -403,7 +403,7 @@ export class Geometry implements GeometryProps {
   }
 
   public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => !['toString', 'extraProps'].includes(key))
     .filter((key: string) => this[key] !== undefined && this[key] !== '')
     .map((key: string) => {
       if ([
@@ -415,5 +415,5 @@ export class Geometry implements GeometryProps {
       }
       return `${key}:${this[key]};`;
     })
-    .join('');
+    .join('') + this.extraProps;
 }

@@ -1,6 +1,12 @@
 import type { Hand, Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type ValveIndexControlsKeys = 'hand'
+| 'buttonColor'
+| 'buttonHighlightColor'
+| 'model'
+| 'orientationOffset';
+
 export interface ValveIndexControlsProps {
   hand?: Hand;
   buttonColor?: string;
@@ -10,22 +16,22 @@ export interface ValveIndexControlsProps {
 }
 
 export class ValveIndexControls implements ValveIndexControlsProps {
-  readonly hand: Hand;
+  readonly hand?: Hand;
 
-  readonly buttonColor: string;
+  readonly buttonColor?: string;
 
-  readonly buttonHighlightColor: string;
+  readonly buttonHighlightColor?: string;
 
-  readonly model: boolean;
+  readonly model?: boolean;
 
-  readonly orientationOffset: Vec3Props;
+  readonly orientationOffset?: Vec3Props;
 
   constructor({
-    hand = 'left',
-    buttonColor = '#FAFAFA',
-    buttonHighlightColor = '#22D1EE',
-    model = true,
-    orientationOffset = { x: 0, y: 0, z: 0 },
+    hand,
+    buttonColor,
+    buttonHighlightColor,
+    model,
+    orientationOffset,
   }: ValveIndexControlsProps) {
     this.hand = hand;
     this.buttonColor = buttonColor;
@@ -34,9 +40,14 @@ export class ValveIndexControls implements ValveIndexControlsProps {
     this.orientationOffset = orientationOffset;
   }
 
-  public toString = (): string => `hand:${this.hand};`
-                                + `buttonColor:${this.buttonColor};`
-                                + `buttonHighlightColor:${this.buttonHighlightColor};`
-                                + `model:${this.model};`
-                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as ValveIndexControlsKeys] !== undefined && this[key as ValveIndexControlsKeys] !== '')
+    .map((key: string) => {
+      if (['orientationOffset'].includes(key)) {
+        return `${key}:${new Vec3(this[key as ValveIndexControlsKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as ValveIndexControlsKeys]};`;
+    })
+    .join('');
 }

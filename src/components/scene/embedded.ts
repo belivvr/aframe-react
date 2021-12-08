@@ -6,6 +6,14 @@
  *
  * @see https://aframe.io/docs/1.2.0/components/embedded.html
  */
-export type Embedded = boolean;
+export type EmbeddedProps = boolean;
 
-export const Default: Embedded = true;
+export class Embedded {
+  readonly value: EmbeddedProps;
+
+  constructor(value: EmbeddedProps = true) {
+    this.value = value;
+  }
+
+  public toString = (): string => String(this.value);
+}

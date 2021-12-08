@@ -7,7 +7,7 @@
 export type StatsProps = boolean;
 
 export class Stats {
-  readonly value?: StatsProps;
+  readonly value: StatsProps;
 
   constructor(value: StatsProps) {
     this.value = value;

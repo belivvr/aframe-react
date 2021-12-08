@@ -1,6 +1,4 @@
-const INSPECTOR_DEV_URL = 'https://aframe.io/aframe-inspector/dist/aframe-inspector.js';
-const INSPECTOR_RELEASE_URL = 'https://unpkg.com/aframe-inspector@1.2.x/dist/aframe-inspector.min.js';
-const INSPECTOR_URL = process.env.INSPECTOR_VERSION === 'dev' ? INSPECTOR_DEV_URL : INSPECTOR_RELEASE_URL;
+type InspectorKeys = 'url';
 
 /**
  * @see https://aframe.io/docs/1.2.0/introduction/visual-inspector-and-dev-tools.html
@@ -13,13 +11,15 @@ export interface InspectorProps {
 }
 
 export class Inspector implements InspectorProps {
-  readonly url: URL;
+  readonly url?: URL;
 
-  constructor({
-    url = new URL(INSPECTOR_URL),
-  }: InspectorProps) {
+  constructor({ url }: InspectorProps) {
     this.url = url;
   }
 
-  public toString = (): string => `url:${this.url.toString()};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as InspectorKeys] !== undefined)
+    .map((key: string) => `${key}:${this[key as InspectorKeys]};`)
+    .join('');
 }

@@ -1,3 +1,7 @@
+type VrModeUIKeys = 'enabled'
+| 'enterVRButton'
+| 'enterARButton';
+
 /**
  * The vr-mode-ui component allows disabling of UI such as an
  * Enter VR button, compatibility modal, and orientation modal for mobile.
@@ -28,23 +32,25 @@ export interface VrModeUIProps {
 }
 
 export class VrModeUI implements VrModeUIProps {
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
-  readonly enterVRButton: string;
+  readonly enterVRButton?: string;
 
-  readonly enterARButton: string;
+  readonly enterARButton?: string;
 
   constructor({
-    enabled = true,
-    enterVRButton = '',
-    enterARButton = '',
+    enabled,
+    enterVRButton,
+    enterARButton,
   }: VrModeUIProps) {
     this.enabled = enabled;
     this.enterVRButton = enterVRButton;
     this.enterARButton = enterARButton;
   }
 
-  public toString = (): string => `enabled:${this.enabled};`
-                                + `enterVRButton:${this.enterVRButton};`
-                                + `enterARButton:${this.enterARButton};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as VrModeUIKeys] !== undefined && this[key as VrModeUIKeys] !== '')
+    .map((key: string) => `${key}:${this[key as VrModeUIKeys]};`)
+    .join('');
 }

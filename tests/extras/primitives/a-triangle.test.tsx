@@ -38,6 +38,9 @@ describe('Triangle', () => {
       normalTextureOffset: { x: 0, y: 0 },
       normalTextureRepeat: { x: 0, y: 0 },
       repeat: { x: 0, y: 0 },
+      vertexA: { x: 0, y: 0, z: 0 },
+      vertexB: { x: 0, y: 0, z: 0 },
+      vertexC: { x: 0, y: 0, z: 0 },
     };
 
     it('Should render has all props a-triangle tag', () => {

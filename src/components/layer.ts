@@ -1,5 +1,11 @@
 import { LayerType } from './types';
 
+type LayerKeys = 'type'
+| 'src'
+| 'rotateCubemap'
+| 'width'
+| 'height';
+
 /**
  * The layer component renders images, videos or cubemaps into a [WebXR compositor layer](https://immersive-web.github.io/layers/) on supported browsers.
  *
@@ -46,22 +52,22 @@ export interface LayerProps {
 }
 
 export class Layer implements LayerProps {
-  readonly type: LayerType;
+  readonly type?: LayerType;
 
-  readonly src: string;
+  readonly src?: string;
 
-  readonly rotateCubemap: boolean;
+  readonly rotateCubemap?: boolean;
 
-  readonly width: number;
+  readonly width?: number;
 
-  readonly height: number;
+  readonly height?: number;
 
   constructor({
-    type = 'quad',
-    src = '',
-    rotateCubemap = false,
-    width = 0,
-    height = 0,
+    type,
+    src,
+    rotateCubemap,
+    width,
+    height,
   }: LayerProps) {
     this.type = type;
     this.src = src;
@@ -70,9 +76,9 @@ export class Layer implements LayerProps {
     this.height = height;
   }
 
-  public toString = (): string => `type:${this.type};`
-                                + `${this.src ? `src:${this.src};` : ''}`
-                                + `rotateCubemap:${this.rotateCubemap};`
-                                + `width:${this.width};`
-                                + `height:${this.height};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as LayerKeys] !== undefined && this[key as LayerKeys] !== '')
+    .map((key: string) => `${key}:${this[key as LayerKeys]};`)
+    .join('');
 }

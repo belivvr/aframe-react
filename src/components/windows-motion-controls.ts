@@ -1,5 +1,10 @@
 import type { Hand } from './types';
 
+type WindowsMotionControlsKeys = 'hand'
+| 'pair'
+| 'model'
+| 'hideDisconnected';
+
 /**
  * The windows-motion-controls component interfaces with any spatial controllers exposed through Windows Mixed Reality as Spatial Input Sources (such as Motion Controllers). It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and a controller model that highlights applies position/rotation transforms to the pressed buttons (trigger, grip, menu, thumbstick, trackpad) and moved axes (thumbstick and trackpad.)
  *
@@ -29,19 +34,19 @@ export interface WindowsMotionControlsProps {
 }
 
 export class WindowsMotionControls implements WindowsMotionControlsProps {
-  readonly hand: Hand;
+  readonly hand?: Hand;
 
-  readonly pair: number;
+  readonly pair?: number;
 
-  readonly model: boolean;
+  readonly model?: boolean;
 
-  readonly hideDisconnected: boolean;
+  readonly hideDisconnected?: boolean;
 
   constructor({
-    hand = 'right',
-    pair = 0,
-    model = true,
-    hideDisconnected = true,
+    hand,
+    pair,
+    model,
+    hideDisconnected,
   }: WindowsMotionControlsProps) {
     this.hand = hand;
     this.pair = pair;
@@ -49,8 +54,9 @@ export class WindowsMotionControls implements WindowsMotionControlsProps {
     this.hideDisconnected = hideDisconnected;
   }
 
-  public toString = (): string => `hand:${this.hand};`
-                                + `pair:${this.pair};`
-                                + `model:${this.model};`
-                                + `hideDisconnected:${this.hideDisconnected};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as WindowsMotionControlsKeys] !== undefined)
+    .map((key: string) => `${key}:${this[key as WindowsMotionControlsKeys]};`)
+    .join('');
 }

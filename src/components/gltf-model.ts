@@ -1,4 +1,4 @@
-export type GLTFModelType = 'string';
+export type GLTFModelType = string;
 
 /**
  * [glTF](https://www.khronos.org/gltf) (GL Transmission Format) is an open project by Khronos providing a common,

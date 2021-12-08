@@ -1,3 +1,15 @@
+type LinkKeys = 'backgroundColor'
+| 'borderColor'
+| 'highlighted'
+| 'highlightedColor'
+| 'href'
+| 'image'
+| 'on'
+| 'peekMode'
+| 'title'
+| 'titleColor'
+| 'visualAspectEnabled';
+
 /**
  * The link component connects between experiences and allows for traversing between VR web pages.
  * When activated via an event, the link component sends the user to a different page,
@@ -75,40 +87,40 @@ export interface LinkProps {
 }
 
 export class Link implements LinkProps {
-  readonly backgroundColor: string;
+  readonly backgroundColor?: string;
 
-  readonly borderColor: string;
+  readonly borderColor?: string;
 
-  readonly highlighted: boolean;
+  readonly highlighted?: boolean;
 
-  readonly highlightedColor: string;
+  readonly highlightedColor?: string;
 
-  readonly href: string;
+  readonly href?: string;
 
-  readonly image: string;
+  readonly image?: string;
 
-  readonly on: string;
+  readonly on?: string;
 
-  readonly peekMode: boolean;
+  readonly peekMode?: boolean;
 
-  readonly title: string;
+  readonly title?: string;
 
-  readonly titleColor: string;
+  readonly titleColor?: string;
 
-  readonly visualAspectEnabled: boolean;
+  readonly visualAspectEnabled?: boolean;
 
   constructor({
-    backgroundColor = 'red',
-    borderColor = 'white',
-    highlighted = false,
-    highlightedColor = '#24CAFF',
-    href = '',
-    image = '',
-    on = 'click',
-    peekMode = false,
-    title = '',
-    titleColor = 'white',
-    visualAspectEnabled = false,
+    backgroundColor,
+    borderColor,
+    highlighted,
+    highlightedColor,
+    href,
+    image,
+    on,
+    peekMode,
+    title,
+    titleColor,
+    visualAspectEnabled,
   }: LinkProps) {
     this.backgroundColor = backgroundColor;
     this.borderColor = borderColor;
@@ -123,15 +135,9 @@ export class Link implements LinkProps {
     this.visualAspectEnabled = visualAspectEnabled;
   }
 
-  public toString = (): string => `backgroundColor:${this.backgroundColor};`
-                                + `borderColor:${this.borderColor};`
-                                + `highlighted:${this.highlighted};`
-                                + `highlightedColor:${this.highlightedColor};`
-                                + `href:${this.href};`
-                                + `image:${this.image};`
-                                + `on:${this.on};`
-                                + `peekMode:${this.peekMode};`
-                                + `title:${this.title};`
-                                + `titleColor:${this.titleColor};`
-                                + `visualAspectEnabled:${this.visualAspectEnabled};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as LinkKeys] !== undefined && this[key as LinkKeys] !== '')
+    .map((key: string) => `${key}:${this[key as LinkKeys]};`)
+    .join('');
 }

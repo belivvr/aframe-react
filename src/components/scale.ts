@@ -10,17 +10,17 @@ export interface ScaleProps {
   /**
    * Scaling factor in the X direction.
    */
-  x?: number;
+  x: number;
 
   /**
    * Scaling factor in the Y direction.
    */
-  y?: number;
+  y: number;
 
   /**
    * Scaling factor in the Z direction.
    */
-  z?: number;
+  z: number;
 }
 
 export class Scale implements ScaleProps {
@@ -31,9 +31,9 @@ export class Scale implements ScaleProps {
   readonly z: number;
 
   constructor({
-    x = 1,
-    y = 1,
-    z = 1,
+    x,
+    y,
+    z,
   }: ScaleProps) {
     this.x = x;
     this.y = y;

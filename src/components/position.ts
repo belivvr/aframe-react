@@ -10,17 +10,17 @@ export interface PositionProps {
   /**
    * Negative X axis extends left. Positive X Axis extends right.
    */
-  x?: number;
+  x: number;
 
   /**
    * Negative Y axis extends down. Positive Y Axis extends up.
    */
-  y?: number;
+  y: number;
 
   /**
    * Negative Z axis extends in. Positive Z Axis extends out.
    */
-  z?: number;
+  z: number;
 }
 
 export class Position implements PositionProps {
@@ -31,9 +31,9 @@ export class Position implements PositionProps {
   readonly z: number;
 
   constructor({
-    x = 0,
-    y = 0,
-    z = 0,
+    x,
+    y,
+    z,
   }: PositionProps) {
     this.x = x;
     this.y = y;

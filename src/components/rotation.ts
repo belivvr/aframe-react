@@ -11,17 +11,17 @@ export interface RotationProps {
   /**
    * Pitch, rotation about the X-axis.
    */
-  x?: number;
+  x: number;
 
   /**
    * Yaw, rotation about the Y-axis.
    */
-  y?: number;
+  y: number;
 
   /**
    * Roll, rotation about the Z-axis.
    */
-  z?: number;
+  z: number;
 }
 
 export class Rotation implements RotationProps {
@@ -32,9 +32,9 @@ export class Rotation implements RotationProps {
   readonly z: number;
 
   constructor({
-    x = 0,
-    y = 0,
-    z = 0,
+    x,
+    y,
+    z,
   }: RotationProps) {
     this.x = x;
     this.y = y;

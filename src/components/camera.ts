@@ -76,7 +76,7 @@ export class Camera implements CameraProps {
 
   public toString = (): string => Object.keys(this)
     .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as CameraKeys] !== undefined && this[key as CameraKeys] !== '')
+    .filter((key: string) => this[key as CameraKeys] !== undefined)
     .map((key: string) => `${key}:${this[key as CameraKeys]};`)
     .join('');
 }

@@ -10,8 +10,8 @@ export type { ScreenshotProps } from './screenshot';
 export type { PoolProps } from './pool';
 export type { KeyboardShortcutsProps } from './keyboard-shortcuts';
 export type { GLTFModelProps } from './gltf-model';
-export type { ShadowType, ShadowProps } from './shadow';
-export type { FogType } from './types';
+export type { ShadowProps } from './shadow';
+export type { FogType, ShadowType } from './types';
 
 export { Background } from './background';
 export { Debug } from './debug';

@@ -262,7 +262,7 @@ export function toProps(props: Props, removalKeys?: string[]): Object {
     'tracked-controls-webxr': trackedControlsWebXR && new TrackedControlsWebXR(trackedControlsWebXR).toString(),
     'tracked-controls': trackedControls && new TrackedControls(trackedControls).toString(),
     'valve-index-controls': valveIndexControls && new ValveIndexControls(valveIndexControls).toString(),
-    visible: visible !== undefined && new Visible(visible).toString(),
+    visible: visible !== undefined ? new Visible(visible).toString() : undefined,
     'vive-controls': viveControls && new ViveControls(viveControls).toString(),
     'vive-focus-controls': viveFocusControls && new ViveFocusControls(viveFocusControls).toString(),
     'wasd-controls': wasdControls && new WASDControls(wasdControls).toString(),

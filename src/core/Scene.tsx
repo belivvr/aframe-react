@@ -6,11 +6,11 @@ import type {
   FogProps,
   InspectorProps,
   VrModeUIProps,
-  Stats,
+  StatsProps,
   ScreenshotProps,
   PoolProps,
   KeyboardShortcutsProps,
-  Embedded,
+  EmbeddedProps,
   DeviceOrientationPermissionUIProps,
   GLTFModelProps,
   ShadowProps,
@@ -19,11 +19,13 @@ import {
   Background,
   Debug,
   Fog,
+  Stats,
   Inspector,
   VrModeUI,
   Screenshot,
   Pool,
   KeyboardShortcuts,
+  Embedded,
   DeviceOrientationPermissionUI,
   GLTFModel,
   Shadow,
@@ -37,11 +39,11 @@ interface Props {
   inspector?: InspectorProps;
   background?: BackgroundProps;
   vrModeUI?: VrModeUIProps;
-  stats?: Stats;
+  stats?: StatsProps;
   screenshot?: ScreenshotProps;
   pool?: PoolProps;
   keyboardShortcuts?: KeyboardShortcutsProps;
-  embedded?: Embedded;
+  embedded?: EmbeddedProps;
   deviceOrientationPermissionUI?: DeviceOrientationPermissionUIProps;
   debug?: DebugProps;
   gltfModel?: GLTFModelProps;
@@ -97,15 +99,15 @@ function toProps(props: Props): Object {
     id,
     class: className,
     background: background && new Background(background).toString(),
-    debug: debug && new Debug(debug).toString(),
+    debug: debug !== undefined ? new Debug(debug).toString() : undefined,
     fog: fog && new Fog(fog).toString(),
     inspector: inspector && new Inspector(inspector).toString(),
     'vr-mode-ui': vrModeUI && new VrModeUI(vrModeUI).toString(),
-    stats,
+    stats: stats !== undefined ? new Stats(stats).toString() : undefined,
     screenshot: screenshot && new Screenshot(screenshot).toString(),
     pool: pool && new Pool(pool).toString(),
     'keyboard-shortcuts': keyboardShortcuts && new KeyboardShortcuts(keyboardShortcuts).toString(),
-    embedded,
+    embedded: embedded !== undefined ? new Embedded(embedded).toString() : undefined,
     'device-orientation-permission-ui': deviceOrientationPermissionUI && new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString(),
     'gltf-model': gltfModel && new GLTFModel(gltfModel).toString(),
     shadow: shadow && new Shadow(shadow).toString(),

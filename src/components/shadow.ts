@@ -1,3 +1,5 @@
+type ShadowKeys = 'cast' | 'receive';
+
 /**
  * The shadow component enables shadows for an entity and its children.
  * Receiving shadows from surrounding objects and casting shadows
@@ -20,18 +22,21 @@ export interface ShadowProps {
 }
 
 export class Shadow implements ShadowProps {
-  readonly cast: boolean;
+  readonly cast?: boolean;
 
-  readonly receive: boolean;
+  readonly receive?: boolean;
 
   constructor({
-    cast = true,
-    receive = true,
+    cast,
+    receive,
   }: ShadowProps) {
     this.cast = cast;
     this.receive = receive;
   }
 
-  public toString = (): string => `cast:${this.cast};`
-                                + `receive:${this.receive};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as ShadowKeys] !== undefined)
+    .map((key: string) => `${key}:${this[key as ShadowKeys]};`)
+    .join('');
 }

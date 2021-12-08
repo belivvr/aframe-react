@@ -1,11 +1,9 @@
 name: Deploy Package
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-    types:
-      - closed
 
 jobs:
   deploy-package:

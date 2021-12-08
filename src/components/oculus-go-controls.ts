@@ -1,6 +1,14 @@
 import type { Hand, Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type OculusGoControlsKeys = 'hand'
+| 'buttonColor'
+| 'buttonTouchedColor'
+| 'buttonHighlightColor'
+| 'model'
+| 'orientationOffset'
+| 'armModel';
+
 /**
  * The oculus-go-controls component interfaces with the Oculus Go controllers. It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and an Oculus Go controller model that highlights the touched and/or pressed buttons (trackpad, trigger).
  *
@@ -46,26 +54,26 @@ export interface OculusGoControlsProps {
 export class OculusGoControls implements OculusGoControlsProps {
   readonly hand?: Hand;
 
-  readonly buttonColor: string;
+  readonly buttonColor?: string;
 
-  readonly buttonTouchedColor: string;
+  readonly buttonTouchedColor?: string;
 
-  readonly buttonHighlightColor: string;
+  readonly buttonHighlightColor?: string;
 
-  readonly model: boolean;
+  readonly model?: boolean;
 
-  readonly orientationOffset: Vec3Props;
+  readonly orientationOffset?: Vec3Props;
 
-  readonly armModel: boolean;
+  readonly armModel?: boolean;
 
   constructor({
     hand,
-    buttonColor = '#FFFFFF',
-    buttonTouchedColor = '#BBBBBB',
-    buttonHighlightColor = '#7A7A7A',
-    model = true,
-    orientationOffset = { x: 0, y: 0, z: 0 },
-    armModel = true,
+    buttonColor,
+    buttonTouchedColor,
+    buttonHighlightColor,
+    model,
+    orientationOffset,
+    armModel,
   }: OculusGoControlsProps) {
     this.hand = hand;
     this.buttonColor = buttonColor;
@@ -76,11 +84,14 @@ export class OculusGoControls implements OculusGoControlsProps {
     this.armModel = armModel;
   }
 
-  public toString = (): string => `${this.hand ? `hand:${this.hand};` : ''}`
-                                + `buttonColor:${this.buttonColor};`
-                                + `buttonTouchedColor:${this.buttonTouchedColor};`
-                                + `buttonHighlightColor:${this.buttonHighlightColor};`
-                                + `model:${this.model};`
-                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
-                                + `armModel:${this.armModel};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as OculusGoControlsKeys] !== undefined && this[key as OculusGoControlsKeys] !== '')
+    .map((key: string) => {
+      if (['orientationOffset'].includes(key)) {
+        return `${key}:${new Vec3(this[key as OculusGoControlsKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as OculusGoControlsKeys]};`;
+    })
+    .join('');
 }

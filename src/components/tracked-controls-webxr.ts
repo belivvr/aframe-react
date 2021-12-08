@@ -1,5 +1,11 @@
 import type { Hand } from './types';
 
+type TrackedControlsWebXRKeys = 'id'
+| 'hand'
+| 'handTrackingEnabled'
+| 'index'
+| 'iterateControllerProfiles';
+
 /**
  * The tracked-controls component interfaces with tracked controllers.
  * tracked-controls uses the Gamepad API to handle tracked controllers, and is abstracted by the [hand-controls component](https://aframe.io/docs/1.2.0/components/hand-controls.html) as well as the [vive-controls](https://aframe.io/docs/1.2.0/components/vive-controls.html), [oculus-touch-controls](https://aframe.io/docs/1.2.0/components/oculus-touch-controls.html), [windows-motion-controls](https://aframe.io/docs/1.2.0/components/windows-motion-controls.html), and [daydream-controls components](https://aframe.io/docs/1.2.0/components/daydream-controls.html).
@@ -29,18 +35,18 @@ export class TrackedControlsWebXR implements TrackedControlsWebXRProps {
 
   readonly hand?: Hand;
 
-  readonly handTrackingEnabled: boolean;
+  readonly handTrackingEnabled?: boolean;
 
-  readonly index: number;
+  readonly index?: number;
 
-  readonly iterateControllerProfiles: boolean;
+  readonly iterateControllerProfiles?: boolean;
 
   constructor({
     id,
     hand,
-    handTrackingEnabled = false,
-    index = -1,
-    iterateControllerProfiles = false,
+    handTrackingEnabled,
+    index,
+    iterateControllerProfiles,
   }: TrackedControlsWebXRProps) {
     this.id = id;
     this.hand = hand;
@@ -49,9 +55,9 @@ export class TrackedControlsWebXR implements TrackedControlsWebXRProps {
     this.iterateControllerProfiles = iterateControllerProfiles;
   }
 
-  public toString = (): string => `${this.id ? `id:${this.id}` : ''}`
-                                + `${this.hand ? `hand:${this.hand}` : ''}`
-                                + `handTrackingEnabled:${this.handTrackingEnabled}`
-                                + `index:${this.index}`
-                                + `iterateControllerProfiles:${this.iterateControllerProfiles}`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as TrackedControlsWebXRKeys] !== undefined && this[key as TrackedControlsWebXRKeys] !== '')
+    .map((key: string) => `${key}:${this[key as TrackedControlsWebXRKeys]};`)
+    .join('');
 }

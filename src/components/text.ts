@@ -7,6 +7,31 @@ import type {
   TextWhiteSpace,
 } from './types';
 
+type TextKeys = 'align'
+| 'alphaTest'
+| 'anchor'
+| 'baseline'
+| 'color'
+| 'font'
+| 'fontImage'
+| 'height'
+| 'letterSpacing'
+| 'lineHeight'
+| 'negate'
+| 'opacity'
+| 'shader'
+| 'side'
+| 'tabSize'
+| 'transparent'
+| 'value'
+| 'whiteSpace'
+| 'width'
+| 'wrapCount'
+| 'wrapPixels'
+| 'xOffset'
+| 'yOffset'
+| 'zOffset';
+
 /**
  * The text component renders signed distance field (SDF) font text.
  *
@@ -38,12 +63,12 @@ export interface TextProps {
   /**
    * Text color.
    */
-  color?: '#FFF';
+  color?: string;
 
   /**
    * Font to render text, either the name of one of [A-Frame’s stock fonts](https://aframe.io/docs/1.2.0/components/text.html#stock-fonts) or a URL to a font file
    */
-  font?: 'roboto';
+  font?: string;
 
   /**
    * Font image texture path to render text.
@@ -134,79 +159,79 @@ export interface TextProps {
 }
 
 export class Text implements TextProps {
-  readonly align: TextAlign;
+  readonly align?: TextAlign;
 
-  readonly alphaTest: number;
+  readonly alphaTest?: number;
 
-  readonly anchor: TextAnchor;
+  readonly anchor?: TextAnchor;
 
-  readonly baseline: TextBaseline;
+  readonly baseline?: TextBaseline;
 
-  readonly color: '#FFF';
+  readonly color?: string;
 
-  readonly font: 'roboto';
+  readonly font?: string;
 
   readonly fontImage?: string;
 
   readonly height?: number;
 
-  readonly letterSpacing: number;
+  readonly letterSpacing?: number;
 
   readonly lineHeight?: number;
 
-  readonly negate: true;
+  readonly negate?: true;
 
-  readonly opacity: number;
+  readonly opacity?: number;
 
-  readonly shader: Shader;
+  readonly shader?: Shader;
 
-  readonly side: TextSide;
+  readonly side?: TextSide;
 
-  readonly tabSize: number;
+  readonly tabSize?: number;
 
-  readonly transparent: boolean;
+  readonly transparent?: boolean;
 
   readonly value?: string;
 
-  readonly whiteSpace: TextWhiteSpace;
+  readonly whiteSpace?: TextWhiteSpace;
 
   readonly width?: number;
 
-  readonly wrapCount: number;
+  readonly wrapCount?: number;
 
   readonly wrapPixels?: number;
 
-  readonly xOffset: number;
+  readonly xOffset?: number;
 
-  readonly yOffset: number;
+  readonly yOffset?: number;
 
-  readonly zOffset: number;
+  readonly zOffset?: number;
 
   constructor({
-    align = 'left',
-    alphaTest = 0.5,
-    anchor = 'center',
-    baseline = 'center',
-    color = '#FFF',
-    font = 'roboto',
+    align,
+    alphaTest,
+    anchor,
+    baseline,
+    color,
+    font,
     fontImage,
     height,
-    letterSpacing = 0,
+    letterSpacing,
     lineHeight,
-    negate = true,
-    opacity = 1.0,
-    shader = 'sdf',
-    side = 'front',
-    tabSize = 4,
-    transparent = true,
+    negate,
+    opacity,
+    shader,
+    side,
+    tabSize,
+    transparent,
     value,
-    whiteSpace = 'normal',
+    whiteSpace,
     width,
-    wrapCount = 40,
+    wrapCount,
     wrapPixels,
-    xOffset = 0,
-    yOffset = 0,
-    zOffset = 0.001,
+    xOffset,
+    yOffset,
+    zOffset,
   }: TextProps) {
     this.align = align;
     this.alphaTest = alphaTest;
@@ -234,28 +259,9 @@ export class Text implements TextProps {
     this.zOffset = zOffset;
   }
 
-  public toString = (): string => `align:${this.align};`
-                                + `alphaTest:${this.alphaTest};`
-                                + `anchor:${this.anchor};`
-                                + `baseline:${this.baseline};`
-                                + `color:${this.color};`
-                                + `font:${this.font};`
-                                + `${this.fontImage ? `fontImage:${this.fontImage};` : ''}`
-                                + `${typeof this.height === 'number' ? `height:${this.height};` : ''}`
-                                + `letterSpacing:${this.letterSpacing};`
-                                + `${typeof this.lineHeight === 'number' ? `lineHeight:${this.lineHeight};` : ''}`
-                                + `negate:${this.negate};`
-                                + `opacity:${this.opacity};`
-                                + `shader:${this.shader};`
-                                + `side:${this.side};`
-                                + `tabSize:${this.tabSize};`
-                                + `transparent:${this.transparent};`
-                                + `${this.value ? `value:${this.value};` : ''}`
-                                + `whiteSpace:${this.whiteSpace};`
-                                + `${typeof this.width === 'number' ? `width:${this.width};` : ''}`
-                                + `wrapCount:${this.wrapCount};`
-                                + `${typeof this.wrapPixels === 'number' ? `wrapPixels:${this.wrapPixels};` : ''}`
-                                + `xOffset:${this.xOffset};`
-                                + `yOffset:${this.yOffset};`
-                                + `zOffset:${this.zOffset};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as TextKeys] !== undefined && this[key as TextKeys] !== '')
+    .map((key: string) => `${key}:${this[key as TextKeys]};`)
+    .join('');
 }

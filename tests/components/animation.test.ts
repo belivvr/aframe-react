@@ -1,5 +1,5 @@
-import type { Easing } from '../../src/components/types';
-import { Animation } from '../../src/components/animation';
+import type { Easing, AnimationProps } from '../../src/components';
+import { Animation } from '../../src/components';
 
 describe('Animation component', () => {
   context('When given props is empty', () => {
@@ -11,13 +11,15 @@ describe('Animation component', () => {
   });
 
   context('When given props is not empty', () => {
-    const givenProps = {
+    const givenProps: AnimationProps = {
       easing: 'easeInOutExpo' as Easing,
       from: false,
+      loop: true,
+      startEvents: ['mouseenter', 'mouseleave'],
     };
 
     it('Should returns animation value', () => {
-      expect(new Animation(givenProps).toString()).toBe('easing:easeInOutExpo;from:false;');
+      expect(new Animation(givenProps).toString()).toBe('easing:easeInOutExpo;from:false;loop:1;startEvents:mouseenter,mouseleave;');
     });
   });
 });

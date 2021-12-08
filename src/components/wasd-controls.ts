@@ -1,5 +1,15 @@
 import type { WASDAxis } from './types';
 
+type WASDControlsKeys = 'acceleration'
+| 'adAxis'
+| 'adEnabled'
+| 'adInverted'
+| 'enabled'
+| 'fly'
+| 'wsAxis'
+| 'wsEnabled'
+| 'wsInverted';
+
 /**
  * The wasd-controls component controls an entity with the WASD or arrow keyboard keys.
  * The wasd-controls component is commonly attached to an entity with the [camera component](https://aframe.io/docs/1.2.0/components/camera.html).
@@ -48,34 +58,34 @@ export interface WASDControlsProps {
 }
 
 export class WASDControls implements WASDControlsProps {
-  readonly acceleration: number;
+  readonly acceleration?: number;
 
-  readonly adAxis: WASDAxis;
+  readonly adAxis?: WASDAxis;
 
-  readonly adEnabled: boolean;
+  readonly adEnabled?: boolean;
 
-  readonly adInverted: boolean;
+  readonly adInverted?: boolean;
 
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
-  readonly fly: boolean;
+  readonly fly?: boolean;
 
-  readonly wsAxis: WASDAxis;
+  readonly wsAxis?: WASDAxis;
 
-  readonly wsEnabled: boolean;
+  readonly wsEnabled?: boolean;
 
-  readonly wsInverted: boolean;
+  readonly wsInverted?: boolean;
 
   constructor({
-    acceleration = 65,
-    adAxis = 'x',
-    adEnabled = true,
-    adInverted = false,
-    enabled = true,
-    fly = false,
-    wsAxis = 'z',
-    wsEnabled = true,
-    wsInverted = false,
+    acceleration,
+    adAxis,
+    adEnabled,
+    adInverted,
+    enabled,
+    fly,
+    wsAxis,
+    wsEnabled,
+    wsInverted,
   }: WASDControlsProps) {
     this.acceleration = acceleration;
     this.adAxis = adAxis;
@@ -88,13 +98,9 @@ export class WASDControls implements WASDControlsProps {
     this.wsInverted = wsInverted;
   }
 
-  public toString = () => `acceleration:${this.acceleration};`
-                        + `adAxis:${this.adAxis};`
-                        + `adEnabled:${this.adEnabled};`
-                        + `adInverted:${this.adInverted};`
-                        + `enabled:${this.enabled};`
-                        + `fly:${this.fly};`
-                        + `wsAxis:${this.wsAxis};`
-                        + `wsEnabled:${this.wsEnabled};`
-                        + `wsInverted:${this.wsInverted};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as WASDControlsKeys] !== undefined)
+    .map((key: string) => `${key}:${this[key as WASDControlsKeys]};`)
+    .join('');
 }

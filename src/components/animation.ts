@@ -243,7 +243,7 @@ export class Animation implements AnimationProps {
         'pauseEvents',
         'resumeEvents',
       ].includes(key)) {
-        return `${key}:'${(this[key as AnimationKeys] as string[]).join('\',\'')}';`;
+        return `${key}:${(this[key as AnimationKeys] as string[]).join(',')};`;
       }
       if (key === 'loop') {
         return `${key}:${Number(this[key])};`;

@@ -1,6 +1,15 @@
 import type { Hand, Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type TrackedControlsWebVRKeys = 'autoHide'
+| 'controller'
+| 'id'
+| 'hand'
+| 'idPrefix'
+| 'orientationOffset'
+| 'armModel'
+| 'headElement';
+
 /**
  * The tracked-controls component interfaces with tracked controllers.
  * tracked-controls uses the Gamepad API to handle tracked controllers, and is abstracted by the [hand-controls component](https://aframe.io/docs/1.2.0/components/hand-controls.html) as well as the [vive-controls](https://aframe.io/docs/1.2.0/components/vive-controls.html), [oculus-touch-controls](https://aframe.io/docs/1.2.0/components/oculus-touch-controls.html), [windows-motion-controls](https://aframe.io/docs/1.2.0/components/windows-motion-controls.html), and [daydream-controls components](https://aframe.io/docs/1.2.0/components/daydream-controls.html).
@@ -53,9 +62,9 @@ export interface TrackedControlsWebVRProps {
 }
 
 export class TrackedControlsWebVR implements TrackedControlsWebVRProps {
-  readonly autoHide: boolean;
+  readonly autoHide?: boolean;
 
-  readonly controller: number;
+  readonly controller?: number;
 
   readonly id?: string;
 
@@ -63,20 +72,20 @@ export class TrackedControlsWebVR implements TrackedControlsWebVRProps {
 
   readonly idPrefix?: string;
 
-  readonly orientationOffset: Vec3Props;
+  readonly orientationOffset?: Vec3Props;
 
   readonly armModel?: boolean;
 
   readonly headElement?: string;
 
   constructor({
-    autoHide = true,
-    controller = 0,
+    autoHide,
+    controller,
     id,
     hand,
     idPrefix,
-    orientationOffset = { x: 0, y: 0, z: 0 },
-    armModel = false,
+    orientationOffset,
+    armModel,
     headElement,
   }: TrackedControlsWebVRProps) {
     this.autoHide = autoHide;
@@ -89,12 +98,14 @@ export class TrackedControlsWebVR implements TrackedControlsWebVRProps {
     this.headElement = headElement;
   }
 
-  public toString = (): string => `autoHide:${this.autoHide};`
-                                + `controller:${this.controller};`
-                                + `${this.id ? `id:${this.id};` : ''}`
-                                + `${this.hand ? `hand:${this.hand};` : ''}`
-                                + `${this.idPrefix ? `idPrefix:${this.idPrefix};` : ''}`
-                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
-                                + `armModel:${this.armModel};`
-                                + `${this.headElement ? `headElement:${this.headElement};` : ''}`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as TrackedControlsWebVRKeys] !== undefined && this[key as TrackedControlsWebVRKeys] !== '')
+    .map((key: string) => {
+      if (['orientationOffset'].includes(key)) {
+        return `${key}:${new Vec3(this[key as TrackedControlsWebVRKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as TrackedControlsWebVRKeys]};`;
+    })
+    .join('');
 }

@@ -1,5 +1,17 @@
 import { SoundDistanceModel } from './types';
 
+type SoundKeys = 'autoplay'
+| 'distanceModel'
+| 'loop'
+| 'maxDistance'
+| 'on'
+| 'poolSize'
+| 'positional'
+| 'refDistance'
+| 'rolloffFactor'
+| 'src'
+| 'volume';
+
 /**
  * The sound component defines the entity as a source of sound or audio.
  * The sound component is positional and is thus affected by the [components-position](https://aframe.io/docs/1.2.0/components/position.html).
@@ -71,40 +83,40 @@ export interface SoundProps {
 }
 
 export class Sound implements SoundProps {
-  readonly autoplay: boolean;
+  readonly autoplay?: boolean;
 
-  readonly distanceModel: SoundDistanceModel;
+  readonly distanceModel?: SoundDistanceModel;
 
-  readonly loop: boolean;
+  readonly loop?: boolean;
 
-  readonly maxDistance: number;
+  readonly maxDistance?: number;
 
   readonly on?: string;
 
-  readonly poolSize: number;
+  readonly poolSize?: number;
 
-  readonly positional: boolean;
+  readonly positional?: boolean;
 
-  readonly refDistance: number;
+  readonly refDistance?: number;
 
-  readonly rolloffFactor: number;
+  readonly rolloffFactor?: number;
 
   readonly src?: string;
 
-  readonly volume: number;
+  readonly volume?: number;
 
   constructor({
-    autoplay = false,
-    distanceModel = 'inverse',
-    loop = false,
-    maxDistance = 10000,
+    autoplay,
+    distanceModel,
+    loop,
+    maxDistance,
     on,
-    poolSize = 1,
-    positional = true,
-    refDistance = 1,
-    rolloffFactor = 1,
+    poolSize,
+    positional,
+    refDistance,
+    rolloffFactor,
     src,
-    volume = 1,
+    volume,
   }: SoundProps) {
     this.autoplay = autoplay;
     this.distanceModel = distanceModel;
@@ -119,15 +131,9 @@ export class Sound implements SoundProps {
     this.volume = volume;
   }
 
-  public toString = (): string => `autoplay:${this.autoplay};`
-                                + `distanceModel:${this.distanceModel};`
-                                + `loop:${this.loop};`
-                                + `maxDistance:${this.maxDistance};`
-                                + `${this.on ? `on:${this.on};` : ''}`
-                                + `poolSize:${this.poolSize};`
-                                + `positional:${this.positional};`
-                                + `refDistance:${this.refDistance};`
-                                + `rolloffFactor:${this.rolloffFactor};`
-                                + `${this.src ? `src:${this.src};` : ''}`
-                                + `volume:${this.volume};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as SoundKeys] !== undefined && this[key as SoundKeys] !== '')
+    .map((key: string) => `${key}:${this[key as SoundKeys]};`)
+    .join('');
 }

@@ -519,7 +519,7 @@ export class Material implements MaterialProps {
   }
 
   public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => !['toString', 'extraProps'].includes(key))
     .filter((key: string) => this[key] !== undefined && this[key] !== '')
     .map((key: string) => {
       if ([
@@ -537,5 +537,5 @@ export class Material implements MaterialProps {
       }
       return `${key}:${this[key]};`;
     })
-    .join('');
+    .join('') + this.extraProps;
 }

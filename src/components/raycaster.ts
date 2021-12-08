@@ -1,6 +1,19 @@
 import type { Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type RaycasterKeys = 'autoRefresh'
+| 'direction'
+| 'enabled'
+| 'far'
+| 'interval'
+| 'near'
+| 'objects'
+| 'origin'
+| 'showLine'
+| 'lineColor'
+| 'lineOpacity'
+| 'useWorldCoordinates';
+
 /**
  * The raycaster component provides line-based intersection testing with a [raycaster](https://en.wikipedia.org/wiki/Ray_casting). Raycasting is the method of extending a line from an origin towards a direction, and checking whether that line intersects with other entities.
  *
@@ -89,43 +102,43 @@ export interface RaycasterProps {
 }
 
 export class Raycaster implements RaycasterProps {
-  readonly autoRefresh: boolean;
+  readonly autoRefresh?: boolean;
 
-  readonly direction: Vec3Props;
+  readonly direction?: Vec3Props;
 
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
-  readonly far: number;
+  readonly far?: number;
 
-  readonly interval: number;
+  readonly interval?: number;
 
-  readonly near: number;
+  readonly near?: number;
 
   readonly objects?: string;
 
-  readonly origin: Vec3Props;
+  readonly origin?: Vec3Props;
 
-  readonly showLine: boolean;
+  readonly showLine?: boolean;
 
-  readonly lineColor: string;
+  readonly lineColor?: string;
 
-  readonly lineOpacity: number;
+  readonly lineOpacity?: number;
 
-  readonly useWorldCoordinates: boolean;
+  readonly useWorldCoordinates?: boolean;
 
   constructor({
-    autoRefresh = true,
-    direction = { x: 0, y: 0, z: -1 },
-    enabled = true,
-    far = 1000,
-    interval = 0,
-    near = 0,
+    autoRefresh,
+    direction,
+    enabled,
+    far,
+    interval,
+    near,
     objects,
-    origin = { x: 0, y: 0, z: 0 },
-    showLine = false,
-    lineColor = 'white',
-    lineOpacity = 1,
-    useWorldCoordinates = false,
+    origin,
+    showLine,
+    lineColor,
+    lineOpacity,
+    useWorldCoordinates,
   }: RaycasterProps) {
     this.autoRefresh = autoRefresh;
     this.direction = direction;
@@ -141,16 +154,14 @@ export class Raycaster implements RaycasterProps {
     this.useWorldCoordinates = useWorldCoordinates;
   }
 
-  public toString = (): string => `autoRefresh:${this.autoRefresh};`
-                                + `direction:${new Vec3(this.direction).toString()};`
-                                + `enabled:${this.enabled};`
-                                + `far:${this.far};`
-                                + `interval:${this.interval};`
-                                + `near:${this.near};`
-                                + `${this.objects ? `objects:${this.objects};` : ''}`
-                                + `origin:${new Vec3(this.origin).toString()};`
-                                + `showLine:${this.showLine};`
-                                + `lineColor:${this.lineColor};`
-                                + `lineOpacity:${this.lineOpacity};`
-                                + `useWorldCoordinates:${this.useWorldCoordinates};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as RaycasterKeys] !== undefined && this[key as RaycasterKeys] !== '')
+    .map((key: string) => {
+      if (['direction', 'origin'].includes(key)) {
+        return `${key}:${new Vec3(this[key as RaycasterKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as RaycasterKeys]};`;
+    })
+    .join('');
 }

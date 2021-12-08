@@ -1,6 +1,17 @@
 import type { Hand, Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type TrackedControlsKeys = 'autoHide'
+| 'controller'
+| 'id'
+| 'hand'
+| 'idPrefix'
+| 'handTrackingEnabled'
+| 'orientationOffset'
+| 'armModel'
+| 'headElement'
+| 'iterateControllerProfiles';
+
 /**
  * The tracked-controls component interfaces with tracked controllers.
  * tracked-controls uses the Gamepad API to handle tracked controllers, and is abstracted by the [hand-controls component](https://aframe.io/docs/1.2.0/components/hand-controls.html) as well as the [vive-controls](https://aframe.io/docs/1.2.0/components/vive-controls.html), [oculus-touch-controls](https://aframe.io/docs/1.2.0/components/oculus-touch-controls.html), [windows-motion-controls](https://aframe.io/docs/1.2.0/components/windows-motion-controls.html), and [daydream-controls components](https://aframe.io/docs/1.2.0/components/daydream-controls.html).
@@ -57,9 +68,9 @@ export interface TrackedControlsProps {
 }
 
 export class TrackedControls implements TrackedControlsProps {
-  readonly autoHide: boolean;
+  readonly autoHide?: boolean;
 
-  readonly controller: number;
+  readonly controller?: number;
 
   readonly id?: string;
 
@@ -67,27 +78,27 @@ export class TrackedControls implements TrackedControlsProps {
 
   readonly idPrefix?: string;
 
-  readonly handTrackingEnabled: boolean;
+  readonly handTrackingEnabled?: boolean;
 
-  readonly orientationOffset: Vec3Props;
+  readonly orientationOffset?: Vec3Props;
 
   readonly armModel?: boolean;
 
   readonly headElement?: string;
 
-  readonly iterateControllerProfiles: boolean;
+  readonly iterateControllerProfiles?: boolean;
 
   constructor({
-    autoHide = true,
-    controller = -1,
+    autoHide,
+    controller,
     id,
     hand,
     idPrefix,
-    handTrackingEnabled = false,
-    orientationOffset = { x: 0, y: 0, z: 0 },
-    armModel = false,
+    handTrackingEnabled,
+    orientationOffset,
+    armModel,
     headElement,
-    iterateControllerProfiles = false,
+    iterateControllerProfiles,
   }: TrackedControlsProps) {
     this.autoHide = autoHide;
     this.controller = controller;
@@ -101,14 +112,14 @@ export class TrackedControls implements TrackedControlsProps {
     this.iterateControllerProfiles = iterateControllerProfiles;
   }
 
-  public toString = (): string => `autoHide:${this.autoHide};`
-                                + `controller:${this.controller};`
-                                + `${this.id ? `id:${this.id};` : ''}`
-                                + `${this.hand ? `hand:${this.hand};` : ''}`
-                                + `${this.idPrefix ? `idPrefix:${this.idPrefix};` : ''}`
-                                + `handTrackingEnabled:${this.handTrackingEnabled};`
-                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
-                                + `armModel:${this.armModel};`
-                                + `${this.headElement ? `headElement:${this.headElement};` : ''}`
-                                + `iterateControllerProfiles:${this.iterateControllerProfiles};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as TrackedControlsKeys] !== undefined && this[key as TrackedControlsKeys] !== '')
+    .map((key: string) => {
+      if (['orientationOffset'].includes(key)) {
+        return `${key}:${new Vec3(this[key as TrackedControlsKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as TrackedControlsKeys]};`;
+    })
+    .join('');
 }

@@ -19,4 +19,14 @@ describe('Material component', () => {
       expect(new Material(givenProps).toString()).toBe('offset:0 1;visible:false;');
     });
   });
+
+  context('When exists extra props', () => {
+    const givenProps = {
+      extraProps: 'value',
+    };
+
+    it('Should returns string values of extra props', () => {
+      expect(new Material(givenProps).toString()).toBe('extraProps:value;');
+    });
+  });
 });

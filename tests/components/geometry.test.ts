@@ -19,4 +19,14 @@ describe('Geometry component', () => {
       expect(new Geometry(givenProps).toString()).toBe('buffer:false;vertexA:0 1 0.5;');
     });
   });
+
+  context('When exists extra props', () => {
+    const givenProps = {
+      extraProps: 'value',
+    };
+
+    it('Should returns string values of extra props', () => {
+      expect(new Geometry(givenProps).toString()).toBe('extraProps:value;');
+    });
+  });
 });

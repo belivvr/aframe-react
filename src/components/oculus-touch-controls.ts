@@ -5,6 +5,14 @@ import type {
 } from './types';
 import { Vec3 } from './types';
 
+type OculusTouchControlsKeys = 'hand'
+| 'buttonColor'
+| 'buttonTouchedColor'
+| 'buttonHighlightColor'
+| 'model'
+| 'controllerType'
+| 'orientationOffset';
+
 /**
  * The oculus-touch-controls component interfaces with the Oculus Touch controllers (Rift, Rift S, Oculus Quest 1 and 2). It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and a Touch controller model.
  *
@@ -48,28 +56,28 @@ export interface OculusTouchControlsProps {
 }
 
 export class OculusTouchControls implements OculusTouchControlsProps {
-  readonly hand: Hand;
+  readonly hand?: Hand;
 
-  readonly buttonColor: string;
+  readonly buttonColor?: string;
 
-  readonly buttonTouchedColor: string;
+  readonly buttonTouchedColor?: string;
 
-  readonly buttonHighlightColor: string;
+  readonly buttonHighlightColor?: string;
 
-  readonly model: boolean;
+  readonly model?: boolean;
 
-  readonly orientationOffset: Vec3Props;
+  readonly orientationOffset?: Vec3Props;
 
-  readonly controllerType: OculusTouchControllerType;
+  readonly controllerType?: OculusTouchControllerType;
 
   constructor({
-    hand = 'left',
-    buttonColor = '#999',
-    buttonTouchedColor = '#8AB',
-    buttonHighlightColor = '#2DF',
-    model = true,
-    controllerType = 'auto',
-    orientationOffset = { x: 0, y: 0, z: 0 },
+    hand,
+    buttonColor,
+    buttonTouchedColor,
+    buttonHighlightColor,
+    model,
+    orientationOffset,
+    controllerType,
   }: OculusTouchControlsProps) {
     this.hand = hand;
     this.buttonColor = buttonColor;
@@ -80,11 +88,14 @@ export class OculusTouchControls implements OculusTouchControlsProps {
     this.controllerType = controllerType;
   }
 
-  public toString = (): string => `hand:${this.hand};`
-                                + `buttonColor:${this.buttonColor};`
-                                + `buttonTouchedColor:${this.buttonTouchedColor};`
-                                + `buttonHighlightColor:${this.buttonHighlightColor};`
-                                + `model:${this.model};`
-                                + `orientationOffset:${new Vec3(this.orientationOffset).toString()};`
-                                + `controllerType:${this.controllerType};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as OculusTouchControlsKeys] !== undefined && this[key as OculusTouchControlsKeys] !== '')
+    .map((key: string) => {
+      if (['orientationOffset'].includes(key)) {
+        return `${key}:${new Vec3(this[key as OculusTouchControlsKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as OculusTouchControlsKeys]};`;
+    })
+    .join('');
 }

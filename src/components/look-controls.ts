@@ -1,3 +1,11 @@
+type LookControlsKeys = 'enabled'
+| 'magicWindowTrackingEnabled'
+| 'pointerLockEnabled'
+| 'reverseMouseDrag'
+| 'reverseTouchDrag'
+| 'touchEnabled'
+| 'mouseEnabled';
+
 /**
  * The look-controls component:
  *
@@ -45,28 +53,28 @@ export interface LookControlsProps {
 }
 
 export class LookControls implements LookControlsProps {
-  readonly enabled : boolean;
+  readonly enabled?: boolean;
 
-  readonly magicWindowTrackingEnabled : boolean;
+  readonly magicWindowTrackingEnabled?: boolean;
 
-  readonly pointerLockEnabled : boolean;
+  readonly pointerLockEnabled?: boolean;
 
-  readonly reverseMouseDrag : boolean;
+  readonly reverseMouseDrag?: boolean;
 
-  readonly reverseTouchDrag : boolean;
+  readonly reverseTouchDrag?: boolean;
 
-  readonly touchEnabled : boolean;
+  readonly touchEnabled?: boolean;
 
-  readonly mouseEnabled : boolean;
+  readonly mouseEnabled?: boolean;
 
   constructor({
-    enabled = true,
-    magicWindowTrackingEnabled = true,
-    pointerLockEnabled = false,
-    reverseMouseDrag = false,
-    reverseTouchDrag = false,
-    touchEnabled = true,
-    mouseEnabled = true,
+    enabled,
+    magicWindowTrackingEnabled,
+    pointerLockEnabled,
+    reverseMouseDrag,
+    reverseTouchDrag,
+    touchEnabled,
+    mouseEnabled,
   }: LookControlsProps) {
     this.enabled = enabled;
     this.magicWindowTrackingEnabled = magicWindowTrackingEnabled;
@@ -77,11 +85,9 @@ export class LookControls implements LookControlsProps {
     this.mouseEnabled = mouseEnabled;
   }
 
-  public toString = (): string => `enabled:${this.enabled};`
-                                + `magicWindowTrackingEnabled:${this.magicWindowTrackingEnabled};`
-                                + `pointerLockEnabled:${this.pointerLockEnabled};`
-                                + `reverseMouseDrag:${this.reverseMouseDrag};`
-                                + `reverseTouchDrag:${this.reverseTouchDrag};`
-                                + `touchEnabled:${this.touchEnabled};`
-                                + `mouseEnabled:${this.mouseEnabled};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as LookControlsKeys] !== undefined)
+    .map((key: string) => `${key}:${this[key as LookControlsKeys]};`)
+    .join('');
 }

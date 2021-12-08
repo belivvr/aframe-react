@@ -1,6 +1,12 @@
 import type { Vec3Props } from './types';
 import { Vec3 } from './types';
 
+type LineKeys = 'start'
+| 'end'
+| 'color'
+| 'opacity'
+| 'visible';
+
 /**
  * The line component draws a line given a start coordinate and end coordinate using [THREE.Line](https://threejs.org/docs/#api/objects/Line).
  *
@@ -37,22 +43,22 @@ export interface LineProps {
 }
 
 export class Line implements LineProps {
-  readonly start: Vec3Props;
+  readonly start?: Vec3Props;
 
-  readonly end: Vec3Props;
+  readonly end?: Vec3Props;
 
-  readonly color: string;
+  readonly color?: string;
 
-  readonly opacity: number;
+  readonly opacity?: number;
 
-  readonly visible: boolean;
+  readonly visible?: boolean;
 
   constructor({
-    start = { x: 0, y: 0, z: 0 },
-    end = { x: 0, y: 0, z: 0 },
-    color = '#74BEC1',
-    opacity = 1,
-    visible = true,
+    start,
+    end,
+    color,
+    opacity,
+    visible,
   }: LineProps) {
     this.start = start;
     this.end = end;
@@ -61,9 +67,14 @@ export class Line implements LineProps {
     this.visible = visible;
   }
 
-  public toString = (): string => `start:${new Vec3(this.start).toString()};`
-                                + `end:${new Vec3(this.end).toString()};`
-                                + `color:${this.color};`
-                                + `opacity:${this.opacity};`
-                                + `visible:${this.visible};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as LineKeys] !== undefined && this[key as LineKeys] !== '')
+    .map((key: string) => {
+      if (['start', 'end'].includes(key)) {
+        return `${key}:${new Vec3(this[key as LineKeys] as Vec3Props).toString()};`;
+      }
+      return `${key}:${this[key as LineKeys]};`;
+    })
+    .join('');
 }

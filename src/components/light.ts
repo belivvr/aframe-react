@@ -1,5 +1,29 @@
 import type { LightType } from './types';
 
+type LightKeys = 'angle'
+| 'color'
+| 'envMap'
+| 'groundColor'
+| 'decay'
+| 'distance'
+| 'intensity'
+| 'penumbra'
+| 'type'
+| 'target'
+| 'castShadow'
+| 'shadowBias'
+| 'shadowCameraFar'
+| 'shadowCameraFov'
+| 'shadowCameraNear'
+| 'shadowCameraTop'
+| 'shadowCameraRight'
+| 'shadowCameraBottom'
+| 'shadowCameraLeft'
+| 'shadowCameraVisible'
+| 'shadowMapHeight'
+| 'shadowMapWidth'
+| 'shadowRadius';
+
 /**
  * The light component defines the entity as a source of light.
  * Light affects all materials that have not specified a flat shading model with `shader: flat`.
@@ -221,29 +245,29 @@ export class Light implements LightProps {
   readonly shadowRadius?: number;
 
   constructor({
-    angle = 60,
+    angle,
     color,
     envMap,
     groundColor,
-    decay = 1,
-    distance = 0.0,
-    intensity = 1.0,
-    penumbra = 0,
-    type = 'directional',
+    decay,
+    distance,
+    intensity,
+    penumbra,
+    type,
     target,
-    castShadow = false,
-    shadowBias = 0,
-    shadowCameraFar = 500,
-    shadowCameraFov = 90,
-    shadowCameraNear = 0,
-    shadowCameraTop = 5,
-    shadowCameraRight = 5,
-    shadowCameraBottom = -5,
-    shadowCameraLeft = -5,
-    shadowCameraVisible = false,
-    shadowMapHeight = 512,
-    shadowMapWidth = 512,
-    shadowRadius = 1,
+    castShadow,
+    shadowBias,
+    shadowCameraFar,
+    shadowCameraFov,
+    shadowCameraNear,
+    shadowCameraTop,
+    shadowCameraRight,
+    shadowCameraBottom,
+    shadowCameraLeft,
+    shadowCameraVisible,
+    shadowMapHeight,
+    shadowMapWidth,
+    shadowRadius,
   }: LightProps) {
     this.angle = angle;
     this.color = color;
@@ -270,27 +294,9 @@ export class Light implements LightProps {
     this.shadowRadius = shadowRadius;
   }
 
-  public toString = (): string => `angle:${this.angle};`
-                                + `${this.color ? `color:${this.color};` : ''}`
-                                + `${this.envMap ? `envMap:${this.envMap};` : ''}`
-                                + `${this.groundColor ? `groundColor:${this.groundColor};` : ''}`
-                                + `decay:${this.decay};`
-                                + `distance:${this.distance};`
-                                + `intensity:${this.intensity};`
-                                + `penumbra:${this.penumbra};`
-                                + `type:${this.type};`
-                                + `${this.target ? `target:${this.target};` : ''}`
-                                + `castShadow:${this.castShadow};`
-                                + `shadowBias:${this.shadowBias};`
-                                + `shadowCameraFar:${this.shadowCameraFar};`
-                                + `shadowCameraFov:${this.shadowCameraFov};`
-                                + `shadowCameraNear:${this.shadowCameraNear};`
-                                + `shadowCameraTop:${this.shadowCameraTop};`
-                                + `shadowCameraRight:${this.shadowCameraRight};`
-                                + `shadowCameraBottom:${this.shadowCameraBottom};`
-                                + `shadowCameraLeft:${this.shadowCameraLeft};`
-                                + `shadowCameraVisible:${this.shadowCameraVisible};`
-                                + `shadowMapHeight:${this.shadowMapHeight};`
-                                + `shadowMapWidth:${this.shadowMapWidth};`
-                                + `shadowRadius:${this.shadowRadius};`;
+  public toString = (): string => Object.keys(this)
+    .filter((key: string) => key !== 'toString')
+    .filter((key: string) => this[key as LightKeys] !== undefined && this[key as LightKeys] !== '')
+    .map((key: string) => `${key}:${this[key as LightKeys]};`)
+    .join('');
 }

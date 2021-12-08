@@ -173,7 +173,11 @@ export function toProps(props: Props, removalKeys?: string[]): Object {
   ];
 
   const extraKeys = Object.keys(props).filter((key: string) => !defaultKeys.includes(key));
-  const extraProps = (removalKeys ? [...extraKeys, ...removalKeys] : extraKeys)
+  const extraProps = (
+    removalKeys
+      ? extraKeys.filter((key) => !removalKeys.includes(key))
+      : extraKeys
+  )
     .reduce((acc: Object, key: string) => ({
       ...acc,
       [key]: props[key],

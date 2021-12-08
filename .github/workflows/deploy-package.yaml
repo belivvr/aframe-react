@@ -1,11 +1,11 @@
 name: Deploy Package
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-    tags:
-      - "v*.*.*"
+    types:
+      - closed
 
 jobs:
   deploy-package:
@@ -38,5 +38,9 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - name: Release
-        uses: softprops/action-gh-release@v1
+      - name: Tag
+        uses: K-Phoen/semver-release-action@master
+        with:
+          release_branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

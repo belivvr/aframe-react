@@ -19,7 +19,7 @@ export type VisibleProps = boolean;
 export class Visible {
   readonly visible: boolean;
 
-  constructor(visible: boolean = true) {
+  constructor(visible: boolean) {
     this.visible = visible;
   }
 

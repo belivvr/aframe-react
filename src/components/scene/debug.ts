@@ -8,7 +8,7 @@ export type DebugProps = boolean;
 export class Debug {
   readonly value: DebugProps;
 
-  constructor(value: DebugProps = true) {
+  constructor(value: DebugProps) {
     this.value = value;
   }
 

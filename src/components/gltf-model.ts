@@ -26,9 +26,9 @@ export class GLTFModel {
    *
    * string: `url()-`enclosed path to a glTF file
    */
-  readonly value?: string;
+  readonly value: string;
 
-  constructor(value?: string) {
+  constructor(value: string) {
     this.value = value;
   }
 

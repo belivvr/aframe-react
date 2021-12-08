@@ -11,7 +11,7 @@ export type EmbeddedProps = boolean;
 export class Embedded {
   readonly value: EmbeddedProps;
 
-  constructor(value: EmbeddedProps = true) {
+  constructor(value: EmbeddedProps) {
     this.value = value;
   }
 

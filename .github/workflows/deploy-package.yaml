@@ -1,6 +1,9 @@
 name: Deploy Package
 
-on: [push, pull_request]
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   deploy-package:
@@ -20,3 +23,9 @@ jobs:
         uses:  ''
         with:
           tag-prefix:  ''
+          registry-url: 'https://registry.npmjs.org'
+      - run: yarn
+      - run: yarn build
+      - run: yarn npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

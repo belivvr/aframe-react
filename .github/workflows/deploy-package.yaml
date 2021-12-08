@@ -1,6 +1,6 @@
 name: Deploy Package
 
-on: 
+on:
   push:
     branches:
       - main
@@ -17,11 +17,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: yarn
-          registry-url: 'https://registry.npmjs.org'
       - name:  'Automated Version Bump'
         uses:  'phips28/gh-action-bump-version@master'
         env:
@@ -32,6 +27,11 @@ jobs:
           patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
                                             # defaulting to a patch bump.
           rc-wording:     'RELEASE,alpha'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+          registry-url: 'https://registry.npmjs.org'
       - name: 'npm deploy'
         run: yarn
       - run: yarn build

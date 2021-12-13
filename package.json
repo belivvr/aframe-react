@@ -14,6 +14,20 @@
     "es/index.js",
     "lib/index.js"
   ],
+  "keywords": [
+    "aframe",
+    "react",
+    "vr",
+    "a-frame",
+    "aframevr",
+    "reactvr",
+    "react-vr",
+    "react-component",
+    "webvr",
+    "webxr",
+    "aframe-react",
+    "react-aframe"
+  ],
   "scripts": {
     "test": "is-ci \"test:ci\" \"test:dev\"",
     "test:dev": "npm run test:types && npm run test:format && npm run test:eslint && jest --watch",

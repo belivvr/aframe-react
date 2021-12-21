@@ -9,17 +9,16 @@
 
 ## Languages
 
-[한국어](./README/ko.md) | [English](./README/en.md)
+[English](./en.md)
 
 ---
 
 ## Introduce
 
-It was regrettable that the [aframe-react](https://github.com/supermedium/aframe-react) library only supported `a-scene` and `a-entity`.  
-A-Frame has many tags such as `a-camera`, `a-box`, etc...  
-but it was not available in `aframe-react`, so we made it ourselves.
+[aframe-react](https://github.com/supermedium/aframe-react) 라이브러리는 `a-scene`, `a-entity` 만을 지원해서 아쉬웠습니다.  
+[A-Frame](https://aframe.io/)에는 `a-camera`, `a-box` 등의 수 많은 태그가 존재하지만 `aframe-react` 에서는 사용할 수 없었기에 직접 만들게 되었습니다.  
 
-Support `aframe@1.2.0`.
+`aframe@1.2.0` 을 지원합니다.
 
 ## Install
 
@@ -84,10 +83,10 @@ ReactDOM.render(
 
 ### Next.JS
 
-Can't using `import AFRAME from 'aframe';` in Next.JS.  
-Inevitably, we have no choice but to use `require`, and we have to check the completion of ssr through `useEffect` and then rendering.  
+Next.JS 에서는 `import AFRAME from 'aframe';` 을 할 수가 없습니다.  
+불가피하게 `require` 를 사용할 수 밖에 없고, `useEffect` 를 통해 ssr 완료를 확인 후 랜더링을 해야합니다.  
 
-Since `aframe` uses the `window` object, check the window object through `typeof window !== 'undefined'` and call `aframe`.
+`aframe` 이 `window` 객체를 사용하기 때문에 `typeof window !== 'undefined'` 를 통해 window 객체를 확인 후 `aframe` 을 불러옵니다.
 
 ```tsx
 import type { NextPage } from 'next';
@@ -150,12 +149,12 @@ const Home: NextPage = () => {
 export default Home;
 ```
 
-## Difference from aframe-react
+## aframe-react 와의 차이점
 
 ||`aframe-react`|`@belivvr/aframe-react`|
 |:-:|:-:|:-:|
-|Support Tags|`Entity`, `Scene`|**The entire A-Frame tag**|
+|Support Tags|`Entity`, `Scene`|**A-Frame 태그 전체**|
 |Custom Property|✅|✅|
 |Support TypeScript|❌|✅|
-|Type Check|❌|✅<br /><small>(Properties of all components provided by A-Frame by default.)</small>|
+|Type Check|❌|✅<br /><small>(A-Frame이 기본적으로 제공하는 모든 컴포넌트의 property)</small>|
 |jsdoc|![image](https://user-images.githubusercontent.com/41536271/146878902-193b103c-7969-405d-9a42-7ca9822af3b3.png)|![image](https://user-images.githubusercontent.com/41536271/146879090-256a0b1c-69b5-46cf-ae2b-5b9650fb1c53.png)|

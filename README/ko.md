@@ -7,30 +7,36 @@
 
 [![codecov](https://codecov.io/gh/belivvr/aframe-react/branch/main/graph/badge.svg?token=LVGE4ZUV2Z)](https://codecov.io/gh/belivvr/aframe-react)
 
-## Languages
+## 언어
 
 [English](./en.md)
 
 ---
 
-## Introduce
+## 소개
 
 [aframe-react](https://github.com/supermedium/aframe-react) 라이브러리는 `a-scene`, `a-entity` 만을 지원해서 아쉬웠습니다.  
 [A-Frame](https://aframe.io/)에는 `a-camera`, `a-box` 등의 수 많은 태그가 존재하지만 `aframe-react` 에서는 사용할 수 없었기에 직접 만들게 되었습니다.  
 
 `aframe@1.2.0` 을 지원합니다.
 
-## Install
+## 설치
 
 ```sh
 # yarn
-yarn add aframe @belivvr/aframe-react
+yarn add github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @belivvr/aframe-react
 
 # npm
-npm install aframe @belivvr/aframe-react
+npm install github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @belivvr/aframe-react
 ```
 
-## Usage
+### 왜 커밋을 직접 설치하나요?
+
+A-Frame은 마이너 패치를 내고있지 않습니다. 하지만 꾸준히 커밋을 하고 있습니다.  
+`aframe@1.2.0`을 설치하면 [핸드 트래킹 매쉬가 망가지는 이슈](https://github.com/belivvr/aframe-react/issues/75)가 발생합니다.  
+하지만, 최신 커밋을 설치하면 이 이유가 해결됩니다.
+
+## 사용법
 
 ### React
 

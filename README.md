@@ -25,11 +25,17 @@ Support `aframe@1.2.0`.
 
 ```sh
 # yarn
-yarn add aframe @belivvr/aframe-react
+yarn add github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @belivvr/aframe-react
 
 # npm
-npm install aframe @belivvr/aframe-react
+npm install github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @belivvr/aframe-react
 ```
+
+### Why directly get commit?
+
+A-Frame doesn't release minor patch. But, they constantly commit.  
+When just install aframe@1.2.0 install, causes [hand tracking mesh broken issue](https://github.com/belivvr/aframe-react/issues/75).  
+But, install latest commit, this issue is solved.
 
 ## Usage
 

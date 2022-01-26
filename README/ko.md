@@ -1,4 +1,4 @@
-# A-Frame React
+# React library for A-frame
 
 ![Belivvr logo](https://avatars.githubusercontent.com/u/40684200?s=200&v=4)
 

@@ -43,6 +43,7 @@ describe('Scene', () => {
       debug: false,
       gltfModel: {},
       shadow: {},
+      renderer: {},
     };
 
     it('Should render has all props a-scene tag', () => {

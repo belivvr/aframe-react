@@ -11,6 +11,7 @@ export type { PoolProps } from './pool';
 export type { KeyboardShortcutsProps } from './keyboard-shortcuts';
 export type { GLTFModelProps } from './gltf-model';
 export type { ShadowProps } from './shadow';
+export type { RendererProps } from './renderer';
 export type { FogType, ShadowType } from './types';
 
 export { Background } from './background';
@@ -26,3 +27,4 @@ export { Pool } from './pool';
 export { KeyboardShortcuts } from './keyboard-shortcuts';
 export { GLTFModel } from './gltf-model';
 export { Shadow } from './shadow';
+export { Renderer } from './renderer';

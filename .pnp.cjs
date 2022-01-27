@@ -65,7 +65,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.2"],
             ["@typescript-eslint/eslint-plugin", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
             ["@typescript-eslint/parser", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
-            ["aframe", "npm:1.2.0"],
+            ["aframe", "https://github.com/aframevr/aframe.git#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3"],
             ["babel-jest", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:27.4.2"],
             ["babel-loader", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:8.2.3"],
             ["babel-plugin-const-enum", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:1.2.0"],
@@ -3349,7 +3349,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.2"],
             ["@typescript-eslint/eslint-plugin", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
             ["@typescript-eslint/parser", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
-            ["aframe", "npm:1.2.0"],
+            ["aframe", "https://github.com/aframevr/aframe.git#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3"],
             ["babel-jest", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:27.4.2"],
             ["babel-loader", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:8.2.3"],
             ["babel-plugin-const-enum", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:1.2.0"],
@@ -6838,7 +6838,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/aframe", "npm:1.0.5"],
             ["@tweenjs/tween.js", "npm:18.6.4"],
-            ["three", "npm:0.135.0"]
+            ["three", "npm:0.137.0"]
           ],
           "linkType": "HARD",
         }]
@@ -8191,12 +8191,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["aframe", [
-        ["npm:1.2.0", {
-          "packageLocation": "./.yarn/cache/aframe-npm-1.2.0-7c9d22f932-c2bd466f20.zip/node_modules/aframe/",
+        ["https://github.com/aframevr/aframe.git#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3", {
+          "packageLocation": "./.yarn/cache/aframe-https-ea1a635c36-af1358b58a.zip/node_modules/aframe/",
           "packageDependencies": [
-            ["aframe", "npm:1.2.0"],
+            ["aframe", "https://github.com/aframevr/aframe.git#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3"],
             ["custom-event-polyfill", "npm:1.0.7"],
-            ["debug", "virtual:7c9d22f9328352fc7ab1928db20c5398ceaa9ffc5c5eff3a9ebcdfedcc6bcb5e2431d93aa2b3d8e4b87e4e0d4d9ee2ce4e3198349ee1f68398af76c3f1185357#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"],
+            ["debug", "virtual:ea1a635c36a965d8443338730fbad5c94c09c24f9e20e89863d4d9442886ea760d51a850fd9c28cddfdb9b3b88e16eb09338eaf0c3a26a1276bd88208212d997#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"],
             ["deep-assign", "npm:2.0.0"],
             ["document-register-element", "https://github.com/dmarcos/document-register-element.git#commit=8ccc532b7f3744be954574caf3072a5fd260ca90"],
             ["load-bmfont", "npm:1.4.1"],
@@ -8204,8 +8204,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["present", "npm:0.0.6"],
             ["promise-polyfill", "npm:3.1.0"],
             ["super-animejs", "npm:3.1.0"],
-            ["super-three", "npm:0.125.1"],
-            ["three-bmfont-text", "https://github.com/dmarcos/three-bmfont-text.git#commit=1babdf8507c731a18f8af3b807292e2b9740955e"],
+            ["super-three", "npm:0.137.0"],
+            ["three-bmfont-text", "https://github.com/dmarcos/three-bmfont-text.git#commit=21d017046216e318362c48abd1a48bddfb6e0733"],
             ["webvr-polyfill", "npm:0.10.12"]
           ],
           "linkType": "HARD",
@@ -11326,19 +11326,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:7c9d22f9328352fc7ab1928db20c5398ceaa9ffc5c5eff3a9ebcdfedcc6bcb5e2431d93aa2b3d8e4b87e4e0d4d9ee2ce4e3198349ee1f68398af76c3f1185357#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a", {
-          "packageLocation": "./.yarn/__virtual__/debug-virtual-93f345aea4/0/cache/debug-https-27660e3b28-2e7ae1a91a.zip/node_modules/debug/",
-          "packageDependencies": [
-            ["debug", "virtual:7c9d22f9328352fc7ab1928db20c5398ceaa9ffc5c5eff3a9ebcdfedcc6bcb5e2431d93aa2b3d8e4b87e4e0d4d9ee2ce4e3198349ee1f68398af76c3f1185357#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"],
-            ["@types/supports-color", null],
-            ["supports-color", null]
-          ],
-          "packagePeers": [
-            "@types/supports-color",
-            "supports-color"
-          ],
-          "linkType": "HARD",
-        }],
         ["virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0", {
           "packageLocation": "./.yarn/__virtual__/debug-virtual-f2284580f9/0/cache/debug-npm-3.1.0-9f0accb99b-0b52718ab9.zip/node_modules/debug/",
           "packageDependencies": [
@@ -11359,6 +11346,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["debug", "virtual:d9426786c635bc4b52511d6cc4b56156f50d780a698c0e20fc6caf10d3be51cbf176e79cff882f4d42a23ff4d0f89fe94222849578214e7fbae0f2754c82af02#npm:3.2.7"],
             ["@types/supports-color", null],
             ["ms", "npm:2.1.3"],
+            ["supports-color", null]
+          ],
+          "packagePeers": [
+            "@types/supports-color",
+            "supports-color"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:ea1a635c36a965d8443338730fbad5c94c09c24f9e20e89863d4d9442886ea760d51a850fd9c28cddfdb9b3b88e16eb09338eaf0c3a26a1276bd88208212d997#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a", {
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-abbb50002d/0/cache/debug-https-27660e3b28-2e7ae1a91a.zip/node_modules/debug/",
+          "packageDependencies": [
+            ["debug", "virtual:ea1a635c36a965d8443338730fbad5c94c09c24f9e20e89863d4d9442886ea760d51a850fd9c28cddfdb9b3b88e16eb09338eaf0c3a26a1276bd88208212d997#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"],
+            ["@types/supports-color", null],
             ["supports-color", null]
           ],
           "packagePeers": [
@@ -22090,10 +22090,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["super-three", [
-        ["npm:0.125.1", {
-          "packageLocation": "./.yarn/cache/super-three-npm-0.125.1-1a867be307-499c217461.zip/node_modules/super-three/",
+        ["npm:0.137.0", {
+          "packageLocation": "./.yarn/cache/super-three-npm-0.137.0-b39a2a1a2f-bf2e331d83.zip/node_modules/super-three/",
           "packageDependencies": [
-            ["super-three", "npm:0.125.1"]
+            ["super-three", "npm:0.137.0"]
           ],
           "linkType": "HARD",
         }]
@@ -22449,19 +22449,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["three", [
-        ["npm:0.135.0", {
-          "packageLocation": "./.yarn/cache/three-npm-0.135.0-00b1b5e0dd-bd7e195932.zip/node_modules/three/",
+        ["npm:0.137.0", {
+          "packageLocation": "./.yarn/cache/three-npm-0.137.0-d5eaf0d808-c3d005a738.zip/node_modules/three/",
           "packageDependencies": [
-            ["three", "npm:0.135.0"]
+            ["three", "npm:0.137.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["three-bmfont-text", [
-        ["https://github.com/dmarcos/three-bmfont-text.git#commit=1babdf8507c731a18f8af3b807292e2b9740955e", {
-          "packageLocation": "./.yarn/cache/three-bmfont-text-https-9ba0dc5586-766c826906.zip/node_modules/three-bmfont-text/",
+        ["https://github.com/dmarcos/three-bmfont-text.git#commit=21d017046216e318362c48abd1a48bddfb6e0733", {
+          "packageLocation": "./.yarn/cache/three-bmfont-text-https-8593f5e419-000e7dd724.zip/node_modules/three-bmfont-text/",
           "packageDependencies": [
-            ["three-bmfont-text", "https://github.com/dmarcos/three-bmfont-text.git#commit=1babdf8507c731a18f8af3b807292e2b9740955e"],
+            ["three-bmfont-text", "https://github.com/dmarcos/three-bmfont-text.git#commit=21d017046216e318362c48abd1a48bddfb6e0733"],
             ["array-shuffle", "npm:1.0.1"],
             ["inherits", "npm:2.0.4"],
             ["layout-bmfont-text", "npm:1.3.4"],

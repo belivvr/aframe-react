@@ -14,6 +14,7 @@ import type {
   DeviceOrientationPermissionUIProps,
   GLTFModelProps,
   ShadowProps,
+  RendererProps,
 } from '../components/scene';
 import {
   Background,
@@ -29,6 +30,7 @@ import {
   DeviceOrientationPermissionUI,
   GLTFModel,
   Shadow,
+  Renderer,
 } from '../components/scene';
 
 interface Props {
@@ -48,6 +50,7 @@ interface Props {
   debug?: DebugProps;
   gltfModel?: GLTFModelProps;
   shadow?: ShadowProps;
+  renderer?: RendererProps;
   [key: string]: unknown;
 }
 
@@ -68,6 +71,7 @@ function toProps(props: Props): Object {
     'debug',
     'gltfModel',
     'shadow',
+    'renderer',
     'children',
   ];
 
@@ -93,6 +97,7 @@ function toProps(props: Props): Object {
     debug,
     gltfModel,
     shadow,
+    renderer,
   } = props;
 
   return {
@@ -111,6 +116,7 @@ function toProps(props: Props): Object {
     'device-orientation-permission-ui': deviceOrientationPermissionUI && new DeviceOrientationPermissionUI(deviceOrientationPermissionUI).toString(),
     'gltf-model': gltfModel && new GLTFModel(gltfModel).toString(),
     shadow: shadow && new Shadow(shadow).toString(),
+    renderer: renderer && new Renderer(renderer).toString(),
     ...extraProps,
   };
 }

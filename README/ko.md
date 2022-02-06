@@ -18,7 +18,7 @@
 [aframe-react](https://github.com/supermedium/aframe-react) 라이브러리는 `a-scene`, `a-entity` 만을 지원해서 아쉬웠습니다.  
 [A-Frame](https://aframe.io/)에는 `a-camera`, `a-box` 등의 수 많은 태그가 존재하지만 `aframe-react` 에서는 사용할 수 없었기에 직접 만들게 되었습니다.  
 
-`aframe@1.2.0` 을 지원합니다.
+`aframe@1.3.0` 을 지원합니다.
 
 ## 설치
 

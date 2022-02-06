@@ -1,6 +1,6 @@
 {
   "name": "@belivvr/aframe-react",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "aframe on react",
   "author": "juunini",
   "license": "MIT",
@@ -92,7 +92,7 @@
     "@types/testing-library__jest-dom": "^5",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
-    "aframe": "aframevr/aframe#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3",
+    "aframe": "aframevr/aframe#commit=269d178d5a235a781eefa6632e272a8c3724acfe",
     "babel-jest": "^27.4.2",
     "babel-loader": "^8.2.3",
     "babel-plugin-const-enum": "^1.2.0",

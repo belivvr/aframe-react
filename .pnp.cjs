@@ -65,7 +65,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.2"],
             ["@typescript-eslint/eslint-plugin", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
             ["@typescript-eslint/parser", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
-            ["aframe", "https://github.com/aframevr/aframe.git#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3"],
+            ["aframe", "https://github.com/aframevr/aframe.git#commit=269d178d5a235a781eefa6632e272a8c3724acfe"],
             ["babel-jest", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:27.4.2"],
             ["babel-loader", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:8.2.3"],
             ["babel-plugin-const-enum", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:1.2.0"],
@@ -3349,7 +3349,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.2"],
             ["@typescript-eslint/eslint-plugin", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
             ["@typescript-eslint/parser", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:5.3.1"],
-            ["aframe", "https://github.com/aframevr/aframe.git#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3"],
+            ["aframe", "https://github.com/aframevr/aframe.git#commit=269d178d5a235a781eefa6632e272a8c3724acfe"],
             ["babel-jest", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:27.4.2"],
             ["babel-loader", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:8.2.3"],
             ["babel-plugin-const-enum", "virtual:a9c6c216db8c49a5cb06c79317490e648fc713da08c2fa2fce10e24d93670e7905b6fc068aa6cfa55de0345346e56c493101db97520ed2037264b02ea3bd90f0#npm:1.2.0"],
@@ -8191,12 +8191,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["aframe", [
-        ["https://github.com/aframevr/aframe.git#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3", {
-          "packageLocation": "./.yarn/cache/aframe-https-ea1a635c36-af1358b58a.zip/node_modules/aframe/",
+        ["https://github.com/aframevr/aframe.git#commit=269d178d5a235a781eefa6632e272a8c3724acfe", {
+          "packageLocation": "./.yarn/cache/aframe-https-9fa85f22a8-becc660e8c.zip/node_modules/aframe/",
           "packageDependencies": [
-            ["aframe", "https://github.com/aframevr/aframe.git#commit=ec0d4d8bc5a7307072b04dccb555561dbb4f48d3"],
+            ["aframe", "https://github.com/aframevr/aframe.git#commit=269d178d5a235a781eefa6632e272a8c3724acfe"],
             ["custom-event-polyfill", "npm:1.0.7"],
-            ["debug", "virtual:ea1a635c36a965d8443338730fbad5c94c09c24f9e20e89863d4d9442886ea760d51a850fd9c28cddfdb9b3b88e16eb09338eaf0c3a26a1276bd88208212d997#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"],
+            ["debug", "virtual:9fa85f22a8664bc6bc67c1919c2e3a0f794c44f554f8b8f14d47d0f7bc5b5de7e418e36815accb12e9f50228d96d9f489f43d9490f1f675f20258c758a45ecf8#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"],
             ["deep-assign", "npm:2.0.0"],
             ["document-register-element", "https://github.com/dmarcos/document-register-element.git#commit=8ccc532b7f3744be954574caf3072a5fd260ca90"],
             ["load-bmfont", "npm:1.4.1"],
@@ -11326,6 +11326,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
+        ["virtual:9fa85f22a8664bc6bc67c1919c2e3a0f794c44f554f8b8f14d47d0f7bc5b5de7e418e36815accb12e9f50228d96d9f489f43d9490f1f675f20258c758a45ecf8#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a", {
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-5faae9b921/0/cache/debug-https-27660e3b28-2e7ae1a91a.zip/node_modules/debug/",
+          "packageDependencies": [
+            ["debug", "virtual:9fa85f22a8664bc6bc67c1919c2e3a0f794c44f554f8b8f14d47d0f7bc5b5de7e418e36815accb12e9f50228d96d9f489f43d9490f1f675f20258c758a45ecf8#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"],
+            ["@types/supports-color", null],
+            ["supports-color", null]
+          ],
+          "packagePeers": [
+            "@types/supports-color",
+            "supports-color"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:bde6f435769d1a96c3f371d2e8a88314847816fb841f758b3628da60329c36f988ca42f6984dc53bb31dd306522878e1e5d568caeca7af42e4f19b238d6261b3#npm:3.1.0", {
           "packageLocation": "./.yarn/__virtual__/debug-virtual-f2284580f9/0/cache/debug-npm-3.1.0-9f0accb99b-0b52718ab9.zip/node_modules/debug/",
           "packageDependencies": [
@@ -11346,19 +11359,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["debug", "virtual:d9426786c635bc4b52511d6cc4b56156f50d780a698c0e20fc6caf10d3be51cbf176e79cff882f4d42a23ff4d0f89fe94222849578214e7fbae0f2754c82af02#npm:3.2.7"],
             ["@types/supports-color", null],
             ["ms", "npm:2.1.3"],
-            ["supports-color", null]
-          ],
-          "packagePeers": [
-            "@types/supports-color",
-            "supports-color"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:ea1a635c36a965d8443338730fbad5c94c09c24f9e20e89863d4d9442886ea760d51a850fd9c28cddfdb9b3b88e16eb09338eaf0c3a26a1276bd88208212d997#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a", {
-          "packageLocation": "./.yarn/__virtual__/debug-virtual-abbb50002d/0/cache/debug-https-27660e3b28-2e7ae1a91a.zip/node_modules/debug/",
-          "packageDependencies": [
-            ["debug", "virtual:ea1a635c36a965d8443338730fbad5c94c09c24f9e20e89863d4d9442886ea760d51a850fd9c28cddfdb9b3b88e16eb09338eaf0c3a26a1276bd88208212d997#https://github.com/ngokevin/debug.git#commit=ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"],
-            ["@types/supports-color", null],
             ["supports-color", null]
           ],
           "packagePeers": [

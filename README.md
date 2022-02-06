@@ -19,7 +19,7 @@ It was regrettable that the [aframe-react](https://github.com/supermedium/aframe
 A-Frame has many tags such as `a-camera`, `a-box`, etc...  
 but it was not available in `aframe-react`, so we made it ourselves.
 
-Support `aframe@1.2.0`.
+Support `aframe@1.3.0`.
 
 ## Install
 

@@ -87,7 +87,7 @@ export interface AnimationProps {
    * How many times the animation should repeat. If the value is `true`,
    * the animation will repeat infinitely.
    */
-  loop?: boolean;
+  loop?: boolean | number;
 
   /**
    * Property to animate. Can be a component name,
@@ -178,7 +178,7 @@ export class Animation implements AnimationProps {
 
   readonly from?: string | boolean;
 
-  readonly loop?: boolean;
+  readonly loop?: boolean | number;
 
   readonly property?: string;
 

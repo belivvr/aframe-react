@@ -87,6 +87,7 @@ export interface Props {
   className?: string;
   children?: React.ReactNode;
   animation?: AnimationProps;
+  [key: `animation__${string}`]: AnimationProps;
   camera?: CameraProps;
   cursor?: CursorProps;
   daydreamControls?: DaydreamControlsProps;
@@ -172,7 +173,14 @@ export function toProps(props: Props, removalKeys?: string[]): Object {
     'windowsMotionControls',
   ];
 
-  const extraKeys = Object.keys(props).filter((key: string) => !defaultKeys.includes(key));
+  const animationKeys = Object.keys(props).filter((key: string) => key.includes('animation__'));
+  const animationProps = animationKeys
+    .reduce((acc: Object, key: string) => ({
+      ...acc,
+      [key]: new Animation(props[key] as AnimationProps).toString(),
+    }), {});
+
+  const extraKeys = Object.keys(props).filter((key: string) => !defaultKeys.includes(key) && !key.includes('animation__'));
   const extraProps = (
     removalKeys
       ? extraKeys.filter((key) => !removalKeys.includes(key))
@@ -267,6 +275,7 @@ export function toProps(props: Props, removalKeys?: string[]): Object {
     'vive-focus-controls': viveFocusControls && new ViveFocusControls(viveFocusControls).toString(),
     'wasd-controls': wasdControls && new WASDControls(wasdControls).toString(),
     'windows-motion-controls': windowsMotionControls && new WindowsMotionControls(windowsMotionControls).toString(),
+    ...animationProps,
     ...extraProps,
   };
 }

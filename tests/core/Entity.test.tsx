@@ -61,7 +61,7 @@ describe('Entity', () => {
     it('Should render has custom props a-entity tag', () => {
       const { container } = render(<Entity custom={givenValues} />);
 
-      expect(container.innerHTML).toBe('<a-entity custom="src:#id;width:1;visible:false;startEvent:click,mouseenter;rotation: 0 0 0;"></a-entity>');
+      expect(container.innerHTML).toBe('<a-entity custom="src:#id;width:1;visible:false;startEvent:click,mouseenter;rotation:0 0 0;"></a-entity>');
     });
   });
 

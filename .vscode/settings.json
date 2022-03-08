@@ -12,5 +12,8 @@
     "source.fixAll.eslint": true
   },
   "eslint.format.enable": true,
-  "eslint.lintTask.enable": true
+  "eslint.lintTask.enable": true,
+  "cSpell.words": [
+    "trackpadup"
+  ]
 }

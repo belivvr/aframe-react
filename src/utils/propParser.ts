@@ -1,14 +1,15 @@
 function parseObjectValue(object: object): string {
   return Object.values(object)
-    .reduce((acc: string, value: unknown) => `${acc} ${value}`, '');
+    .reduce((acc: string, value: unknown) => `${acc === '' ? '' : `${acc} `}${value}`, '');
 }
 
 function parseArrayValue(array: unknown[]): string {
   return array
-    .reduce((acc: string, value: unknown) => `${acc}${acc === '' ? '' : ','}${value}`, '');
+    .reduce((acc: string, value: unknown) => `${acc === '' ? '' : `${acc},`}${value}`, '');
 }
 
 function isArray(value: object | unknown[]): boolean {
+  // @ts-ignore
   return typeof value.reduce !== 'undefined';
 }
 

@@ -24,7 +24,7 @@ describe('propParser', () => {
     };
 
     it('Should returns key with whitespace separated value', () => {
-      expect(parse(givenValue)).toBe('rotation: 0 0 0;position: 0 0 0;');
+      expect(parse(givenValue)).toBe('rotation:0 0 0;position:0 0 0;');
     });
   });
 

@@ -24,10 +24,10 @@
 
 ```sh
 # yarn
-yarn add github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @belivvr/aframe-react
+yarn add github:aframevr/aframe#018e1236bc71cc9ffa42cd34aeedd03a23a8cd2e @belivvr/aframe-react
 
 # npm
-npm install github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @belivvr/aframe-react
+npm install github:aframevr/aframe#018e1236bc71cc9ffa42cd34aeedd03a23a8cd2e @belivvr/aframe-react
 ```
 
 ### 왜 커밋을 직접 설치하나요?
@@ -153,6 +153,37 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+```
+
+## 커스텀 컴포넌트 사용
+
+- 0.4.0 Updated: `AFRAME.registerComponent` 로 컴포넌트를 생성한 뒤 사용할 때도 타입 지원을 합니다.
+
+### 예제
+
+```tsx
+AFRAME.registerComponent('spinner', {
+  schema: {
+    dur: { type: 'number' },
+    startEvent: { type: 'array' },
+    position: { type: 'vec3' },
+    spin: { type: 'boolean' },
+  },
+
+  init() {
+    // ...
+  },
+});
+
+// <a-box spinner="dur: 2000; startEvent: click, mouseenter; position: 0 0 -1; spin: true;>
+<Box
+  spinner={{
+    dur: 2000,
+    startEvent: ['click', 'mouseenter'],
+    position: { x: 0, y: 0, z: -1 },
+    spin: true,
+  }}
+>
 ```
 
 ## aframe-react 와의 차이점

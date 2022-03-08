@@ -34,7 +34,7 @@ function toVideoSphereProps({
  * The videosphere primitive plays 360° videos in the background of the scene.
  * Videospheres are a large sphere with the video texture mapped to the inside.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-videosphere.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-videosphere.html
  *
  * @example
  * ```tsx

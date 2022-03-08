@@ -103,9 +103,9 @@ function toTriangleProps({
 }
 
 /**
- * The triangle primitive creates triangle surfaces using the [geometry](https://aframe.io/docs/1.2.0/components/geometry.html) component with the type set to `triangle`.
+ * The triangle primitive creates triangle surfaces using the [geometry](https://aframe.io/docs/1.3.0/components/geometry.html) component with the type set to `triangle`.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-triangle.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-triangle.html
  *
  * @example
  * ```tsx

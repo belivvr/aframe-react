@@ -4,7 +4,7 @@
  * Embedding removes the default fixed positioning
  * from the canvas and makes the Enter VR button smaller.
  *
- * @see https://aframe.io/docs/1.2.0/components/embedded.html
+ * @see https://aframe.io/docs/1.3.0/components/embedded.html
  */
 export type EmbeddedProps = boolean;
 

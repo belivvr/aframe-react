@@ -104,7 +104,7 @@ function toBoxProps({
 /**
  * The box primitive creates shapes such as boxes, cubes, or walls.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-box.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-box.html
  *
  * @example
  *

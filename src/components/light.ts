@@ -1,35 +1,12 @@
+import Component from './Component';
 import type { LightType } from './types';
-
-type LightKeys = 'angle'
-| 'color'
-| 'envMap'
-| 'groundColor'
-| 'decay'
-| 'distance'
-| 'intensity'
-| 'penumbra'
-| 'type'
-| 'target'
-| 'castShadow'
-| 'shadowBias'
-| 'shadowCameraFar'
-| 'shadowCameraFov'
-| 'shadowCameraNear'
-| 'shadowCameraTop'
-| 'shadowCameraRight'
-| 'shadowCameraBottom'
-| 'shadowCameraLeft'
-| 'shadowCameraVisible'
-| 'shadowMapHeight'
-| 'shadowMapWidth'
-| 'shadowRadius';
 
 /**
  * The light component defines the entity as a source of light.
  * Light affects all materials that have not specified a flat shading model with `shader: flat`.
  * Note that lights are computationally expensive we should limit number of lights in a scene.
  *
- * @see https://aframe.io/docs/1.2.0/components/light.html
+ * @see https://aframe.io/docs/1.3.0/components/light.html
  */
 export interface LightProps {
   /**
@@ -197,7 +174,7 @@ export interface LightProps {
   shadowRadius?: number;
 }
 
-export class Light implements LightProps {
+export class Light extends Component<LightProps> {
   readonly angle?: number;
 
   readonly color?: string;
@@ -243,60 +220,4 @@ export class Light implements LightProps {
   readonly shadowMapWidth?: number;
 
   readonly shadowRadius?: number;
-
-  constructor({
-    angle,
-    color,
-    envMap,
-    groundColor,
-    decay,
-    distance,
-    intensity,
-    penumbra,
-    type,
-    target,
-    castShadow,
-    shadowBias,
-    shadowCameraFar,
-    shadowCameraFov,
-    shadowCameraNear,
-    shadowCameraTop,
-    shadowCameraRight,
-    shadowCameraBottom,
-    shadowCameraLeft,
-    shadowCameraVisible,
-    shadowMapHeight,
-    shadowMapWidth,
-    shadowRadius,
-  }: LightProps) {
-    this.angle = angle;
-    this.color = color;
-    this.envMap = envMap;
-    this.groundColor = groundColor;
-    this.decay = decay;
-    this.distance = distance;
-    this.intensity = intensity;
-    this.penumbra = penumbra;
-    this.type = type;
-    this.target = target;
-    this.castShadow = castShadow;
-    this.shadowBias = shadowBias;
-    this.shadowCameraFar = shadowCameraFar;
-    this.shadowCameraFov = shadowCameraFov;
-    this.shadowCameraNear = shadowCameraNear;
-    this.shadowCameraTop = shadowCameraTop;
-    this.shadowCameraRight = shadowCameraRight;
-    this.shadowCameraBottom = shadowCameraBottom;
-    this.shadowCameraLeft = shadowCameraLeft;
-    this.shadowCameraVisible = shadowCameraVisible;
-    this.shadowMapHeight = shadowMapHeight;
-    this.shadowMapWidth = shadowMapWidth;
-    this.shadowRadius = shadowRadius;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as LightKeys] !== undefined && this[key as LightKeys] !== '')
-    .map((key: string) => `${key}:${this[key as LightKeys]};`)
-    .join('');
 }

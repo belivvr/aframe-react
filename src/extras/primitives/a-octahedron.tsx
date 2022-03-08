@@ -96,7 +96,7 @@ function toOctahedronProps({
 }
 
 /**
- * @see https://aframe.io/docs/1.2.0/primitives/a-octahedron.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-octahedron.html
  *
  * @example
  * ```tsx

@@ -1,15 +1,4 @@
-type RendererKeys = 'antialias' |
-'highRefreshRate' |
-'logarithmicDepthBuffer' |
-'maxCanvasWidth' |
-'maxCanvasHeight' |
-'physicallyCorrectLights' |
-'precision' |
-'sortObjects' |
-'colorManagement' |
-'gammaOutput' |
-'alpha' |
-'foveationLevel';
+import Component from '../Component';
 
 enum FoveationLevel {
   none,
@@ -25,7 +14,7 @@ type PrecisionType = 'low' | 'medium' | 'high';
  * The `renderer` system configures a scene’s [THREE.WebGLRenderer](https://threejs.org/docs/#api/en/renderers/WebGLRenderer) instance.
  * It also configures presentation attributes when entering WebVR/WebXR.
  *
- * @see https://aframe.io/docs/1.2.0/components/renderer.html
+ * @see https://aframe.io/docs/1.3.0/components/renderer.html
  *
  * @example
  * ```tsx
@@ -74,7 +63,7 @@ export interface RendererProps {
   physicallyCorrectLights?: boolean;
 
   /**
-   * Fragment shader [precision](https://aframe.io/docs/1.2.0/components/renderer.html#precision) : low, medium or high.
+   * Fragment shader [precision](https://aframe.io/docs/1.3.0/components/renderer.html#precision) : low, medium or high.
    */
   precision?: PrecisionType;
 
@@ -101,68 +90,14 @@ export interface RendererProps {
   foveationLevel?: FoveationLevelType;
 }
 
-export class Renderer implements RendererProps {
-  readonly antialias?: boolean | 'auto';
-
-  readonly highRefreshRate?: boolean;
-
-  readonly logarithmicDepthBuffer?: boolean | 'auto';
-
-  readonly maxCanvasWidth?: number;
-
-  readonly maxCanvasHeight?: number;
-
-  readonly physicallyCorrectLights?: boolean;
-
-  readonly precision?: PrecisionType;
-
-  readonly sortObjects?: boolean;
-
-  readonly colorManagement?: boolean;
-
-  readonly gammaOutput?: boolean;
-
-  readonly alpha?: boolean;
-
-  readonly foveationLevel?: FoveationLevelType;
-
-  constructor({
-    antialias,
-    highRefreshRate,
-    logarithmicDepthBuffer,
-    maxCanvasWidth,
-    maxCanvasHeight,
-    physicallyCorrectLights,
-    precision,
-    sortObjects,
-    colorManagement,
-    gammaOutput,
-    alpha,
-    foveationLevel,
-  }: RendererProps) {
-    this.antialias = antialias;
-    this.highRefreshRate = highRefreshRate;
-    this.logarithmicDepthBuffer = logarithmicDepthBuffer;
-    this.maxCanvasWidth = maxCanvasWidth;
-    this.maxCanvasHeight = maxCanvasHeight;
-    this.physicallyCorrectLights = physicallyCorrectLights;
-    this.precision = precision;
-    this.sortObjects = sortObjects;
-    this.colorManagement = colorManagement;
-    this.gammaOutput = gammaOutput;
-    this.alpha = alpha;
-    this.foveationLevel = foveationLevel;
+export class Renderer extends Component<RendererProps> {
+  constructor(props: RendererProps) {
+    super({
+      ...props,
+      // @ts-ignore
+      foveationLevel: props.foveationLevel === undefined
+        ? props.foveationLevel
+        : FoveationLevel[props.foveationLevel],
+    });
   }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as RendererKeys] !== undefined)
-    .map((key: string) => {
-      if (key === 'foveationLevel') {
-        const foveationLevel = this.foveationLevel as FoveationLevelType;
-        return `foveationLevel:${FoveationLevel[foveationLevel]};`;
-      }
-      return `${key}:${this[key as RendererKeys]};`;
-    })
-    .join('');
 }

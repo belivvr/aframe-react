@@ -43,7 +43,7 @@ function toLightProps({
 /**
  * A light changes the lighting and shading of the scene.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-light.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-light.html
  *
  * @example
  * ```tsx

@@ -1,8 +1,5 @@
+import Component from './Component';
 import type { Hand, ModelStyle } from './types';
-
-type HandTrackingControlsKeys = 'hand'
-| 'modelStyle'
-| 'modelColor';
 
 /**
  * Use `hand-tracking-controls` to integrate [hand tracked input](https://immersive-web.github.io/webxr-hand-input/) in your application.
@@ -11,7 +8,7 @@ type HandTrackingControlsKeys = 'hand'
  * for applications requiring multiple input methods.
  * Component is only active when the browser and underlying system starts tracking the user’s hands.
  *
- * @see https://aframe.io/docs/1.2.0/components/hand-tracking-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/hand-tracking-controls.html
  */
 export interface HandTrackingControlsProps {
   /**
@@ -30,26 +27,11 @@ export interface HandTrackingControlsProps {
   modelColor?: string;
 }
 
-export class HandTrackingControls implements HandTrackingControlsProps {
+export class HandTrackingControls
+  extends Component<HandTrackingControlsProps> {
   readonly hand?: Hand;
 
   readonly modelStyle?: ModelStyle;
 
   readonly modelColor?: string;
-
-  constructor({
-    hand,
-    modelStyle,
-    modelColor,
-  }: HandTrackingControlsProps) {
-    this.hand = hand;
-    this.modelStyle = modelStyle;
-    this.modelColor = modelColor;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as HandTrackingControlsKeys] !== undefined && this[key as HandTrackingControlsKeys] !== '')
-    .map((key: string) => `${key}:${this[key as HandTrackingControlsKeys]};`)
-    .join('');
 }

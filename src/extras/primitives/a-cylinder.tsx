@@ -113,7 +113,7 @@ function toCylinderProps({
 /**
  * The cylinder primitive is used to create tubes and curved surfaces.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-cylinder.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-cylinder.html
  *
  * @example
  * ```tsx

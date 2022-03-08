@@ -12,5 +12,37 @@
     "source.fixAll.eslint": true
   },
   "eslint.format.enable": true,
-  "eslint.lintTask.enable": true
+  "eslint.lintTask.enable": true,
+  "cSpell.words": [
+    "aframevr",
+    "collidable",
+    "comicbook",
+    "cubemap",
+    "cubemaps",
+    "directionaltarget",
+    "donmccurdy",
+    "interactable",
+    "jscc",
+    "lcov",
+    "Linewidth",
+    "metalness",
+    "monocubemap",
+    "npot",
+    "pcfsoft",
+    "raycast",
+    "Raycasters",
+    "Raycasting",
+    "reactvr",
+    "reprojection",
+    "sessiongranted",
+    "stereocubemap",
+    "svgr",
+    "toon",
+    "trackpad",
+    "trackpadup",
+    "tweening",
+    "webvr",
+    "webxr",
+    "wireframe"
+  ]
 }

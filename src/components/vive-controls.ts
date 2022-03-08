@@ -1,19 +1,13 @@
+import Component from './Component';
 import type { Hand, Vec3Props } from './types';
-import { Vec3 } from './types';
-
-type ViveControlsKeys = 'hand'
-| 'buttonColor'
-| 'buttonHighlightColor'
-| 'model'
-| 'orientationOffset';
 
 /**
  * The vive-controls component interfaces with the HTC Vive controllers/wands.
- * It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events,
+ * It wraps the [tracked-controls component](https://aframe.io/docs/1.3.0/components/tracked-controls.html) while adding button mappings, events,
  * and a Vive controller model that highlights the pressed buttons
  * (trigger, grip, menu, system) and trackpad.
  *
- * @see https://aframe.io/docs/1.2.0/components/vive-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/vive-controls.html
  */
 export interface ViveControlsProps {
   /**
@@ -42,7 +36,7 @@ export interface ViveControlsProps {
   orientationOffset?: Vec3Props;
 }
 
-export class ViveControls {
+export class ViveControls extends Component<ViveControlsProps> {
   readonly hand?: Hand;
 
   readonly buttonColor?: string;
@@ -52,29 +46,4 @@ export class ViveControls {
   readonly model?: boolean;
 
   readonly orientationOffset?: Vec3Props;
-
-  constructor({
-    hand,
-    buttonColor,
-    buttonHighlightColor,
-    model,
-    orientationOffset,
-  }: ViveControlsProps) {
-    this.hand = hand;
-    this.buttonColor = buttonColor;
-    this.buttonHighlightColor = buttonHighlightColor;
-    this.model = model;
-    this.orientationOffset = orientationOffset;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as ViveControlsKeys] !== undefined && this[key as ViveControlsKeys] !== '')
-    .map((key: string) => {
-      if (['orientationOffset'].includes(key)) {
-        return `${key}:${new Vec3(this[key as ViveControlsKeys] as Vec3Props).toString()};`;
-      }
-      return `${key}:${this[key as ViveControlsKeys]};`;
-    })
-    .join('');
 }

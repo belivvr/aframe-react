@@ -1,10 +1,4 @@
-type LookControlsKeys = 'enabled'
-| 'magicWindowTrackingEnabled'
-| 'pointerLockEnabled'
-| 'reverseMouseDrag'
-| 'reverseTouchDrag'
-| 'touchEnabled'
-| 'mouseEnabled';
+import Component from './Component';
 
 /**
  * The look-controls component:
@@ -13,7 +7,7 @@ type LookControlsKeys = 'enabled'
  * - Rotates the entity when we move the mouse.
  * - Rotates the entity when we touch-drag the touchscreen.
  *
- * @see https://aframe.io/docs/1.2.0/components/look-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/look-controls.html
  */
 export interface LookControlsProps {
   /**
@@ -22,7 +16,7 @@ export interface LookControlsProps {
   enabled?: boolean;
 
   /**
-   * Wheter gyroscope camera tracking is enabled on mobile devices.
+   * Whether gyroscope camera tracking is enabled on mobile devices.
    */
   magicWindowTrackingEnabled?: boolean;
 
@@ -52,7 +46,7 @@ export interface LookControlsProps {
   mouseEnabled?: boolean;
 }
 
-export class LookControls implements LookControlsProps {
+export class LookControls extends Component<LookControlsProps> {
   readonly enabled?: boolean;
 
   readonly magicWindowTrackingEnabled?: boolean;
@@ -66,28 +60,4 @@ export class LookControls implements LookControlsProps {
   readonly touchEnabled?: boolean;
 
   readonly mouseEnabled?: boolean;
-
-  constructor({
-    enabled,
-    magicWindowTrackingEnabled,
-    pointerLockEnabled,
-    reverseMouseDrag,
-    reverseTouchDrag,
-    touchEnabled,
-    mouseEnabled,
-  }: LookControlsProps) {
-    this.enabled = enabled;
-    this.magicWindowTrackingEnabled = magicWindowTrackingEnabled;
-    this.pointerLockEnabled = pointerLockEnabled;
-    this.reverseMouseDrag = reverseMouseDrag;
-    this.reverseTouchDrag = reverseTouchDrag;
-    this.touchEnabled = touchEnabled;
-    this.mouseEnabled = mouseEnabled;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as LookControlsKeys] !== undefined)
-    .map((key: string) => `${key}:${this[key as LookControlsKeys]};`)
-    .join('');
 }

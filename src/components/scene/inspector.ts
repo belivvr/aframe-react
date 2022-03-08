@@ -1,7 +1,5 @@
-type InspectorKeys = 'url';
-
 /**
- * @see https://aframe.io/docs/1.2.0/introduction/visual-inspector-and-dev-tools.html
+ * @see https://aframe.io/docs/1.3.0/introduction/visual-inspector-and-dev-tools.html
  */
 export interface InspectorProps {
   /**
@@ -17,9 +15,5 @@ export class Inspector implements InspectorProps {
     this.url = url;
   }
 
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as InspectorKeys] !== undefined)
-    .map((key: string) => `${key}:${this[key as InspectorKeys]};`)
-    .join('');
+  public toString = (): string => (this.url ? `url:${this.url?.toString()};` : '');
 }

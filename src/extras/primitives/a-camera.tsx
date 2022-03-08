@@ -34,7 +34,7 @@ function toCameraProps({
  * The camera primitive determines what the user sees.
  * We can change the viewport by modifying the camera entity’s position and rotation.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-camera.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-camera.html
  *
  * @example
  * ```tsx

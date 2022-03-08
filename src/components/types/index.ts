@@ -11,7 +11,7 @@ export type Hand = '' | 'left' | 'right';
 export type HandModelStyle = 'lowPoly' | 'highPoly' | 'toon';
 
 /**
- * @see https://aframe.io/docs/1.2.0/components/geometry.html#built-in-geometries
+ * @see https://aframe.io/docs/1.3.0/components/geometry.html#built-in-geometries
  */
 export type Geometries = 'box' | 'circle' | 'cone' | 'cylinder' | 'dodecahedron' | 'octahedron' | 'plane' | 'ring' | 'sphere' | 'tetrahedron' | 'torus' | 'torusKnot' | 'triangle';
 export type ModelStyle = 'dots' | 'mesh';

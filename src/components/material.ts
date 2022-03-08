@@ -1,3 +1,4 @@
+import Component from './Component';
 import type {
   Vec2Props,
   MaterialShape,
@@ -5,17 +6,16 @@ import type {
   MaterialVertexColor,
   MaterialBlending,
 } from './types';
-import { Vec2 } from './types';
 
 /**
  * The material component gives appearance to an entity.
  * We can define properties such as color, opacity, or texture.
- * This is often paired with the [geometry component](https://aframe.io/docs/1.2.0/components/geometry.html) which provides shape.
+ * This is often paired with the [geometry component](https://aframe.io/docs/1.3.0/components/geometry.html) which provides shape.
  *
  * We can register custom materials to extend the material component
  * to provide a wide range of visual effects.
  *
- * @see https://aframe.io/docs/1.2.0/components/material.html
+ * @see https://aframe.io/docs/1.3.0/components/material.html
  */
 export interface MaterialProps {
   /**
@@ -60,8 +60,8 @@ export interface MaterialProps {
   repeat?: Vec2Props;
 
   /**
-   * Which material to use. Defaults to the [standard material](https://aframe.io/docs/1.2.0/components/material.html#standard).
-   * Can be set to the [flat material](https://aframe.io/docs/1.2.0/components/material.html#flat) or to a registered custom shader material.
+   * Which material to use. Defaults to the [standard material](https://aframe.io/docs/1.3.0/components/material.html#standard).
+   * Can be set to the [flat material](https://aframe.io/docs/1.3.0/components/material.html#flat) or to a registered custom shader material.
    */
   shader?: MaterialShape | string;
 
@@ -294,7 +294,7 @@ export interface MaterialProps {
   [key: string]: unknown;
 }
 
-export class Material implements MaterialProps {
+export class Material extends Component<MaterialProps> {
   readonly alphaTest?: number;
 
   readonly depthTest?: boolean;
@@ -380,162 +380,4 @@ export class Material implements MaterialProps {
   readonly extraProps?: string;
 
   [key: string]: unknown;
-
-  constructor(props: MaterialProps) {
-    const defaultKeys = [
-      'alphaTest',
-      'depthTest',
-      'depthWrite',
-      'flatShading',
-      'npot',
-      'offset',
-      'opacity',
-      'repeat',
-      'shader',
-      'side',
-      'transparent',
-      'vertexColors',
-      'visible',
-      'blending',
-      'dithering',
-      'ambientOcclusionMap',
-      'ambientOcclusionMapIntensity',
-      'ambientOcclusionTextureRepeat',
-      'ambientOcclusionTextureOffset',
-      'color',
-      'displacementMap',
-      'displacementScale',
-      'displacementBias',
-      'displacementTextureRepeat',
-      'displacementTextureOffset',
-      'emissive',
-      'emissiveIntensity',
-      'height',
-      'envMap',
-      'fog',
-      'metalness',
-      'normalMap',
-      'normalScale',
-      'normalTextureRepeat',
-      'normalTextureOffset',
-      'roughness',
-      'sphericalEnvMap',
-      'width',
-      'wireframe',
-      'wireframeLinewidth',
-      'src',
-    ];
-
-    const {
-      alphaTest,
-      depthTest,
-      depthWrite,
-      flatShading,
-      npot,
-      offset,
-      opacity,
-      repeat,
-      shader,
-      side,
-      transparent,
-      vertexColors,
-      visible,
-      blending,
-      dithering,
-      ambientOcclusionMap,
-      ambientOcclusionMapIntensity,
-      ambientOcclusionTextureRepeat,
-      ambientOcclusionTextureOffset,
-      color,
-      displacementMap,
-      displacementScale,
-      displacementBias,
-      displacementTextureRepeat,
-      displacementTextureOffset,
-      emissive,
-      emissiveIntensity,
-      height,
-      envMap,
-      fog,
-      metalness,
-      normalMap,
-      normalScale,
-      normalTextureRepeat,
-      normalTextureOffset,
-      roughness,
-      sphericalEnvMap,
-      width,
-      wireframe,
-      wireframeLinewidth,
-      src,
-    } = props;
-
-    this.alphaTest = alphaTest;
-    this.depthTest = depthTest;
-    this.depthWrite = depthWrite;
-    this.flatShading = flatShading;
-    this.npot = npot;
-    this.offset = offset;
-    this.opacity = opacity;
-    this.repeat = repeat;
-    this.shader = shader;
-    this.side = side;
-    this.transparent = transparent;
-    this.vertexColors = vertexColors;
-    this.visible = visible;
-    this.blending = blending;
-    this.dithering = dithering;
-    this.ambientOcclusionMap = ambientOcclusionMap;
-    this.ambientOcclusionMapIntensity = ambientOcclusionMapIntensity;
-    this.ambientOcclusionTextureRepeat = ambientOcclusionTextureRepeat;
-    this.ambientOcclusionTextureOffset = ambientOcclusionTextureOffset;
-    this.color = color;
-    this.displacementMap = displacementMap;
-    this.displacementScale = displacementScale;
-    this.displacementBias = displacementBias;
-    this.displacementTextureRepeat = displacementTextureRepeat;
-    this.displacementTextureOffset = displacementTextureOffset;
-    this.emissive = emissive;
-    this.emissiveIntensity = emissiveIntensity;
-    this.height = height;
-    this.envMap = envMap;
-    this.fog = fog;
-    this.metalness = metalness;
-    this.normalMap = normalMap;
-    this.normalScale = normalScale;
-    this.normalTextureRepeat = normalTextureRepeat;
-    this.normalTextureOffset = normalTextureOffset;
-    this.roughness = roughness;
-    this.sphericalEnvMap = sphericalEnvMap;
-    this.width = width;
-    this.wireframe = wireframe;
-    this.wireframeLinewidth = wireframeLinewidth;
-    this.src = src;
-
-    this.extraProps = Object.keys(props)
-      .filter((prop) => !defaultKeys.includes(prop))
-      .map((prop) => `${prop}:${props[prop]};`)
-      .join('');
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => !['toString', 'extraProps'].includes(key))
-    .filter((key: string) => this[key] !== undefined && this[key] !== '')
-    .map((key: string) => {
-      if ([
-        'offset',
-        'repeat',
-        'ambientOcclusionTextureRepeat',
-        'ambientOcclusionTextureOffset',
-        'displacementTextureRepeat',
-        'displacementTextureOffset',
-        'normalScale',
-        'normalTextureRepeat',
-        'normalTextureOffset',
-      ].includes(key)) {
-        return `${key}:${new Vec2(this[key] as Vec2Props).toString()};`;
-      }
-      return `${key}:${this[key]};`;
-    })
-    .join('') + this.extraProps;
 }

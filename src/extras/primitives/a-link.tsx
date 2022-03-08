@@ -13,7 +13,7 @@ interface Props {
  * The link primitive provides a compact API to define links that
  * resembles the traditional `<a>` tag.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-link.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-link.html
  */
 export default function Link(props: Props & EntityProps): JSX.Element {
   const {

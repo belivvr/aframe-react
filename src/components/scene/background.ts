@@ -1,4 +1,4 @@
-type BackgroundKeys = 'color' | 'transparent';
+import Component from '../Component';
 
 /**
  * The background component sets a basic color background of a scene that
@@ -7,7 +7,7 @@ type BackgroundKeys = 'color' | 'transparent';
  * the far plane of the camera. There are no unexpected occlusions either with
  * far objects that might be behind of the sphere geometry of `a-sky`.
  *
- * @see https://aframe.io/docs/1.2.0/components/background.html
+ * @see https://aframe.io/docs/1.3.0/components/background.html
  */
 export interface BackgroundProps {
   /**
@@ -21,22 +21,8 @@ export interface BackgroundProps {
   transparent?: boolean;
 }
 
-export class Background implements BackgroundProps {
+export class Background extends Component<BackgroundProps> {
   readonly color?: string;
 
   readonly transparent?: boolean;
-
-  constructor({
-    color,
-    transparent,
-  }: BackgroundProps) {
-    this.color = color;
-    this.transparent = transparent;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as BackgroundKeys] !== undefined && this[key as BackgroundKeys] !== '')
-    .map((key: string) => `${key}:${this[key as BackgroundKeys]};`)
-    .join('');
 }

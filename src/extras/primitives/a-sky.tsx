@@ -66,7 +66,7 @@ function toSkyProps({
  * The sky primitive adds a background color or 360° image to a scene.
  * A sky is a large sphere with a color or texture mapped to the inside.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-sky.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-sky.html
  *
  * @example
  * An equirectangular image as a background:

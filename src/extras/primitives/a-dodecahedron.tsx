@@ -111,7 +111,7 @@ function toDodecahedronProps({
 }
 
 /**
- * @see https://aframe.io/docs/1.2.0/primitives/a-dodecahedron.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-dodecahedron.html
  *
  * @example
  * ```tsx

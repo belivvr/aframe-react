@@ -1,7 +1,4 @@
-type PoolKeys = 'container'
-| 'mixin'
-| 'size'
-| 'dynamic';
+import Component from '../Component';
 
 /**
  * The pool component allows for [object pooling](https://en.wikipedia.org/wiki/Object_pool_pattern).
@@ -12,7 +9,7 @@ type PoolKeys = 'container'
  * Note that entities requested from the pool are paused by default and you need to call `.play()`
  * in order to activate their components’ tick functions.
  *
- * @see https://aframe.io/docs/1.2.0/components/pool.html
+ * @see https://aframe.io/docs/1.3.0/components/pool.html
  */
 export interface PoolProps {
   /**
@@ -36,7 +33,7 @@ export interface PoolProps {
   dynamic?: boolean;
 }
 
-export class Pool implements PoolProps {
+export class Pool extends Component<PoolProps> {
   readonly container?: string;
 
   readonly mixin?: string;
@@ -44,22 +41,4 @@ export class Pool implements PoolProps {
   readonly size?: number;
 
   readonly dynamic?: boolean;
-
-  constructor({
-    container,
-    mixin,
-    size,
-    dynamic,
-  }: PoolProps) {
-    this.container = container;
-    this.mixin = mixin;
-    this.size = size;
-    this.dynamic = dynamic;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as PoolKeys] !== undefined && this[key as PoolKeys] !== '')
-    .map((key: string) => `${key}:${this[key as PoolKeys]};`)
-    .join('');
 }

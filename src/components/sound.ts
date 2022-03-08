@@ -1,20 +1,9 @@
+import Component from './Component';
 import { SoundDistanceModel } from './types';
-
-type SoundKeys = 'autoplay'
-| 'distanceModel'
-| 'loop'
-| 'maxDistance'
-| 'on'
-| 'poolSize'
-| 'positional'
-| 'refDistance'
-| 'rolloffFactor'
-| 'src'
-| 'volume';
 
 /**
  * The sound component defines the entity as a source of sound or audio.
- * The sound component is positional and is thus affected by the [components-position](https://aframe.io/docs/1.2.0/components/position.html).
+ * The sound component is positional and is thus affected by the [components-position](https://aframe.io/docs/1.3.0/components/position.html).
  *
  * > NOTE: Playing sound on iOS — in any browser — requires a physical user interaction.
  * > This is a browser limitation, and internal A-Frame events (like fusing cursors)
@@ -22,7 +11,7 @@ type SoundKeys = 'autoplay'
  * > Ways to deal with this include using a Begin Experience button to start ambient music,
  * > or creating audio sprites with libraries like [Howler.js](https://github.com/goldfire/howler.js).
  *
- * @see https://aframe.io/docs/1.2.0/components/sound.html
+ * @see https://aframe.io/docs/1.3.0/components/sound.html
  */
 export interface SoundProps {
   /**
@@ -82,7 +71,7 @@ export interface SoundProps {
   volume?: number;
 }
 
-export class Sound implements SoundProps {
+export class Sound extends Component<SoundProps> {
   readonly autoplay?: boolean;
 
   readonly distanceModel?: SoundDistanceModel;
@@ -104,36 +93,4 @@ export class Sound implements SoundProps {
   readonly src?: string;
 
   readonly volume?: number;
-
-  constructor({
-    autoplay,
-    distanceModel,
-    loop,
-    maxDistance,
-    on,
-    poolSize,
-    positional,
-    refDistance,
-    rolloffFactor,
-    src,
-    volume,
-  }: SoundProps) {
-    this.autoplay = autoplay;
-    this.distanceModel = distanceModel;
-    this.loop = loop;
-    this.maxDistance = maxDistance;
-    this.on = on;
-    this.poolSize = poolSize;
-    this.positional = positional;
-    this.refDistance = refDistance;
-    this.rolloffFactor = rolloffFactor;
-    this.src = src;
-    this.volume = volume;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as SoundKeys] !== undefined && this[key as SoundKeys] !== '')
-    .map((key: string) => `${key}:${this[key as SoundKeys]};`)
-    .join('');
 }

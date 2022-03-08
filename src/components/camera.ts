@@ -1,16 +1,11 @@
-type CameraKeys = 'active'
-| 'far'
-| 'fov'
-| 'near'
-| 'spectator'
-| 'zoom';
+import Component from './Component';
 
 /**
  * The camera component defines from which perspective the user views the scene.
  * The camera is commonly paired with controls components that allow input devices
  * to move and rotate the camera.
  *
- * @see https://aframe.io/docs/1.2.0/components/camera.html#sidebar
+ * @see https://aframe.io/docs/1.3.0/components/camera.html#sidebar
  */
 export interface CameraProps {
   /**
@@ -45,7 +40,7 @@ export interface CameraProps {
   zoom?: number;
 }
 
-export class Camera implements CameraProps {
+export class Camera extends Component<CameraProps> {
   readonly active?: boolean;
 
   readonly far?: number;
@@ -57,26 +52,4 @@ export class Camera implements CameraProps {
   readonly spectator?: boolean;
 
   readonly zoom?: number;
-
-  constructor({
-    active,
-    far,
-    fov,
-    near,
-    spectator,
-    zoom,
-  }: CameraProps) {
-    this.active = active;
-    this.far = far;
-    this.fov = fov;
-    this.near = near;
-    this.spectator = spectator;
-    this.zoom = zoom;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as CameraKeys] !== undefined)
-    .map((key: string) => `${key}:${this[key as CameraKeys]};`)
-    .join('');
 }

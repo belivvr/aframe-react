@@ -28,9 +28,9 @@ function toSoundProps({
 }
 
 /**
- * The sound primitive wraps the [sound component](https://aframe.io/docs/1.2.0/components/sound.html).
+ * The sound primitive wraps the [sound component](https://aframe.io/docs/1.3.0/components/sound.html).
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-sound.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-sound.html
  *
  * @example
  * ```tsx

@@ -108,9 +108,9 @@ function toTorusKnotProps({
 }
 
 /**
- * The torus knot primitive creates pretzel shapes using the [geometry](https://aframe.io/docs/1.2.0/components/geometry.html) component with the type set to `torusKnot`.
+ * The torus knot primitive creates pretzel shapes using the [geometry](https://aframe.io/docs/1.3.0/components/geometry.html) component with the type set to `torusKnot`.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-torus-knot.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-torus-knot.html
  *
  * @example
  * ```tsx

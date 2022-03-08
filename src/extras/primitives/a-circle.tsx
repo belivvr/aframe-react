@@ -102,9 +102,9 @@ function toCircleProps({
 }
 
 /**
- * The circle primitive creates circles surfaces using the [geometry](https://aframe.io/docs/1.2.0/components/geometry.html) component with the type set to `circle`.
+ * The circle primitive creates circles surfaces using the [geometry](https://aframe.io/docs/1.3.0/components/geometry.html) component with the type set to `circle`.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-circle.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-circle.html
  *
  * @example
  * ```tsx

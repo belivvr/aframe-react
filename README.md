@@ -25,16 +25,16 @@ Support `aframe@1.3.0`.
 
 ```sh
 # yarn
-yarn add github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @belivvr/aframe-react
+yarn add github:aframevr/aframe#018e1236bc71cc9ffa42cd34aeedd03a23a8cd2e @belivvr/aframe-react
 
 # npm
-npm install github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @belivvr/aframe-react
+npm install github:aframevr/aframe#018e1236bc71cc9ffa42cd34aeedd03a23a8cd2e @belivvr/aframe-react
 ```
 
 ### Why directly get commit?
 
 A-Frame doesn't release minor patch. But, they constantly commit.  
-When just install aframe@1.2.0 install, causes [hand tracking mesh broken issue](https://github.com/belivvr/aframe-react/issues/75).  
+When just install aframe@1.3.0 install, causes [hand tracking mesh broken issue](https://github.com/belivvr/aframe-react/issues/75).  
 But, install latest commit, this issue is solved.
 
 ## Usage
@@ -154,6 +154,37 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+```
+
+## Using custom component
+
+- 0.4.0 Updated: When using `AFRAME.registerComponent`, supports type.
+
+### example
+
+```tsx
+AFRAME.registerComponent('spinner', {
+  schema: {
+    dur: { type: 'number' },
+    startEvent: { type: 'array' },
+    position: { type: 'vec3' },
+    spin: { type: 'boolean' },
+  },
+
+  init() {
+    // ...
+  },
+});
+
+// <a-box spinner="dur: 2000; startEvent: click, mouseenter; position: 0 0 -1; spin: true;>
+<Box
+  spinner={{
+    dur: 2000,
+    startEvent: ['click', 'mouseenter'],
+    position: { x: 0, y: 0, z: -1 },
+    spin: true,
+  }}
+>
 ```
 
 ## Difference from aframe-react

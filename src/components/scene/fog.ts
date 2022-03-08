@@ -1,15 +1,10 @@
+import Component from '../Component';
 import { FogType } from './types';
 
-type FogKeys = 'color'
-| 'density'
-| 'far'
-| 'near'
-| 'type';
-
 /**
- * The fog component obscures entities in fog given distance from the camera. The fog component applies only to the [`<a-scene>` element](https://aframe.io/docs/1.2.0/core/scene.html).
+ * The fog component obscures entities in fog given distance from the camera. The fog component applies only to the [`<a-scene>` element](https://aframe.io/docs/1.3.0/core/scene.html).
  *
- * @see https://aframe.io/docs/1.2.0/components/fog.html
+ * @see https://aframe.io/docs/1.3.0/components/fog.html
  */
 export interface FogProps {
   /**
@@ -42,7 +37,7 @@ export interface FogProps {
   type?: FogType;
 }
 
-export class Fog implements FogProps {
+export class Fog extends Component<FogProps> {
   readonly color?: string;
 
   readonly density?: number;
@@ -52,24 +47,4 @@ export class Fog implements FogProps {
   readonly near?: number;
 
   readonly type?: FogType;
-
-  constructor({
-    color,
-    density,
-    far,
-    near,
-    type,
-  }: FogProps) {
-    this.color = color;
-    this.density = density;
-    this.far = far;
-    this.near = near;
-    this.type = type;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as FogKeys] !== undefined && this[key as FogKeys] !== '')
-    .map((key: string) => `${key}:${this[key as FogKeys]};`)
-    .join('');
 }

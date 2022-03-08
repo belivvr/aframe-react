@@ -1,16 +1,5 @@
+import Component from './Component';
 import type { Hand, Vec3Props } from './types';
-import { Vec3 } from './types';
-
-type TrackedControlsKeys = 'autoHide'
-| 'controller'
-| 'id'
-| 'hand'
-| 'idPrefix'
-| 'handTrackingEnabled'
-| 'orientationOffset'
-| 'armModel'
-| 'headElement'
-| 'iterateControllerProfiles';
 
 /**
  * The tracked-controls component interfaces with tracked controllers.
@@ -67,7 +56,7 @@ export interface TrackedControlsProps {
   iterateControllerProfiles?: boolean;
 }
 
-export class TrackedControls implements TrackedControlsProps {
+export class TrackedControls extends Component<TrackedControlsProps> {
   readonly autoHide?: boolean;
 
   readonly controller?: number;
@@ -87,39 +76,4 @@ export class TrackedControls implements TrackedControlsProps {
   readonly headElement?: string;
 
   readonly iterateControllerProfiles?: boolean;
-
-  constructor({
-    autoHide,
-    controller,
-    id,
-    hand,
-    idPrefix,
-    handTrackingEnabled,
-    orientationOffset,
-    armModel,
-    headElement,
-    iterateControllerProfiles,
-  }: TrackedControlsProps) {
-    this.autoHide = autoHide;
-    this.controller = controller;
-    this.id = id;
-    this.hand = hand;
-    this.idPrefix = idPrefix;
-    this.handTrackingEnabled = handTrackingEnabled;
-    this.orientationOffset = orientationOffset;
-    this.armModel = armModel;
-    this.headElement = headElement;
-    this.iterateControllerProfiles = iterateControllerProfiles;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as TrackedControlsKeys] !== undefined && this[key as TrackedControlsKeys] !== '')
-    .map((key: string) => {
-      if (['orientationOffset'].includes(key)) {
-        return `${key}:${new Vec3(this[key as TrackedControlsKeys] as Vec3Props).toString()};`;
-      }
-      return `${key}:${this[key as TrackedControlsKeys]};`;
-    })
-    .join('');
 }

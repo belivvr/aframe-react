@@ -1,4 +1,4 @@
-type BackgroundKeys = 'color' | 'transparent';
+import Component from '../Component';
 
 /**
  * The background component sets a basic color background of a scene that
@@ -21,22 +21,8 @@ export interface BackgroundProps {
   transparent?: boolean;
 }
 
-export class Background implements BackgroundProps {
+export class Background extends Component<BackgroundProps> {
   readonly color?: string;
 
   readonly transparent?: boolean;
-
-  constructor({
-    color,
-    transparent,
-  }: BackgroundProps) {
-    this.color = color;
-    this.transparent = transparent;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as BackgroundKeys] !== undefined && this[key as BackgroundKeys] !== '')
-    .map((key: string) => `${key}:${this[key as BackgroundKeys]};`)
-    .join('');
 }

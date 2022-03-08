@@ -1,4 +1,4 @@
-type GLTFModelKeys = 'dracoDecoderPath';
+import Component from '../Component';
 
 /**
  * @see https://aframe.io/docs/1.2.0/components/gltf-model.html#scene-properties
@@ -10,16 +10,6 @@ export interface GLTFModelProps {
   dracoDecoderPath?: string;
 }
 
-export class GLTFModel implements GLTFModelProps {
+export class GLTFModel extends Component<GLTFModelProps> {
   readonly dracoDecoderPath?: string;
-
-  constructor({ dracoDecoderPath }: GLTFModelProps) {
-    this.dracoDecoderPath = dracoDecoderPath;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as GLTFModelKeys] !== undefined && this[key as GLTFModelKeys] !== '')
-    .map((key: string) => `${key}:${this[key as GLTFModelKeys]};`)
-    .join('');
 }

@@ -1,10 +1,5 @@
+import Component from './Component';
 import type { Hand } from './types';
-
-type TrackedControlsWebXRKeys = 'id'
-| 'hand'
-| 'handTrackingEnabled'
-| 'index'
-| 'iterateControllerProfiles';
 
 /**
  * The tracked-controls component interfaces with tracked controllers.
@@ -30,7 +25,7 @@ export interface TrackedControlsWebXRProps {
   iterateControllerProfiles?: boolean;
 }
 
-export class TrackedControlsWebXR implements TrackedControlsWebXRProps {
+export class TrackedControlsWebXR extends Component<TrackedControlsWebXRProps> {
   readonly id?: string;
 
   readonly hand?: Hand;
@@ -40,24 +35,4 @@ export class TrackedControlsWebXR implements TrackedControlsWebXRProps {
   readonly index?: number;
 
   readonly iterateControllerProfiles?: boolean;
-
-  constructor({
-    id,
-    hand,
-    handTrackingEnabled,
-    index,
-    iterateControllerProfiles,
-  }: TrackedControlsWebXRProps) {
-    this.id = id;
-    this.hand = hand;
-    this.handTrackingEnabled = handTrackingEnabled;
-    this.index = index;
-    this.iterateControllerProfiles = iterateControllerProfiles;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as TrackedControlsWebXRKeys] !== undefined && this[key as TrackedControlsWebXRKeys] !== '')
-    .map((key: string) => `${key}:${this[key as TrackedControlsWebXRKeys]};`)
-    .join('');
 }

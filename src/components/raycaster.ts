@@ -1,18 +1,5 @@
+import Component from './Component';
 import type { Vec3Props } from './types';
-import { Vec3 } from './types';
-
-type RaycasterKeys = 'autoRefresh'
-| 'direction'
-| 'enabled'
-| 'far'
-| 'interval'
-| 'near'
-| 'objects'
-| 'origin'
-| 'showLine'
-| 'lineColor'
-| 'lineOpacity'
-| 'useWorldCoordinates';
 
 /**
  * The raycaster component provides line-based intersection testing with a [raycaster](https://en.wikipedia.org/wiki/Ray_casting). Raycasting is the method of extending a line from an origin towards a direction, and checking whether that line intersects with other entities.
@@ -101,7 +88,7 @@ export interface RaycasterProps {
   useWorldCoordinates?: boolean;
 }
 
-export class Raycaster implements RaycasterProps {
+export class Raycaster extends Component<RaycasterProps> {
   readonly autoRefresh?: boolean;
 
   readonly direction?: Vec3Props;
@@ -125,43 +112,4 @@ export class Raycaster implements RaycasterProps {
   readonly lineOpacity?: number;
 
   readonly useWorldCoordinates?: boolean;
-
-  constructor({
-    autoRefresh,
-    direction,
-    enabled,
-    far,
-    interval,
-    near,
-    objects,
-    origin,
-    showLine,
-    lineColor,
-    lineOpacity,
-    useWorldCoordinates,
-  }: RaycasterProps) {
-    this.autoRefresh = autoRefresh;
-    this.direction = direction;
-    this.enabled = enabled;
-    this.far = far;
-    this.interval = interval;
-    this.near = near;
-    this.objects = objects;
-    this.origin = origin;
-    this.showLine = showLine;
-    this.lineColor = lineColor;
-    this.lineOpacity = lineOpacity;
-    this.useWorldCoordinates = useWorldCoordinates;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as RaycasterKeys] !== undefined && this[key as RaycasterKeys] !== '')
-    .map((key: string) => {
-      if (['direction', 'origin'].includes(key)) {
-        return `${key}:${new Vec3(this[key as RaycasterKeys] as Vec3Props).toString()};`;
-      }
-      return `${key}:${this[key as RaycasterKeys]};`;
-    })
-    .join('');
 }

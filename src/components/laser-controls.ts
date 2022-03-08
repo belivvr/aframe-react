@@ -1,8 +1,5 @@
+import Component from './Component';
 import { Hand } from './types';
-
-type LaserControlsKeys = 'hand'
-| 'model'
-| 'defaultModelColor';
 
 /**
  * The laser-controls component provides tracked controls with a laser or ray cursor shooting out to be used for input and interactions. _DoF_ stands for [degrees of freedom](http://www.roadtovr.com/introduction-positional-tracking-degrees-freedom-dof/). Because they only require rotation and some form of input, laser-based interactions scale well across 0 DoF (gaze-based, Cardboard), 3 DoF (Daydream, GearVR with controllers), and 6 DoF (Vive, Oculus Touch). If desired, we can get a consistent form of interaction that works across all VR platforms with a single line of HTML.
@@ -41,26 +38,10 @@ export interface LaserControlsProps {
   defaultModelColor?: string;
 }
 
-export class LaserControls implements LaserControlsProps {
+export class LaserControls extends Component<LaserControlsProps> {
   readonly hand?: Hand;
 
   readonly model?: boolean;
 
   readonly defaultModelColor?: string;
-
-  constructor({
-    hand,
-    model,
-    defaultModelColor,
-  }: LaserControlsProps) {
-    this.hand = hand;
-    this.model = model;
-    this.defaultModelColor = defaultModelColor;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as LaserControlsKeys] !== undefined && this[key as LaserControlsKeys] !== '')
-    .map((key: string) => `${key}:${this[key as LaserControlsKeys]};`)
-    .join('');
 }

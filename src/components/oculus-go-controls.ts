@@ -1,13 +1,5 @@
+import Component from './Component';
 import type { Hand, Vec3Props } from './types';
-import { Vec3 } from './types';
-
-type OculusGoControlsKeys = 'hand'
-| 'buttonColor'
-| 'buttonTouchedColor'
-| 'buttonHighlightColor'
-| 'model'
-| 'orientationOffset'
-| 'armModel';
 
 /**
  * The oculus-go-controls component interfaces with the Oculus Go controllers. It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and an Oculus Go controller model that highlights the touched and/or pressed buttons (trackpad, trigger).
@@ -51,7 +43,7 @@ export interface OculusGoControlsProps {
   armModel?: boolean;
 }
 
-export class OculusGoControls implements OculusGoControlsProps {
+export class OculusGoControls extends Component<OculusGoControlsProps> {
   readonly hand?: Hand;
 
   readonly buttonColor?: string;
@@ -65,33 +57,4 @@ export class OculusGoControls implements OculusGoControlsProps {
   readonly orientationOffset?: Vec3Props;
 
   readonly armModel?: boolean;
-
-  constructor({
-    hand,
-    buttonColor,
-    buttonTouchedColor,
-    buttonHighlightColor,
-    model,
-    orientationOffset,
-    armModel,
-  }: OculusGoControlsProps) {
-    this.hand = hand;
-    this.buttonColor = buttonColor;
-    this.buttonTouchedColor = buttonTouchedColor;
-    this.buttonHighlightColor = buttonHighlightColor;
-    this.model = model;
-    this.orientationOffset = orientationOffset;
-    this.armModel = armModel;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as OculusGoControlsKeys] !== undefined && this[key as OculusGoControlsKeys] !== '')
-    .map((key: string) => {
-      if (['orientationOffset'].includes(key)) {
-        return `${key}:${new Vec3(this[key as OculusGoControlsKeys] as Vec3Props).toString()};`;
-      }
-      return `${key}:${this[key as OculusGoControlsKeys]};`;
-    })
-    .join('');
 }

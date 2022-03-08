@@ -1,14 +1,5 @@
+import Component from './Component';
 import type { WASDAxis } from './types';
-
-type WASDControlsKeys = 'acceleration'
-| 'adAxis'
-| 'adEnabled'
-| 'adInverted'
-| 'enabled'
-| 'fly'
-| 'wsAxis'
-| 'wsEnabled'
-| 'wsInverted';
 
 /**
  * The wasd-controls component controls an entity with the WASD or arrow keyboard keys.
@@ -57,7 +48,7 @@ export interface WASDControlsProps {
   wsInverted?: boolean;
 }
 
-export class WASDControls implements WASDControlsProps {
+export class WASDControls extends Component<WASDControlsProps> {
   readonly acceleration?: number;
 
   readonly adAxis?: WASDAxis;
@@ -75,32 +66,4 @@ export class WASDControls implements WASDControlsProps {
   readonly wsEnabled?: boolean;
 
   readonly wsInverted?: boolean;
-
-  constructor({
-    acceleration,
-    adAxis,
-    adEnabled,
-    adInverted,
-    enabled,
-    fly,
-    wsAxis,
-    wsEnabled,
-    wsInverted,
-  }: WASDControlsProps) {
-    this.acceleration = acceleration;
-    this.adAxis = adAxis;
-    this.adEnabled = adEnabled;
-    this.adInverted = adInverted;
-    this.enabled = enabled;
-    this.fly = fly;
-    this.wsAxis = wsAxis;
-    this.wsEnabled = wsEnabled;
-    this.wsInverted = wsInverted;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as WASDControlsKeys] !== undefined)
-    .map((key: string) => `${key}:${this[key as WASDControlsKeys]};`)
-    .join('');
 }

@@ -1,6 +1,5 @@
+import Component from '../Component';
 import { ShadowType } from './types';
-
-type ShadowKeys = 'type';
 
 export interface ShadowProps {
   /**
@@ -10,16 +9,6 @@ export interface ShadowProps {
   type?: ShadowType;
 }
 
-export class Shadow implements ShadowProps {
+export class Shadow extends Component<ShadowProps> {
   readonly type?: ShadowType;
-
-  constructor({ type }: ShadowProps) {
-    this.type = type;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as ShadowKeys] !== undefined)
-    .map((key: string) => `${key}:${this[key as ShadowKeys]};`)
-    .join('');
 }

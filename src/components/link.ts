@@ -1,14 +1,4 @@
-type LinkKeys = 'backgroundColor'
-| 'borderColor'
-| 'highlighted'
-| 'highlightedColor'
-| 'href'
-| 'image'
-| 'on'
-| 'peekMode'
-| 'title'
-| 'titleColor'
-| 'visualAspectEnabled';
+import Component from './Component';
 
 /**
  * The link component connects between experiences and allows for traversing between VR web pages.
@@ -19,7 +9,7 @@ type LinkKeys = 'backgroundColor'
  * - Your browser implements the WebXR in-VR navigation proposal.
  * Notice that is not yet part of the standard.
  * Support is experimental,
- * varies accross browsers and it might require enabling manually in settings.
+ * varies across browsers and it might require enabling manually in settings.
  * - The destination Web page listens to the window [sessiongranted] event and enters VR.
  * A-Frame experiences behave this way by default.
  * - At the moment,
@@ -86,7 +76,7 @@ export interface LinkProps {
   visualAspectEnabled?: boolean;
 }
 
-export class Link implements LinkProps {
+export class Link extends Component<LinkProps> {
   readonly backgroundColor?: string;
 
   readonly borderColor?: string;
@@ -108,36 +98,4 @@ export class Link implements LinkProps {
   readonly titleColor?: string;
 
   readonly visualAspectEnabled?: boolean;
-
-  constructor({
-    backgroundColor,
-    borderColor,
-    highlighted,
-    highlightedColor,
-    href,
-    image,
-    on,
-    peekMode,
-    title,
-    titleColor,
-    visualAspectEnabled,
-  }: LinkProps) {
-    this.backgroundColor = backgroundColor;
-    this.borderColor = borderColor;
-    this.highlighted = highlighted;
-    this.highlightedColor = highlightedColor;
-    this.href = href;
-    this.image = image;
-    this.on = on;
-    this.peekMode = peekMode;
-    this.title = title;
-    this.titleColor = titleColor;
-    this.visualAspectEnabled = visualAspectEnabled;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as LinkKeys] !== undefined && this[key as LinkKeys] !== '')
-    .map((key: string) => `${key}:${this[key as LinkKeys]};`)
-    .join('');
 }

@@ -1,6 +1,4 @@
-type VrModeUIKeys = 'enabled'
-| 'enterVRButton'
-| 'enterARButton';
+import Component from '../Component';
 
 /**
  * The vr-mode-ui component allows disabling of UI such as an
@@ -31,26 +29,10 @@ export interface VrModeUIProps {
   enterARButton?: string;
 }
 
-export class VrModeUI implements VrModeUIProps {
+export class VrModeUI extends Component<VrModeUIProps> {
   readonly enabled?: boolean;
 
   readonly enterVRButton?: string;
 
   readonly enterARButton?: string;
-
-  constructor({
-    enabled,
-    enterVRButton,
-    enterARButton,
-  }: VrModeUIProps) {
-    this.enabled = enabled;
-    this.enterVRButton = enterVRButton;
-    this.enterARButton = enterARButton;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as VrModeUIKeys] !== undefined && this[key as VrModeUIKeys] !== '')
-    .map((key: string) => `${key}:${this[key as VrModeUIKeys]};`)
-    .join('');
 }

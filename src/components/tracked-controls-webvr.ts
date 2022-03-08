@@ -1,14 +1,5 @@
+import Component from './Component';
 import type { Hand, Vec3Props } from './types';
-import { Vec3 } from './types';
-
-type TrackedControlsWebVRKeys = 'autoHide'
-| 'controller'
-| 'id'
-| 'hand'
-| 'idPrefix'
-| 'orientationOffset'
-| 'armModel'
-| 'headElement';
 
 /**
  * The tracked-controls component interfaces with tracked controllers.
@@ -61,7 +52,7 @@ export interface TrackedControlsWebVRProps {
   headElement?: string;
 }
 
-export class TrackedControlsWebVR implements TrackedControlsWebVRProps {
+export class TrackedControlsWebVR extends Component<TrackedControlsWebVRProps> {
   readonly autoHide?: boolean;
 
   readonly controller?: number;
@@ -77,35 +68,4 @@ export class TrackedControlsWebVR implements TrackedControlsWebVRProps {
   readonly armModel?: boolean;
 
   readonly headElement?: string;
-
-  constructor({
-    autoHide,
-    controller,
-    id,
-    hand,
-    idPrefix,
-    orientationOffset,
-    armModel,
-    headElement,
-  }: TrackedControlsWebVRProps) {
-    this.autoHide = autoHide;
-    this.controller = controller;
-    this.id = id;
-    this.hand = hand;
-    this.idPrefix = idPrefix;
-    this.orientationOffset = orientationOffset;
-    this.armModel = armModel;
-    this.headElement = headElement;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as TrackedControlsWebVRKeys] !== undefined && this[key as TrackedControlsWebVRKeys] !== '')
-    .map((key: string) => {
-      if (['orientationOffset'].includes(key)) {
-        return `${key}:${new Vec3(this[key as TrackedControlsWebVRKeys] as Vec3Props).toString()};`;
-      }
-      return `${key}:${this[key as TrackedControlsWebVRKeys]};`;
-    })
-    .join('');
 }

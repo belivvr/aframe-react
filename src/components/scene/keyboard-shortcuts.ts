@@ -1,4 +1,4 @@
-type KeyboardShortcutsKeys = 'enterVR' | 'exitVR';
+import Component from '../Component';
 
 /**
  * The keyboard-shortcuts component toggles global keyboard shortcuts. The keyboard-shortcuts component applies only to the [`<a-scene>` element](https://aframe.io/docs/1.2.0/core/scene.html).
@@ -16,22 +16,8 @@ export interface KeyboardShortcutsProps {
   exitVR?: boolean;
 }
 
-export class KeyboardShortcuts implements KeyboardShortcutsProps {
+export class KeyboardShortcuts extends Component<KeyboardShortcutsProps> {
   readonly enterVR?: boolean;
 
   readonly exitVR?: boolean;
-
-  constructor({
-    enterVR,
-    exitVR,
-  }: KeyboardShortcutsProps) {
-    this.enterVR = enterVR;
-    this.exitVR = exitVR;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as KeyboardShortcutsKeys] !== undefined)
-    .map((key: string) => `${key}:${this[key as KeyboardShortcutsKeys]};`)
-    .join('');
 }

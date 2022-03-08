@@ -35,7 +35,7 @@ describe('Entity', () => {
     it('Should render has custom animation props a-entity tag', () => {
       const { container } = render(<Entity animation__click={{ loop: 6, startEvents: ['click'], dir: 'alternate', type: 'scale', to: '1.2 1.2 1.2' }} />);
 
-      expect(container.innerHTML).toBe('<a-entity animation__click="dir:alternate;loop:6;startEvents:click;to:1.2 1.2 1.2;type:scale;"></a-entity>');
+      expect(container.innerHTML).toBe('<a-entity animation__click="loop:6;startEvents:click;dir:alternate;type:scale;to:1.2 1.2 1.2;"></a-entity>');
     });
   });
 

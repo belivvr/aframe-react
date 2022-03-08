@@ -1,3 +1,4 @@
+import Component from './Component';
 import type {
   Shader,
   TextAlign,
@@ -6,31 +7,6 @@ import type {
   TextSide,
   TextWhiteSpace,
 } from './types';
-
-type TextKeys = 'align'
-| 'alphaTest'
-| 'anchor'
-| 'baseline'
-| 'color'
-| 'font'
-| 'fontImage'
-| 'height'
-| 'letterSpacing'
-| 'lineHeight'
-| 'negate'
-| 'opacity'
-| 'shader'
-| 'side'
-| 'tabSize'
-| 'transparent'
-| 'value'
-| 'whiteSpace'
-| 'width'
-| 'wrapCount'
-| 'wrapPixels'
-| 'xOffset'
-| 'yOffset'
-| 'zOffset';
 
 /**
  * The text component renders signed distance field (SDF) font text.
@@ -158,7 +134,7 @@ export interface TextProps {
   zOffset?: number;
 }
 
-export class Text implements TextProps {
+export class Text extends Component<TextProps> {
   readonly align?: TextAlign;
 
   readonly alphaTest?: number;
@@ -206,62 +182,4 @@ export class Text implements TextProps {
   readonly yOffset?: number;
 
   readonly zOffset?: number;
-
-  constructor({
-    align,
-    alphaTest,
-    anchor,
-    baseline,
-    color,
-    font,
-    fontImage,
-    height,
-    letterSpacing,
-    lineHeight,
-    negate,
-    opacity,
-    shader,
-    side,
-    tabSize,
-    transparent,
-    value,
-    whiteSpace,
-    width,
-    wrapCount,
-    wrapPixels,
-    xOffset,
-    yOffset,
-    zOffset,
-  }: TextProps) {
-    this.align = align;
-    this.alphaTest = alphaTest;
-    this.anchor = anchor;
-    this.baseline = baseline;
-    this.color = color;
-    this.font = font;
-    this.fontImage = fontImage;
-    this.height = height;
-    this.letterSpacing = letterSpacing;
-    this.lineHeight = lineHeight;
-    this.negate = negate;
-    this.opacity = opacity;
-    this.shader = shader;
-    this.side = side;
-    this.tabSize = tabSize;
-    this.transparent = transparent;
-    this.value = value;
-    this.whiteSpace = whiteSpace;
-    this.width = width;
-    this.wrapCount = wrapCount;
-    this.wrapPixels = wrapPixels;
-    this.xOffset = xOffset;
-    this.yOffset = yOffset;
-    this.zOffset = zOffset;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as TextKeys] !== undefined && this[key as TextKeys] !== '')
-    .map((key: string) => `${key}:${this[key as TextKeys]};`)
-    .join('');
 }

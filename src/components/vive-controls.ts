@@ -1,11 +1,5 @@
+import Component from './Component';
 import type { Hand, Vec3Props } from './types';
-import { Vec3 } from './types';
-
-type ViveControlsKeys = 'hand'
-| 'buttonColor'
-| 'buttonHighlightColor'
-| 'model'
-| 'orientationOffset';
 
 /**
  * The vive-controls component interfaces with the HTC Vive controllers/wands.
@@ -42,7 +36,7 @@ export interface ViveControlsProps {
   orientationOffset?: Vec3Props;
 }
 
-export class ViveControls {
+export class ViveControls extends Component<ViveControlsProps> {
   readonly hand?: Hand;
 
   readonly buttonColor?: string;
@@ -52,29 +46,4 @@ export class ViveControls {
   readonly model?: boolean;
 
   readonly orientationOffset?: Vec3Props;
-
-  constructor({
-    hand,
-    buttonColor,
-    buttonHighlightColor,
-    model,
-    orientationOffset,
-  }: ViveControlsProps) {
-    this.hand = hand;
-    this.buttonColor = buttonColor;
-    this.buttonHighlightColor = buttonHighlightColor;
-    this.model = model;
-    this.orientationOffset = orientationOffset;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as ViveControlsKeys] !== undefined && this[key as ViveControlsKeys] !== '')
-    .map((key: string) => {
-      if (['orientationOffset'].includes(key)) {
-        return `${key}:${new Vec3(this[key as ViveControlsKeys] as Vec3Props).toString()};`;
-      }
-      return `${key}:${this[key as ViveControlsKeys]};`;
-    })
-    .join('');
 }

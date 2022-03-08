@@ -1,16 +1,5 @@
+import Component from './Component';
 import { SoundDistanceModel } from './types';
-
-type SoundKeys = 'autoplay'
-| 'distanceModel'
-| 'loop'
-| 'maxDistance'
-| 'on'
-| 'poolSize'
-| 'positional'
-| 'refDistance'
-| 'rolloffFactor'
-| 'src'
-| 'volume';
 
 /**
  * The sound component defines the entity as a source of sound or audio.
@@ -82,7 +71,7 @@ export interface SoundProps {
   volume?: number;
 }
 
-export class Sound implements SoundProps {
+export class Sound extends Component<SoundProps> {
   readonly autoplay?: boolean;
 
   readonly distanceModel?: SoundDistanceModel;
@@ -104,36 +93,4 @@ export class Sound implements SoundProps {
   readonly src?: string;
 
   readonly volume?: number;
-
-  constructor({
-    autoplay,
-    distanceModel,
-    loop,
-    maxDistance,
-    on,
-    poolSize,
-    positional,
-    refDistance,
-    rolloffFactor,
-    src,
-    volume,
-  }: SoundProps) {
-    this.autoplay = autoplay;
-    this.distanceModel = distanceModel;
-    this.loop = loop;
-    this.maxDistance = maxDistance;
-    this.on = on;
-    this.poolSize = poolSize;
-    this.positional = positional;
-    this.refDistance = refDistance;
-    this.rolloffFactor = rolloffFactor;
-    this.src = src;
-    this.volume = volume;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as SoundKeys] !== undefined && this[key as SoundKeys] !== '')
-    .map((key: string) => `${key}:${this[key as SoundKeys]};`)
-    .join('');
 }

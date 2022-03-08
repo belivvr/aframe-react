@@ -14,6 +14,28 @@
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "cSpell.words": [
-    "trackpadup"
+    "collidable",
+    "comicbook",
+    "cubemap",
+    "cubemaps",
+    "directionaltarget",
+    "donmccurdy",
+    "interactable",
+    "Linewidth",
+    "metalness",
+    "monocubemap",
+    "npot",
+    "pcfsoft",
+    "raycast",
+    "Raycasters",
+    "Raycasting",
+    "reprojection",
+    "sessiongranted",
+    "stereocubemap",
+    "toon",
+    "trackpad",
+    "trackpadup",
+    "tweening",
+    "wireframe"
   ]
 }

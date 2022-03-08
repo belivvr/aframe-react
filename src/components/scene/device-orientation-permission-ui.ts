@@ -1,9 +1,4 @@
-type DeviceOrientationPermissionUIKeys = 'enabled'
-| 'deviceMotionMessage'
-| 'httpsMessage'
-| 'denyButtonText'
-| 'allowButtonText'
-| 'cancelButtonText';
+import Component from '../Component';
 
 /**
  * Starting with Safari on iOS 13 browsers require sites to be
@@ -45,7 +40,7 @@ export interface DeviceOrientationPermissionUIProps {
   cancelButtonText?: string;
 }
 
-export class DeviceOrientationPermissionUI implements DeviceOrientationPermissionUIProps {
+export class DeviceOrientationPermissionUI extends Component<DeviceOrientationPermissionUIProps> {
   readonly enabled?: boolean;
 
   readonly deviceMotionMessage?: string;
@@ -57,26 +52,4 @@ export class DeviceOrientationPermissionUI implements DeviceOrientationPermissio
   readonly allowButtonText?: string;
 
   readonly cancelButtonText?: string;
-
-  constructor({
-    enabled,
-    deviceMotionMessage,
-    httpsMessage,
-    denyButtonText,
-    allowButtonText,
-    cancelButtonText,
-  }: DeviceOrientationPermissionUIProps) {
-    this.enabled = enabled;
-    this.deviceMotionMessage = deviceMotionMessage;
-    this.httpsMessage = httpsMessage;
-    this.denyButtonText = denyButtonText;
-    this.allowButtonText = allowButtonText;
-    this.cancelButtonText = cancelButtonText;
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as DeviceOrientationPermissionUIKeys] !== undefined && this[key as DeviceOrientationPermissionUIKeys] !== '')
-    .map((key: string) => `${key}:${this[key as DeviceOrientationPermissionUIKeys]};`)
-    .join('');
 }

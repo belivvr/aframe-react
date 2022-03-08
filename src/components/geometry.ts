@@ -1,5 +1,5 @@
+import Component from './Component';
 import type { Geometries, Vec3Props } from './types';
-import { Vec3 } from './types';
 
 /**
  * The geometry component provides a basic shape for an entity.
@@ -231,7 +231,8 @@ export interface GeometryProps {
   [key: string]: unknown;
 }
 
-export class Geometry implements GeometryProps {
+export class Geometry
+  extends Component<GeometryProps> {
   readonly buffer?: boolean;
 
   readonly primitive?: Geometries;
@@ -297,123 +298,4 @@ export class Geometry implements GeometryProps {
   readonly extraProps?: string;
 
   [key: string]: unknown;
-
-  constructor(props: GeometryProps) {
-    const defaultKeys = [
-      'buffer',
-      'primitive',
-      'skipCache',
-      'width',
-      'height',
-      'depth',
-      'segmentsDepth',
-      'segmentsHeight',
-      'segmentsWidth',
-      'radius',
-      'segments',
-      'thetaStart',
-      'thetaLength',
-      'openEnded',
-      'radiusBottom',
-      'radiusTop',
-      'segmentsRadial',
-      'radiusInner',
-      'radiusOuter',
-      'segmentsTheta',
-      'segmentsPhi',
-      'phiStart',
-      'phiLength',
-      'radiusTubular',
-      'segmentsTubular',
-      'arc',
-      'vertexA',
-      'vertexB',
-      'vertexC',
-    ];
-    const {
-      buffer,
-      primitive,
-      skipCache,
-      width,
-      height,
-      depth,
-      segmentsDepth,
-      segmentsHeight,
-      segmentsWidth,
-      radius,
-      segments,
-      thetaStart,
-      thetaLength,
-      openEnded,
-      radiusBottom,
-      radiusTop,
-      segmentsRadial,
-      radiusInner,
-      radiusOuter,
-      segmentsTheta,
-      segmentsPhi,
-      phiStart,
-      phiLength,
-      radiusTubular,
-      segmentsTubular,
-      arc,
-      p,
-      q,
-      vertexA,
-      vertexB,
-      vertexC,
-    } = props;
-
-    this.buffer = buffer;
-    this.primitive = primitive;
-    this.skipCache = skipCache;
-    this.width = width;
-    this.height = height;
-    this.depth = depth;
-    this.segmentsDepth = segmentsDepth;
-    this.segmentsHeight = segmentsHeight;
-    this.segmentsWidth = segmentsWidth;
-    this.radius = radius;
-    this.segments = segments;
-    this.thetaStart = thetaStart;
-    this.thetaLength = thetaLength;
-    this.openEnded = openEnded;
-    this.radiusBottom = radiusBottom;
-    this.radiusTop = radiusTop;
-    this.segmentsRadial = segmentsRadial;
-    this.radiusInner = radiusInner;
-    this.radiusOuter = radiusOuter;
-    this.segmentsTheta = segmentsTheta;
-    this.segmentsPhi = segmentsPhi;
-    this.phiStart = phiStart;
-    this.phiLength = phiLength;
-    this.radiusTubular = radiusTubular;
-    this.segmentsTubular = segmentsTubular;
-    this.arc = arc;
-    this.p = p;
-    this.q = q;
-    this.vertexA = vertexA;
-    this.vertexB = vertexB;
-    this.vertexC = vertexC;
-
-    this.extraProps = Object.keys(props)
-      .filter((prop) => !defaultKeys.includes(prop))
-      .map((prop) => `${prop}:${props[prop]};`)
-      .join('');
-  }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => !['toString', 'extraProps'].includes(key))
-    .filter((key: string) => this[key] !== undefined && this[key] !== '')
-    .map((key: string) => {
-      if ([
-        'vertexA',
-        'vertexB',
-        'vertexC',
-      ].includes(key)) {
-        return `${key}:${new Vec3(this[key] as Vec3Props).toString()};`;
-      }
-      return `${key}:${this[key]};`;
-    })
-    .join('') + this.extraProps;
 }

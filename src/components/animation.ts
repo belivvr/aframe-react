@@ -1,22 +1,5 @@
+import Component from './Component';
 import { Easing, Dir } from './types';
-
-type AnimationKeys = 'autoplay'
-| 'delay'
-| 'dir'
-| 'dur'
-| 'easing'
-| 'elasticity'
-| 'enabled'
-| 'from'
-| 'loop'
-| 'property'
-| 'startEvents'
-| 'pauseEvents'
-| 'resumeEvents'
-| 'round'
-| 'to'
-| 'type'
-| 'isRawProperty';
 
 /**
  * The animation component lets us animate and tween values including:
@@ -161,94 +144,11 @@ export interface AnimationProps {
   isRawProperty?: boolean;
 }
 
-export class Animation implements AnimationProps {
-  readonly autoplay?: boolean;
-
-  readonly delay?: number;
-
-  readonly dir?: Dir;
-
-  readonly dur?: number;
-
-  readonly easing?: Easing;
-
-  readonly elasticity?: number;
-
-  readonly enabled?: boolean;
-
-  readonly from?: string | boolean;
-
-  readonly loop?: boolean | number;
-
-  readonly property?: string;
-
-  readonly startEvents?: string[];
-
-  readonly pauseEvents?: string[];
-
-  readonly resumeEvents?: string[];
-
-  readonly round?: boolean;
-
-  readonly to?: string | boolean;
-
-  readonly type?: string;
-
-  readonly isRawProperty?: boolean;
-
-  constructor({
-    autoplay,
-    delay,
-    dir,
-    dur,
-    easing,
-    elasticity,
-    enabled,
-    from,
-    loop,
-    property,
-    startEvents,
-    pauseEvents,
-    resumeEvents,
-    round,
-    to,
-    type,
-    isRawProperty,
-  }: AnimationProps) {
-    this.autoplay = autoplay;
-    this.delay = delay;
-    this.dir = dir;
-    this.dur = dur;
-    this.easing = easing;
-    this.elasticity = elasticity;
-    this.enabled = enabled;
-    this.from = from;
-    this.loop = loop;
-    this.property = property;
-    this.startEvents = startEvents;
-    this.pauseEvents = pauseEvents;
-    this.resumeEvents = resumeEvents;
-    this.round = round;
-    this.to = to;
-    this.type = type;
-    this.isRawProperty = isRawProperty;
+export class Animation extends Component<AnimationProps> {
+  constructor(props: AnimationProps) {
+    super({
+      ...props,
+      loop: props.loop === undefined ? props.loop : Number(props.loop),
+    });
   }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as AnimationKeys] !== undefined && this[key as AnimationKeys] !== '')
-    .map((key: string) => {
-      if ([
-        'startEvents',
-        'pauseEvents',
-        'resumeEvents',
-      ].includes(key)) {
-        return `${key}:${(this[key as AnimationKeys] as string[]).join(',')};`;
-      }
-      if (key === 'loop') {
-        return `${key}:${Number(this[key])};`;
-      }
-      return `${key}:${this[key as AnimationKeys]};`;
-    })
-    .join('');
 }

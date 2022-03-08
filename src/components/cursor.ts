@@ -1,3 +1,4 @@
+import Component from './Component';
 import type { RayOrigin } from './types';
 
 function isIOS(): boolean {
@@ -46,13 +47,6 @@ function isMobile(): boolean {
   return false;
 }
 
-type CursorKeys = 'downEvents'
-| 'fuse'
-| 'fuseTimeout'
-| 'mouseCursorStylesEnabled'
-| 'upEvents'
-| 'rayOrigin';
-
 /**
  * @see https://aframe.io/docs/1.2.0/components/cursor.html
  */
@@ -91,19 +85,7 @@ export interface CursorProps {
   rayOrigin?: RayOrigin;
 }
 
-export class Cursor implements CursorProps {
-  readonly downEvents?: string[];
-
-  readonly fuse?: boolean;
-
-  readonly fuseTimeout?: number;
-
-  readonly mouseCursorStylesEnabled?: boolean;
-
-  readonly upEvents?: string[];
-
-  readonly rayOrigin?: RayOrigin;
-
+export class Cursor extends Component<CursorProps> {
   constructor({
     downEvents,
     fuse = isMobile(),
@@ -112,22 +94,13 @@ export class Cursor implements CursorProps {
     upEvents,
     rayOrigin,
   }: CursorProps) {
-    this.downEvents = downEvents;
-    this.fuse = fuse;
-    this.fuseTimeout = fuseTimeout;
-    this.mouseCursorStylesEnabled = mouseCursorStylesEnabled;
-    this.upEvents = upEvents;
-    this.rayOrigin = rayOrigin;
+    super({
+      downEvents,
+      fuse,
+      fuseTimeout,
+      mouseCursorStylesEnabled,
+      upEvents,
+      rayOrigin,
+    });
   }
-
-  public toString = (): string => Object.keys(this)
-    .filter((key: string) => key !== 'toString')
-    .filter((key: string) => this[key as CursorKeys] !== undefined)
-    .map((key: string) => {
-      if (['downEvents', 'upEvents'].includes(key)) {
-        return `${key}:${(this[key as CursorKeys] as string[]).join(',')};`;
-      }
-      return `${key}:${this[key as CursorKeys]};`;
-    })
-    .join('');
 }

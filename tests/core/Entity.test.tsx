@@ -39,11 +39,39 @@ describe('Entity', () => {
     });
   });
 
-  context('When gives custom props', () => {
-    it('Should render has custom props a-entity tag', () => {
-      const { container } = render(<Entity custom="value1:true;value2:#sample;" />);
+  context('When gives custom props is x y z', () => {
+    const givenValues = { x: 10, y: 20, z: 30 };
 
-      expect(container.innerHTML).toBe('<a-entity custom="value1:true;value2:#sample;"></a-entity>');
+    it('Should render white space separated x y z a-entity tag', () => {
+      const { container } = render(<Entity custom={givenValues} />);
+
+      expect(container.innerHTML).toBe('<a-entity custom="10 20 30"></a-entity>');
+    });
+  });
+
+  context('When gives custom props is object', () => {
+    const givenValues = {
+      src: '#id',
+      width: 1,
+      visible: false,
+      startEvent: ['click', 'mouseenter'],
+      rotation: { x: 0, y: 0, z: 0 },
+    };
+
+    it('Should render has custom props a-entity tag', () => {
+      const { container } = render(<Entity custom={givenValues} />);
+
+      expect(container.innerHTML).toBe('<a-entity custom="src:#id;width:1;visible:false;startEvent:click,mouseenter;rotation: 0 0 0;"></a-entity>');
+    });
+  });
+
+  context('When gives custom props is array', () => {
+    const givenValues = ['click', 'mouseenter']
+
+    it('Should render comma separated custom props a-entity tag', () => {
+      const { container } = render(<Entity custom={givenValues} />);
+
+      expect(container.innerHTML).toBe('<a-entity custom="click,mouseenter"></a-entity>');
     });
   });
 

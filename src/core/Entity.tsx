@@ -82,6 +82,8 @@ import {
   WindowsMotionControls,
 } from '../components';
 
+import parse from '../utils/propParser';
+
 export interface Props {
   id?: string;
   className?: string;
@@ -188,7 +190,7 @@ export function toProps(props: Props, removalKeys?: string[]): Object {
   )
     .reduce((acc: Object, key: string) => ({
       ...acc,
-      [key]: props[key],
+      [key]: parse(props[key]),
     }), {});
 
   const {

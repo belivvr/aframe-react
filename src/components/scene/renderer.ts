@@ -14,7 +14,7 @@ type PrecisionType = 'low' | 'medium' | 'high';
  * The `renderer` system configures a scene’s [THREE.WebGLRenderer](https://threejs.org/docs/#api/en/renderers/WebGLRenderer) instance.
  * It also configures presentation attributes when entering WebVR/WebXR.
  *
- * @see https://aframe.io/docs/1.2.0/components/renderer.html
+ * @see https://aframe.io/docs/1.3.0/components/renderer.html
  *
  * @example
  * ```tsx
@@ -63,7 +63,7 @@ export interface RendererProps {
   physicallyCorrectLights?: boolean;
 
   /**
-   * Fragment shader [precision](https://aframe.io/docs/1.2.0/components/renderer.html#precision) : low, medium or high.
+   * Fragment shader [precision](https://aframe.io/docs/1.3.0/components/renderer.html#precision) : low, medium or high.
    */
   precision?: PrecisionType;
 

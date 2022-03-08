@@ -21,7 +21,7 @@ import { LayerType } from './types';
  * frame using the most recent HMD pose. This paired with reprojection techniques
  * reduce the effective latency.
  *
- * @see https://aframe.io/docs/1.2.0/components/layer.html
+ * @see https://aframe.io/docs/1.3.0/components/layer.html
  */
 export interface LayerProps {
   /**

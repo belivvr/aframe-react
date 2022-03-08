@@ -1,7 +1,7 @@
 /**
  * The debug component enables component-to-DOM serialization.
  *
- * @see https://aframe.io/docs/1.2.0/components/debug.html
+ * @see https://aframe.io/docs/1.3.0/components/debug.html
  */
 export type DebugProps = boolean;
 

@@ -105,9 +105,9 @@ function toTorusProps({
 }
 
 /**
- * The torus primitive creates donut or tube shapes using the [geometry](https://aframe.io/docs/1.2.0/components/geometry.html) component with the type set to `torus`.
+ * The torus primitive creates donut or tube shapes using the [geometry](https://aframe.io/docs/1.3.0/components/geometry.html) component with the type set to `torus`.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-torus.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-torus.html
  *
  * @example
  * ```tsx

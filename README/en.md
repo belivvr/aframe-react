@@ -34,7 +34,7 @@ npm install github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @bel
 ### Why directly get commit?
 
 A-Frame doesn't release minor patch. But, they constantly commit.  
-When just install aframe@1.2.0 install, causes [hand tracking mesh broken issue](https://github.com/belivvr/aframe-react/issues/75).  
+When just install aframe@1.3.0 install, causes [hand tracking mesh broken issue](https://github.com/belivvr/aframe-react/issues/75).  
 But, install latest commit, this issue is solved.
 
 ## Usage

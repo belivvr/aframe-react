@@ -53,9 +53,9 @@ function toTextProps({
 }
 
 /**
- * Wraps the [text component](https://aframe.io/docs/1.2.0/components/text.html).
+ * Wraps the [text component](https://aframe.io/docs/1.3.0/components/text.html).
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-text.html\
+ * @see https://aframe.io/docs/1.3.0/primitives/a-text.html\
  *
  * @example
  * ```tsx

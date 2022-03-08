@@ -9,7 +9,7 @@ import Component from '../Component';
  * Note that entities requested from the pool are paused by default and you need to call `.play()`
  * in order to activate their components’ tick functions.
  *
- * @see https://aframe.io/docs/1.2.0/components/pool.html
+ * @see https://aframe.io/docs/1.3.0/components/pool.html
  */
 export interface PoolProps {
   /**

@@ -7,7 +7,7 @@ import Component from './Component';
  * - Rotates the entity when we move the mouse.
  * - Rotates the entity when we touch-drag the touchscreen.
  *
- * @see https://aframe.io/docs/1.2.0/components/look-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/look-controls.html
  */
 export interface LookControlsProps {
   /**

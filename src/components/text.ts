@@ -13,7 +13,7 @@ import type {
  *
  * ![Example Image](https://cloud.githubusercontent.com/assets/674727/22357731/f704544a-e3ee-11e6-8e6e-96c3c4e84958.png)
  *
- * @see https://aframe.io/docs/1.2.0/components/text.html
+ * @see https://aframe.io/docs/1.3.0/components/text.html
  */
 export interface TextProps {
   /**
@@ -42,7 +42,7 @@ export interface TextProps {
   color?: string;
 
   /**
-   * Font to render text, either the name of one of [A-Frame’s stock fonts](https://aframe.io/docs/1.2.0/components/text.html#stock-fonts) or a URL to a font file
+   * Font to render text, either the name of one of [A-Frame’s stock fonts](https://aframe.io/docs/1.3.0/components/text.html#stock-fonts) or a URL to a font file
    */
   font?: string;
 

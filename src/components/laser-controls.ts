@@ -8,18 +8,18 @@ import { Hand } from './types';
  * configures other components, rather than implementing any logic itself.
  * Under the hood, laser-controls sets all of the tracked controller components:
  *
- * - [vive-controls](https://aframe.io/docs/1.2.0/components/vive-controls.html)
- * - [oculus-touch-controls](https://aframe.io/docs/1.2.0/components/oculus-touch-controls.html)
- * - [daydream-controls](https://aframe.io/docs/1.2.0/components/daydream-controls.html)
- * - [gearvr-controls](https://aframe.io/docs/1.2.0/components/gearvr-controls.html)
- * - [windows-motion-controls](https://aframe.io/docs/1.2.0/components/windows-motion-controls.html)
+ * - [vive-controls](https://aframe.io/docs/1.3.0/components/vive-controls.html)
+ * - [oculus-touch-controls](https://aframe.io/docs/1.3.0/components/oculus-touch-controls.html)
+ * - [daydream-controls](https://aframe.io/docs/1.3.0/components/daydream-controls.html)
+ * - [gearvr-controls](https://aframe.io/docs/1.3.0/components/gearvr-controls.html)
+ * - [windows-motion-controls](https://aframe.io/docs/1.3.0/components/windows-motion-controls.html)
  *
- * These controller components get activated if its respective controller is connected and detected via the Gamepad API. Then the model of the actual controller is used. laser-controls then configures the [cursor component](https://aframe.io/docs/1.2.0/components/cursor.html) for listen to the appropriate events and configures the [raycaster component](https://aframe.io/docs/1.2.0/components/raycaster.html) to draw the laser.
+ * These controller components get activated if its respective controller is connected and detected via the Gamepad API. Then the model of the actual controller is used. laser-controls then configures the [cursor component](https://aframe.io/docs/1.3.0/components/cursor.html) for listen to the appropriate events and configures the [raycaster component](https://aframe.io/docs/1.3.0/components/raycaster.html) to draw the laser.
  *
  * When the laser intersects with an entity, the length of the line
  * gets truncated to the distance to the intersection point.
 
- * @see https://aframe.io/docs/1.2.0/components/laser-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/laser-controls.html
  */
 export interface LaserControlsProps {
   /**

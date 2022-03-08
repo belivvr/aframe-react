@@ -14,7 +14,7 @@ export type GLTFModelType = string;
  * > For models using older versions of the glTF format,
  * > use `gltf-model-legacy` from [donmccurdy/aframe-extras](https://github.com/donmccurdy/aframe-extras/tree/master/src/loaders).
  *
- * @see https://aframe.io/docs/1.2.0/components/gltf-model.html
+ * @see https://aframe.io/docs/1.3.0/components/gltf-model.html
  *
  * @example
  * '#tree' // Selector to an <a-asset-item>

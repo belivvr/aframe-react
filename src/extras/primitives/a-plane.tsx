@@ -96,9 +96,9 @@ function toPlaneProps({
 }
 
 /**
- * The plane primitive creates flat surfaces using the [geometry](https://aframe.io/docs/1.2.0/components/geometry.html) component with the type set to `plane`.
+ * The plane primitive creates flat surfaces using the [geometry](https://aframe.io/docs/1.3.0/components/geometry.html) component with the type set to `plane`.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-plane.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-plane.html
  *
  * @example
  * ```tsx

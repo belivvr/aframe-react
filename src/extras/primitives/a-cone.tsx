@@ -113,7 +113,7 @@ function toConeProps({
 /**
  * The cone primitive creates a cone shape.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-cone.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-cone.html
  *
  * @example
  * ```tsx

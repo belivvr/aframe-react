@@ -3,7 +3,7 @@ import { SoundDistanceModel } from './types';
 
 /**
  * The sound component defines the entity as a source of sound or audio.
- * The sound component is positional and is thus affected by the [components-position](https://aframe.io/docs/1.2.0/components/position.html).
+ * The sound component is positional and is thus affected by the [components-position](https://aframe.io/docs/1.3.0/components/position.html).
  *
  * > NOTE: Playing sound on iOS — in any browser — requires a physical user interaction.
  * > This is a browser limitation, and internal A-Frame events (like fusing cursors)
@@ -11,7 +11,7 @@ import { SoundDistanceModel } from './types';
  * > Ways to deal with this include using a Begin Experience button to start ambient music,
  * > or creating audio sprites with libraries like [Howler.js](https://github.com/goldfire/howler.js).
  *
- * @see https://aframe.io/docs/1.2.0/components/sound.html
+ * @see https://aframe.io/docs/1.3.0/components/sound.html
  */
 export interface SoundProps {
   /**

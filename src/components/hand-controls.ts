@@ -2,7 +2,7 @@ import Component from './Component';
 import { Hand, HandModelStyle } from './types';
 
 /**
- * @see https://aframe.io/docs/1.2.0/components/hand-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/hand-controls.html
  */
 export interface HandControlsProps {
   /**

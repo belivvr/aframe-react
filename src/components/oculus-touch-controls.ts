@@ -6,9 +6,9 @@ import type {
 } from './types';
 
 /**
- * The oculus-touch-controls component interfaces with the Oculus Touch controllers (Rift, Rift S, Oculus Quest 1 and 2). It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and a Touch controller model.
+ * The oculus-touch-controls component interfaces with the Oculus Touch controllers (Rift, Rift S, Oculus Quest 1 and 2). It wraps the [tracked-controls component](https://aframe.io/docs/1.3.0/components/tracked-controls.html) while adding button mappings, events, and a Touch controller model.
  *
- * @see https://aframe.io/docs/1.2.0/components/oculus-touch-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/oculus-touch-controls.html
  */
 export interface OculusTouchControlsProps {
   /**

@@ -3,9 +3,9 @@ import type { WASDAxis } from './types';
 
 /**
  * The wasd-controls component controls an entity with the WASD or arrow keyboard keys.
- * The wasd-controls component is commonly attached to an entity with the [camera component](https://aframe.io/docs/1.2.0/components/camera.html).
+ * The wasd-controls component is commonly attached to an entity with the [camera component](https://aframe.io/docs/1.3.0/components/camera.html).
  *
- * @see https://aframe.io/docs/1.2.0/components/wasd-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/wasd-controls.html
  */
 export interface WASDControlsProps {
   /**

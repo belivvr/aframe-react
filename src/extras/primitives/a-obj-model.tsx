@@ -10,13 +10,13 @@ interface Props {
 
 /**
  * > We recommend glTF for distributing assets in production over the web.
- * > Check out using the [glTF model primitive](https://aframe.io/docs/1.2.0/primitives/a-gltf-model.html).
+ * > Check out using the [glTF model primitive](https://aframe.io/docs/1.3.0/primitives/a-gltf-model.html).
  * > You can either instead export to COLLADA and
  * > use [the converter](https://cesiumjs.org/convertmodel.html) or try out the [OBJ converter](https://github.com/AnalyticalGraphicsInc/OBJ2GLTF).
  *
  * The .OBJ model primitive displays a 3D Wavefront model.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-obj-model.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-obj-model.html
  *
  * @example
  * ```tsx

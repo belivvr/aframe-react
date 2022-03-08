@@ -48,7 +48,7 @@ function isMobile(): boolean {
 }
 
 /**
- * @see https://aframe.io/docs/1.2.0/components/cursor.html
+ * @see https://aframe.io/docs/1.3.0/components/cursor.html
  */
 export interface CursorProps {
   /**

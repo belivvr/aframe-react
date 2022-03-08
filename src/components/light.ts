@@ -6,7 +6,7 @@ import type { LightType } from './types';
  * Light affects all materials that have not specified a flat shading model with `shader: flat`.
  * Note that lights are computationally expensive we should limit number of lights in a scene.
  *
- * @see https://aframe.io/docs/1.2.0/components/light.html
+ * @see https://aframe.io/docs/1.3.0/components/light.html
  */
 export interface LightProps {
   /**

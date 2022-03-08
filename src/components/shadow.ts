@@ -7,7 +7,7 @@ import Component from './Component';
  *
  * Without this component, an entity will not cast nor receive shadows.
  *
- * @see https://aframe.io/docs/1.2.0/components/shadow.html
+ * @see https://aframe.io/docs/1.3.0/components/shadow.html
  */
 export interface ShadowProps {
   /**

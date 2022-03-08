@@ -2,9 +2,9 @@ import Component from './Component';
 import type { Hand, Vec3Props } from './types';
 
 /**
- * The oculus-go-controls component interfaces with the Oculus Go controllers. It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and an Oculus Go controller model that highlights the touched and/or pressed buttons (trackpad, trigger).
+ * The oculus-go-controls component interfaces with the Oculus Go controllers. It wraps the [tracked-controls component](https://aframe.io/docs/1.3.0/components/tracked-controls.html) while adding button mappings, events, and an Oculus Go controller model that highlights the touched and/or pressed buttons (trackpad, trigger).
  *
- * @see https://aframe.io/docs/1.2.0/components/oculus-go-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/oculus-go-controls.html
  */
 export interface OculusGoControlsProps {
   /**

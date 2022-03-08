@@ -11,9 +11,9 @@ import type { Vec3Props } from './types';
  * Raycasting is an expensive operation, and we should raycast against
  * only targets that need to be interactable at any given time.
  *
- * The [cursor component](https://aframe.io/docs/1.2.0/components/cursor.html) and [laser-controls components](https://aframe.io/docs/1.2.0/components/laser-controls.html) both build on top of the raycaster component.
+ * The [cursor component](https://aframe.io/docs/1.3.0/components/cursor.html) and [laser-controls components](https://aframe.io/docs/1.3.0/components/laser-controls.html) both build on top of the raycaster component.
 
- * @see https://aframe.io/docs/1.2.0/components/raycaster.html
+ * @see https://aframe.io/docs/1.3.0/components/raycaster.html
  */
 export interface RaycasterProps {
   /**
@@ -68,7 +68,7 @@ export interface RaycasterProps {
   origin?: Vec3Props;
 
   /**
-   * Whether or not to display the raycaster visually with the [line component](https://aframe.io/docs/1.2.0/components/line.html).
+   * Whether or not to display the raycaster visually with the [line component](https://aframe.io/docs/1.3.0/components/line.html).
    */
   showLine?: boolean;
 

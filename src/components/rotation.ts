@@ -5,7 +5,7 @@
  *
  * All entities inherently have the rotation component.
  *
- * @see https://aframe.io/docs/1.2.0/components/rotation.html
+ * @see https://aframe.io/docs/1.3.0/components/rotation.html
  */
 export interface RotationProps {
   /**

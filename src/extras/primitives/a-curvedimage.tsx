@@ -72,7 +72,7 @@ function toCurvedImageProps({
  * Under the hood, a curved image is a double-sided open-ended cylinder with
  * textures mapped to the inside of the cylinder.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-curvedimage.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-curvedimage.html
  *
  * @example
  * ```tsx

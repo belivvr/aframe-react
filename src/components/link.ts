@@ -15,7 +15,7 @@ import Component from './Component';
  * - At the moment,
  * The Oculus Browser on Quest is the only browser shipping the in-VR navigation proposal.
  *
- * @see https://aframe.io/docs/1.2.0/components/link.html
+ * @see https://aframe.io/docs/1.3.0/components/link.html
  */
 export interface LinkProps {
   /**

@@ -4,9 +4,9 @@ import Component from '../Component';
  * Starting with Safari on iOS 13 browsers require sites to be
  * served over https and request user permission to access DeviceOrientation events.
  * This component presents a permission dialog for the user to grant or deny access.
- * The device-orientation-permission-ui component applies only to the [`<a-scene>` element](https://aframe.io/docs/1.2.0/core/scene.html)
+ * The device-orientation-permission-ui component applies only to the [`<a-scene>` element](https://aframe.io/docs/1.3.0/core/scene.html)
  *
- * @see https://aframe.io/docs/1.2.0/components/device-orientation-permission-ui.html
+ * @see https://aframe.io/docs/1.3.0/components/device-orientation-permission-ui.html
  */
 export interface DeviceOrientationPermissionUIProps {
   /**

@@ -10,12 +10,12 @@ import type {
 /**
  * The material component gives appearance to an entity.
  * We can define properties such as color, opacity, or texture.
- * This is often paired with the [geometry component](https://aframe.io/docs/1.2.0/components/geometry.html) which provides shape.
+ * This is often paired with the [geometry component](https://aframe.io/docs/1.3.0/components/geometry.html) which provides shape.
  *
  * We can register custom materials to extend the material component
  * to provide a wide range of visual effects.
  *
- * @see https://aframe.io/docs/1.2.0/components/material.html
+ * @see https://aframe.io/docs/1.3.0/components/material.html
  */
 export interface MaterialProps {
   /**
@@ -60,8 +60,8 @@ export interface MaterialProps {
   repeat?: Vec2Props;
 
   /**
-   * Which material to use. Defaults to the [standard material](https://aframe.io/docs/1.2.0/components/material.html#standard).
-   * Can be set to the [flat material](https://aframe.io/docs/1.2.0/components/material.html#flat) or to a registered custom shader material.
+   * Which material to use. Defaults to the [standard material](https://aframe.io/docs/1.3.0/components/material.html#standard).
+   * Can be set to the [flat material](https://aframe.io/docs/1.3.0/components/material.html#flat) or to a registered custom shader material.
    */
   shader?: MaterialShape | string;
 

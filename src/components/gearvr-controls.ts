@@ -3,11 +3,11 @@ import type { Hand, Vec3Props } from './types';
 
 /**
  * The gearvr-controls component interfaces with the Samsung/Oculus Gear VR controllers.
- * It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events,
+ * It wraps the [tracked-controls component](https://aframe.io/docs/1.3.0/components/tracked-controls.html) while adding button mappings, events,
  * and a Gear VR controller model that highlights the touched and/or pressed buttons
  * (trackpad, trigger).
  *
- * @see https://aframe.io/docs/1.2.0/components/gearvr-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/gearvr-controls.html
  */
 export interface GearvrControlsProps {
   /**

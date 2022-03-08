@@ -4,7 +4,7 @@
  *
  * All entities inherently have the scale component.
  *
- * @see https://aframe.io/docs/1.2.0/components/scale.html
+ * @see https://aframe.io/docs/1.3.0/components/scale.html
  */
 export interface ScaleProps {
   /**

@@ -112,9 +112,9 @@ function toSphereProps({
 
 /**
  * The sphere primitive creates a spherical or polyhedron shapes.
- * It wraps an entity that prescribes the [geometry component](https://aframe.io/docs/1.2.0/components/geometry.html) with its geometric primitive set to `sphere`.
+ * It wraps an entity that prescribes the [geometry component](https://aframe.io/docs/1.3.0/components/geometry.html) with its geometric primitive set to `sphere`.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-sphere.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-sphere.html
  *
  * @example
  * ```tsx

@@ -56,7 +56,7 @@ function toImageProps({
 /**
  * The image primitive shows an image on a flat plane.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-image.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-image.html
  *
  * @example
  * ```tsx

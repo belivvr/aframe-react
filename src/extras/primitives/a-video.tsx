@@ -56,7 +56,7 @@ function toVideoProps({
 /**
  * The video primitive plays a video as a texture on a flat plane.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-video.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-video.html
  *
  * @example
  * ```tsx

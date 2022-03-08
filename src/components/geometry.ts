@@ -8,7 +8,7 @@ import type { Geometries, Vec3Props } from './types';
  * A material component is commonly defined to provide a appearance alongside the shape
  * to create a complete mesh.
  *
- * @see https://aframe.io/docs/1.2.0/components/geometry.html
+ * @see https://aframe.io/docs/1.3.0/components/geometry.html
  */
 export interface GeometryProps {
   buffer?: boolean;

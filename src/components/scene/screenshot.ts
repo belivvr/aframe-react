@@ -5,7 +5,7 @@ import Component from '../Component';
  * A-Frame attaches this component to the scene by default
  * so we don’t have to do anything to use the component.
  *
- * @see https://aframe.io/docs/1.2.0/components/screenshot.html
+ * @see https://aframe.io/docs/1.3.0/components/screenshot.html
  */
 export interface ScreenshotProps {
   /**

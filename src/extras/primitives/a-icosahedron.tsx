@@ -96,7 +96,7 @@ function toIcosahedronProps({
 }
 
 /**
- * @see https://aframe.io/docs/1.2.0/primitives/a-icosahedron.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-icosahedron.html
  *
  * @example
  * ```tsx

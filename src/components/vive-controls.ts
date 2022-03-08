@@ -3,11 +3,11 @@ import type { Hand, Vec3Props } from './types';
 
 /**
  * The vive-controls component interfaces with the HTC Vive controllers/wands.
- * It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events,
+ * It wraps the [tracked-controls component](https://aframe.io/docs/1.3.0/components/tracked-controls.html) while adding button mappings, events,
  * and a Vive controller model that highlights the pressed buttons
  * (trigger, grip, menu, system) and trackpad.
  *
- * @see https://aframe.io/docs/1.2.0/components/vive-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/vive-controls.html
  */
 export interface ViveControlsProps {
   /**

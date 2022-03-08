@@ -14,7 +14,7 @@ import { Easing, Dir } from './types';
  * - Directly within a component
  * (e.g., `components.material.material.color`, `components.text.material.uniforms.opacity.value`),
 
- * @see https://aframe.io/docs/1.2.0/components/animation.html
+ * @see https://aframe.io/docs/1.3.0/components/animation.html
  */
 export interface AnimationProps {
   /**

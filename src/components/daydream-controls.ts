@@ -3,7 +3,7 @@ import type { Hand, Vec3Props } from './types';
 
 /**
  * The daydream-controls component interfaces with the Google Daydream controllers.
- * It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events,
+ * It wraps the [tracked-controls component](https://aframe.io/docs/1.3.0/components/tracked-controls.html) while adding button mappings, events,
  * and a Daydream controller model that highlights the touched and/or pressed buttons (trackpad).
  *
  * As a first time set up, to use the Daydream controller on Chrome for Android enable both `WebVR` and `Gamepad Extensions` experiments in `chrome://flags` and relaunch the browser.
@@ -11,7 +11,7 @@ import type { Hand, Vec3Props } from './types';
  * Then, open your web app, enter VR mode and place the phone inside the headset.
  * It can occasionally take a few seconds before the controller can be used.
 
- * @see https://aframe.io/docs/1.2.0/components/daydream-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/daydream-controls.html
  */
 export interface DaydreamControlsProps {
   /**

@@ -32,9 +32,9 @@ function toCursorProps({
  * basic interactivity with a scene on devices that do not have a hand controller.
  * The default appearance is a ring geometry. The cursor is usually placed as a child of the camera.
  *
- * Read the [cursor component documentation](https://aframe.io/docs/1.2.0/components/cursor.html) for detailed information about how the cursor works and how to use the cursor.
+ * Read the [cursor component documentation](https://aframe.io/docs/1.3.0/components/cursor.html) for detailed information about how the cursor works and how to use the cursor.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-cursor.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-cursor.html
  *
  * @example
  * ```tsx

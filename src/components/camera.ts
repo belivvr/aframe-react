@@ -5,7 +5,7 @@ import Component from './Component';
  * The camera is commonly paired with controls components that allow input devices
  * to move and rotate the camera.
  *
- * @see https://aframe.io/docs/1.2.0/components/camera.html#sidebar
+ * @see https://aframe.io/docs/1.3.0/components/camera.html#sidebar
  */
 export interface CameraProps {
   /**

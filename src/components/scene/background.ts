@@ -7,7 +7,7 @@ import Component from '../Component';
  * the far plane of the camera. There are no unexpected occlusions either with
  * far objects that might be behind of the sphere geometry of `a-sky`.
  *
- * @see https://aframe.io/docs/1.2.0/components/background.html
+ * @see https://aframe.io/docs/1.3.0/components/background.html
  */
 export interface BackgroundProps {
   /**

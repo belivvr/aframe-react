@@ -11,7 +11,7 @@ interface Props {
  * The glTF model primitive displays a 3D glTF model
  * created from a 3D modeling program or downloaded from the web.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-gltf-model.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-gltf-model.html
  *
  * @example
  * ```tsx

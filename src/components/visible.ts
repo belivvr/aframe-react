@@ -12,7 +12,7 @@
  * - **false**: The entity will not be rendered nor visible.
  * The entity will still exist in the scene.
  *
- * @see https://aframe.io/docs/1.2.0/components/visible.html
+ * @see https://aframe.io/docs/1.3.0/components/visible.html
  */
 export type VisibleProps = boolean;
 

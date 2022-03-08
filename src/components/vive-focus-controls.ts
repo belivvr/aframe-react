@@ -3,9 +3,9 @@ import type { Hand, Vec3Props } from './types';
 
 /**
  * The vive-focus-controls component interfaces with the Vive Focus controller.
- * It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and an Vive Focus controller model that highlights the touched and/or pressed buttons (trackpad, trigger).
+ * It wraps the [tracked-controls component](https://aframe.io/docs/1.3.0/components/tracked-controls.html) while adding button mappings, events, and an Vive Focus controller model that highlights the touched and/or pressed buttons (trackpad, trigger).
  *
- * @see https://aframe.io/docs/1.2.0/components/vive-focus-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/vive-focus-controls.html
  */
 export interface ViveFocusControlsProps {
   hand?: Hand;

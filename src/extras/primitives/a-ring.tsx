@@ -110,7 +110,7 @@ function toRingProps({
 /**
  * The ring primitive creates a ring or disc shape.
  *
- * @see https://aframe.io/docs/1.2.0/primitives/a-ring.html
+ * @see https://aframe.io/docs/1.3.0/primitives/a-ring.html
  *
  * @example
  * ```tsx

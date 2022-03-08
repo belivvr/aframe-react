@@ -8,7 +8,7 @@ import type { Hand, ModelStyle } from './types';
  * for applications requiring multiple input methods.
  * Component is only active when the browser and underlying system starts tracking the user’s hands.
  *
- * @see https://aframe.io/docs/1.2.0/components/hand-tracking-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/hand-tracking-controls.html
  */
 export interface HandTrackingControlsProps {
   /**

@@ -2,9 +2,9 @@ import Component from './Component';
 import type { Hand } from './types';
 
 /**
- * The windows-motion-controls component interfaces with any spatial controllers exposed through Windows Mixed Reality as Spatial Input Sources (such as Motion Controllers). It wraps the [tracked-controls component](https://aframe.io/docs/1.2.0/components/tracked-controls.html) while adding button mappings, events, and a controller model that highlights applies position/rotation transforms to the pressed buttons (trigger, grip, menu, thumbstick, trackpad) and moved axes (thumbstick and trackpad.)
+ * The windows-motion-controls component interfaces with any spatial controllers exposed through Windows Mixed Reality as Spatial Input Sources (such as Motion Controllers). It wraps the [tracked-controls component](https://aframe.io/docs/1.3.0/components/tracked-controls.html) while adding button mappings, events, and a controller model that highlights applies position/rotation transforms to the pressed buttons (trigger, grip, menu, thumbstick, trackpad) and moved axes (thumbstick and trackpad.)
  *
- * @see https://aframe.io/docs/1.2.0/components/windows-motion-controls.html
+ * @see https://aframe.io/docs/1.3.0/components/windows-motion-controls.html
  */
 export interface WindowsMotionControlsProps {
   /**

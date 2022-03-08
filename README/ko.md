@@ -33,7 +33,7 @@ npm install github:aframevr/aframe#02e3ae714dd29fa6e60a02d720ad9d8c0a8d31d8 @bel
 ### 왜 커밋을 직접 설치하나요?
 
 A-Frame은 마이너 패치를 내고있지 않습니다. 하지만 꾸준히 커밋을 하고 있습니다.  
-`aframe@1.2.0`을 설치하면 [핸드 트래킹 매쉬가 망가지는 이슈](https://github.com/belivvr/aframe-react/issues/75)가 발생합니다.  
+`aframe@1.3.0`을 설치하면 [핸드 트래킹 매쉬가 망가지는 이슈](https://github.com/belivvr/aframe-react/issues/75)가 발생합니다.  
 하지만, 최신 커밋을 설치하면 이 이유가 해결됩니다.
 
 ## 사용법

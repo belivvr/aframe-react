@@ -1,5 +1,5 @@
 /**
- * @see https://aframe.io/docs/1.2.0/introduction/visual-inspector-and-dev-tools.html
+ * @see https://aframe.io/docs/1.3.0/introduction/visual-inspector-and-dev-tools.html
  */
 export interface InspectorProps {
   /**

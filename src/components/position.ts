@@ -4,7 +4,7 @@
  *
  * All entities inherently have the position component.
  *
- * @see https://aframe.io/docs/1.2.0/components/position.html
+ * @see https://aframe.io/docs/1.3.0/components/position.html
  */
 export interface PositionProps {
   /**

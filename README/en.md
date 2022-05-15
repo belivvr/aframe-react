@@ -1,11 +1,22 @@
-# React library for A-frame
+<h1 align="center">aframe-react</h1>
+<h2 align="center">React library for A-frame</h2>
 
-![Belivvr logo](https://avatars.githubusercontent.com/u/40684200?s=200&v=4)
+<div align="center">
+  <img src="https://avatars.githubusercontent.com/u/40684200?s=200&v=4" alt="Belivvr Logo" />
+</div>
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+<br>
 
-[![codecov](https://codecov.io/gh/belivvr/aframe-react/branch/main/graph/badge.svg?token=LVGE4ZUV2Z)](https://codecov.io/gh/belivvr/aframe-react)
+<div align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://codecov.io/gh/belivvr/aframe-react/branch/main/graph/badge.svg?token=LVGE4ZUV2Z" alt="codecov" />
+</div>
 
 ## Languages
 
@@ -25,10 +36,10 @@ Support `aframe@1.3.0`.
 
 ```sh
 # yarn
-yarn add github:aframevr/aframe#018e1236bc71cc9ffa42cd34aeedd03a23a8cd2e @belivvr/aframe-react
+yarn add github:aframevr/aframe#480a303b3c1932170552a3e4f9287298c1039c27 @belivvr/aframe-react
 
 # npm
-npm install github:aframevr/aframe#018e1236bc71cc9ffa42cd34aeedd03a23a8cd2e @belivvr/aframe-react
+npm install github:aframevr/aframe#480a303b3c1932170552a3e4f9287298c1039c27 @belivvr/aframe-react
 ```
 
 ### Why directly get commit?

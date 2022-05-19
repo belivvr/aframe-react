@@ -13,4 +13,11 @@ export default abstract class Component<Props> {
     ...this,
     toString: undefined,
   });
+
+  public setAttribute = (element: Element) => {
+    element.setAttribute('component', {
+      ...this,
+      setAttribute: undefined,
+    });
+  };
 }

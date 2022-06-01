@@ -1,5 +1,3 @@
-import parse from '../utils/propParser';
-
 export default abstract class Component<Props> {
   [key: string]: unknown;
 
@@ -9,15 +7,20 @@ export default abstract class Component<Props> {
     });
   }
 
-  public toString = (): string => parse({
-    ...this,
-    toString: undefined,
-  });
+  public setAttribute = (element: HTMLElement): void => {
+    element.setAttribute('component', this.makeAttribute() as any);
+  };
 
-  public setAttribute = (element: Element) => {
-    element.setAttribute('component', {
-      ...this,
-      setAttribute: undefined,
-    });
+  protected makeAttribute = (): Object => {
+    const attributes = Object.assign({}, this);
+
+    delete attributes.setAttribute;
+    delete attributes.makeAttribute;
+
+    Object.entries(attributes)
+      .filter(([, value]) => value === undefined)
+      .forEach(([key]) => delete attributes[key]);
+
+    return attributes;
   };
 }
